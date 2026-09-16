@@ -10,26 +10,15 @@ interface SafeImageProps {
   seed?: string;
 }
 
-const PALETTES = [
-  ['var(--pink)', 'var(--yellow)'],
-  ['var(--blue)', 'var(--mint)'],
-  ['var(--lavender)', 'var(--pink)'],
-  ['var(--yellow)', 'var(--mint)'],
-  ['var(--mint)', 'var(--blue)'],
-  ['var(--pink)', 'var(--lavender)'],
-];
+const PALETTE = ['var(--pink)', 'var(--blue)', 'var(--yellow)', 'var(--mint)', 'var(--lavender)', 'var(--peach)'];
 
 const hash = (text: string) => [...text].reduce((acc, ch) => (acc * 31 + ch.charCodeAt(0)) >>> 0, 7);
 
 export function SafeImage({ src, alt, fallback = '🐾', seed }: SafeImageProps) {
   const [failed, setFailed] = useState(false);
   if (!src || failed) {
-    const [from, to] = PALETTES[hash(seed ?? alt) % PALETTES.length];
-    return (
-      <div className="ph" style={{ background: `linear-gradient(135deg, ${from}, ${to})` }} aria-label={alt}>
-        {fallback}
-      </div>
-    );
+    const background = PALETTE[hash(seed ?? alt) % PALETTE.length];
+    return <div className="ph" style={{ background }} aria-label={alt}>{fallback}</div>;
   }
   return <img src={src} alt={alt} loading="lazy" referrerPolicy="no-referrer" onError={() => setFailed(true)} />;
 }

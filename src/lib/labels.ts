@@ -32,3 +32,6 @@ export const PLACE_EMOJI: Record<PlaceType, string> = {
   event: '🎟️',
   other: '📍',
 };
+
+/** 카드에서 한 줄에 들어가도록 2026-10-02 → 26.10.02 */
+export const shortDate = (iso: string) => iso.slice(2).replace(/-/g, '.');
