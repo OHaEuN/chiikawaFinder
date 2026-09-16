@@ -97,7 +97,8 @@ li { margin-bottom: 0.3em; }
 
 /* tags */
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.tag { display: inline-flex; align-items: center; font-size: 0.78rem; padding: 3px 11px; border-radius: 999px; background: var(--surface-2); color: var(--ink); line-height: 1.5; white-space: nowrap; font-weight: 600; }
+.tag { display: inline-block; max-width: 100%; font-size: 0.78rem; padding: 3px 11px; border-radius: 999px; background: var(--surface-2); color: var(--ink); line-height: 1.5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
+.tags { min-width: 0; }
 .tag.pink { background: var(--pink); } .tag.blue { background: var(--blue); } .tag.yellow { background: var(--yellow); } .tag.mint { background: var(--mint); } .tag.lavender { background: var(--lavender); }
 
 /* chips */
@@ -180,3 +181,6 @@ li { margin-bottom: 0.3em; }
   .chips::-webkit-scrollbar { display: none; }
   .chip { flex: none; }
 }
+
+.table td.num { font-family: var(--font-display); font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
+.table td:nth-last-child(1) { font-size: 0.86rem; }

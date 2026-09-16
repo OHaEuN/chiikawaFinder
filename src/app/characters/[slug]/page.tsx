@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { CHARACTERS, characterName, findCharacter } from '@/lib/data';
 import { SafeImage } from '@/components/SafeImage';
 import { Tag } from '@/components/Tag';
+import { GROUP_EMOJI } from '@/lib/labels';
 
 interface PageProps { params: Promise<{ slug: string }> }
 
@@ -17,11 +18,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function CharacterDetailPage({ params }: PageProps) {
   const c = findCharacter((await params).slug);
   if (!c) notFound();
+  // 애니가 연속 넘버링이라 시즌이 하나뿐이면 그 열은 의미가 없다.
+  const multiSeason = new Set(c.episodes.map((e) => e.season)).size > 1;
   return (
     <>
       <Link href="/characters" className="back">← 인물 목록</Link>
       <div className="detail-hero">
-        <div className="card-media contain"><SafeImage src={c.image} alt={c.name} fallback="🐹" seed={c.slug} /></div>
+        <div className="card-media contain"><SafeImage src={c.image} alt={c.name} fallback={GROUP_EMOJI[c.group]} seed={c.slug} /></div>
         <div>
           <div className="tags" style={{ marginBottom: 8 }}><Tag tone="pink">{c.group}</Tag><Tag tone="mint">{c.species}</Tag></div>
           <h1>{c.name}</h1>
@@ -59,10 +62,15 @@ export default async function CharacterDetailPage({ params }: PageProps) {
         {c.episodes.length === 0 ? <p className="muted">확인된 애니메이션 등장 에피소드가 없어요.</p> : (
           <div className="table-wrap">
             <table className="table">
-              <thead><tr><th>시즌</th><th>화</th><th>제목</th><th>비고</th></tr></thead>
+              <thead><tr>{multiSeason && <th>시즌</th>}<th>화</th><th>제목</th><th>비고</th></tr></thead>
               <tbody>
                 {c.episodes.map((e) => (
-                  <tr key={`${e.season}-${e.episode}`}><td>{e.season}</td><td>{e.episode}</td><td>{e.title}</td><td className="muted">{e.note}</td></tr>
+                  <tr key={`${e.season}-${e.episode}`}>
+                    {multiSeason && <td>{e.season}</td>}
+                    <td className="num">{e.episode}</td>
+                    <td>{e.title}</td>
+                    <td className="muted">{e.note}</td>
+                  </tr>
                 ))}
               </tbody>
             </table>
