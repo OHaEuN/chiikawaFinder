@@ -16,7 +16,6 @@ interface AffiliateRule {
 }
 
 const RULES: AffiliateRule[] = [
-  { host: 'chiikawamarket.jp', param: 'utm_source', env: 'NEXT_PUBLIC_AFF_CHIIKAWAMARKET' },
   { host: 'buyee.jp', param: 'affiliate_id', env: 'NEXT_PUBLIC_AFF_BUYEE' },
   { host: 'zenmarket.jp', param: 'ref', env: 'NEXT_PUBLIC_AFF_ZENMARKET' },
   { host: 'amazon.co.jp', param: 'tag', env: 'NEXT_PUBLIC_AFF_AMAZON_JP' },
@@ -25,7 +24,6 @@ const RULES: AffiliateRule[] = [
 
 /** 정적 빌드라 process.env 를 빌드 시점에 인라인한다. 키를 동적으로 읽을 수 없어 나열한다. */
 const IDS: Record<string, string | undefined> = {
-  NEXT_PUBLIC_AFF_CHIIKAWAMARKET: process.env.NEXT_PUBLIC_AFF_CHIIKAWAMARKET,
   NEXT_PUBLIC_AFF_BUYEE: process.env.NEXT_PUBLIC_AFF_BUYEE,
   NEXT_PUBLIC_AFF_ZENMARKET: process.env.NEXT_PUBLIC_AFF_ZENMARKET,
   NEXT_PUBLIC_AFF_AMAZON_JP: process.env.NEXT_PUBLIC_AFF_AMAZON_JP,
