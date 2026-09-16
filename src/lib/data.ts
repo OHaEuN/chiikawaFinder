@@ -22,7 +22,7 @@ export const goodsSummaries = (list: Goods[] = GOODS): GoodsSummary[] =>
 
 export const GROUPBUY_CHANNELS = groupbuyChannels as GroupBuyChannel[];
 
-export const FX = fx as { krwPerJpy: number; updatedAt: string; source: string };
+export const FX = fx as { krwPerJpy: number; usdPerJpy: number; updatedAt: string; source: string };
 
 /** 엔화 표기 굿즈만 계산기 후보로 쓴다. "1,650엔" → 1650 */
 export const yenPrice = (price: string): number | null => {

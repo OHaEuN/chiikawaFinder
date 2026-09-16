@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { calculateCost, FREE_DOMESTIC_SHIPPING_YEN, type CartLine } from '@/lib/cost';
+import { calculateCost, DUTY_FREE_LIMIT_USD, FREE_DOMESTIC_SHIPPING_YEN, TAX_RATES, type CartLine, type TaxCategory } from '@/lib/cost';
 import { track } from '@/lib/analytics';
 import { SafeImage } from '@/components/SafeImage';
 
@@ -15,6 +15,7 @@ interface Option {
 interface CostCalculatorProps {
   options: Option[];
   marketRate: number;
+  usdPerJpy: number;
   rateUpdatedAt: string;
 }
 
@@ -27,13 +28,14 @@ const SEARCH_RESULTS = 8;
 const won = (value: number) => `${Math.round(value).toLocaleString('ko-KR')}원`;
 const yen = (value: number) => `${value.toLocaleString('ko-KR')}엔`;
 
-export function CostCalculator({ options, marketRate, rateUpdatedAt }: CostCalculatorProps) {
+export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }: CostCalculatorProps) {
   const [lines, setLines] = useState<CartLine[]>([]);
   const [query, setQuery] = useState('');
   const [appliedRate, setAppliedRate] = useState(marketRate);
   const [shippingKrw, setShippingKrw] = useState(DEFAULT_SHIPPING_KRW);
   const [people, setPeople] = useState(1);
   const [domesticKrw, setDomesticKrw] = useState(DEFAULT_DOMESTIC_KRW);
+  const [taxCategory, setTaxCategory] = useState<TaxCategory>('toy');
 
   const matches = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -41,7 +43,7 @@ export function CostCalculator({ options, marketRate, rateUpdatedAt }: CostCalcu
     return options.filter((o) => o.name.toLowerCase().includes(q)).slice(0, SEARCH_RESULTS);
   }, [options, query]);
 
-  const result = calculateCost({ lines, marketRate, appliedRate, shippingKrw, people, domesticKrw });
+  const result = calculateCost({ lines, marketRate, appliedRate, shippingKrw, people, domesticKrw, usdPerJpy, taxCategory });
 
   const addLine = (option: Option) => {
     setLines((prev) => {
@@ -130,6 +132,14 @@ export function CostCalculator({ options, marketRate, rateUpdatedAt }: CostCalcu
             국내 택배비 <span className="muted">(원)</span>
             <input type="number" step="500" min="0" value={domesticKrw} onChange={(e) => setDomesticKrw(Number(e.target.value))} />
           </label>
+          <label>
+            품목
+            <select value={taxCategory} onChange={(e) => setTaxCategory(e.target.value as TaxCategory)}>
+              {(Object.keys(TAX_RATES) as TaxCategory[]).map((key) => (
+                <option key={key} value={key}>{TAX_RATES[key].label}</option>
+              ))}
+            </select>
+          </label>
         </div>
         <div className="chips" style={{ marginBottom: 0 }}>
           <button className="chip" aria-pressed={appliedRate === marketRate} onClick={() => { setAppliedRate(marketRate); track('calculator_rate_market'); }}>
@@ -153,8 +163,36 @@ export function CostCalculator({ options, marketRate, rateUpdatedAt }: CostCalcu
           <dt>상품값</dt><dd>{won(result.goodsKrw)}</dd>
           <dt>배송비 분담</dt><dd>{won(result.shippingPerPersonKrw)} <span className="muted">({people}명이 나눔)</span></dd>
           <dt>국내 택배비</dt><dd>{won(domesticKrw)}</dd>
+          {result.customs.taxable && (
+            <>
+              <dt>관세 · 부가세</dt>
+              <dd>{won(Math.round(result.customs.totalTaxKrw / Math.max(1, people)))} <span className="muted">(전체 {won(result.customs.totalTaxKrw)})</span></dd>
+            </>
+          )}
         </dl>
         <p className="total">1인 부담 <strong>{won(result.totalKrw)}</strong></p>
+
+        {result.subtotalYen > 0 && (
+          result.customs.taxable ? (
+            <div className="customs customs-over">
+              <strong>면세 한도 {DUTY_FREE_LIMIT_USD}달러를 넘겨 세금이 붙습니다.</strong>
+              <p>
+                물품가격이 {result.customs.goodsValueUsd.toFixed(0)}달러입니다.
+                한도를 넘기면 초과분만이 아니라 <strong>전체 금액</strong>에 과세되고, 과세가격에는 국제배송비도 들어갑니다.
+                관세 {won(result.customs.dutyKrw)}에 부가세 {won(result.customs.vatKrw)}이 더해져 모두 {won(result.customs.totalTaxKrw)}입니다.
+                장바구니를 {DUTY_FREE_LIMIT_USD}달러 아래로 줄여 나눠 받으면 이 금액을 아낄 수 있습니다.
+              </p>
+            </div>
+          ) : (
+            <div className="customs">
+              <strong>면세 한도까지 {yen(result.customs.toLimitYen)} 남았습니다.</strong>
+              <p>
+                물품가격 {result.customs.goodsValueUsd.toFixed(0)}달러입니다. {DUTY_FREE_LIMIT_USD}달러를 넘으면 전체 금액에
+                관세와 부가세가 붙어 {(TAX_RATES[taxCategory].duty * 100).toFixed(0)}%에 부가세까지 더 내야 합니다.
+              </p>
+            </div>
+          )
+        )}
 
         {result.rateMarkupKrw > 0 && (
           <div className="markup">
@@ -162,7 +200,7 @@ export function CostCalculator({ options, marketRate, rateUpdatedAt }: CostCalcu
             <p>
               실환율 {marketRate.toFixed(2)}원으로 사면 상품값이 {won(result.goodsAtMarketKrw)}입니다.
               적용 환율 {appliedRate.toFixed(2)}원은 그보다 {result.rateMarkupPercent.toFixed(1)}% 비쌉니다.
-              공구는 배송비를 나누는 대신 환율에 수수료를 얹는 경우가 많습니다. 배송비 절감분과 견줘 보세요.
+                  공구는 배송비를 나누는 대신 환율에 수수료를 얹는 경우가 많습니다. 배송비 절감분과 견줘 보세요.
             </p>
           </div>
         )}

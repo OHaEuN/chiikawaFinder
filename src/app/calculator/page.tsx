@@ -25,7 +25,7 @@ export default function CalculatorPage() {
         <p>담아 보면 최종 얼마인지 바로 나옵니다. 공구 환율을 넣으면 수수료가 얼마나 섞였는지도 보입니다.</p>
       </div>
 
-      <CostCalculator options={options} marketRate={FX.krwPerJpy} rateUpdatedAt={FX.updatedAt} />
+      <CostCalculator options={options} marketRate={FX.krwPerJpy} usdPerJpy={FX.usdPerJpy} rateUpdatedAt={FX.updatedAt} />
 
       <div className="section-head"><h2>공구가 열리는 곳</h2></div>
       <div className="stack">
@@ -42,8 +42,8 @@ export default function CalculatorPage() {
       </div>
 
       <div className="notice">
-        이 계산기는 상품값과 배송비만 계산합니다. 관세와 부가세는 포함하지 않습니다.
-        개별 공구를 추천하지 않으며, 결제와 배송에 관여하지 않습니다.
+        세금은 예상치입니다. 실제 과세는 같은 날 들어온 다른 주문과 합산될 수 있고, 품목 분류에 따라 세율이 달라집니다.
+        개별 공구를 추천하지 않으며, 결제와 배송에 관여하지 않습니다. 계산 근거는 docs/import-cost.md 에 정리해 두었습니다.
       </div>
     </>
   );
