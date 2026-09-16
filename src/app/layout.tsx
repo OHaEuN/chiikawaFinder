@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from 'next';
-import { Gaegu, Gowun_Dodum } from 'next/font/google';
+import { Gaegu, Gothic_A1, Noto_Sans_KR } from 'next/font/google';
 import { SiteHeader } from '@/components/SiteHeader';
 import './globals.css';
 
-const display = Gaegu({ weight: ['400', '700'], subsets: ['latin'], variable: '--font-display' });
-const body = Gowun_Dodum({ weight: '400', subsets: ['latin'], variable: '--font-body' });
+const display = Gothic_A1({ weight: ['600', '700', '800'], subsets: ['latin'], variable: '--font-display' });
+// 페이지 타이틀에만 쓰는 귀여운 서체. 본문·카드는 산세리프를 유지한다.
+const cute = Gaegu({ weight: ['400', '700'], subsets: ['latin'], variable: '--font-cute' });
+const body = Noto_Sans_KR({ weight: ['400', '500', '700'], subsets: ['latin'], variable: '--font-body' });
 
 export const metadata: Metadata = {
   title: { default: '치이카와 파인더', template: '%s | 치이카와 파인더' },
@@ -13,11 +15,11 @@ export const metadata: Metadata = {
   icons: '/icon.svg',
 };
 
-export const viewport: Viewport = { themeColor: '#fbf7ee', width: 'device-width', initialScale: 1 };
+export const viewport: Viewport = { themeColor: '#fdfcfb', width: 'device-width', initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko" className={`${display.variable} ${body.variable}`}>
+    <html lang="ko" className={`${display.variable} ${body.variable} ${cute.variable}`}>
       <body>
         <SiteHeader />
         <main className="container page">{children}</main>
