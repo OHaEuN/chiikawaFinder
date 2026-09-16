@@ -8,6 +8,12 @@ export interface Goods {
   price: string;
   image?: string;
   buyUrl: string;
+  /**
+   * 제휴 프로그램 대시보드에서 이 상품용으로 생성한 링크.
+   * 쿠팡 파트너스·네이버 쇼핑커넥트·Buyee(Indoleads)는 기존 링크에 파라미터를 붙이는 방식이 아니라
+   * 상품마다 링크를 따로 발급하므로, 발급받은 주소를 그대로 넣는다. 없으면 buyUrl 로 나간다.
+   */
+  affiliateUrl?: string;
   buyAt: string;
   country: 'KR' | 'JP' | 'GLOBAL';
   description: string;
