@@ -1,5 +1,6 @@
 import type { OnlineCategory } from '@/types/online';
 import type { PlaceType } from '@/types/place';
+import type { Character } from '@/types/character';
 
 export const ONLINE_CATEGORY_LABEL: Record<OnlineCategory, string> = {
   manga: '만화',
@@ -35,3 +36,12 @@ export const PLACE_EMOJI: Record<PlaceType, string> = {
 
 /** 카드에서 한 줄에 들어가도록 2026-10-02 → 26.10.02 */
 export const shortDate = (iso: string) => iso.slice(2).replace(/-/g, '.');
+
+/** 공식 이미지가 없는 인물에 쓰는 그룹별 아이콘 */
+export const GROUP_EMOJI: Record<Character['group'], string> = {
+  '주인공': '🐹',
+  '주요 인물': '🐰',
+  '조연': '🧸',
+  '적/괴물': '👾',
+  '기타': '✨',
+};
