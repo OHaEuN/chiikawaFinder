@@ -2,12 +2,12 @@ import characters from '@/data/characters.json';
 import online from '@/data/online.json';
 import places from '@/data/places.json';
 import goods from '@/data/goods.json';
-import groupbuy from '@/data/groupbuy.json';
+import groupbuyChannels from '@/data/groupbuy-channels.json';
 import type { Character } from '@/types/character';
 import type { OnlineContent } from '@/types/online';
 import type { Place } from '@/types/place';
 import type { Goods, GoodsSummary } from '@/types/goods';
-import type { GroupBuy } from '@/types/groupbuy';
+import type { GroupBuyChannel } from '@/types/groupbuy';
 
 export const CHARACTERS = characters as Character[];
 export const ONLINE = online as OnlineContent[];
@@ -19,11 +19,7 @@ export const goodsSummaries = (list: Goods[] = GOODS): GoodsSummary[] =>
     id, name, brand, collab, category, releaseDate, price, image, country,
   }));
 
-const STATUS_ORDER: Record<GroupBuy['status'], number> = { open: 0, shipping: 1, closed: 2, done: 3 };
-
-export const GROUP_BUYS = [...(groupbuy as GroupBuy[])].sort(
-  (a, b) => STATUS_ORDER[a.status] - STATUS_ORDER[b.status] || (a.deadline ?? '').localeCompare(b.deadline ?? ''),
-);
+export const GROUPBUY_CHANNELS = groupbuyChannels as GroupBuyChannel[];
 
 export const findCharacter = (slug: string) => CHARACTERS.find((c) => c.slug === slug);
 export const findPlace = (id: string) => PLACES.find((p) => p.id === id);

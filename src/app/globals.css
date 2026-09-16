@@ -206,3 +206,10 @@ li { margin-bottom: 0.3em; }
 
 .notice { font-size: 0.86rem; color: var(--ink-soft); background: var(--surface-2); border-radius: 14px; padding: 14px 18px; margin-top: 20px; line-height: 1.7; }
 .notice strong { color: var(--ink); }
+
+.channel h3 a:hover { text-decoration: underline; }
+.channel-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.channel p { margin: 0 0 6px; }
+.channel-safety { font-size: 0.9rem; color: var(--ink-soft); background: var(--surface-2); border-radius: 12px; padding: 9px 12px; margin: 8px 0 0 !important; }
+.checklist { margin: 0; padding-left: 1.3em; display: grid; gap: 6px; }
+.checklist li { margin: 0; }
