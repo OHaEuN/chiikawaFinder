@@ -5,6 +5,7 @@ import { PLACES, findPlace, isOngoing } from '@/lib/data';
 import { COUNTRY_LABEL, PLACE_EMOJI, PLACE_TYPE_LABEL } from '@/lib/labels';
 import { SafeImage } from '@/components/SafeImage';
 import { Tag } from '@/components/Tag';
+import { TrackedLink } from '@/components/TrackedLink';
 import { PlacesMap } from '@/components/PlacesMap';
 
 interface PageProps { params: Promise<{ id: string }> }
@@ -44,7 +45,7 @@ export default async function PlaceDetailPage({ params }: PageProps) {
             {p.priceRange && <><dt>가격대</dt><dd>{p.priceRange}</dd></>}
           </dl>
           <div style={{ display: 'flex', gap: 8, marginTop: 14, flexWrap: 'wrap' }}>
-            <a className="btn" href={mapsUrl} target="_blank" rel="noopener noreferrer">구글 지도로 길찾기</a>
+            <TrackedLink className="btn" href={mapsUrl} event="place_directions" props={{ id: p.id, city: p.city }}>구글 지도로 길찾기</TrackedLink>
             {p.url && <a className="btn soft" href={p.url} target="_blank" rel="noopener noreferrer">공식 페이지 ↗</a>}
           </div>
         </div>

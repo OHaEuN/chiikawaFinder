@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import type { GoodsSummary } from '@/types/goods';
 import { FilterChips } from '@/components/FilterChips';
 import { GoodsCard } from '@/components/GoodsCard';
+import { track } from '@/lib/analytics';
 
 interface GoodsExplorerProps { goods: GoodsSummary[] }
 
@@ -43,6 +44,15 @@ export function GoodsExplorer({ goods }: GoodsExplorerProps) {
 
   const reset = <T,>(setter: (v: T) => void) => (v: T) => { setter(v); setLimit(PAGE_SIZE); };
 
+  // 검색은 타자마다가 아니라 입력이 멈춘 뒤 한 번만 남긴다.
+  const [searchTimer, setSearchTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
+  const onSearch = (value: string) => {
+    setQuery(value);
+    setLimit(PAGE_SIZE);
+    if (searchTimer) clearTimeout(searchTimer);
+    setSearchTimer(setTimeout(() => value.trim() && track('goods_search', { query: value.trim() }), 800));
+  };
+
   return (
     <>
       <input
@@ -50,7 +60,7 @@ export function GoodsExplorer({ goods }: GoodsExplorerProps) {
         type="search"
         placeholder="상품명으로 검색 (예: マスコット, 스시, ぬいぐるみ)"
         value={query}
-        onChange={(e) => { setQuery(e.target.value); setLimit(PAGE_SIZE); }}
+        onChange={(e) => onSearch(e.target.value)}
       />
       <FilterChips options={[{ value: 'JP', label: '🇯🇵 일본' }, { value: 'KR', label: '🇰🇷 한국' }]} value={country} onChange={reset(setCountry)} />
       <FilterChips options={categories} value={category} onChange={reset(setCategory)} allLabel="모든 카테고리" />

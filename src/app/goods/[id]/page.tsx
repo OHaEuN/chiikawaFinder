@@ -5,6 +5,7 @@ import { GOODS, characterName, findGoods } from '@/lib/data';
 import { COUNTRY_LABEL } from '@/lib/labels';
 import { SafeImage } from '@/components/SafeImage';
 import { Tag } from '@/components/Tag';
+import { TrackedLink } from '@/components/TrackedLink';
 
 interface PageProps { params: Promise<{ id: string }> }
 
@@ -41,7 +42,15 @@ export default async function GoodsDetailPage({ params }: PageProps) {
             )}
           </dl>
           <div style={{ marginTop: 14 }}>
-            <a className="btn" href={g.affiliateUrl ?? g.buyUrl} target="_blank" rel={g.affiliateUrl ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}>구매 페이지로 이동 ↗</a>
+            <TrackedLink
+              className="btn"
+              href={g.affiliateUrl ?? g.buyUrl}
+              sponsored={Boolean(g.affiliateUrl)}
+              event="goods_buy_click"
+              props={{ id: g.id, brand: g.brand, country: g.country, affiliate: Boolean(g.affiliateUrl) }}
+            >
+              구매 페이지로 이동 ↗
+            </TrackedLink>
           </div>
         </div>
       </div>

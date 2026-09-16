@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "pnpm dlx serve out",
     "scrape": "node scripts/scrape.mjs",
-    "check": "node --test scripts/*.test.mjs",
-    "images": "node scripts/download-images.mjs"
+    "check": "node --test \"scripts/*.test.mjs\" \"src/**/*.test.mts\"",
+    "images": "node scripts/download-images.mjs",
+    "fx": "node scripts/fx.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4",
