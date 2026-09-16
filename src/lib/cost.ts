@@ -8,6 +8,26 @@
 /** 치이카와 마켓 공식 안내: 1회 주문이 이 금액 이상이면 일본 내 배송 무료 */
 export const FREE_DOMESTIC_SHIPPING_YEN = 11000;
 
+/**
+ * 일본발 해외직구 소액면세 한도(미국 달러). 이 금액을 넘으면 초과분이 아니라 전체가 과세된다.
+ * 근거는 docs/import-cost.md 참고.
+ */
+export const DUTY_FREE_LIMIT_USD = 150;
+
+/**
+ * 면세 한도 판정에 쓰는 물품가격에는 국제운임이 들어가지 않지만,
+ * 한도를 넘겨 실제로 과세할 때의 과세가격에는 국제운임이 들어간다. 이 비대칭을 지켜야 한다.
+ */
+export const TAX_RATES = {
+  toy: { label: '인형 · 문구 · 잡화', duty: 0.08 },
+  apparel: { label: '의류', duty: 0.13 },
+} as const;
+
+export type TaxCategory = keyof typeof TAX_RATES;
+
+/** 부가가치세. 관세를 더한 금액에 다시 붙는다. */
+const VAT_RATE = 0.1;
+
 export interface CartLine {
   id: string;
   name: string;
@@ -28,6 +48,25 @@ export interface CostInput {
   people: number;
   /** 국내 택배비 (원, 1인 부담) */
   domesticKrw: number;
+  /** 원/달러 환산용. 엔 1단위당 달러 */
+  usdPerJpy: number;
+  /** 과세 품목 구분 */
+  taxCategory: TaxCategory;
+}
+
+export interface CustomsResult {
+  /** 면세 한도 판정에 쓰는 물품가격 (달러). 국제운임은 빼고 본다. */
+  goodsValueUsd: number;
+  /** 면세 한도까지 남은 금액 (엔). 넘겼으면 0 */
+  toLimitYen: number;
+  /** 한도를 넘겨 과세 대상인지 */
+  taxable: boolean;
+  /** 예상 관세 (원) */
+  dutyKrw: number;
+  /** 예상 부가세 (원) */
+  vatKrw: number;
+  /** 관세 + 부가세 (원) */
+  totalTaxKrw: number;
 }
 
 export interface CostResult {
@@ -45,21 +84,26 @@ export interface CostResult {
   rateMarkupPercent: number;
   /** 1인이 부담하는 해외배송비 (원) */
   shippingPerPersonKrw: number;
-  /** 최종 1인 부담 총액 (원) */
+  /** 통관 예상 */
+  customs: CustomsResult;
+  /** 최종 1인 부담 총액 (원). 세금은 인원수로 나눈 몫을 더한다. */
   totalKrw: number;
 }
 
 const round = (value: number) => Math.round(value);
 
 export function calculateCost(input: CostInput): CostResult {
-  const { lines, marketRate, appliedRate, shippingKrw, people, domesticKrw } = input;
+  const { lines, marketRate, appliedRate, shippingKrw, people, domesticKrw, usdPerJpy, taxCategory } = input;
 
   const subtotalYen = lines.reduce((sum, l) => sum + l.priceYen * l.quantity, 0);
+  const customs = calculateCustoms({ subtotalYen, shippingKrw, marketRate, usdPerJpy, taxCategory });
   const goodsKrw = round(subtotalYen * appliedRate);
   const goodsAtMarketKrw = round(subtotalYen * marketRate);
   const rateMarkupKrw = goodsKrw - goodsAtMarketKrw;
   // 사람 수가 0이나 음수로 들어와도 계산이 깨지지 않게 최소 1로 본다.
   const shippingPerPersonKrw = round(shippingKrw / Math.max(1, people));
+
+  const taxPerPersonKrw = round(customs.totalTaxKrw / Math.max(1, people));
 
   return {
     subtotalYen,
@@ -69,6 +113,51 @@ export function calculateCost(input: CostInput): CostResult {
     rateMarkupKrw,
     rateMarkupPercent: goodsAtMarketKrw === 0 ? 0 : (rateMarkupKrw / goodsAtMarketKrw) * 100,
     shippingPerPersonKrw,
-    totalKrw: goodsKrw + shippingPerPersonKrw + domesticKrw,
+    customs,
+    totalKrw: goodsKrw + shippingPerPersonKrw + domesticKrw + taxPerPersonKrw,
+  };
+}
+
+interface CustomsInput {
+  subtotalYen: number;
+  shippingKrw: number;
+  marketRate: number;
+  usdPerJpy: number;
+  taxCategory: TaxCategory;
+}
+
+/**
+ * 면세 한도 판정과 세액 계산.
+ *
+ * 한도 판정은 국제운임을 뺀 물품가격으로 하고, 실제 과세는 국제운임을 더한 과세가격에 한다.
+ * 한도를 넘으면 초과분이 아니라 전체 금액에 세금이 붙는다.
+ */
+export function calculateCustoms({ subtotalYen, shippingKrw, marketRate, usdPerJpy, taxCategory }: CustomsInput): CustomsResult {
+  const goodsValueUsd = subtotalYen * usdPerJpy;
+  const limitYen = usdPerJpy > 0 ? DUTY_FREE_LIMIT_USD / usdPerJpy : Infinity;
+  const taxable = goodsValueUsd > DUTY_FREE_LIMIT_USD;
+
+  if (!taxable) {
+    return {
+      goodsValueUsd,
+      toLimitYen: Math.max(0, Math.round(limitYen - subtotalYen)),
+      taxable: false,
+      dutyKrw: 0,
+      vatKrw: 0,
+      totalTaxKrw: 0,
+    };
+  }
+
+  const dutiableKrw = subtotalYen * marketRate + shippingKrw;
+  const dutyKrw = round(dutiableKrw * TAX_RATES[taxCategory].duty);
+  const vatKrw = round((dutiableKrw + dutyKrw) * VAT_RATE);
+
+  return {
+    goodsValueUsd,
+    toLimitYen: 0,
+    taxable: true,
+    dutyKrw,
+    vatKrw,
+    totalTaxKrw: dutyKrw + vatKrw,
   };
 }

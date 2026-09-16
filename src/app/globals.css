@@ -247,10 +247,17 @@ li { margin-bottom: 0.3em; }
 .result .total { font-size: 1.1rem; margin: 14px 0 0; padding-top: 14px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; }
 .result .total strong { font-family: var(--font-display); font-size: 1.7rem; }
 .markup { margin-top: 14px; background: var(--pink); border-radius: 14px; padding: 14px 16px; }
-.markup strong { display: block; margin-bottom: 5px; color: var(--accent-ink); }
+.markup > strong:first-child { display: block; margin-bottom: 5px; color: var(--accent-ink); }
 .markup p { font-size: 0.88rem; margin: 0; line-height: 1.65; }
 
 .release-day { margin-bottom: 8px; }
 .release-day .section-head h2 { display: flex; align-items: center; gap: 9px; }
 .release-more { font-size: 0.86rem; margin: 10px 0 0; }
 .release-more a { text-decoration: underline; }
+
+.fields select { padding: 10px 13px; border-radius: 12px; border: 1px solid var(--line-strong); background: var(--surface); font: inherit; font-weight: 600; color: var(--ink); width: 100%; }
+.fields select:focus { outline: none; border-color: var(--pink-deep); }
+.customs { margin-top: 14px; background: var(--mint); border-radius: 14px; padding: 14px 16px; }
+.customs.customs-over { background: var(--yellow); }
+.customs > strong:first-child { display: block; margin-bottom: 5px; }
+.customs p { font-size: 0.88rem; margin: 0; line-height: 1.65; }
