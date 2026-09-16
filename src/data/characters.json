@@ -3242,7 +3242,7 @@
     "nameEn": "Dekaitsuyo",
     "group": "주요 인물",
     "species": "거대하고 강한 존재",
-    "image": "/images/characters/dekaitsuyo-f95f8e14.jpg",
+    "image": "/images/characters/dekaitsuyo-df6844f8.jpg",
     "tagline": "'뭔가 크고 강한 녀석', 겉보기와 달리 소심한 거인",
     "description": [
       "정식 명칭은 '난카 데카쿠테 츠요이 야츠(なんかでかくて強いやつ, 뭔가 크고 강한 녀석)'이며 줄여서 '데카츠요'라 불립니다. 애니메이션판 성우는 야마시타 타이키(山下タイキ)입니다.",
@@ -3566,7 +3566,7 @@
     "nameEn": "Ode",
     "group": "조연",
     "species": "외눈 거인",
-    "image": "/images/characters/ode-bf5ed558.jpg",
+    "image": "/images/characters/ode-117cb0fa.jpg",
     "tagline": "'오데'라고 자칭하는 순박한 노란 외눈 거인",
     "description": [
       "노란색의 거대한 몸에 외눈, 두툼한 입술이 특징인 캐릭터입니다. 사투리 섞인 말투로 자신을 '오데(オデ)'라 부르는 데서 이름이 붙었습니다.",
@@ -3941,7 +3941,7 @@
     "nameEn": "Kendama Ojisan",
     "group": "조연",
     "species": "의태형(우호 판정)",
-    "image": "",
+    "image": "/images/characters/kendama-ojisan-3299b6bd.jpg",
     "tagline": "'끝-!'을 외치며 켄다마 기술을 뽐내는 아저씨",
     "description": [
       "분류상으로는 의태형이지만 갑옷씨에게 우호형으로 인정받은 특이한 존재입니다.",
@@ -4271,7 +4271,7 @@
     "nameEn": "Omen Chimera",
     "group": "적/괴물",
     "species": "키메라",
-    "image": "",
+    "image": "/images/characters/omen-chimera-2f709b45.jpg",
     "tagline": "'그래서 어쩌라고'만 반복하다 돌아가는 온순한 키메라",
     "description": [
       "빨간 가면을 쓴 키메라입니다. 애니메이션판 성우는 이하라 마사아키(伊原正明)입니다.",
@@ -4309,7 +4309,7 @@
     "nameEn": "Majo (The Witch)",
     "group": "적/괴물",
     "species": "마녀",
-    "image": "",
+    "image": "/images/characters/majo-2fe732f8.jpg",
     "tagline": "'내 힘이니라'라며 몸을 바꿔 버리는 마녀",
     "description": [
       "'와시노 치카라자(ワシの力じゃ, 내 힘이니라)'라는 첫 대사로 등장하는 마녀입니다. 애니메이션판 성우는 코우다 마리코(國府田マリ子)입니다.",
@@ -4602,7 +4602,7 @@
     "nameEn": "Mushi (Bug)",
     "group": "적/괴물",
     "species": "거대 벌레",
-    "image": "/images/characters/mushi-0edbd5c2.jpg",
+    "image": "/images/characters/mushi-82cd1069.jpg",
     "tagline": "하치와레의 집에 나타난 초록과 보라의 거대 벌레",
     "description": [
       "초록색과 보라색 두 종류가 등장하는 거대 벌레형 토벌 대상입니다.",
@@ -4665,7 +4665,7 @@
     "nameEn": "Sphinx",
     "group": "적/괴물",
     "species": "스핑크스",
-    "image": "",
+    "image": "/images/characters/sphinx-ad563ef0.jpg",
     "tagline": "하치와레의 부름에 순순히 따라오는 거대 스핑크스",
     "description": [
       "거대한 스핑크스 모습의 존재입니다. 압도적인 크기 때문에 처음에는 명백한 위협으로 보입니다.",
@@ -4702,7 +4702,7 @@
     "nameEn": "Chushi Desu",
     "group": "적/괴물",
     "species": "사마귀형 몬스터",
-    "image": "",
+    "image": "/images/characters/chushi-desu-954eb0ce.jpg",
     "tagline": "'중지입니다'를 외치며 덮치는 사마귀",
     "description": [
       "사마귀 모습의 토벌 대상으로, '중지입니다-(中止でーす)'라는 말을 하며 등장해 그대로 이름이 되었습니다.",
@@ -4975,7 +4975,7 @@
     "nameEn": "Zou",
     "group": "적/괴물",
     "species": "코끼리 형태의 괴이",
-    "image": "",
+    "image": "/images/characters/zou-f05a9314.jpg",
     "tagline": "눈싸움에서 지면 매일 밤 악몽을 꾸게 만드는 괴이.",
     "description": [
       "얼굴과 배만 흰 코끼리 같은 모습의 캐릭터. 이족보행을 하고 말을 한다.",
@@ -5454,7 +5454,7 @@
     "nameEn": "Manbou (Sunfish)",
     "group": "기타",
     "species": "개복치형 탈것",
-    "image": "",
+    "image": "/images/characters/manbou-417fc484.jpg",
     "tagline": "목적지를 스스로 못 정하는 공중 부양 탈것",
     "description": [
       "공중에 떠다니는 개복치 모습의 탈것입니다. 치이카와 일행이 이동 수단으로 이용합니다.",

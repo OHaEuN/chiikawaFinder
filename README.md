@@ -16,15 +16,25 @@ pnpm scrape   # 치이카와 마켓 신상 굿즈 갱신
 
 ## 구조
 
-| 경로 | 내용 |
-|---|---|
-| `src/data/characters.json` | 캐릭터 프로필과 등장 에피소드 |
-| `src/data/online.json` | 만화 · 애니 · 나가노 작가 작품을 볼 수 있는 경로와 링크 |
-| `src/data/places.json` | 한국 · 일본의 팝업, 매장, 카페, 콜라보 식당 (위경도 포함) |
-| `src/data/goods.json` | 최근 6개월 굿즈. `cm-` 접두사는 스크래퍼가 채우고 나머지는 수동 |
-| `src/types/` | 네 데이터셋의 도메인 타입 |
-| `scripts/scrape.mjs` | 치이카와 마켓 신상 수집 |
-| `scripts/sources.md` | 확인된 기계 판독 엔드포인트 정리 |
+| 경로 | 내용 | 규모 |
+|---|---|---|
+| `src/data/characters.json` | 캐릭터 프로필과 등장 에피소드 | 45명 · 에피소드 581건 |
+| `src/data/online.json` | 만화 · 애니 · 나가노 작가 작품을 볼 수 있는 경로와 링크 | 72건 |
+| `src/data/places.json` | 한국 · 일본의 팝업, 매장, 카페, 콜라보 식당 (위경도 포함) | 50곳 |
+| `src/data/goods.json` | 최근 6개월 굿즈. `cm-` 접두사는 스크래퍼가 채우고 나머지는 수동 | 2,007건 |
+| `src/types/` | 네 데이터셋의 도메인 타입 | |
+| `scripts/scrape.mjs` | 치이카와 마켓 신상 수집 | |
+| `scripts/download-images.mjs` | 인물·장소 이미지를 `public/images` 로 내려받고 JSON을 로컬 경로로 교체 | |
+| `scripts/merge-characters.mjs` | 인물 데이터 두 갈래를 slug 기준으로 합침 | |
+| `scripts/sources.md` | 확인된 기계 판독 엔드포인트 정리 | |
+
+## 이미지
+
+인물과 장소 이미지는 `pnpm images` 로 파일을 내려받아 `public/images` 에 두고 로컬 경로로 참조합니다.
+핫링크는 차단이나 CDN 만료로 조용히 깨지기 때문입니다. 굿즈는 2천 건이라 Shopify CDN을 그대로 씁니다.
+
+인물 45명 중 37명에 사진이 있습니다. 나머지는 이름만 나오는 단역·괴물이라 공식 이미지도 굿즈도 없어
+흰 배경에 파스텔 원으로 표시합니다.
 
 ## 굿즈 자동 갱신
 
