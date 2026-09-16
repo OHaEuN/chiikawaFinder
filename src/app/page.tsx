@@ -10,6 +10,7 @@ const TILES: { href: string; icon: IconName; title: string; desc: string }[] = [
   { href: '/online', icon: 'online', title: '온라인 콘텐츠', desc: '만화 · 애니 · 나가노 작가 작품' },
   { href: '/offline', icon: 'offline', title: '오프라인 콘텐츠', desc: '팝업 · 매장 · 카페 지도' },
   { href: '/goods', icon: 'goods', title: '굿즈 신상', desc: '최근 6개월 신상 · 콜라보' },
+  { href: '/groupbuy', icon: 'groupbuy', title: '공동구매', desc: '배송비 나눠 부담하는 공구' },
 ];
 
 const HOME_LIMIT = 8;

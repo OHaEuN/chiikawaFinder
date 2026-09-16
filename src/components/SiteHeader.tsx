@@ -10,6 +10,7 @@ const NAV: { href: string; label: string; icon: IconName }[] = [
   { href: '/online', label: '온라인', icon: 'online' },
   { href: '/offline', label: '오프라인', icon: 'offline' },
   { href: '/goods', label: '굿즈', icon: 'goods' },
+  { href: '/groupbuy', label: '공구', icon: 'groupbuy' },
 ];
 
 export function SiteHeader() {
