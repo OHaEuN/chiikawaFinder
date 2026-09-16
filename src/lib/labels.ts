@@ -1,6 +1,7 @@
 import type { OnlineCategory } from '@/types/online';
 import type { PlaceType } from '@/types/place';
 import type { Character } from '@/types/character';
+import type { GroupBuyChannel, GroupBuyStatus } from '@/types/groupbuy';
 
 export const ONLINE_CATEGORY_LABEL: Record<OnlineCategory, string> = {
   manga: '만화',
@@ -44,4 +45,20 @@ export const GROUP_EMOJI: Record<Character['group'], string> = {
   '조연': '🧸',
   '적/괴물': '👾',
   '기타': '✨',
+};
+
+export const GROUPBUY_STATUS_LABEL: Record<GroupBuyStatus, string> = {
+  open: '모집 중',
+  closed: '모집 마감',
+  shipping: '배송 중',
+  done: '종료',
+};
+
+export const GROUPBUY_CHANNEL_LABEL: Record<GroupBuyChannel, string> = {
+  twitter: 'X(트위터)',
+  cafe: '네이버 카페',
+  openchat: '오픈채팅',
+  instagram: '인스타그램',
+  store: '스마트스토어',
+  other: '기타',
 };

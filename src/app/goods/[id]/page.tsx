@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { GOODS, characterName, findGoods } from '@/lib/data';
 import { COUNTRY_LABEL } from '@/lib/labels';
+import { affiliateUrl, hasAffiliate } from '@/lib/affiliate';
 import { SafeImage } from '@/components/SafeImage';
 import { Tag } from '@/components/Tag';
 
@@ -41,10 +42,17 @@ export default async function GoodsDetailPage({ params }: PageProps) {
             )}
           </dl>
           <div style={{ marginTop: 14 }}>
-            <a className="btn" href={g.buyUrl} target="_blank" rel="noopener noreferrer">구매 페이지로 이동 ↗</a>
+            <a className="btn" href={affiliateUrl(g.buyUrl)} target="_blank" rel="nofollow sponsored noopener noreferrer">구매 페이지로 이동 ↗</a>
           </div>
         </div>
       </div>
+      {hasAffiliate && (
+        <div className="notice">
+          이 페이지의 구매 링크에는 제휴 코드가 붙어 있어, 구매가 이뤄지면 사이트 운영자가 수수료를 받습니다.
+          구매자가 내는 금액은 달라지지 않습니다.
+        </div>
+      )}
+
       <section className="panel">
         <h2>출처</h2>
         <ul>{g.sources.map((s) => <li key={s}><a href={s} target="_blank" rel="noopener noreferrer" style={{ wordBreak: 'break-all', textDecoration: 'underline' }}>{s}</a></li>)}</ul>

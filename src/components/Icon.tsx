@@ -3,7 +3,7 @@ interface IconProps {
   size?: number;
 }
 
-export type IconName = 'home' | 'character' | 'online' | 'offline' | 'goods';
+export type IconName = 'home' | 'character' | 'online' | 'offline' | 'goods' | 'groupbuy';
 
 const PATHS: Record<IconName, React.ReactNode> = {
   home: (
@@ -33,6 +33,13 @@ const PATHS: Record<IconName, React.ReactNode> = {
     <>
       <path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" />
       <circle cx="12" cy="10" r="2.6" />
+    </>
+  ),
+  groupbuy: (
+    <>
+      <path d="M5 8h14l-1 12H6z" />
+      <path d="M9 8V6a3 3 0 0 1 6 0v2" />
+      <path d="M9.5 12.5h5" />
     </>
   ),
   goods: (

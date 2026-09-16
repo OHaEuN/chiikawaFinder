@@ -22,6 +22,7 @@ pnpm scrape   # 치이카와 마켓 신상 굿즈 갱신
 | `src/data/online.json` | 만화 · 애니 · 나가노 작가 작품을 볼 수 있는 경로와 링크 | 72건 |
 | `src/data/places.json` | 한국 · 일본의 팝업, 매장, 카페, 콜라보 식당 (위경도 포함) | 50곳 |
 | `src/data/goods.json` | 최근 6개월 굿즈. `cm-` 접두사는 스크래퍼가 채우고 나머지는 수동 | 2,007건 |
+| `src/data/groupbuy.json` | 진행 중인 공동구매 정보 | 수집 중 |
 | `src/types/` | 네 데이터셋의 도메인 타입 | |
 | `scripts/scrape.mjs` | 치이카와 마켓 신상 수집 | |
 | `scripts/download-images.mjs` | 인물·장소 이미지를 `public/images` 로 내려받고 JSON을 로컬 경로로 교체 | |
@@ -49,3 +50,14 @@ pnpm scrape   # 치이카와 마켓 신상 굿즈 갱신
 
 Leaflet + OpenStreetMap 타일을 씁니다. API 키가 필요 없습니다.
 기본 타일은 채도가 높아 `.leaflet-tile-pane` 에 CSS 필터를 걸어 파스텔 톤에 맞췄습니다.
+
+## 수익화
+
+`src/lib/affiliate.ts` 가 외부 구매 링크에 제휴 파라미터를 붙입니다.
+제휴 ID는 `.env.example` 의 환경변수로 주입하고, 값이 없으면 원래 링크를 그대로 내보냅니다.
+승인받은 프로그램만 채우면 되고, 하나라도 채워지면 굿즈 상세에 제휴 고지가 자동으로 뜹니다.
+
+`docs/monetization.md` 에 제휴 프로그램 조건과 국내 공동구매 실태 조사를 정리합니다.
+
+공동구매는 정보를 모아 보여주기만 합니다. 결제와 배송에 관여하지 않으므로
+통신판매중개자 책임 범위가 좁고, 통관·상표권 문제를 피할 수 있습니다.
