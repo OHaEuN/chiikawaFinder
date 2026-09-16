@@ -1,0 +1,591 @@
+- generic [ref=f1e2]:
+  - link [ref=f1e4] [cursor=pointer]:
+    - /url: index.html
+  - generic [ref=f1e6]:
+    - heading "ちいかわ公式総合情報サイト" [level=2] [ref=f1e8]
+    - generic [ref=f1e9]:
+      - article [ref=f1e10]:
+        - link [ref=f1e11] [cursor=pointer]:
+          - /url: https://online-kuji.chiikawamarket.jp/store/lottery/kurimanju
+        - heading [level=3] [ref=f1e13]:
+          - link "くりまんじゅうだらけくじ" [ref=f1e14] [cursor=pointer]:
+            - /url: https://online-kuji.chiikawamarket.jp/store/lottery/kurimanju
+        - paragraph [ref=f1e15]: 9/24(木)11:00～10/1(木)23:59
+      - article [ref=f1e16]:
+        - link [ref=f1e17] [cursor=pointer]:
+          - /url: https://chiikawamarket.jp/
+        - heading "WEBショップ" [level=3] [ref=f1e19]
+        - paragraph [ref=f1e20]:
+          - link "「ちいかわマーケット」" [ref=f1e21] [cursor=pointer]:
+            - /url: https://chiikawamarket.jp/
+      - article [ref=f1e22]:
+        - link [ref=f1e23] [cursor=pointer]:
+          - /url: ck_land.html
+        - heading [level=3] [ref=f1e25]:
+          - link "ちいかわらんど(常設店)" [ref=f1e26] [cursor=pointer]:
+            - /url: ck_land.html
+        - paragraph [ref=f1e27]: ちいかわらんど(常設店)各地にオープン！
+      - article [ref=f1e28]:
+        - link [ref=f1e29] [cursor=pointer]:
+          - /url: p21/tenpo/index.html
+        - heading [level=3] [ref=f1e31]:
+          - link "ちいかわグッズ・取扱い店舗情報" [ref=f1e32] [cursor=pointer]:
+            - /url: p21/tenpo/index.html
+        - paragraph [ref=f1e33]: ちいかわグッズ 続々登場！
+      - article [ref=f1e34]:
+        - link [ref=f1e35] [cursor=pointer]:
+          - /url: magical_s.html
+          - img "まじかるちいかわストア" [ref=f1e36]
+        - heading [level=3] [ref=f1e38]:
+          - link "まじかるちいかわストア(常設店)" [ref=f1e39] [cursor=pointer]:
+            - /url: magical_s.html
+        - paragraph [ref=f1e40]: まじかるちいかわストア(常設店)各地にオープン！
+      - article [ref=f1e41]:
+        - link [ref=f1e42] [cursor=pointer]:
+          - /url: ramenbuta.html
+        - heading [level=3] [ref=f1e44]:
+          - link "ちいかわラーメン 豚" [ref=f1e45] [cursor=pointer]:
+            - /url: ramenbuta.html
+        - paragraph [ref=f1e46]: 全国各地で期間限定ラーメン 豚を開催しています！
+      - article [ref=f1e47]:
+        - link [ref=f1e48] [cursor=pointer]:
+          - /url: cafe.html
+        - heading [level=3] [ref=f1e50]:
+          - link "ちいかわカフェ" [ref=f1e51] [cursor=pointer]:
+            - /url: cafe.html
+        - paragraph [ref=f1e52]: 全国各地で期間限定カフェを開催しています！
+      - article [ref=f1e53]:
+        - link [ref=f1e54] [cursor=pointer]:
+          - /url: s_fes.html
+          - img "シーサーのおみやげやさん" [ref=f1e55]
+        - heading [level=3] [ref=f1e57]:
+          - link "シーサーのおみやげやさん" [ref=f1e58] [cursor=pointer]:
+            - /url: s_fes.html
+        - paragraph [ref=f1e59]: シーサーのおみやげやさん(常設店)沖縄にオープン！
+      - article [ref=f1e60]:
+        - link [ref=f1e61] [cursor=pointer]:
+          - /url: https://www.anime-chiikawa.jp/
+          - img "ちいかわ アニメ公式サイト" [ref=f1e62]
+        - heading [level=3] [ref=f1e64]:
+          - link "ちいかわ アニメ公式サイト" [ref=f1e65] [cursor=pointer]:
+            - /url: https://www.anime-chiikawa.jp/
+        - paragraph [ref=f1e66]: 2022年4月4日(月)スタートフジテレビ系列「めざましテレビ」内にて
+      - article [ref=f1e67]:
+        - link [ref=f1e68] [cursor=pointer]:
+          - /url: https://chiikawa.toho-movie.jp/
+          - img "映画ちいかわ 人魚の島のひみつ" [ref=f1e69]
+        - heading [level=3] [ref=f1e71]:
+          - link "映画ちいかわ 人魚の島のひみつ" [ref=f1e72] [cursor=pointer]:
+            - /url: https://chiikawa.toho-movie.jp/
+        - paragraph [ref=f1e73]: 2026年7月24日(金)～公開決定！
+      - article [ref=f1e74]:
+        - link [ref=f1e75] [cursor=pointer]:
+          - /url: p26/ck_movie/index.html
+          - img "映画ちいかわグッズ・取扱い店舗情報" [ref=f1e76]
+        - heading [level=3] [ref=f1e78]:
+          - link "映画ちいかわグッズ・取扱い店舗情報" [ref=f1e79] [cursor=pointer]:
+            - /url: p26/ck_movie/index.html
+        - paragraph [ref=f1e80]: 2026年7月10日(金)～ちいかわグッズ 続々登場！
+      - article [ref=f1e81]:
+        - link [ref=f1e82] [cursor=pointer]:
+          - /url: mck_cafe.html
+          - img "映画ちいかわ 人魚の島のひみつ Collaboration CAFE" [ref=f1e83]
+        - heading [level=3] [ref=f1e85]:
+          - link "映画ちいかわ 人魚の島のひみつ Collaboration CAFE" [ref=f1e86] [cursor=pointer]:
+            - /url: mck_cafe.html
+            - text: 映画ちいかわ 人魚の島のひみつCollaboration CAFE
+        - paragraph [ref=f1e87]: 2026年7月10日(金)～東京・大阪で開催！
+      - article [ref=f1e88]:
+        - link [ref=f1e89] [cursor=pointer]:
+          - /url: p26/mck_scpus/index.html
+          - img "映画ちいかわ 人魚の島のひみつ POP UP STORE" [ref=f1e90]
+        - heading [level=3] [ref=f1e92]:
+          - link "映画ちいかわ 人魚の島のひみつ POP UP STORE" [ref=f1e93] [cursor=pointer]:
+            - /url: p26/mck_scpus/index.html
+            - text: 映画ちいかわ 人魚の島のひみつPOP UP STORE
+        - paragraph [ref=f1e94]: 2026年7月10日(金)～各催事場にて開催！
+      - article [ref=f1e95]:
+        - link [ref=f1e96] [cursor=pointer]:
+          - /url: https://www.sunflower.co.jp/lp/chiikawa/
+          - img "ちいかわ×さんふらわあ" [ref=f1e97]
+        - heading [level=3] [ref=f1e99]:
+          - link "ちいかわ×さんふらわあ ちいかわとのんびり船旅" [ref=f1e100] [cursor=pointer]:
+            - /url: https://www.sunflower.co.jp/lp/chiikawa/
+            - text: ちいかわ×さんふらわあちいかわとのんびり船旅
+        - paragraph [ref=f1e101]: 2026年8月6日(木)～10月31日(土)「映画ちいかわ」とのスペシャルコラボを開催！
+      - article [ref=f1e102]:
+        - link [ref=f1e103] [cursor=pointer]:
+          - /url: https://www.ana.co.jp/ja/jp/domestic/theme/chiikawa-jet/
+          - img "ちいかわ おばけの森" [ref=f1e104]
+        - heading [level=3] [ref=f1e106]:
+          - link "ちいかわ × ANA" [ref=f1e107] [cursor=pointer]:
+            - /url: https://www.ana.co.jp/ja/jp/domestic/theme/chiikawa-jet/
+        - paragraph [ref=f1e108]: ちいかわとANAのコラボレーションが決定！
+      - article [ref=f1e109]:
+        - link [ref=f1e110] [cursor=pointer]:
+          - /url: https://www.fujitv.co.jp/chiikawa_odaiba/
+          - img "ちいかわ おばけの森" [ref=f1e111]
+        - heading [level=3] [ref=f1e113]:
+          - link "お台場ファンライジング ちいかわ おばけの森" [ref=f1e114] [cursor=pointer]:
+            - /url: https://www.fujitv.co.jp/chiikawa_odaiba/
+            - text: お台場ファンライジングちいかわ おばけの森
+        - paragraph [ref=f1e115]: 2026年7月25日(土)～8月23日(日)フジテレビ本社屋 22Fにて開催！
+      - article [ref=f1e116]:
+        - link [ref=f1e117] [cursor=pointer]:
+          - /url: pus.html
+          - img "ちいかわPOP UP STORE" [ref=f1e118]
+        - heading [level=3] [ref=f1e120]:
+          - link "ちいかわPOP UP STORE" [ref=f1e121] [cursor=pointer]:
+            - /url: pus.html
+        - paragraph [ref=f1e122]: 全国各地で期間限定ショップを開催しています！
+      - article [ref=f1e123]:
+        - link [ref=f1e124] [cursor=pointer]:
+          - /url: https://www.chiikawamogumogu.jp
+          - img "ちいかわ もぐもぐ本舗" [ref=f1e125]
+        - heading [level=3] [ref=f1e127]:
+          - link "ちいかわもぐもぐ本舗" [ref=f1e128] [cursor=pointer]:
+            - /url: https://www.chiikawamogumogu.jp
+        - paragraph [ref=f1e129]: 2025年2月20日(木)～ちいかわもぐもぐ本舗2号店が川越にオープン！
+      - article [ref=f1e130]:
+        - link [ref=f1e131] [cursor=pointer]:
+          - /url: https://www.chiikawamogumogu.jp/stores/castella/
+          - img "ちいかわベビーカステラ" [ref=f1e132]
+        - heading [level=3] [ref=f1e134]:
+          - link "ちいかわベビーカステラ" [ref=f1e135] [cursor=pointer]:
+            - /url: https://www.chiikawamogumogu.jp/stores/castella/
+        - paragraph [ref=f1e136]: 2026年7月18日(土)～ちいかわもぐもぐ本舗 小樽店にオープン！
+      - article [ref=f1e137]:
+        - link [ref=f1e138] [cursor=pointer]:
+          - /url: https://www.chiikawa-yaki.com/
+          - img "ちいかわ焼き" [ref=f1e139]
+        - heading [level=3] [ref=f1e141]:
+          - link "ちいかわ焼き" [ref=f1e142] [cursor=pointer]:
+            - /url: https://www.chiikawa-yaki.com/
+        - paragraph [ref=f1e143]: 2026年3月17日(火)～名古屋PARCOにオープン！
+      - article [ref=f1e144]:
+        - link [ref=f1e145] [cursor=pointer]:
+          - /url: https://chiikawabakery.jp
+          - img "ちいかわベーカリー" [ref=f1e146]
+        - heading [level=3] [ref=f1e148]:
+          - link "ちいかわベーカリー" [ref=f1e149] [cursor=pointer]:
+            - /url: https://chiikawabakery.jp
+        - paragraph [ref=f1e150]: 2024年10月29日(火)～ちいかわのパン屋さんが表参道にオープン！
+      - article [ref=f1e151]:
+        - link [ref=f1e152] [cursor=pointer]:
+          - /url: https://chiikawapark-tokyo.jp/
+          - img "ちいかわパーク" [ref=f1e153]
+        - heading [level=3] [ref=f1e155]:
+          - link "ちいかわパーク" [ref=f1e156] [cursor=pointer]:
+            - /url: https://chiikawapark-tokyo.jp/
+        - paragraph [ref=f1e157]: 2025年7月28日(月)～初の大型体験型施設が2025年東京にオープン！
+      - article [ref=f1e158]:
+        - link [ref=f1e159] [cursor=pointer]:
+          - /url: ck_w/taipei/index.html
+          - img "CHIIKAWA SHOP in TAIPEI" [ref=f1e160]
+        - heading [level=3] [ref=f1e162]:
+          - link "CHIIKAWA SHOP in TAIPEI" [ref=f1e163] [cursor=pointer]:
+            - /url: ck_w/taipei/index.html
+        - paragraph [ref=f1e164]: 2025年12月27日(土)～台北市中山區長安西路19號にオープン！
+      - article [ref=f1e165]:
+        - link [ref=f1e166] [cursor=pointer]:
+          - /url: https://www.tokyo-skytree.jp/event/special/chiikawa/
+          - img "ちいかわ☆星ふるスカイツリー®とひみつの島" [ref=f1e167]
+        - heading [level=3] [ref=f1e169]:
+          - link "ちいかわ☆星ふるスカイツリー®と ひみつの島" [ref=f1e170] [cursor=pointer]:
+            - /url: https://www.tokyo-skytree.jp/event/special/chiikawa/
+            - text: ちいかわ☆星ふるスカイツリー®とひみつの島
+        - paragraph [ref=f1e171]: 2026年7月10日(金)～10月31日(土)「映画ちいかわ」公開を記念したコラボイベント開催！
+      - article [ref=f1e172]:
+        - link [ref=f1e173] [cursor=pointer]:
+          - /url: https://www.donki.com/products/chiikawa_sl6/
+          - img "ちいかわ×ドン・キホーテ" [ref=f1e174]
+        - heading [level=3] [ref=f1e176]:
+          - link "ちいかわ×ドン・キホーテ" [ref=f1e177] [cursor=pointer]:
+            - /url: https://www.donki.com/products/chiikawa_sl6/
+        - paragraph [ref=f1e178]: 2026年6月6日(土)～ドン・キホーテ限定『ちいかわ』グッズ発売決定！
+      - article [ref=f1e179]:
+        - link [ref=f1e180] [cursor=pointer]:
+          - /url: p26/ck_tokyo/index.html
+          - img "Chiikawa Baby" [ref=f1e181]
+        - heading [level=3] [ref=f1e183]:
+          - link "トーキョーちいかわ POP UP SHOP" [ref=f1e184] [cursor=pointer]:
+            - /url: p26/ck_tokyo/index.html
+        - paragraph [ref=f1e185]: 2026年2月6日(金)～各催事場にて開催！
+      - article [ref=f1e186]:
+        - link [ref=f1e187] [cursor=pointer]:
+          - /url: ckbaby.html
+          - img "Chiikawa Baby" [ref=f1e188]
+        - heading [level=3] [ref=f1e190]:
+          - link "Chiikawa Baby" [ref=f1e191] [cursor=pointer]:
+            - /url: ckbaby.html
+        - paragraph [ref=f1e192]: 全国各地にて開催！
+      - article [ref=f1e193]:
+        - link [ref=f1e194] [cursor=pointer]:
+          - /url: ck_pocket.html
+          - img "ちいかわぽけっと POP UP STORE" [ref=f1e195]
+        - heading [level=3] [ref=f1e197]:
+          - link "ちいかわぽけっと POP UP STORE" [ref=f1e198] [cursor=pointer]:
+            - /url: ck_pocket.html
+            - text: ちいかわぽけっとPOP UP STORE
+        - paragraph [ref=f1e199]: 2026年8月21日(金)～各催事場にて開催！
+      - article [ref=f1e200]:
+        - link [ref=f1e201] [cursor=pointer]:
+          - /url: ck_pocket_summerfes2026/index.html
+          - img "ちいぽけ夏まつり 2026" [ref=f1e202]
+        - heading [level=3] [ref=f1e204]:
+          - link "ちいぽけ夏まつり 2026" [ref=f1e205] [cursor=pointer]:
+            - /url: ck_pocket_summerfes2026/index.html
+        - paragraph [ref=f1e206]: 『ちいぽけ』が全国各地の夏まつりに登場！
+      - article [ref=f1e207]:
+        - link [ref=f1e208] [cursor=pointer]:
+          - /url: chiikawa_happybag26/index.html
+          - img "ちいかわ ハッピーバッグ2026(午年)" [ref=f1e209]
+        - heading [level=3] [ref=f1e211]:
+          - link "ちいかわ ハッピーバッグ2026(午年)" [ref=f1e212] [cursor=pointer]:
+            - /url: chiikawa_happybag26/index.html
+        - paragraph [ref=f1e213]: ちいかわ ハッピーバッグだけの、限定アイテムがもりだくさん！！
+      - article [ref=f1e214]:
+        - link [ref=f1e215] [cursor=pointer]:
+          - /url: p25/ck_sanrio/index.html
+          - img "Chiikawa×Sanrio characters POP-UP SHOP" [ref=f1e216]
+        - heading [level=3] [ref=f1e218]:
+          - link "Chiikawa×Sanrio characters POP-UP SHOP" [ref=f1e219] [cursor=pointer]:
+            - /url: p25/ck_sanrio/index.html
+            - text: Chiikawa×Sanrio charactersPOP-UP SHOP
+        - paragraph [ref=f1e220]: 2025年12月12日(金)～各催事場にて開催！
+      - article [ref=f1e221]:
+        - link [ref=f1e222] [cursor=pointer]:
+          - /url: p25/orion_ck/index.html
+          - img "ちいかわ×オリオンビール" [ref=f1e223]
+        - heading [level=3] [ref=f1e225]:
+          - link "ちいかわ×オリオンビール" [ref=f1e226] [cursor=pointer]:
+            - /url: p25/orion_ck/index.html
+        - paragraph [ref=f1e227]: ちいかわ×オリオンビールのコラボグッズが登場！
+      - article [ref=f1e228]:
+        - link [ref=f1e229] [cursor=pointer]:
+          - /url: ck_sushi.html
+          - img "むちゃうま!!ちいかわ寿司" [ref=f1e230]
+        - heading [level=3] [ref=f1e232]:
+          - link "むちゃうま!!ちいかわ寿司" [ref=f1e233] [cursor=pointer]:
+            - /url: ck_sushi.html
+        - paragraph [ref=f1e234]: 各催事場にて開催！
+      - article [ref=f1e235]:
+        - link [ref=f1e236] [cursor=pointer]:
+          - /url: p25/ck_mlb/index.html
+          - img "CHIIKAWA×MLB TOKYO SERIES 2025" [ref=f1e237]
+        - heading [level=3] [ref=f1e239]:
+          - link "CHIIKAWA×MLB TOKYO SERIES 2025" [ref=f1e240] [cursor=pointer]:
+            - /url: p25/ck_mlb/index.html
+        - paragraph [ref=f1e241]: 2025年3月8日(土)～各催事場にて開催！
+      - article [ref=f1e242]:
+        - link [ref=f1e243] [cursor=pointer]:
+          - /url: p24/tokyo_miyage/index.html
+          - img "ちいかわ 東京みやげ POP UP SHOP" [ref=f1e244]
+        - heading [level=3] [ref=f1e246]:
+          - link "【終了】ちいかわ 東京みやげ POP UP SHOP" [ref=f1e247] [cursor=pointer]:
+            - /url: p24/tokyo_miyage/index.html
+            - text: 【終了】ちいかわ 東京みやげPOP UP SHOP
+        - paragraph [ref=f1e248]: 2024年12月26日(木)～2026年1月31日(土)各催事場にて開催！
+      - article [ref=f1e249]:
+        - link [ref=f1e250] [cursor=pointer]:
+          - /url: https://jp.chiikawa-pocket.com/ja/
+          - img "ちいかわぽけっと" [ref=f1e251]
+        - heading [level=3] [ref=f1e253]:
+          - link "ちいかわぽけっと" [ref=f1e254] [cursor=pointer]:
+            - /url: https://jp.chiikawa-pocket.com/ja/
+        - paragraph [ref=f1e255]: 「ちいかわ」がスマートフォンアプリになって登場！
+      - article [ref=f1e256]:
+        - link [ref=f1e257] [cursor=pointer]:
+          - /url: chiikawa_happybag25/index.html
+          - img "ちいかわ ハッピーバッグ2025(巳年)" [ref=f1e258]
+        - heading [level=3] [ref=f1e260]:
+          - link "【終了】ちいかわ ハッピーバッグ2025(巳年)" [ref=f1e261] [cursor=pointer]:
+            - /url: chiikawa_happybag25/index.html
+        - paragraph [ref=f1e262]: ちいかわ ハッピーバッグだけの、限定アイテムがもりだくさん！！
+      - article [ref=f1e263]:
+        - link [ref=f1e264] [cursor=pointer]:
+          - /url: https://collection.rakuten.co.jp/feature/chiikawa_jleague/
+          - img "ちいかわ×Ｊリーグ" [ref=f1e265]
+        - heading [level=3] [ref=f1e267]:
+          - link "ちいかわ×Ｊリーグ" [ref=f1e268] [cursor=pointer]:
+            - /url: https://collection.rakuten.co.jp/feature/chiikawa_jleague/
+        - paragraph [ref=f1e269]: ちいかわと「J1」全20クラブのコラボレーションが決定！
+      - article [ref=f1e270]:
+        - link [ref=f1e271] [cursor=pointer]:
+          - /url: chiikawa_happybag24/index.html
+          - img "ちいかわ ハッピーバッグ2024(辰年)" [ref=f1e272]
+        - heading [level=3] [ref=f1e274]:
+          - link "【終了】ちいかわ ハッピーバッグ2024(辰年)" [ref=f1e275] [cursor=pointer]:
+            - /url: chiikawa_happybag24/index.html
+        - paragraph [ref=f1e276]: ちいかわ ハッピーバッグだけの、限定アイテムがもりだくさん！！ちいかわマーケット(公式通販)で発売！
+      - article [ref=f1e277]:
+        - link [ref=f1e278] [cursor=pointer]:
+          - /url: p23/cho-magical/index.html
+          - img "超まじかるちいかわ 東京駅・梅田" [ref=f1e279]
+        - heading [level=3] [ref=f1e281]:
+          - link "【終了】超まじかるちいかわ 東京駅・梅田" [ref=f1e282] [cursor=pointer]:
+            - /url: p23/cho-magical/index.html
+        - paragraph [ref=f1e283]: 2023年9月8日(金)～東京・大阪にて開催！
+      - article [ref=f1e284]:
+        - link [ref=f1e285] [cursor=pointer]:
+          - /url: heroaca_chiikawa.html
+          - img "僕のヒーローアカデミア×ちいかわ" [ref=f1e286]
+        - heading [level=3] [ref=f1e288]:
+          - link "【終了】僕のヒーローアカデミア×ちいかわ POP UP STORE" [ref=f1e289] [cursor=pointer]:
+            - /url: heroaca_chiikawa.html
+            - text: 【終了】僕のヒーローアカデミア×ちいかわPOP UP STORE
+        - paragraph [ref=f1e290]: 2023年8月25日(金)～全国8か所にて、期間限定ショップを開催！
+      - article [ref=f1e291]:
+        - link [ref=f1e292] [cursor=pointer]:
+          - /url: ck_minishop/index.html
+          - img "ちいかわ mini shop ロフト21店舗" [ref=f1e293]
+        - heading [level=3] [ref=f1e295]:
+          - link "【終了】ちいかわ mini shop ロフト21店舗" [ref=f1e296] [cursor=pointer]:
+            - /url: ck_minishop/index.html
+        - paragraph [ref=f1e297]: 2023年8月2日(水)～2024年5月8日(水)ロフト21店舗にて開催！
+      - article [ref=f1e298]:
+        - link [ref=f1e299] [cursor=pointer]:
+          - /url: https://www.hankyu.co.jp/area_info/chiikawa_hankyu2023/
+          - img "ちいかわ×阪急電車" [ref=f1e300]
+        - heading [level=3] [ref=f1e302]:
+          - link "【終了】ちいかわ×阪急電車" [ref=f1e303] [cursor=pointer]:
+            - /url: https://www.hankyu.co.jp/area_info/chiikawa_hankyu2023/
+        - paragraph [ref=f1e304]: 2023年8月4日(金)～2024年3月28日(木)装飾列車の運行、コラボグッズの発売など盛りだくさん！
+      - article [ref=f1e305]:
+        - link [ref=f1e306] [cursor=pointer]:
+          - /url: p23/ck_aquarium2/index.html
+          - img "ちいかわ 水族館" [ref=f1e307]
+        - heading [level=3] [ref=f1e309]:
+          - link "ちいかわ 水族館 第二弾" [ref=f1e310] [cursor=pointer]:
+            - /url: p23/ck_aquarium2/index.html
+        - paragraph [ref=f1e311]: 2023年6月23日(金)～各催事場にて、ちいかわ水族館 第二弾 開催！
+      - article [ref=f1e312]:
+        - link [ref=f1e313] [cursor=pointer]:
+          - /url: p23/ck_aquarium/index.html
+          - img "ちいかわ 水族館" [ref=f1e314]
+        - heading [level=3] [ref=f1e316]:
+          - link "【終了】ちいかわ 水族館" [ref=f1e317] [cursor=pointer]:
+            - /url: p23/ck_aquarium/index.html
+        - paragraph [ref=f1e318]: 2023年4月15日(土)～4月23日(日)各催事場にて、ちいかわ水族館開催！
+      - article [ref=f1e319]:
+        - link [ref=f1e320] [cursor=pointer]:
+          - /url: tenshi_akuma.html
+          - img "ちいかわ てんし♡あくま" [ref=f1e321]
+        - heading [level=3] [ref=f1e323]:
+          - link "ちいかわ てんし♡あくま" [ref=f1e324] [cursor=pointer]:
+            - /url: tenshi_akuma.html
+        - paragraph [ref=f1e325]: 全国各地で期間限定ショップを開催しています！
+      - article [ref=f1e326]:
+        - link [ref=f1e327] [cursor=pointer]:
+          - /url: https://www.softbankhawks.co.jp/news/detail/202300311983.html
+          - img "ちいかわ×阪神タイガース" [ref=f1e328]
+        - heading [level=3] [ref=f1e330]:
+          - link "ちいかわ ホークス" [ref=f1e331] [cursor=pointer]:
+            - /url: https://www.softbankhawks.co.jp/news/detail/202300311983.html
+        - paragraph [ref=f1e332]: ちいかわとホークスのコラボが決定！
+      - article [ref=f1e333]:
+        - link [ref=f1e334] [cursor=pointer]:
+          - /url: https://www.eposcard.co.jp/gecard/chiikawa/index.html?utm_source=other&utm_medium=referral&utm_campaign=chiikawainfo_250221
+          - img "ちいかわ×エポスカード" [ref=f1e335]
+        - heading [level=3] [ref=f1e337]:
+          - link "ちいかわ×エポスカード" [ref=f1e338] [cursor=pointer]:
+            - /url: https://www.eposcard.co.jp/gecard/chiikawa/index.html?utm_source=other&utm_medium=referral&utm_campaign=chiikawainfo_250221
+        - paragraph [ref=f1e339]: 2021年10月29日(金)～「ちいかわ エポスカード」発行スタート！
+      - article [ref=f1e340]:
+        - link [ref=f1e341] [cursor=pointer]:
+          - /url: tenrankai.html
+        - heading [level=3] [ref=f1e343]:
+          - link "ちいかわの森" [ref=f1e344] [cursor=pointer]:
+            - /url: tenrankai.html
+        - paragraph [ref=f1e345]: 全国各地でちいかわの展覧会を開催しています！
+      - article [ref=f1e346]:
+        - link [ref=f1e347] [cursor=pointer]:
+          - /url: wakuwaku.html
+          - img "ちいかわワクワクゆうえんち" [ref=f1e348]
+        - heading [level=3] [ref=f1e350]:
+          - link "ちいかわワクワクゆうえんち" [ref=f1e351] [cursor=pointer]:
+            - /url: wakuwaku.html
+        - paragraph [ref=f1e352]: 全国各地で期間限定ショップを開催しています！
+      - article [ref=f1e353]:
+        - link [ref=f1e354] [cursor=pointer]:
+          - /url: p22/ck_sanrio/newitem221123.html
+          - img "ちいかわ×サンリオキャラクターズ" [ref=f1e355]
+        - heading [level=3] [ref=f1e357]:
+          - link "ちいかわ×サンリオキャラクターズ コラボ商品第二弾" [ref=f1e358] [cursor=pointer]:
+            - /url: p22/ck_sanrio/newitem221123.html
+            - text: ちいかわ×サンリオキャラクターズコラボ商品第二弾
+        - paragraph [ref=f1e359]: ちいかわ×サンリオキャラクターズコラボ商品第二弾が発売！
+      - article [ref=f1e360]:
+        - link [ref=f1e361] [cursor=pointer]:
+          - /url: p22/ck_sanrio/index.html
+          - img "ちいかわ×サンリオキャラクターズ" [ref=f1e362]
+        - heading [level=3] [ref=f1e364]:
+          - link "ちいかわ×サンリオキャラクターズ" [ref=f1e365] [cursor=pointer]:
+            - /url: p22/ck_sanrio/index.html
+        - paragraph [ref=f1e366]: ちいかわ×サンリオキャラクターズコラボ商品が発売！
+      - article [ref=f1e367]:
+        - link [ref=f1e368] [cursor=pointer]:
+          - /url: chiikawa_happybag23/index.html
+          - img "ちいかわPOP UP STORE" [ref=f1e369]
+        - heading [level=3] [ref=f1e371]:
+          - link "【終了】ちいかわ ハッピーバッグ2023(卯年)" [ref=f1e372] [cursor=pointer]:
+            - /url: chiikawa_happybag23/index.html
+        - paragraph [ref=f1e373]: 各店舗でハッピーバッグを販売いたします！
+      - article [ref=f1e374]:
+        - link [ref=f1e375] [cursor=pointer]:
+          - /url: chiikawa_happybag/index.html
+          - img "ちいかわPOP UP STORE" [ref=f1e376]
+        - heading [level=3] [ref=f1e378]:
+          - link "【終了】ちいかわ ハッピーバッグ2022(寅年)" [ref=f1e379] [cursor=pointer]:
+            - /url: chiikawa_happybag/index.html
+        - paragraph [ref=f1e380]: 各店舗でハッピーバッグを販売いたします！
+      - article [ref=f1e381]:
+        - link [ref=f1e382] [cursor=pointer]:
+          - /url: p22/magical/index.html
+          - img "まじかるちいかわ" [ref=f1e383]
+        - heading [level=3] [ref=f1e385]:
+          - link "【終了】まじかるちいかわ" [ref=f1e386] [cursor=pointer]:
+            - /url: p22/magical/index.html
+        - paragraph [ref=f1e387]: 2022年8月19日(金)～9月1日(木)東京駅一番街B1 東京キャラクターストリートいちばんプラザにて開催！
+      - article [ref=f1e388]:
+        - link [ref=f1e389] [cursor=pointer]:
+          - /url: p22/chiikawa_camp/index.html
+          - img "PARCOとちいかわのG.W. PARCO to Chiikawa no Campaign POP UP STORE" [ref=f1e390]
+        - heading [level=3] [ref=f1e392]:
+          - link "【終了】PARCOとちいかわのG.W. PARCO to Chiikawa no Campaign POP UP STORE" [ref=f1e393] [cursor=pointer]:
+            - /url: p22/chiikawa_camp/index.html
+            - text: 【終了】PARCOとちいかわのG.W. PARCO to Chiikawa no CampaignPOP UP STORE
+        - paragraph [ref=f1e394]: 2022年4月28日(木)～5月8日(日)パルコ8会場にて開催！
+      - article [ref=f1e395]:
+        - link [ref=f1e396] [cursor=pointer]:
+          - /url: p22/kankou_station/index.html
+          - img "ちいかわ観光ステーション" [ref=f1e397]
+        - heading [level=3] [ref=f1e399]:
+          - link "【終了】ちいかわ観光ステーション" [ref=f1e400] [cursor=pointer]:
+            - /url: p22/kankou_station/index.html
+        - paragraph [ref=f1e401]: 2022年2月11日(金祝)～2月24日(木)東京駅一番街B1いちばんプラザにて開催！
+      - article [ref=f1e402]:
+        - link [ref=f1e403] [cursor=pointer]:
+          - /url: p22/chiikawa_japan/index.html
+          - img "ちいかわ×阪神タイガース" [ref=f1e404]
+        - heading [level=3] [ref=f1e406]:
+          - link "ちいかわ サッカー日本代表ver." [ref=f1e407] [cursor=pointer]:
+            - /url: p22/chiikawa_japan/index.html
+        - paragraph [ref=f1e408]: 2022年1月15日(土)からちいかわ サッカー日本代表ver.のグッズ発売決定！
+      - article [ref=f1e409]:
+        - link [ref=f1e410] [cursor=pointer]:
+          - /url: https://art.parco.jp/shinsaibashi/detail/?id=897
+          - img "ちいかわ×阪神タイガース" [ref=f1e411]
+        - heading [level=3] [ref=f1e413]:
+          - link "【終了】ちいかわ×阪神タイガース" [ref=f1e414] [cursor=pointer]:
+            - /url: https://art.parco.jp/shinsaibashi/detail/?id=897
+        - paragraph [ref=f1e415]: 2021年12月23日(木)～2022年1月5日(水)心斎橋PARCOにて期間限定ショップを開催！
+      - article [ref=f1e416]:
+        - link [ref=f1e417] [cursor=pointer]:
+          - /url: p21/t_o/index.html
+          - img "ちいかわPOP UP SHOP" [ref=f1e418]
+        - heading [level=3] [ref=f1e420]:
+          - link "【終了】ちいかわPOP UP SHOP" [ref=f1e421] [cursor=pointer]:
+            - /url: p21/t_o/index.html
+        - paragraph [ref=f1e422]: 2021年東京(2月)と大阪(3月)で期間限定開催決定！
+  - generic [ref=f1e424]:
+    - generic [ref=f1e425]:
+      - link "Tweets by chiikawa_market" [ref=f1e429] [cursor=pointer]:
+        - /url: https://twitter.com/chiikawa_market?ref_src=twsrc%5Etfw
+      - iframe [ref=f1e434]:
+        - list [ref=f2e3]:
+          - listitem [ref=f2e4]:
+            - link "🌰#くりまんじゅう だらけくじ🌰いよいよ9/24(木)1..." [ref=f2e7] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/ib/18094818791432913/?src=k2Rv5b92
+              - figure [ref=f2e9]:
+                - img "#くりまんじゅう だらけくじいよいよ9/24(木)11時よりスタートビール日本酒 二日酔い…ときには禁酒な のんべぇくじいろんなくりまんじゅうが 大集合◎10連には 特..." [ref=f2e10]
+          - listitem [ref=f2e14]:
+            - 'link "＼✅会員＆LINEおともだち限定くじ✅／ #ちいかわ..." [ref=f2e17] [cursor=pointer]':
+              - /url: https://snapwidget.com/v/ib/17875756047564208/?src=k2Rv5b92
+              - figure [ref=f2e18]:
+                - img "＼会員＆LINEおともだち限定くじ／#ちいかわくじ で「くりまんじゅう」だらけな壁紙があたる無料くじを開催中#ちいかわマーケット 会員かLINEで おともだちにな..." [ref=f2e19]
+          - listitem [ref=f2e23]:
+            - link "🌼#ちいかわくじ 新商品🌼 『#くりまんじゅう だ..." [ref=f2e26] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/ib/17948917650296361/?src=k2Rv5b92
+              - figure [ref=f2e27]:
+                - img "#ちいかわくじ 新商品『#くりまんじゅう だらけくじ』1回1,100円(税込)販売期間：9/24(木)11:00～10/1(木)23:59お届け予定：2027年2月下旬頃より順次じっくり、..." [ref=f2e28]
+          - listitem [ref=f2e32]:
+            - link "うォごうォご むぐッむぐッ たのしみに お待ち..." [ref=f2e35] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/ib/18091067588422622/?src=k2Rv5b92
+              - figure [ref=f2e37]:
+                - 'img "うォごうォごむぐッむぐッたのしみに お待ちください#ちいかわ #chiikawa #ちいかわマーケット" [ref=f2e38]'
+          - listitem [ref=f2e42]:
+            - 'link "ゴクッッ ハーッ… まもなく おしらせ🍺 #ちいか..." [ref=f2e45] [cursor=pointer]':
+              - /url: https://snapwidget.com/v/ib/18213892519361084/?src=k2Rv5b92
+              - figure [ref=f2e47]:
+                - 'img "ゴクッッハーッ…まもなく おしらせ#ちいかわ #chiikawa #ちいかわマーケット" [ref=f2e48]'
+          - listitem [ref=f2e52]:
+            - link "スマホを推しデコ📱♡ ステッカーに マスコット お..." [ref=f2e55] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/ib/18009266438766560/?src=k2Rv5b92
+              - figure [ref=f2e56]:
+                - img "スマホを推しデコステッカーに マスコットお気に入りを モリモリぎゅッ・・・と詰め込んで自分だけの 特別な仕様に🫶ご購入はプロフィールURLから商品詳細はコメ..." [ref=f2e57]
+          - listitem [ref=f2e61]:
+            - link "のど カラカラ・・・💦 とりたいよ・・・ 水分・..." [ref=f2e64] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/ib/17868432477649231/?src=k2Rv5b92
+              - figure [ref=f2e66]:
+                - img "のど カラカラ・・・ とりたいよ・・・水分・・・そこに現れた 救世主🥹ゴクッ ゴクッ ゴクッ渇き 癒やされ マスコット『おいしすぎるよッ「水」…ッマスコット..." [ref=f2e67]
+          - listitem [ref=f2e71]:
+            - link "9/18(金)11時から、#ちいかわマーケット で新商..." [ref=f2e74] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/ib/18052824692576393/?src=k2Rv5b92
+              - figure [ref=f2e76]:
+                - img "9/18(金)11時から、#ちいかわマーケット で新商品が発売ラインナップ紹介◆#映画ちいかわ からはプカプカゼンマイフィギュアが登場‍️さらに、水をゴクッ ゴクッ..." [ref=f2e77]
+          - listitem [ref=f2e81]:
+            - link "＼逃げろ～～！！／ 追っかけてくるよッ！！..." [ref=f2e84] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/ib/17891752530655814/?src=k2Rv5b92
+              - figure [ref=f2e86]:
+                - img "＼逃げろ～～！！／ 追っかけてくるよッ！！ セイレーン🧜 ぐんぐん 漕いだら 腕もげちゃう 水 陸 いけちゃう 粋なフィギュア◎ 『 逃げろ～！！プカプカゼンマイ..." [ref=f2e87]
+      - link "Tweets by chiikawa_kouhou" [ref=f1e438] [cursor=pointer]:
+        - /url: https://twitter.com/chiikawa_kouhou?ref_src=twsrc%5Etfw
+      - iframe [ref=f1e443]:
+        - list [ref=f3e3]:
+          - listitem [ref=f3e4]:
+            - link [ref=f3e7] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/sw/18050463370999420
+              - figure [ref=f3e8]:
+                - img "＼モモンガだらけくじ／12月2日(月)より『モモンガだらけくじ』発売となります" [ref=f3e9]
+          - listitem [ref=f3e10]:
+            - link [ref=f3e13] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/sw/18008720204658660
+              - figure [ref=f3e14]:
+                - img "＼パラレルワールド!?／11月22日より新商品が多数登場" [ref=f3e15]
+          - listitem [ref=f3e16]:
+            - link [ref=f3e19] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/sw/18076224118588594
+              - figure [ref=f3e20]:
+                - img "kakao friendsとちいかわのコラボが決定" [ref=f3e21]
+          - listitem [ref=f3e22]:
+            - link [ref=f3e25] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/sw/17957985965824800
+              - figure [ref=f3e26]:
+                - img "＼ ビヒダス × ちいかわ ／ビヒダスヨーグルト4Pシリーズのコラボパッケージが全国のスーパーやドラッグストアなどにて10月21日(月)より順次、販売中です" [ref=f3e27]
+          - listitem [ref=f3e28]:
+            - link [ref=f3e31] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/sw/18062472832662143
+              - figure [ref=f3e32]:
+                - img "＼カプセルトイ発売／ 『ちいかわ アクリルキーホルダー７』選りすぐりのイラストをラインナップした、クリアカラーベースのアクリルキーホルダーに第7弾が登場..." [ref=f3e33]
+          - listitem [ref=f3e34]:
+            - link [ref=f3e37] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/sw/18053404072873970
+              - figure [ref=f3e38]:
+                - img "＼カプセルトイ発売／ 『ちいかわ フィギュアキーホルダー２』個性あふれるポーズのちいかわたちのセリフ付きフィギュアキーホルダーに第2弾が登場" [ref=f3e39]
+          - listitem [ref=f3e40]:
+            - link [ref=f3e43] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/sw/18323761993157367
+              - figure [ref=f3e44]:
+                - img "ちいかわのTmall公式旗艦店「吉伊卡哇旗舰店」本日9月26日OPEN！" [ref=f3e45]
+          - listitem [ref=f3e46]:
+            - link [ref=f3e49] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/sw/17942980490730315
+              - figure [ref=f3e50]:
+                - img "_／ベビースターラーメン丸 古本屋のカレーチャーハン味＼全国のコンビニエンスストアにて発売中です" [ref=f3e51]
+          - listitem [ref=f3e52]:
+            - link [ref=f3e55] [cursor=pointer]:
+              - /url: https://snapwidget.com/v/sw/18005196428631913
+              - figure [ref=f3e56]
+    - list [ref=f1e447]:
+      - listitem [ref=f1e448]: © SPIRALCUTE, INC. All rights reserved.

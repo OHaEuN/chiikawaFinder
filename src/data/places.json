@@ -1,0 +1,1325 @@
+[
+  {
+    "id": "chiikawa-land-tokyo-station",
+    "type": "store",
+    "name": "치이카와 랜드 TOKYO Station점 (ちいかわらんど TOKYO Station점)",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都千代田区丸の内1-9-1 JR東京駅 八重洲北口 地下1階 東京駅一番街 東京キャラクターストリート",
+    "lat": 35.6819033,
+    "lng": 139.7684321,
+    "description": "도쿄역 지하 1층 캐릭터 스트리트 안에 있는 치이카와 공식 숍. 도쿄역 한정 굿즈와 여행 기념품형 상품이 많아 관광객 접근성이 가장 좋다. 2022년 9월 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/chiikawaland/tokyo/",
+    "hours": "10:00~20:30",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land"
+    ]
+  },
+  {
+    "id": "chiikawa-land-harajuku",
+    "type": "store",
+    "name": "치이카와 랜드 하라주쿠점 (ちいかわらんど 하라주쿠점)",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都渋谷区神宮前6-1-9 キデイランド原宿店 내",
+    "lat": 35.6677204,
+    "lng": 139.706537,
+    "description": "키데이랜드 하라주쿠점 안에 위치한 1호 치이카와 랜드. 오모테산도 치이카와 베이커리와 도보 5분 거리라 함께 둘러보기 좋다. 2021년 8월 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/chiikawaland/harajuku/",
+    "hours": "11:00~20:00",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land"
+    ]
+  },
+  {
+    "id": "chiikawa-land-shinjuku",
+    "type": "store",
+    "name": "치이카와 랜드 신주쿠점 (ちいかわらんど 신주쿠점)",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都新宿区新宿3-23-17 オカダヤビル 2F",
+    "lat": 35.6929892,
+    "lng": 139.7008744,
+    "description": "신주쿠 오카다야 빌딩 2층의 상설 매장. 도쿄메트로 신주쿠역 B13 출구 바로 앞으로, 마지카루 치이카와 스토어(신주쿠 마루이)와 가깝다. 2025년 4월 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/ck_land.html",
+    "hours": "10:30~20:30",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land",
+      "https://www.navitime.co.jp/poi?spot=02301-r070057"
+    ]
+  },
+  {
+    "id": "chiikawa-land-ikebukuro",
+    "type": "store",
+    "name": "치이카와 랜드 이케부쿠로 파르코점 (ちいかわらんど 이케부쿠로 파르코점)",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都豊島区南池袋1-28-2 池袋PARCO 本館 B2F",
+    "lat": 35.7308314,
+    "lng": 139.7124039,
+    "description": "이케부쿠로역 동쪽 출구와 직결된 파르코 지하 2층 매장. 같은 건물에 치이카와 레스토랑(7F)·치이카와 라멘 부타(8F)가 있어 '치이카와 성지'로 불린다. 2026년 4월 3일 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/chiikawaland/ikebukuro/",
+    "hours": "11:00~21:00",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land",
+      "https://chiikawa.jp/archives/4451"
+    ]
+  },
+  {
+    "id": "chiikawa-land-solamachi",
+    "type": "store",
+    "name": "치이카와 랜드 도쿄 스카이트리타운 소라마치점 (ちいかわらんど 도쿄 스카이트리타운 소라마치점)",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都墨田区押上1-1-2 東京ソラマチ イーストヤード 3F",
+    "lat": 35.7102358,
+    "lng": 139.8119453,
+    "description": "도쿄 스카이트리 아래 쇼핑몰 소라마치 3층 매장. 2026년 스카이트리 콜라보 이벤트 기간에는 관련 굿즈도 함께 취급한다. 2022년 11월 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/chiikawaland/solamachi/",
+    "hours": "10:00~21:00",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land"
+    ]
+  },
+  {
+    "id": "chiikawa-land-yokohama",
+    "type": "store",
+    "name": "치이카와 랜드 마루이시티 요코하마점 (ちいかわらんど 마루이시티 요코하마점)",
+    "country": "JP",
+    "city": "요코하마",
+    "address": "神奈川県横浜市西区高島2-19-12 マルイシティ横浜 8F",
+    "lat": 35.4648038,
+    "lng": 139.6248408,
+    "description": "요코하마역 동쪽 출구 마루이시티 8층 매장. 미나토미라이의 치이카와야키(요코하마 월드포터스)와 묶어 방문하기 좋다. 2023년 7월 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-information.jp/chiikawaland/yokohama/",
+    "hours": "10:30~20:30",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land"
+    ]
+  },
+  {
+    "id": "chiikawa-land-koshigaya",
+    "type": "store",
+    "name": "치이카와 랜드 고시가야 레이크타운점 (ちいかわらんど 고시가야 레이크타운점)",
+    "country": "JP",
+    "city": "사이타마",
+    "address": "埼玉県越谷市レイクタウン3-1-1 イオンレイクタウン mori 3F",
+    "lat": 35.8820827,
+    "lng": 139.8283786,
+    "description": "일본 최대 쇼핑몰 이온 레이크타운 mori 3층에 생긴 16번째 치이카와 랜드. 사이타마 첫 상설점이다. 2026년 6월 19일 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/chiikawaland/koshigaya/index.html",
+    "hours": "10:00~21:00",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land",
+      "https://prtimes.jp/main/html/rd/p/000000397.000001117.html"
+    ],
+    "image": "https://prcdn.freetly.fastly.net/release_image/1117/397/1117-397-79d52df68036a3b3e91980040b8905c1-3900x2640.jpg"
+  },
+  {
+    "id": "chiikawa-land-sendai",
+    "type": "store",
+    "name": "치이카와 랜드 센다이 파르코점 (ちいかわらんど 센다이 파르코점)",
+    "country": "JP",
+    "city": "센다이",
+    "address": "宮城県仙台市青葉区中央1-2-3 仙台PARCO 本館 8F",
+    "lat": 38.2619317,
+    "lng": 140.8814122,
+    "description": "센다이역 서쪽 출구 바로 옆 파르코 본관 8층 매장. 도호쿠 지역 유일의 치이카와 랜드다. 2023년 3월 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/chiikawaland/sendai/",
+    "hours": "10:00~20:30",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land"
+    ]
+  },
+  {
+    "id": "chiikawa-land-sapporo",
+    "type": "store",
+    "name": "치이카와 랜드 삿포로 파르코점 (ちいかわらんど 삿포로 파르코점)",
+    "country": "JP",
+    "city": "삿포로",
+    "address": "北海道札幌市中央区南1条西3-3 札幌PARCO 本館 B2F",
+    "lat": 43.0587277,
+    "lng": 141.3531576,
+    "description": "삿포로 오도리 지하 직결 파르코 지하 2층 매장. 같은 건물 7층에 나가노 마켓 SAPPORO도 있다. 2023년 6월 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/chiikawaland/sapporo/",
+    "hours": "10:00~20:00",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land"
+    ]
+  },
+  {
+    "id": "chiikawa-land-kanazawa",
+    "type": "store",
+    "name": "치이카와 랜드 가나자와 포러스점 (ちいかわらんど 가나자와 포러스점)",
+    "country": "JP",
+    "city": "가나자와",
+    "address": "石川県金沢市堀川新町3-1 金沢フォーラス 3F",
+    "lat": 36.5792829,
+    "lng": 136.649751,
+    "description": "가나자와역 앞 쇼핑몰 포러스 3층에 있는 호쿠리쿠 지역 첫 치이카와 랜드. 키데이랜드와 함께 운영된다. 2025년 11월 21일 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/ck_land.html",
+    "hours": "10:00~20:00",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land",
+      "https://www.forus.co.jp/kanazawa/shop/6589"
+    ]
+  },
+  {
+    "id": "chiikawa-land-nagoya",
+    "type": "store",
+    "name": "치이카와 랜드 나고야 파르코점 (ちいかわらんど 나고야 파르코점)",
+    "country": "JP",
+    "city": "나고야",
+    "address": "愛知県名古屋市中区栄3-29-1 名古屋PARCO 東館 B1F",
+    "lat": 35.1634086,
+    "lng": 136.9074027,
+    "description": "사카에 나고야 파르코 동관 지하 1층 매장. 2026년 9~11월에는 같은 건물 서관 8층에서 영화 치이카와 콜라보 카페가 열린다. 2022년 12월 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/chiikawaland/nagoya/",
+    "hours": "10:00~21:00",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land"
+    ]
+  },
+  {
+    "id": "chiikawa-land-kyoto",
+    "type": "store",
+    "name": "치이카와 랜드 교토 시조가와라마치점 (ちいかわらんど 교토 시조가와라마치점)",
+    "country": "JP",
+    "city": "교토",
+    "address": "京都府京都市中京区塩屋町344 キデイランド京都 3F",
+    "lat": 35.004868,
+    "lng": 135.769028,
+    "description": "시조가와라마치 키데이랜드 교토 3층의 매장. 교토 관광 중 들르기 좋고, 후시미이나리의 모구모구 혼포와 함께 동선을 짜기 좋다. 2022년 7월 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/chiikawaland/kyoto/",
+    "hours": "11:00~20:00",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land"
+    ]
+  },
+  {
+    "id": "chiikawa-land-osaka-umeda",
+    "type": "store",
+    "name": "치이카와 랜드 오사카 우메다점 (ちいかわらんど 오사카 우메다점)",
+    "country": "JP",
+    "city": "오사카",
+    "address": "大阪府大阪市北区芝田1-1-3 阪急三番街 南館",
+    "lat": 34.7047398,
+    "lng": 135.4991437,
+    "description": "한큐 우메다역 직결 한큐 산반가이의 매장. 2025년 3월 북관에서 남관으로 이전하며 확장했고, 매장 밖에는 타코야키 모습의 치이카와 전시가 있다. 2021년 8월 (2025년 3월 남관으로 이전 리뉴얼) 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/chiikawaland/osaka/",
+    "hours": "10:00~21:00",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land",
+      "https://www.h-sanbangai.com/shop/detail/408"
+    ]
+  },
+  {
+    "id": "chiikawa-land-shinsaibashi",
+    "type": "store",
+    "name": "치이카와 랜드 신사이바시 파르코점 (ちいかわらんど 신사이바시 파르코점)",
+    "country": "JP",
+    "city": "오사카",
+    "address": "大阪府大阪市中央区心斎橋筋1-8-3 心斎橋PARCO 6F",
+    "lat": 34.6738654,
+    "lng": 135.5009718,
+    "description": "신사이바시 파르코 6층 매장. 같은 건물에 나가노 마켓 SHINSAIBASHI(5F), 치이카와 라멘 부타, 영화 콜라보 카페(THE GUEST CAFE)가 있다. 2024년 3월 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/chiikawaland/shinsaibashi/",
+    "hours": "10:00~20:00",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land"
+    ]
+  },
+  {
+    "id": "chiikawa-land-hiroshima",
+    "type": "store",
+    "name": "치이카와 랜드 히로시마 파르코점 (ちいかわらんど 히로시마 파르코점)",
+    "country": "JP",
+    "city": "히로시마",
+    "address": "広島県広島市中区本通10-1 広島PARCO 本館 B1F",
+    "lat": 34.3921523,
+    "lng": 132.4619771,
+    "description": "혼도리 상점가 히로시마 파르코 본관 지하 1층 매장. 주고쿠 지방 유일의 치이카와 랜드로, 치이카와 라멘 부타 히로시마점도 같은 건물에 있다. 2023년 10월 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/chiikawaland/hiroshima/",
+    "hours": "10:00~20:30",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land"
+    ]
+  },
+  {
+    "id": "chiikawa-land-fukuoka",
+    "type": "store",
+    "name": "치이카와 랜드 후쿠오카 파르코점 (ちいかわらんど 후쿠오카 파르코점)",
+    "country": "JP",
+    "city": "후쿠오카",
+    "address": "福岡県福岡市中央区天神2-11-1 福岡PARCO 8F",
+    "lat": 33.590799,
+    "lng": 130.3980594,
+    "description": "텐진 후쿠오카 파르코 8층 매장. 규슈 지역 유일의 상설점이라 주말에는 정리권이 필요할 만큼 붐빈다. 2022년 6월 오픈한 공식 상설 매장으로, 신상품 발매일에는 LINE 입장 예약·정리권제로 운영되는 경우가 많다.",
+    "sells": [
+      "마스코트 인형",
+      "아크릴 스탠드",
+      "키링·스트랩",
+      "스티커·문구",
+      "점포 한정 굿즈",
+      "기념 스탬프"
+    ],
+    "priceRange": "굿즈 330~4,000엔대",
+    "official": true,
+    "url": "https://chiikawa-info.jp/chiikawaland/fukuoka/",
+    "hours": "10:00~20:30",
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html",
+      "https://chiikawa-biyori.com/chiikawa-land"
+    ]
+  },
+  {
+    "id": "nagano-market-ginza",
+    "type": "store",
+    "name": "나가노 마켓 GINZA (ナガノマーケット GINZA)",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都中央区銀座2-2-14 マロニエゲート銀座1 4F",
+    "lat": 35.6743125,
+    "lng": 139.7653732,
+    "description": "작가 나가노의 캐릭터(치이카와·농담곰 등)를 모은 공식 상설 숍. 2024년 8월 마로니에게이트 긴자1 4층에 오픈했으며, 혼잡 시 LINE 입장 정리권으로 운영된다.",
+    "sells": [
+      "치이카와·농담곰 인형",
+      "나가노 캐릭터 잡화",
+      "긴자점 한정 굿즈",
+      "의류·에코백"
+    ],
+    "priceRange": "굿즈 500~5,000엔대",
+    "hours": "11:00~21:00",
+    "official": true,
+    "url": "https://nagano-info.jp/tenpo_nm/ginza/",
+    "sources": [
+      "https://nagano-info.jp/tenpo_nm/ginza/",
+      "https://prtimes.jp/main/html/rd/p/000000216.000014200.html"
+    ]
+  },
+  {
+    "id": "nagano-market-shinsaibashi",
+    "type": "store",
+    "name": "나가노 마켓 SHINSAIBASHI (ナガノマーケット SHINSAIBASHI)",
+    "country": "JP",
+    "city": "오사카",
+    "address": "大阪府大阪市中央区心斎橋筋1-8-3 心斎橋PARCO 5F",
+    "lat": 34.6738654,
+    "lng": 135.5009718,
+    "description": "2022년 3월 오픈한 나가노 마켓 첫 상설점. 신사이바시 파르코 5층에 있어 6층 치이카와 랜드와 연계 방문이 편하다.",
+    "sells": [
+      "치이카와·농담곰 인형",
+      "나가노 캐릭터 잡화",
+      "문구·스티커"
+    ],
+    "priceRange": "굿즈 500~5,000엔대",
+    "hours": "10:00~20:00",
+    "official": true,
+    "url": "https://nagano-info.jp/tenpo_nm/shinsaibashi/index.html",
+    "sources": [
+      "https://nagano-info.jp/tenpo_nm/shinsaibashi/index.html",
+      "https://en.shinsaibashi.parco.jp/shop/detail/?cd=028878"
+    ]
+  },
+  {
+    "id": "nagano-market-sapporo",
+    "type": "store",
+    "name": "나가노 마켓 SAPPORO (ナガノマーケット SAPPORO)",
+    "country": "JP",
+    "city": "삿포로",
+    "address": "北海道札幌市中央区南1条西3-3 札幌PARCO 7F",
+    "lat": 43.0587277,
+    "lng": 141.3531576,
+    "description": "2025년 2월 14일 삿포로 파르코 7층에 오픈한 홋카이도 첫 나가노 마켓 상설점. 지하 2층 치이카와 랜드와 한 건물에 있다.",
+    "sells": [
+      "치이카와·농담곰 인형",
+      "나가노 캐릭터 잡화",
+      "홋카이도 한정 굿즈"
+    ],
+    "priceRange": "굿즈 500~5,000엔대",
+    "hours": "10:00~20:00",
+    "official": true,
+    "url": "https://nagano-info.jp/tenpo_nm/sapporo/",
+    "sources": [
+      "https://nagano-info.jp/tenpo_nm/sapporo/",
+      "https://en.sapporo.parco.jp/shop/detail/?cd=029240"
+    ]
+  },
+  {
+    "id": "chiikawa-park-ikebukuro",
+    "type": "event",
+    "name": "치이카와 파크 (ちいかわパーク)",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都豊島区東池袋3-3-5 サンシャインシティ アネックス B1F・1F",
+    "lat": 35.7289714,
+    "lng": 139.7167378,
+    "description": "2025년 7월 28일 선샤인시티에 개장한 치이카와 상설 체험형 시설. 포토스팟·그리팅·게임 코너와 파크 한정 굿즈숍을 갖추고 있으며, 전일 날짜 지정 사전 예약제로 운영된다.",
+    "sells": [
+      "파크 한정 마스코트·굿즈",
+      "체험형 전시",
+      "포토 서비스"
+    ],
+    "priceRange": "입장권 일반 3,500엔 / 어린이(4~11세) 1,800엔",
+    "hours": "10:00~21:00 (최종 입장 19:00)",
+    "official": true,
+    "period": {
+      "start": "2025-07-28"
+    },
+    "url": "https://sunshinecity.jp/shop/shop_list/entry-33932.html",
+    "sources": [
+      "https://sunshinecity.jp/shop/shop_list/entry-33932.html",
+      "https://www.nikkei.com/article/DGXZQOUC282XF0Y5A720C2000000/",
+      "https://kids.rurubu.jp/article/218879/"
+    ]
+  },
+  {
+    "id": "chiikawa-restaurant-ikebukuro",
+    "type": "restaurant",
+    "name": "치이카와 레스토랑 이케부쿠로 파르코점 (ちいかわレストラン)",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都豊島区南池袋1-28-2 池袋PARCO 本館 7F",
+    "lat": 35.7308314,
+    "lng": 139.7124039,
+    "description": "'패밀리 레스토랑'을 콘셉트로 한 치이카와 상설 콜라보 레스토랑. 햄버그·가라아게 덮밥·파르페 등 캐릭터 메뉴와 레스토랑 한정 굿즈를 판매하며, 사전 예약(식사권 1,000엔 포함)이 우선이다.",
+    "sells": [
+      "한정 메뉴: 치이카와 햄버그 플레이트",
+      "한정 메뉴: 어린이 런치(1,870엔)",
+      "파르페·드링크",
+      "레스토랑 한정 굿즈"
+    ],
+    "priceRange": "식사 1,100~2,200엔",
+    "hours": "11:00~21:30 (L.O. 20:30)",
+    "official": true,
+    "url": "https://cafe.parco.jp/",
+    "sources": [
+      "https://kids.rurubu.jp/article/218879/",
+      "https://www.fun-japan.jp/en/articles/14375"
+    ]
+  },
+  {
+    "id": "chiikawa-restaurant-okinawa",
+    "type": "restaurant",
+    "name": "치이카와 레스토랑 오키나와 PARCO CITY점",
+    "country": "JP",
+    "city": "오키나와(우라소에)",
+    "address": "沖縄県浦添市西洲3-1-1 サンエー浦添西海岸 PARCO CITY 1F グリーンゾーン",
+    "lat": 26.2625307,
+    "lng": 127.6986621,
+    "description": "2026년 2월 13일 그랜드 오픈한 두 번째 치이카와 레스토랑. 오키나와 한정 메뉴와 시사 캐릭터 굿즈가 특징이며, 같은 몰 3층에 '시사의 오미야게야상'이 있다.",
+    "sells": [
+      "한정 메뉴: 시사의 섬 요리 플레이트",
+      "파르페·드링크",
+      "레스토랑 한정 굿즈"
+    ],
+    "priceRange": "식사 1,100~2,200엔",
+    "hours": "10:00~22:00 (FOOD L.O. 21:00)",
+    "official": true,
+    "period": {
+      "start": "2026-02-13"
+    },
+    "url": "https://cafe.parco.jp/event/chiikawarestaurant_okinawa?area=030528",
+    "sources": [
+      "https://cafe.parco.jp/event/chiikawarestaurant_okinawa?area=030528",
+      "https://prtimes.jp/main/html/rd/p/000003711.000003639.html"
+    ]
+  },
+  {
+    "id": "shisa-omiyageyasan-okinawa",
+    "type": "store",
+    "name": "시사의 오미야게야상 (シーサーのおみやげやさん)",
+    "country": "JP",
+    "city": "오키나와(우라소에)",
+    "address": "沖縄県浦添市西洲3-1-1 サンエー浦添西海岸 PARCO CITY 3F",
+    "lat": 26.2625307,
+    "lng": 127.6986621,
+    "description": "치이카와의 오키나와 캐릭터 '시사'를 테마로 한 공식 기념품 숍. 2023년 12월 오픈했으며 오키나와 한정 굿즈와 과자를 판매한다.",
+    "sells": [
+      "시사 마스코트·굿즈",
+      "오키나와 한정 치이카와 굿즈",
+      "오키나와 과자"
+    ],
+    "priceRange": "굿즈 400~4,000엔대",
+    "hours": "10:00~22:00",
+    "official": true,
+    "url": "https://chiikawa-info.jp/shisa_omiyageyasan/",
+    "sources": [
+      "https://chiikawa-biyori.com/chiikawa-land",
+      "https://www.fun-japan.jp/en/articles/14375"
+    ]
+  },
+  {
+    "id": "chiikawa-bakery-omotesando",
+    "type": "cafe",
+    "name": "치이카와 베이커리 (ちいかわベーカリー)",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都渋谷区神宮前4-30-3 東急プラザ表参道「オモカド」3F",
+    "lat": 35.6683054,
+    "lng": 139.7046937,
+    "description": "2024년 10월 오픈한 치이카와 공식 베이커리(테이크아웃 전용). 캐릭터 얼굴 모양 빵·코로네·와플과 베이커리 한정 굿즈를 판매하며, 사전 구매권(1,000엔) 예약이 우선이고 평일 15시 이후는 자유 입장이다.",
+    "sells": [
+      "캐릭터 빵(580엔)",
+      "샌드위치(620엔)",
+      "코로네·와플",
+      "베이커리 한정 굿즈"
+    ],
+    "priceRange": "빵 400~700엔",
+    "hours": "11:00~20:00",
+    "official": true,
+    "url": "https://chiikawabakery.jp/",
+    "sources": [
+      "https://chiikawabakery.jp/",
+      "https://kids.rurubu.jp/article/218879/"
+    ]
+  },
+  {
+    "id": "chiikawa-bakery-osaka",
+    "type": "cafe",
+    "name": "치이카와 베이커리 OSAKA",
+    "country": "JP",
+    "city": "오사카",
+    "address": "大阪府大阪市北区梅田3-2-2 JPタワー大阪 KITTE大阪 3F",
+    "lat": 34.7006246,
+    "lng": 135.4940012,
+    "description": "2026년 6월 26일 오사카역 앞 KITTE 오사카 3층에 오픈한 간사이 첫 치이카와 베이커리. 오사카 한정 빵과 굿즈가 있으며 WEB 사전 예약(1,000엔 상품권 포함)으로 입장한다.",
+    "sells": [
+      "캐릭터 빵",
+      "오사카 한정 메뉴",
+      "베이커리 한정 굿즈"
+    ],
+    "priceRange": "빵 400~700엔",
+    "hours": "11:00~20:00",
+    "official": true,
+    "period": {
+      "start": "2026-06-26"
+    },
+    "url": "https://chiikawabakery.jp/",
+    "sources": [
+      "https://www.ryutsuu.biz/store/s061872.html",
+      "https://realsound.jp/book/2026/06/post-2420165.html"
+    ]
+  },
+  {
+    "id": "chiikawa-ramen-buta-shibuya",
+    "type": "restaurant",
+    "name": "치이카와 라멘 부타 시부야 PARCO점 (ちいかわラーメン 豚)",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都渋谷区宇田川町15-1 渋谷PARCO B1F",
+    "lat": 35.6619271,
+    "lng": 139.6987487,
+    "description": "작품 속 라멘집 '부타'를 재현한 콜라보 라멘점. 미니(치이카와)·소(하치와레)·대(우사기) 세 가지 사이즈를 고르면 오리지널 덮밥 그릇에 제공되고 특제 스티커를 준다.",
+    "sells": [
+      "한정 메뉴: 라멘 부타(미니 1,540엔~)",
+      "사이드 메뉴(600엔)",
+      "라멘 부타 한정 굿즈"
+    ],
+    "priceRange": "라멘 1,540~2,000엔대",
+    "hours": "11:00~22:00 (최종 입점 21:20)",
+    "official": true,
+    "url": "https://cafe.parco.jp/event/chiikawaramenbuta_shibuya?area=029979",
+    "sources": [
+      "https://cafe.parco.jp/event/chiikawaramenbuta_shibuya?area=029979",
+      "https://shibuya.parco.jp/shop/detail/?cd=030161"
+    ]
+  },
+  {
+    "id": "chiikawa-ramen-buta-ikebukuro",
+    "type": "restaurant",
+    "name": "치이카와 라멘 부타 이케부쿠로 PARCO점",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都豊島区南池袋1-28-2 池袋PARCO 本館 8F",
+    "lat": 35.7308314,
+    "lng": 139.7124039,
+    "description": "이케부쿠로 파르코 8층의 치이카와 라멘 부타. 같은 건물 7층 치이카와 레스토랑, 지하 2층 치이카와 랜드와 함께 하루에 돌 수 있다.",
+    "sells": [
+      "한정 메뉴: 라멘 부타 3사이즈",
+      "사이드 메뉴",
+      "한정 스티커·굿즈"
+    ],
+    "priceRange": "라멘 1,540~2,000엔대",
+    "hours": "11:00~22:00 (최종 입점 21:00)",
+    "official": true,
+    "url": "https://cafe.parco.jp/event/chiikawaramenbuta_ikebukuro?area=029688",
+    "sources": [
+      "https://cafe.parco.jp/event/chiikawaramenbuta_ikebukuro?area=029688"
+    ]
+  },
+  {
+    "id": "magical-chiikawa-store-shinjuku",
+    "type": "store",
+    "name": "마지카루 치이카와 스토어 신주쿠 마루이점 (まじかるちいかわストア)",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都新宿区新宿3-30-13 新宿マルイ本館 1F",
+    "lat": 35.6909227,
+    "lng": 139.7040719,
+    "description": "마법소녀 스핀오프 '마지카루 치이카와' 전용 공식 숍. 2024년 3월 14일 오픈했으며 리본·프릴 콘셉트의 파스텔 굿즈와 '나쁜 버전' 시리즈를 취급한다.",
+    "sells": [
+      "마지카루 치이카와 마스코트",
+      "키링·클리어파일",
+      "스티커·문구"
+    ],
+    "priceRange": "굿즈 330~3,000엔대",
+    "hours": "11:00~20:00",
+    "official": true,
+    "url": "https://www.enjoytokyo.jp/spot/l_20056952/",
+    "sources": [
+      "https://www.enjoytokyo.jp/spot/l_20056952/",
+      "https://game.watch.impress.co.jp/docs/news/1575107.html"
+    ]
+  },
+  {
+    "id": "mogumogu-honpo-kyoto",
+    "type": "store",
+    "name": "치이카와 모구모구 혼포 교토 후시미점 (ちいかわもぐもぐ本舗)",
+    "country": "JP",
+    "city": "교토",
+    "address": "京都府京都市伏見区深草稲荷中之町46-1",
+    "lat": 34.9683617,
+    "lng": 135.7711136,
+    "description": "후시미이나리 신사 앞 참배길에 있는 화과자·기념품 콘셉트의 공식 숍(2023년 11월 오픈). 말차 과자와 교토 한정 굿즈를 판매하며 인기 도라야키는 오전에 품절되기도 한다.",
+    "sells": [
+      "한정 도라야키(1,296엔)",
+      "말차 과자",
+      "교토 한정 마스코트·굿즈"
+    ],
+    "priceRange": "과자·굿즈 500~4,000엔",
+    "hours": "09:30~17:30",
+    "official": true,
+    "url": "https://www.chiikawamogumogu.jp/",
+    "sources": [
+      "https://www.chiikawamogumogu.jp/",
+      "https://kids.rurubu.jp/article/218879/"
+    ]
+  },
+  {
+    "id": "mogumogu-honpo-kawagoe",
+    "type": "store",
+    "name": "치이카와 모구모구 혼포 가와고에점",
+    "country": "JP",
+    "city": "가와고에",
+    "address": "埼玉県川越市元町2-7-9",
+    "lat": 35.93338,
+    "lng": 139.4804108,
+    "description": "'작은 에도' 가와고에 구라즈쿠리 거리에 2025년 2월 오픈한 2호점. 고구마 디저트 등 가와고에 명물을 살린 과자와 한정 굿즈를 판다.",
+    "sells": [
+      "고구마 과자",
+      "가와고에 한정 마스코트·굿즈",
+      "화과자"
+    ],
+    "priceRange": "과자·굿즈 500~4,000엔",
+    "hours": "09:30~17:30",
+    "official": true,
+    "url": "https://www.chiikawamogumogu.jp/",
+    "sources": [
+      "https://www.chiikawamogumogu.jp/",
+      "https://chiikawa-biyori.com/chiikawa-land"
+    ]
+  },
+  {
+    "id": "mogumogu-honpo-otaru",
+    "type": "store",
+    "name": "치이카와 모구모구 혼포 오타루점",
+    "country": "JP",
+    "city": "오타루",
+    "address": "北海道小樽市堺町6-1",
+    "lat": 43.1961632,
+    "lng": 141.0050315,
+    "description": "2026년 7월 18일 오타루 사카이마치 거리에 오픈한 3호점. 시마에나가·레트로 의상 등 홋카이도 한정 굿즈와 과자가 특징이다.",
+    "sells": [
+      "홋카이도 한정 마스코트(시마에나가 등)",
+      "레트로 의상 시리즈 굿즈",
+      "과자"
+    ],
+    "priceRange": "과자·굿즈 500~4,000엔",
+    "hours": "09:30~17:30",
+    "official": true,
+    "period": {
+      "start": "2026-07-18"
+    },
+    "url": "https://www.chiikawamogumogu.jp/stores/otaru/",
+    "sources": [
+      "https://www.chiikawamogumogu.jp/stores/otaru/",
+      "https://www.hokkaido-np.co.jp/article/1339059/"
+    ]
+  },
+  {
+    "id": "chiikawa-yaki-yokohama",
+    "type": "cafe",
+    "name": "치이카와야키 요코하마 월드포터스점 (ちいかわ焼き)",
+    "country": "JP",
+    "city": "요코하마",
+    "address": "神奈川県横浜市中区新港2-2-1 横浜ワールドポーターズ 1F",
+    "lat": 35.4539956,
+    "lng": 139.6387759,
+    "description": "치이카와 얼굴 모양 타이야키풍 과자 전문점(2025년 3월 오픈). 팥·크림·초코 등 속을 고를 수 있고 오리지널 굿즈도 판매하며, 자유 입장이다.",
+    "sells": [
+      "치이카와야키 3개 세트(1,050엔)",
+      "C세트 6개(2,100엔)",
+      "오리지널 굿즈"
+    ],
+    "priceRange": "과자 350~2,100엔",
+    "hours": "10:30~21:00",
+    "official": true,
+    "url": "https://www.chiikawa-yaki.com/",
+    "sources": [
+      "https://www.chiikawa-yaki.com/",
+      "https://hamakore.yokohama/chiikawa-yaki-yokohama-202503/"
+    ]
+  },
+  {
+    "id": "skytree-collab-2026",
+    "type": "event",
+    "name": "치이카와☆별이 내리는 스카이트리와 비밀의 섬 (東京スカイツリー 콜라보)",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都墨田区押上1-1-2 東京スカイツリー 天望デッキ フロア340 SKYTREE CAFE 외",
+    "lat": 35.7100543,
+    "lng": 139.8107141,
+    "description": "3년 만에 부활한 치이카와×도쿄 스카이트리 콜라보. 전망대에 전시 에어리어·한정 포토서비스·특별 라이팅이 진행되고, 340층 SKYTREE CAFE에서 캐릭터 한정 드링크를 판다. 카페 이용은 식사권 포함 입장권 사전 구매가 필요하다.",
+    "sells": [
+      "한정 메뉴: 치이카와 별이 내리는 드링크 4종(각 1,100엔)",
+      "콜라보 한정 굿즈",
+      "특별 라이팅·전시"
+    ],
+    "priceRange": "드링크 1,100엔 / 입장권 별도",
+    "hours": "10:00~22:00 (스카이트리 영업시간)",
+    "official": true,
+    "period": {
+      "start": "2026-07-10",
+      "end": "2026-10-31"
+    },
+    "url": "https://www.tokyo-skytree.jp/",
+    "sources": [
+      "https://dengekionline.com/article/202606/78608",
+      "https://rurubu.jp/andmore/article/24954"
+    ]
+  },
+  {
+    "id": "movie-cafe-shibuya-2026",
+    "type": "cafe",
+    "name": "영화 치이카와 인어의 섬의 비밀 Collaboration CAFE 시부야 PARCO",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都渋谷区宇田川町15-1 渋谷PARCO THE GUEST CAFE BY PARCO",
+    "lat": 35.6619271,
+    "lng": 139.6987487,
+    "description": "첫 극장판 '영화 치이카와 인어의 섬의 비밀' 개봉 기념 콜라보 카페. 섬 편 스토리를 재현한 푸드·디저트 16종과 굿즈숍을 운영했다. 사전 예약 우선, 테이크아웃은 예약 불필요.",
+    "sells": [
+      "한정 메뉴: 시사의 한정 섬 라멘(1,870엔)",
+      "한정 메뉴: 시마지로의 카츠카레(1,870엔)",
+      "라코의 섬 과일 파르페",
+      "카페 한정 굿즈"
+    ],
+    "priceRange": "메뉴 1,100~2,200엔",
+    "official": true,
+    "period": {
+      "start": "2026-07-10",
+      "end": "2026-09-14"
+    },
+    "url": "https://cafe.parco.jp/event/chiikawamovie_cafe",
+    "sources": [
+      "https://chiikawa-info.jp/p26/mck_cafe/shibuya/index.html",
+      "https://prtimes.jp/main/html/rd/p/000003927.000003639.html"
+    ]
+  },
+  {
+    "id": "movie-cafe-shinsaibashi-2026",
+    "type": "cafe",
+    "name": "영화 치이카와 인어의 섬의 비밀 Collaboration CAFE 신사이바시 PARCO",
+    "country": "JP",
+    "city": "오사카",
+    "address": "大阪府大阪市中央区心斎橋筋1-8-3 心斎橋PARCO THE GUEST CAFE BY PARCO",
+    "lat": 34.6738654,
+    "lng": 135.5009718,
+    "description": "극장판 콜라보 카페 오사카 회장. 시부야와 동일한 16종 메뉴와 굿즈를 제공하며 9월 28일까지 운영된다.",
+    "sells": [
+      "한정 메뉴: 시사의 한정 섬 라멘",
+      "한정 메뉴: 카츠카레와 조개국",
+      "섬 과일 파르페",
+      "카페 한정 굿즈"
+    ],
+    "priceRange": "메뉴 1,100~2,200엔",
+    "official": true,
+    "period": {
+      "start": "2026-07-24",
+      "end": "2026-09-28"
+    },
+    "url": "https://cafe.parco.jp/event/chiikawamovie_cafe_osaka?area=029441",
+    "sources": [
+      "https://chiikawa-info.jp/p26/mck_cafe/shinsaibashi/index.html",
+      "https://cafe.parco.jp/event/chiikawamovie_cafe_osaka?area=029441"
+    ]
+  },
+  {
+    "id": "movie-cafe-nagoya-2026",
+    "type": "cafe",
+    "name": "영화 치이카와 인어의 섬의 비밀 Collaboration CAFE 나고야 PARCO",
+    "country": "JP",
+    "city": "나고야",
+    "address": "愛知県名古屋市中区栄3-29-1 名古屋PARCO 西館 8F THE GUEST CAFE BY PARCO",
+    "lat": 35.1634086,
+    "lng": 136.9074027,
+    "description": "극장판 콜라보 카페 나고야 회장으로 2026년 9월 4일~11월 16일 운영. 9월 19일~10월 4일에는 나고야 파르코 내 치이카와 관련 매장 2곳 이상 구매 시 노벨티 메모장을 증정한다.",
+    "sells": [
+      "한정 메뉴: 섬 라멘·카츠카레·파르페",
+      "카페 한정 굿즈"
+    ],
+    "priceRange": "메뉴 1,100~2,200엔",
+    "hours": "10:00~20:00 (FOOD L.O. 19:00)",
+    "official": true,
+    "period": {
+      "start": "2026-09-04",
+      "end": "2026-11-16"
+    },
+    "url": "https://cafe.parco.jp/event/chiikawamovie_cafe_nagoya?area=030106",
+    "sources": [
+      "https://cafe.parco.jp/event/information/chiikawamovie_cafe_nagoya?area=030106",
+      "https://fan.books.rakuten.co.jp/articles/8800"
+    ]
+  },
+  {
+    "id": "popup-ikebukuro-station-2026-09",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE JR 이케부쿠로역",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都豊島区南池袋1-28-2 JR池袋駅 南改札外 イベントスペース",
+    "lat": 35.7319455,
+    "lng": 139.706626,
+    "description": "JR 이케부쿠로역 남쪽 개찰구 밖 이벤트 스페이스에서 열리는 공식 팝업. 이벤트 개최 기념 굿즈와 9월 신상품(레이어드 소크스, 비틀 시리즈)을 판매한다.",
+    "sells": [
+      "개최 기념 굿즈",
+      "레이어드 소크스(1,320엔)",
+      "비틀 시리즈 마스코트(1,320엔)",
+      "홀로그램 스티커(330엔)"
+    ],
+    "priceRange": "굿즈 330~2,420엔",
+    "official": true,
+    "period": {
+      "start": "2026-09-18",
+      "end": "2026-09-28"
+    },
+    "url": "https://chiikawa-info.jp/pus.html",
+    "sources": [
+      "https://chiikawa-info.jp/pus.html"
+    ]
+  },
+  {
+    "id": "popup-grandduo-kamata-2026-09",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE 그란듀오 가마타",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都大田区西蒲田7-68-1 グランデュオ蒲田 3F 東西連絡通路",
+    "lat": 35.5624762,
+    "lng": 139.7160275,
+    "description": "JR 가마타역 직결 그란듀오 가마타 3층에서 열리는 공식 팝업. 2,200엔 이상 구매 시 토트백, 전 구매자에게 한정 스티커를 증정한다.",
+    "sells": [
+      "레이어드 소크스 4종(1,320엔)",
+      "비틀 시리즈 마스코트·타월·코스터",
+      "홀로그램 스티커"
+    ],
+    "priceRange": "굿즈 330~2,420엔",
+    "hours": "10:00~20:30 (마지막 날 17:00)",
+    "official": true,
+    "period": {
+      "start": "2026-09-08",
+      "end": "2026-09-30"
+    },
+    "url": "https://chiikawa-info.jp/pus.html",
+    "sources": [
+      "https://collabo-cafe.com/events/collabo/chiikawa-popup-store-grandeuo-kamata-2026/"
+    ]
+  },
+  {
+    "id": "kr-chiikawa-shop-yongsan",
+    "type": "store",
+    "name": "치이카와샵 용산점 (아이파크몰)",
+    "country": "KR",
+    "city": "서울",
+    "address": "서울 용산구 한강대로23길 55 아이파크몰 용산점 리빙파크 3F 도파민스테이션",
+    "lat": 37.5288695,
+    "lng": 126.9646295,
+    "description": "대원미디어가 운영하는 한국 첫 치이카와 공식 정규 매장. 2026년 2월 27일 오픈했으며 봉제 인형부터 문구·생활잡화까지 정식 수입 굿즈를 상시 판매한다.",
+    "sells": [
+      "마스코트·봉제 인형",
+      "아크릴 스탠드·키링",
+      "문구·스티커",
+      "생활잡화"
+    ],
+    "priceRange": "굿즈 5,000~60,000원대",
+    "hours": "10:30~22:00",
+    "official": true,
+    "url": "https://x.com/chiikawashop_kr",
+    "sources": [
+      "https://popga.co.kr/popup/5599",
+      "https://popga.co.kr/content/magazine/113"
+    ]
+  },
+  {
+    "id": "kr-nagano-market-seoul",
+    "type": "store",
+    "name": "나가노마켓 SEOUL (성수)",
+    "country": "KR",
+    "city": "서울",
+    "address": "서울 성동구 연무장길 97",
+    "lat": 37.5441762,
+    "lng": 127.0506192,
+    "description": "일본 나가노마켓의 한국 공식 상설 매장. 2026년 2월 13일 성수동에 개점했으며 치이카와·농담곰 등 나가노 작가 캐릭터 굿즈를 판매한다(운영: 주스코리아).",
+    "sells": [
+      "치이카와·농담곰 인형",
+      "나가노 캐릭터 잡화",
+      "문구·스티커"
+    ],
+    "priceRange": "굿즈 5,000~70,000원대",
+    "hours": "11:00~20:00",
+    "official": true,
+    "period": {
+      "start": "2026-02-13"
+    },
+    "url": "https://x.com/naganomkt_seoul",
+    "sources": [
+      "https://atzip.kr/nagano-market-seoul-sungsu-store-opening-2026/",
+      "https://x.com/naganomkt_seoul"
+    ]
+  },
+  {
+    "id": "kr-popup-baby-thehyundai-2026",
+    "type": "popup",
+    "name": "치이카와 베이비 팝업스토어 더현대 서울",
+    "country": "KR",
+    "city": "서울",
+    "address": "서울 영등포구 여의대로 108 더현대 서울 5F 에픽서울",
+    "lat": 37.5259638,
+    "lng": 126.9284184,
+    "description": "수수께끼의 사탕을 먹고 아기가 된 '치이카와 베이비' 세계관의 국내 첫 공식 팝업(대원미디어). 오픈런과 사전 예약 웨이팅으로 화제가 됐다.",
+    "sells": [
+      "치이카와 베이비 마스코트",
+      "한정 굿즈",
+      "스티커·키링"
+    ],
+    "priceRange": "굿즈 5,000~50,000원대",
+    "hours": "월~목 10:30~20:00 / 금~일 10:30~20:30",
+    "official": true,
+    "period": {
+      "start": "2026-02-04",
+      "end": "2026-02-19"
+    },
+    "image": "https://d8nffddmkwqeq.cloudfront.net/store/39e9d5c8%2C91ab%2C4aca%2Ca95f%2Cb873ba25d2b4",
+    "url": "https://popply.co.kr/popup/4258",
+    "sources": [
+      "https://popply.co.kr/popup/4258",
+      "https://www.thetrippick.com/news/articleView.html?idxno=2475"
+    ]
+  },
+  {
+    "id": "kr-popup-baby-busan-2026",
+    "type": "popup",
+    "name": "치이카와 베이비 팝업스토어 in 부산 (신세계 센텀시티)",
+    "country": "KR",
+    "city": "부산",
+    "address": "부산 해운대구 센텀남대로 35 신세계백화점 센텀시티 B2 하이퍼그라운드",
+    "lat": 35.1676259,
+    "lng": 129.1297105,
+    "description": "더현대 서울에 이어 부산에서 열린 치이카와 베이비 공식 팝업. 신세계 센텀시티 지하 2층 하이퍼그라운드에서 약 3주간 운영됐다.",
+    "sells": [
+      "치이카와 베이비 마스코트",
+      "한정 굿즈",
+      "스티커·키링"
+    ],
+    "priceRange": "굿즈 5,000~50,000원대",
+    "official": true,
+    "period": {
+      "start": "2026-04-30",
+      "end": "2026-05-17"
+    },
+    "url": "https://popply.co.kr/popup/4827",
+    "sources": [
+      "https://popply.co.kr/popup/4827",
+      "https://www.thetrippick.com/news/articleView.html?idxno=3640"
+    ]
+  },
+  {
+    "id": "kr-popup-magical-yongsan-2026",
+    "type": "popup",
+    "name": "매지컬 치이카와 팝업스토어 아이파크몰 용산",
+    "country": "KR",
+    "city": "서울",
+    "address": "서울 용산구 한강대로23길 55 아이파크몰 용산점 리빙파크 3F 도파민스테이션 더 팝업",
+    "lat": 37.5288695,
+    "lng": 126.9646295,
+    "description": "마법소녀로 변신한 '마지카루 치이카와' 스핀오프 굿즈의 국내 첫 공식 팝업. 마스코트·나쁜버전·천사&악마 시리즈를 선보였고 방문 특전이 제공됐다.",
+    "sells": [
+      "매지컬 치이카와 마스코트",
+      "나쁜버전 마스코트",
+      "천사&악마 시리즈 굿즈"
+    ],
+    "priceRange": "굿즈 5,000~50,000원대",
+    "hours": "10:30~22:00",
+    "official": true,
+    "period": {
+      "start": "2026-06-12",
+      "end": "2026-06-25"
+    },
+    "url": "https://popga.co.kr/popup/7303",
+    "sources": [
+      "https://popga.co.kr/popup/7303",
+      "https://x.com/daewonmedia_tv/status/2066435307847995441"
+    ]
+  },
+  {
+    "id": "kr-popup-sushi-seongsu-2026",
+    "type": "popup",
+    "name": "치이카와 스시 팝업스토어 (무신사 스토어 성수)",
+    "country": "KR",
+    "city": "서울",
+    "address": "서울 성동구 성수이로 74 무신사 스토어 성수",
+    "lat": 37.5475711,
+    "lng": 127.0579927,
+    "description": "초밥이 된 치이카와 친구들 '치이카와 스시' 테마의 공식 팝업(대원미디어). 팝콘D플레이·29CM 사전 예약제로 운영됐다.",
+    "sells": [
+      "치이카와 스시 마스코트",
+      "스시 테마 키링·스티커",
+      "한정 굿즈"
+    ],
+    "priceRange": "굿즈 5,000~50,000원대",
+    "hours": "11:00~22:00",
+    "official": true,
+    "period": {
+      "start": "2026-08-01",
+      "end": "2026-08-14"
+    },
+    "url": "https://www.popcondplay.com/reserve/view/77",
+    "sources": [
+      "https://popply.co.kr/popup/5571",
+      "https://www.musinsa.com/content/1526871092866249930",
+      "https://x.com/daewonmedia_tv/status/2079461376532046218"
+    ]
+  },
+  {
+    "id": "kr-popup-nagano-hongdae-2025",
+    "type": "popup",
+    "name": "나가노마켓 공식 팝업샵 홍대 (0% SEOUL)",
+    "country": "KR",
+    "city": "서울",
+    "address": "서울 마포구 월드컵북로2길 29 0% SEOUL",
+    "lat": 37.5566512,
+    "lng": 126.9223749,
+    "description": "일본 나가노마켓의 한국 첫 공식 팝업. 홍대입구역 1번 출구 옆 3층 건물 전체에서 치이카와·농담곰 굿즈를 판매했고, 이후 2026년 성수 상설 매장으로 이어졌다.",
+    "sells": [
+      "치이카와·농담곰 인형",
+      "나가노 캐릭터 잡화"
+    ],
+    "priceRange": "굿즈 5,000~70,000원대",
+    "hours": "평일 11:00~21:00 / 주말·공휴일 10:00~21:00",
+    "official": true,
+    "period": {
+      "start": "2025-04-26",
+      "end": "2025-06-29"
+    },
+    "url": "https://popga.co.kr/popup/2459",
+    "sources": [
+      "https://www.seoul.co.kr/news/life/2025/04/26/20250426500019",
+      "https://popga.co.kr/popup/2459"
+    ]
+  },
+  {
+    "id": "kr-oliveyoung-delight-hongdae-2026",
+    "type": "popup",
+    "name": "딜라이트 프로젝트 × 먼작귀 in 올리브영 홍대타운",
+    "country": "KR",
+    "city": "서울",
+    "address": "서울 마포구 양화로 152 올리브영 홍대타운",
+    "lat": 37.5557936,
+    "lng": 126.9228393,
+    "description": "올리브영 자체 간식 브랜드 딜라이트 프로젝트의 먼작귀(치이카와) 에디션 출시 기념 팝업. 베이글칩·프로틴 쉐이크 한정판과 보틀·스티커를 판매했고, 4만원 이상 구매 시 마켓백을 증정했다. 에디션 제품은 전국 올리브영 매장에서도 판매됐다.",
+    "sells": [
+      "딜라이트 베이글칩 먼작귀 에디션 8종",
+      "프로틴 쉐이크",
+      "먼작귀 보틀·스티커"
+    ],
+    "priceRange": "간식 2,000~5,000원대",
+    "official": true,
+    "period": {
+      "start": "2026-03-01",
+      "end": "2026-03-31"
+    },
+    "url": "https://popply.co.kr/popup/4521",
+    "sources": [
+      "https://popply.co.kr/popup/4521",
+      "https://popga.co.kr/popup/5733",
+      "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000239684"
+    ]
+  },
+  {
+    "id": "kr-ediya-collab-2024",
+    "type": "cafe",
+    "name": "이디야 × 먼작귀 콜라보 (전국 이디야커피)",
+    "country": "KR",
+    "city": "서울",
+    "address": "서울 강남구 논현로 636 이디야커피랩 (대표 지점 · 전국 이디야 매장 공통)",
+    "lat": 37.5105088,
+    "lng": 127.0326807,
+    "description": "국내 첫 치이카와(먼작귀) 콜라보 카페 캠페인. 치이카와·가르마·토끼 3종 딸기 음료와 워터볼 키링·인형 파우치·쿠션 등 굿즈를 전국 이디야 매장에서 판매했다. 지도 위치는 대표 매장인 이디야커피랩이다.",
+    "sells": [
+      "콜라보 음료: 치이카와 생딸기 포멜로 티펀치",
+      "가르마 생딸기 크런치 쉐이크",
+      "토끼 딸기 망고 라떼",
+      "랜덤 워터볼 키링(4,500원)",
+      "인형 파우치(7,900원)",
+      "쿠션(10,900원)"
+    ],
+    "priceRange": "음료 5,000~6,500원 / 굿즈 4,500~10,900원",
+    "official": true,
+    "period": {
+      "start": "2024-12-17",
+      "end": "2025-01-13"
+    },
+    "url": "https://ediya.com/chiikawa/main.html",
+    "sources": [
+      "https://ediya.com/chiikawa/main.html",
+      "https://news.nate.com/view/20241217n26783"
+    ]
+  },
+  {
+    "id": "kr-animate-hongdae",
+    "type": "other",
+    "name": "애니메이트 서울홍대점",
+    "country": "KR",
+    "city": "서울",
+    "address": "서울 마포구 양화로 188 AK플라자 홍대 5F",
+    "lat": 37.55792,
+    "lng": 126.926135,
+    "description": "일본 애니메이션 굿즈 전문점의 한국 매장. 치이카와 공식 라이선스 굿즈(마스코트·아크릴·문구)를 수입 판매하지만 치이카와 공식 직영점은 아니다.",
+    "sells": [
+      "치이카와 수입 굿즈",
+      "아크릴 스탠드·캔뱃지",
+      "만화 단행본"
+    ],
+    "priceRange": "굿즈 5,000~50,000원대",
+    "hours": "일~목 11:00~21:40 / 금~토 10:30~21:40",
+    "official": false,
+    "url": "https://x.com/animate_hongdae",
+    "sources": [
+      "https://x.com/animate_hongdae",
+      "https://www.animate-onlineshop.co.kr/"
+    ]
+  },
+  {
+    "id": "kr-hottracks-gwanghwamun",
+    "type": "other",
+    "name": "핫트랙스 광화문점 (교보문고)",
+    "country": "KR",
+    "city": "서울",
+    "address": "서울 종로구 종로 1 교보생명빌딩 B1 교보문고 광화문점 내",
+    "lat": 37.5710168,
+    "lng": 126.9779848,
+    "description": "교보문고 계열 문구·팬시 스토어. 치이카와(먼작귀) 정식 수입 문구·인형·잡화를 상시 취급하며, 전국 핫트랙스 매장과 온라인에서도 구매할 수 있다.",
+    "sells": [
+      "치이카와 문구·스티커",
+      "봉제 인형·키링",
+      "다이어리·잡화"
+    ],
+    "priceRange": "굿즈 3,000~40,000원대",
+    "hours": "09:30~22:00",
+    "official": false,
+    "url": "https://hottracks.kyobobook.co.kr/",
+    "sources": [
+      "https://hottracks.kyobobook.co.kr/"
+    ]
+  },
+  {
+    "id": "kr-artbox-hongdae",
+    "type": "other",
+    "name": "아트박스 홍대점",
+    "country": "KR",
+    "city": "서울",
+    "address": "서울 마포구 홍익로 10",
+    "lat": 37.5535057,
+    "lng": 126.9238198,
+    "description": "국내 문구·팬시 브랜드 아트박스의 홍대 매장. 먼작귀(치이카와) 라이선스 문구·잡화 코너를 운영하며 전국 아트박스 매장에서 동일 상품을 취급한다.",
+    "sells": [
+      "치이카와 라이선스 문구",
+      "파우치·잡화",
+      "스티커·메모"
+    ],
+    "priceRange": "굿즈 2,000~30,000원대",
+    "hours": "10:00~23:00",
+    "official": false,
+    "url": "https://www.artbox.co.kr/",
+    "sources": [
+      "https://hottracks.kyobobook.co.kr/gift/brand-shop/43747",
+      "https://gift.kakao.com/search/result?query=%EC%95%84%ED%8A%B8%EB%B0%95%EC%8A%A4+%EB%A8%BC%EC%9E%91%EA%B7%80"
+    ]
+  }
+]

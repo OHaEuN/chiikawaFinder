@@ -1,0 +1,9 @@
+{
+  "name": "치이카와 파인더",
+  "short_name": "치이카와",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fbf7ee",
+  "theme_color": "#fbf7ee",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
