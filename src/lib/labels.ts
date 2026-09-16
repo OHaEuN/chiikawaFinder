@@ -1,0 +1,34 @@
+import type { OnlineCategory } from '@/types/online';
+import type { PlaceType } from '@/types/place';
+
+export const ONLINE_CATEGORY_LABEL: Record<OnlineCategory, string> = {
+  manga: '만화',
+  anime: '애니메이션',
+  video: '영상',
+  illustration: '일러스트',
+  sns: 'SNS',
+  game: '게임/앱',
+  other: '기타',
+};
+
+export const PLACE_TYPE_LABEL: Record<PlaceType, string> = {
+  popup: '팝업스토어',
+  store: '상설 매장',
+  cafe: '카페',
+  restaurant: '레스토랑',
+  event: '전시/이벤트',
+  other: '기타',
+};
+
+export const COUNTRY_LABEL = { KR: '한국', JP: '일본', GLOBAL: '글로벌' } as const;
+
+export const GROUP_ORDER = ['주인공', '주요 인물', '조연', '적/괴물', '기타'] as const;
+
+export const PLACE_EMOJI: Record<PlaceType, string> = {
+  popup: '🎪',
+  store: '🏬',
+  cafe: '☕',
+  restaurant: '🍽️',
+  event: '🎟️',
+  other: '📍',
+};
