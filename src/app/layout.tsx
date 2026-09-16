@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Gaegu, Gothic_A1, Noto_Sans_KR } from 'next/font/google';
 import { SiteHeader } from '@/components/SiteHeader';
+import { Analytics } from '@/components/Analytics';
 import './globals.css';
 
 const display = Gothic_A1({ weight: ['600', '700', '800'], subsets: ['latin'], variable: '--font-display' });
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <SiteHeader />
         <main className="container page">{children}</main>
+        <Analytics />
       </body>
     </html>
   );

@@ -9,7 +9,14 @@ interface OnlineRowProps { item: OnlineContent }
 
 export function OnlineRow({ item }: OnlineRowProps) {
   return (
-    <a href={item.url} target="_blank" rel="noopener noreferrer" className="row">
+    <a
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="row"
+      data-analytics-event="online_open"
+      data-analytics-event-platform={item.platform}
+    >
       <div className="row-thumb"><SafeImage src={item.image} alt={item.title} fallback="🔗" /></div>
       <div className="row-body">
         <div className="card-title">{item.title}</div>

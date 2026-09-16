@@ -213,3 +213,44 @@ li { margin-bottom: 0.3em; }
 .channel-safety { font-size: 0.9rem; color: var(--ink-soft); background: var(--surface-2); border-radius: 12px; padding: 9px 12px; margin: 8px 0 0 !important; }
 .checklist { margin: 0; padding-left: 1.3em; display: grid; gap: 6px; }
 .checklist li { margin: 0; }
+
+/* ── 계산기 ──────────────────────────────── */
+.picker { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 4px; }
+.picker li { margin: 0; }
+.picker button { display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px 10px; border: 1px solid var(--line); background: var(--surface); border-radius: 14px; cursor: pointer; text-align: left; }
+.picker button:hover { background: var(--surface-2); }
+.picker-thumb { width: 38px; height: 38px; flex: none; border-radius: 10px; overflow: hidden; background: var(--surface-2); }
+.picker-thumb img { width: 100%; height: 100%; object-fit: contain; }
+.picker-thumb .ph { font-size: 1.1rem; }
+.picker-name { flex: 1; min-width: 0; font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.picker-price { font-weight: 700; font-size: 0.9rem; white-space: nowrap; }
+
+.cart { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 6px; }
+.cart li { margin: 0; display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: var(--surface-2); border-radius: 14px; }
+.cart-name { flex: 1; min-width: 0; font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cart-price { font-size: 0.86rem; color: var(--muted); white-space: nowrap; }
+.cart-qty { display: flex; align-items: center; gap: 8px; flex: none; }
+.cart-qty button { width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--surface); cursor: pointer; line-height: 1; }
+.cart-qty button:hover { background: var(--pink); }
+.cart-qty b { min-width: 1.2em; text-align: center; }
+
+.freeship { margin-top: 14px; }
+.freeship-bar { height: 8px; border-radius: 999px; background: var(--surface-2); overflow: hidden; margin-bottom: 7px; }
+.freeship-bar span { display: block; height: 100%; background: var(--mint-deep); transition: width 0.2s; }
+.freeship p { font-size: 0.85rem; margin: 0; }
+
+.fields { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 14px; }
+.fields label { display: grid; gap: 5px; font-size: 0.86rem; font-weight: 600; color: var(--ink-soft); }
+.fields input { padding: 10px 13px; border-radius: 12px; border: 1px solid var(--line-strong); background: var(--surface); font: inherit; font-weight: 600; color: var(--ink); width: 100%; }
+.fields input:focus { outline: none; border-color: var(--pink-deep); }
+
+.result .total { font-size: 1.1rem; margin: 14px 0 0; padding-top: 14px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; }
+.result .total strong { font-family: var(--font-display); font-size: 1.7rem; }
+.markup { margin-top: 14px; background: var(--pink); border-radius: 14px; padding: 14px 16px; }
+.markup strong { display: block; margin-bottom: 5px; color: var(--accent-ink); }
+.markup p { font-size: 0.88rem; margin: 0; line-height: 1.65; }
+
+.release-day { margin-bottom: 8px; }
+.release-day .section-head h2 { display: flex; align-items: center; gap: 9px; }
+.release-more { font-size: 0.86rem; margin: 10px 0 0; }
+.release-more a { text-decoration: underline; }

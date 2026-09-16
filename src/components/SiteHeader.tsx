@@ -9,8 +9,9 @@ const NAV: { href: string; label: string; icon: IconName }[] = [
   { href: '/characters', label: '인물', icon: 'character' },
   { href: '/online', label: '온라인', icon: 'online' },
   { href: '/offline', label: '오프라인', icon: 'offline' },
+  { href: '/calendar', label: '캘린더', icon: 'calendar' },
   { href: '/goods', label: '굿즈', icon: 'goods' },
-  { href: '/groupbuy', label: '공구', icon: 'groupbuy' },
+  { href: '/calculator', label: '계산기', icon: 'calculator' },
 ];
 
 export function SiteHeader() {
