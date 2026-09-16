@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from 'next';
-import { Jua, Gowun_Dodum } from 'next/font/google';
+import { Gaegu, Gowun_Dodum } from 'next/font/google';
 import { SiteHeader } from '@/components/SiteHeader';
 import './globals.css';
 
-const display = Jua({ weight: '400', subsets: ['latin'], variable: '--font-display' });
+const display = Gaegu({ weight: ['400', '700'], subsets: ['latin'], variable: '--font-display' });
 const body = Gowun_Dodum({ weight: '400', subsets: ['latin'], variable: '--font-body' });
 
 export const metadata: Metadata = {

@@ -24,7 +24,8 @@
     "sources": [
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-tokyo-station-8eb247dd.jpg"
   },
   {
     "id": "chiikawa-land-harajuku",
@@ -51,7 +52,8 @@
     "sources": [
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-harajuku-8eb247dd.jpg"
   },
   {
     "id": "chiikawa-land-shinjuku",
@@ -79,7 +81,8 @@
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land",
       "https://www.navitime.co.jp/poi?spot=02301-r070057"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-shinjuku-1b463999.jpg"
   },
   {
     "id": "chiikawa-land-ikebukuro",
@@ -107,7 +110,8 @@
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land",
       "https://chiikawa.jp/archives/4451"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-ikebukuro-4d4ef75d.jpg"
   },
   {
     "id": "chiikawa-land-solamachi",
@@ -134,7 +138,8 @@
     "sources": [
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-solamachi-8eb247dd.jpg"
   },
   {
     "id": "chiikawa-land-yokohama",
@@ -161,7 +166,8 @@
     "sources": [
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-yokohama-8eb247dd.jpg"
   },
   {
     "id": "chiikawa-land-koshigaya",
@@ -190,7 +196,7 @@
       "https://chiikawa-biyori.com/chiikawa-land",
       "https://prtimes.jp/main/html/rd/p/000000397.000001117.html"
     ],
-    "image": "https://prcdn.freetly.fastly.net/release_image/1117/397/1117-397-79d52df68036a3b3e91980040b8905c1-3900x2640.jpg"
+    "image": "/images/places/chiikawa-land-koshigaya-8eb247dd.jpg"
   },
   {
     "id": "chiikawa-land-sendai",
@@ -217,7 +223,8 @@
     "sources": [
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-sendai-8eb247dd.jpg"
   },
   {
     "id": "chiikawa-land-sapporo",
@@ -244,7 +251,8 @@
     "sources": [
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-sapporo-8eb247dd.jpg"
   },
   {
     "id": "chiikawa-land-kanazawa",
@@ -272,7 +280,8 @@
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land",
       "https://www.forus.co.jp/kanazawa/shop/6589"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-kanazawa-8eb247dd.jpg"
   },
   {
     "id": "chiikawa-land-nagoya",
@@ -299,7 +308,8 @@
     "sources": [
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-nagoya-8eb247dd.jpg"
   },
   {
     "id": "chiikawa-land-kyoto",
@@ -326,7 +336,8 @@
     "sources": [
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-kyoto-8eb247dd.jpg"
   },
   {
     "id": "chiikawa-land-osaka-umeda",
@@ -354,7 +365,8 @@
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land",
       "https://www.h-sanbangai.com/shop/detail/408"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-osaka-umeda-8eb247dd.jpg"
   },
   {
     "id": "chiikawa-land-shinsaibashi",
@@ -381,7 +393,8 @@
     "sources": [
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-shinsaibashi-8eb247dd.jpg"
   },
   {
     "id": "chiikawa-land-hiroshima",
@@ -408,7 +421,8 @@
     "sources": [
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-hiroshima-8eb247dd.jpg"
   },
   {
     "id": "chiikawa-land-fukuoka",
@@ -435,7 +449,8 @@
     "sources": [
       "https://chiikawa-info.jp/ck_land.html",
       "https://chiikawa-biyori.com/chiikawa-land"
-    ]
+    ],
+    "image": "/images/places/chiikawa-land-fukuoka-8eb247dd.jpg"
   },
   {
     "id": "nagano-market-ginza",
@@ -460,7 +475,8 @@
     "sources": [
       "https://nagano-info.jp/tenpo_nm/ginza/",
       "https://prtimes.jp/main/html/rd/p/000000216.000014200.html"
-    ]
+    ],
+    "image": "/images/places/nagano-market-ginza-a8364ab9.jpg"
   },
   {
     "id": "nagano-market-shinsaibashi",
@@ -484,7 +500,8 @@
     "sources": [
       "https://nagano-info.jp/tenpo_nm/shinsaibashi/index.html",
       "https://en.shinsaibashi.parco.jp/shop/detail/?cd=028878"
-    ]
+    ],
+    "image": "/images/places/nagano-market-shinsaibashi-2cd6cb53.jpg"
   },
   {
     "id": "nagano-market-sapporo",
@@ -508,7 +525,8 @@
     "sources": [
       "https://nagano-info.jp/tenpo_nm/sapporo/",
       "https://en.sapporo.parco.jp/shop/detail/?cd=029240"
-    ]
+    ],
+    "image": "/images/places/nagano-market-sapporo-3962fcaa.jpg"
   },
   {
     "id": "chiikawa-park-ikebukuro",
@@ -536,7 +554,8 @@
       "https://sunshinecity.jp/shop/shop_list/entry-33932.html",
       "https://www.nikkei.com/article/DGXZQOUC282XF0Y5A720C2000000/",
       "https://kids.rurubu.jp/article/218879/"
-    ]
+    ],
+    "image": "/images/places/chiikawa-park-ikebukuro-7e6b80bc.png"
   },
   {
     "id": "chiikawa-restaurant-ikebukuro",
@@ -561,7 +580,8 @@
     "sources": [
       "https://kids.rurubu.jp/article/218879/",
       "https://www.fun-japan.jp/en/articles/14375"
-    ]
+    ],
+    "image": "/images/places/chiikawa-restaurant-ikebukuro-8786e4cb.jpg"
   },
   {
     "id": "chiikawa-restaurant-okinawa",
@@ -588,7 +608,8 @@
     "sources": [
       "https://cafe.parco.jp/event/chiikawarestaurant_okinawa?area=030528",
       "https://prtimes.jp/main/html/rd/p/000003711.000003639.html"
-    ]
+    ],
+    "image": "/images/places/chiikawa-restaurant-okinawa-f9bd0f08.jpg"
   },
   {
     "id": "shisa-omiyageyasan-okinawa",
@@ -612,7 +633,8 @@
     "sources": [
       "https://chiikawa-biyori.com/chiikawa-land",
       "https://www.fun-japan.jp/en/articles/14375"
-    ]
+    ],
+    "image": "/images/places/shisa-omiyageyasan-okinawa-c76aa3e7.jpg"
   },
   {
     "id": "chiikawa-bakery-omotesando",
@@ -637,7 +659,8 @@
     "sources": [
       "https://chiikawabakery.jp/",
       "https://kids.rurubu.jp/article/218879/"
-    ]
+    ],
+    "image": "/images/places/chiikawa-bakery-omotesando-16458329.jpg"
   },
   {
     "id": "chiikawa-bakery-osaka",
@@ -664,7 +687,8 @@
     "sources": [
       "https://www.ryutsuu.biz/store/s061872.html",
       "https://realsound.jp/book/2026/06/post-2420165.html"
-    ]
+    ],
+    "image": "/images/places/chiikawa-bakery-osaka-16458329.jpg"
   },
   {
     "id": "chiikawa-ramen-buta-shibuya",
@@ -688,7 +712,8 @@
     "sources": [
       "https://cafe.parco.jp/event/chiikawaramenbuta_shibuya?area=029979",
       "https://shibuya.parco.jp/shop/detail/?cd=030161"
-    ]
+    ],
+    "image": "/images/places/chiikawa-ramen-buta-shibuya-5068c071.jpg"
   },
   {
     "id": "chiikawa-ramen-buta-ikebukuro",
@@ -711,7 +736,8 @@
     "url": "https://cafe.parco.jp/event/chiikawaramenbuta_ikebukuro?area=029688",
     "sources": [
       "https://cafe.parco.jp/event/chiikawaramenbuta_ikebukuro?area=029688"
-    ]
+    ],
+    "image": "/images/places/chiikawa-ramen-buta-ikebukuro-5068c071.jpg"
   },
   {
     "id": "magical-chiikawa-store-shinjuku",
@@ -735,7 +761,8 @@
     "sources": [
       "https://www.enjoytokyo.jp/spot/l_20056952/",
       "https://game.watch.impress.co.jp/docs/news/1575107.html"
-    ]
+    ],
+    "image": "/images/places/magical-chiikawa-store-shinjuku-1782988b.webp"
   },
   {
     "id": "mogumogu-honpo-kyoto",
@@ -759,7 +786,8 @@
     "sources": [
       "https://www.chiikawamogumogu.jp/",
       "https://kids.rurubu.jp/article/218879/"
-    ]
+    ],
+    "image": "/images/places/mogumogu-honpo-kyoto-dd6e9481.png"
   },
   {
     "id": "mogumogu-honpo-kawagoe",
@@ -783,7 +811,8 @@
     "sources": [
       "https://www.chiikawamogumogu.jp/",
       "https://chiikawa-biyori.com/chiikawa-land"
-    ]
+    ],
+    "image": "/images/places/mogumogu-honpo-kawagoe-dd6e9481.png"
   },
   {
     "id": "mogumogu-honpo-otaru",
@@ -810,7 +839,8 @@
     "sources": [
       "https://www.chiikawamogumogu.jp/stores/otaru/",
       "https://www.hokkaido-np.co.jp/article/1339059/"
-    ]
+    ],
+    "image": "/images/places/mogumogu-honpo-otaru-9dd9c214.png"
   },
   {
     "id": "chiikawa-yaki-yokohama",
@@ -834,7 +864,8 @@
     "sources": [
       "https://www.chiikawa-yaki.com/",
       "https://hamakore.yokohama/chiikawa-yaki-yokohama-202503/"
-    ]
+    ],
+    "image": "/images/places/chiikawa-yaki-yokohama-a64b7113.jpg"
   },
   {
     "id": "skytree-collab-2026",
@@ -862,7 +893,8 @@
     "sources": [
       "https://dengekionline.com/article/202606/78608",
       "https://rurubu.jp/andmore/article/24954"
-    ]
+    ],
+    "image": "/images/places/skytree-collab-2026-261f14d9.jpg"
   },
   {
     "id": "movie-cafe-shibuya-2026",
@@ -890,7 +922,8 @@
     "sources": [
       "https://chiikawa-info.jp/p26/mck_cafe/shibuya/index.html",
       "https://prtimes.jp/main/html/rd/p/000003927.000003639.html"
-    ]
+    ],
+    "image": "/images/places/movie-cafe-shibuya-2026-d4feb947.jpg"
   },
   {
     "id": "movie-cafe-shinsaibashi-2026",
@@ -918,7 +951,8 @@
     "sources": [
       "https://chiikawa-info.jp/p26/mck_cafe/shinsaibashi/index.html",
       "https://cafe.parco.jp/event/chiikawamovie_cafe_osaka?area=029441"
-    ]
+    ],
+    "image": "/images/places/movie-cafe-shinsaibashi-2026-d4feb947.jpg"
   },
   {
     "id": "movie-cafe-nagoya-2026",
@@ -945,7 +979,8 @@
     "sources": [
       "https://cafe.parco.jp/event/information/chiikawamovie_cafe_nagoya?area=030106",
       "https://fan.books.rakuten.co.jp/articles/8800"
-    ]
+    ],
+    "image": "/images/places/movie-cafe-nagoya-2026-d4feb947.jpg"
   },
   {
     "id": "popup-ikebukuro-station-2026-09",
@@ -972,7 +1007,8 @@
     "url": "https://chiikawa-info.jp/pus.html",
     "sources": [
       "https://chiikawa-info.jp/pus.html"
-    ]
+    ],
+    "image": "/images/places/popup-ikebukuro-station-2026-09-e0635376.jpg"
   },
   {
     "id": "popup-grandduo-kamata-2026-09",
@@ -999,7 +1035,8 @@
     "url": "https://chiikawa-info.jp/pus.html",
     "sources": [
       "https://collabo-cafe.com/events/collabo/chiikawa-popup-store-grandeuo-kamata-2026/"
-    ]
+    ],
+    "image": "/images/places/popup-grandduo-kamata-2026-09-b4f1c955.jpg"
   },
   {
     "id": "kr-chiikawa-shop-yongsan",
@@ -1024,7 +1061,8 @@
     "sources": [
       "https://popga.co.kr/popup/5599",
       "https://popga.co.kr/content/magazine/113"
-    ]
+    ],
+    "image": "/images/places/kr-chiikawa-shop-yongsan-db0cf036.webp"
   },
   {
     "id": "kr-nagano-market-seoul",
@@ -1051,7 +1089,8 @@
     "sources": [
       "https://atzip.kr/nagano-market-seoul-sungsu-store-opening-2026/",
       "https://x.com/naganomkt_seoul"
-    ]
+    ],
+    "image": "/images/places/kr-nagano-market-seoul-7f3916eb.png"
   },
   {
     "id": "kr-popup-baby-thehyundai-2026",
@@ -1075,7 +1114,7 @@
       "start": "2026-02-04",
       "end": "2026-02-19"
     },
-    "image": "https://d8nffddmkwqeq.cloudfront.net/store/39e9d5c8%2C91ab%2C4aca%2Ca95f%2Cb873ba25d2b4",
+    "image": "/images/places/kr-popup-baby-thehyundai-2026-be989b79.jpg",
     "url": "https://popply.co.kr/popup/4258",
     "sources": [
       "https://popply.co.kr/popup/4258",
@@ -1107,7 +1146,8 @@
     "sources": [
       "https://popply.co.kr/popup/4827",
       "https://www.thetrippick.com/news/articleView.html?idxno=3640"
-    ]
+    ],
+    "image": "/images/places/kr-popup-baby-busan-2026-cf168a27.jpg"
   },
   {
     "id": "kr-popup-magical-yongsan-2026",
@@ -1135,7 +1175,8 @@
     "sources": [
       "https://popga.co.kr/popup/7303",
       "https://x.com/daewonmedia_tv/status/2066435307847995441"
-    ]
+    ],
+    "image": "/images/places/kr-popup-magical-yongsan-2026-bf2f6606.webp"
   },
   {
     "id": "kr-popup-sushi-seongsu-2026",
@@ -1164,7 +1205,8 @@
       "https://popply.co.kr/popup/5571",
       "https://www.musinsa.com/content/1526871092866249930",
       "https://x.com/daewonmedia_tv/status/2079461376532046218"
-    ]
+    ],
+    "image": "/images/places/kr-popup-sushi-seongsu-2026-ebe04434.jpg"
   },
   {
     "id": "kr-popup-nagano-hongdae-2025",
@@ -1191,7 +1233,8 @@
     "sources": [
       "https://www.seoul.co.kr/news/life/2025/04/26/20250426500019",
       "https://popga.co.kr/popup/2459"
-    ]
+    ],
+    "image": "/images/places/kr-popup-nagano-hongdae-2025-08b396ce.webp"
   },
   {
     "id": "kr-oliveyoung-delight-hongdae-2026",
@@ -1219,7 +1262,8 @@
       "https://popply.co.kr/popup/4521",
       "https://popga.co.kr/popup/5733",
       "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000239684"
-    ]
+    ],
+    "image": "/images/places/kr-oliveyoung-delight-hongdae-2026-59001dce.png"
   },
   {
     "id": "kr-ediya-collab-2024",
@@ -1249,7 +1293,8 @@
     "sources": [
       "https://ediya.com/chiikawa/main.html",
       "https://news.nate.com/view/20241217n26783"
-    ]
+    ],
+    "image": "/images/places/kr-ediya-collab-2024-93ade185.jpg"
   },
   {
     "id": "kr-animate-hongdae",
@@ -1273,7 +1318,8 @@
     "sources": [
       "https://x.com/animate_hongdae",
       "https://www.animate-onlineshop.co.kr/"
-    ]
+    ],
+    "image": "/images/places/kr-animate-hongdae-166377b9.jpg"
   },
   {
     "id": "kr-hottracks-gwanghwamun",
@@ -1296,7 +1342,8 @@
     "url": "https://hottracks.kyobobook.co.kr/",
     "sources": [
       "https://hottracks.kyobobook.co.kr/"
-    ]
+    ],
+    "image": "/images/places/kr-hottracks-gwanghwamun-2c6bf84d.jpg"
   },
   {
     "id": "kr-artbox-hongdae",
@@ -1320,6 +1367,7 @@
     "sources": [
       "https://hottracks.kyobobook.co.kr/gift/brand-shop/43747",
       "https://gift.kakao.com/search/result?query=%EC%95%84%ED%8A%B8%EB%B0%95%EC%8A%A4+%EB%A8%BC%EC%9E%91%EA%B7%80"
-    ]
+    ],
+    "image": "/images/places/kr-artbox-hongdae-ebf7ace4.jpg"
   }
 ]

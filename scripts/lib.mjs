@@ -61,15 +61,19 @@ export const guessCategory = (productType = '', title = '') => {
 export const charactersOf = (product) =>
   (product.tags ?? []).map((t) => CHARACTER_TAGS[t]).filter(Boolean);
 
-export const formatYen = (price) => `${Number(price).toLocaleString('ja-JP')}円(세금 포함)`;
+/** 카드에서 한 줄에 들어가도록 짧게. 치이카와 마켓 표시가는 모두 세금 포함가다. */
+export const formatYen = (price) => `${Number(price).toLocaleString('ja-JP')}엔`;
 
 /** Shopify products.json 항목 → Goods */
+/** 상품명이 거의 모두 "ちいかわ "로 시작해 카드에서 중복된다. 떼어 낸다. */
+export const cleanTitle = (title = '') => title.replace(/^ちいかわ\s+/, '').trim() || title;
+
 export const mapProduct = (p) => {
   const url = `${SHOP}/products/${p.handle}`;
   const cheapest = [...p.variants].sort((a, b) => Number(a.price) - Number(b.price))[0];
   return {
     id: `${SCRAPED_PREFIX}${p.handle}`,
-    name: p.title,
+    name: cleanTitle(p.title),
     brand: '치이카와 마켓',
     category: guessCategory(p.product_type, p.title),
     releaseDate: releaseDateOf(p),

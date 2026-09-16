@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { charactersOf, cutoffDate, mapProduct, mergeGoods, releaseDateOf } from './lib.mjs';
+import { charactersOf, cleanTitle, cutoffDate, mapProduct, mergeGoods, releaseDateOf } from './lib.mjs';
 
 const product = {
   handle: '4571609401234',
@@ -30,7 +30,7 @@ test('mapProduct가 Shopify 상품을 Goods로 변환한다', () => {
   assert.equal(g.id, 'cm-4571609401234');
   assert.equal(g.category, '인형/마스코트');
   assert.equal(g.releaseDate, '2026-09-25');
-  assert.equal(g.price, '1,650円(세금 포함)');
+  assert.equal(g.price, '1,650엔');
   assert.equal(g.description, 'ふわふわ マスコット');
   assert.equal(g.buyUrl, 'https://chiikawamarket.jp/products/4571609401234');
 });
@@ -43,6 +43,12 @@ test('mergeGoods는 수동 항목을 지키고 스크랩 항목을 교체하며 
   ];
   const scraped = [{ id: 'cm-new', releaseDate: '2026-09-10' }];
   assert.deepEqual(mergeGoods(existing, scraped, '2026-03-16').map((g) => g.id), ['cm-new', 'daewon-1']);
+});
+
+test('상품명에서 중복되는 ちいかわ 접두사를 뗀다', () => {
+  assert.equal(cleanTitle('ちいかわ ハチワレ マスコット'), 'ハチワレ マスコット');
+  assert.equal(cleanTitle('ちいかわ'), 'ちいかわ');
+  assert.equal(cleanTitle('まじかるちいかわ ステッカー'), 'まじかるちいかわ ステッカー');
 });
 
 test('cutoffDate는 6개월 전이다', () => {

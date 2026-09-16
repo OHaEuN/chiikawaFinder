@@ -13,15 +13,34 @@
       "겁이 많고 눈물이 잦지만 성실합니다. 풀 뽑기 같은 노동으로 돈을 벌어 생활하며, 토벌이나 자격 시험 같은 이 세계의 혹독한 규칙 속에서 하루하루를 버팁니다.",
       "말을 거의 하지 않고 '와아', '하아' 같은 짧은 소리로 감정을 드러냅니다. 하치와레와 우사기와 늘 함께 다닙니다."
     ],
-    "traits": ["울보", "성실함", "겁많음", "노동", "무언"],
-    "relationships": [
-      { "slug": "hachiware", "relation": "가장 가까운 친구. 늘 함께 다니며 서로를 챙깁니다." },
-      { "slug": "usagi", "relation": "친구. 예측 불가능한 행동에 자주 휘말립니다." }
+    "traits": [
+      "울보",
+      "성실함",
+      "겁많음",
+      "노동",
+      "무언"
     ],
-    "firstAppearance": { "manga": "나가노 작가 X 연재" },
+    "relationships": [
+      {
+        "slug": "hachiware",
+        "relation": "가장 가까운 친구. 늘 함께 다니며 서로를 챙깁니다."
+      },
+      {
+        "slug": "usagi",
+        "relation": "친구. 예측 불가능한 행동에 자주 휘말립니다."
+      }
+    ],
+    "firstAppearance": {
+      "manga": "나가노 작가 X 연재"
+    },
     "episodes": [],
-    "trivia": ["작품 제목이 곧 캐릭터 이름입니다.", "국내에서는 '먼가 작고 귀여운 녀석', 줄여서 '먼작귀'로도 불립니다."],
-    "sources": ["https://chiikawa-info.jp/"]
+    "trivia": [
+      "작품 제목이 곧 캐릭터 이름입니다.",
+      "국내에서는 '먼가 작고 귀여운 녀석', 줄여서 '먼작귀'로도 불립니다."
+    ],
+    "sources": [
+      "https://chiikawa-info.jp/"
+    ]
   },
   {
     "slug": "hachiware",
@@ -37,15 +56,33 @@
       "밝고 낙천적이며 말이 많습니다. 힘든 상황에서도 농담을 던지거나 노래를 부르며 분위기를 풀어 주는 역할을 합니다.",
       "동굴에서 혼자 살고 있으며, 호기심이 많아 새로운 일에 먼저 뛰어드는 편입니다."
     ],
-    "traits": ["긍정적", "수다쟁이", "호기심", "노래", "동굴 거주"],
-    "relationships": [
-      { "slug": "chiikawa", "relation": "가장 가까운 친구. 겁많은 치이카와를 늘 북돋아 줍니다." },
-      { "slug": "usagi", "relation": "친구. 우사기의 돌발 행동에 함께 휘말립니다." }
+    "traits": [
+      "긍정적",
+      "수다쟁이",
+      "호기심",
+      "노래",
+      "동굴 거주"
     ],
-    "firstAppearance": { "manga": "나가노 작가 X 연재" },
+    "relationships": [
+      {
+        "slug": "chiikawa",
+        "relation": "가장 가까운 친구. 겁많은 치이카와를 늘 북돋아 줍니다."
+      },
+      {
+        "slug": "usagi",
+        "relation": "친구. 우사기의 돌발 행동에 함께 휘말립니다."
+      }
+    ],
+    "firstAppearance": {
+      "manga": "나가노 작가 X 연재"
+    },
     "episodes": [],
-    "trivia": ["'하치와레'는 이마 가운데가 갈라진 고양이 무늬를 가리키는 일본어입니다."],
-    "sources": ["https://chiikawa-info.jp/"]
+    "trivia": [
+      "'하치와레'는 이마 가운데가 갈라진 고양이 무늬를 가리키는 일본어입니다."
+    ],
+    "sources": [
+      "https://chiikawa-info.jp/"
+    ]
   },
   {
     "slug": "usagi",
@@ -61,14 +98,32 @@
       "'우라!', '얏하!' 같은 짧은 외침 외에는 거의 말을 하지 않지만, 행동력만큼은 셋 중 가장 강합니다. 위험한 상황에도 겁 없이 뛰어듭니다.",
       "돌발 행동으로 주변을 곤란하게 만들기도 하지만, 결정적인 순간에 친구들을 구해 내는 모습도 자주 보입니다."
     ],
-    "traits": ["자유분방", "행동력", "괴력", "우라!", "겁없음"],
-    "relationships": [
-      { "slug": "chiikawa", "relation": "친구. 자주 휘말리게 만들지만 위기에서 구해 주기도 합니다." },
-      { "slug": "hachiware", "relation": "친구. 함께 소동을 벌이는 사이입니다." }
+    "traits": [
+      "자유분방",
+      "행동력",
+      "괴력",
+      "우라!",
+      "겁없음"
     ],
-    "firstAppearance": { "manga": "나가노 작가 X 연재" },
+    "relationships": [
+      {
+        "slug": "chiikawa",
+        "relation": "친구. 자주 휘말리게 만들지만 위기에서 구해 주기도 합니다."
+      },
+      {
+        "slug": "hachiware",
+        "relation": "친구. 함께 소동을 벌이는 사이입니다."
+      }
+    ],
+    "firstAppearance": {
+      "manga": "나가노 작가 X 연재"
+    },
     "episodes": [],
-    "trivia": ["대사가 거의 '우라!' 뿐이지만 표정과 행동으로 감정이 전달됩니다."],
-    "sources": ["https://chiikawa-info.jp/"]
+    "trivia": [
+      "대사가 거의 '우라!' 뿐이지만 표정과 행동으로 감정이 전달됩니다."
+    ],
+    "sources": [
+      "https://chiikawa-info.jp/"
+    ]
   }
 ]
