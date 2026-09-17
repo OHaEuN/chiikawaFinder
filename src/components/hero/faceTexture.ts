@@ -168,7 +168,7 @@ function drawCap(ctx: CanvasRenderingContext2D, capColor: string, bodyColor: str
    */
   const thetaLow = 1.17;
   const thetaEdge = 0.95;
-  const thetaPeak = 0.62;
+  const thetaPeak = 0.73;
   const PEAK_WIDTH = 0.072;
 
   const boundary = (t: number) => {
