@@ -26,12 +26,13 @@ export default function HeroSceneInner() {
       return;
     }
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // ?still 을 붙이면 정지 정면으로 그린다. 참조 사진과 대조할 때 쓴다.
+    const still = new URLSearchParams(window.location.search).has('still');
+    const reduceMotion = still || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.0;
+    renderer.toneMapping = THREE.NoToneMapping;
     host.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
@@ -40,8 +41,8 @@ export default function HeroSceneInner() {
     camera.lookAt(0, -0.1, 0);
 
     // 은은한 확산광을 주로 쓰고 직사광을 약하게 둬야 천처럼 보인다.
-    scene.add(new THREE.HemisphereLight(0xfffaf4, 0xf0ddc9, 1.35));
-    const key = new THREE.DirectionalLight(0xfff6ea, 1.25);
+    scene.add(new THREE.HemisphereLight(0xffffff, 0xfff2e6, 1.55));
+    const key = new THREE.DirectionalLight(0xfffaf2, 1.0);
     key.position.set(3.2, 6, 5);
     key.castShadow = true;
     key.shadow.mapSize.set(1024, 1024);
@@ -51,11 +52,11 @@ export default function HeroSceneInner() {
     key.shadow.radius = 6;
     key.shadow.bias = -0.0015;
     scene.add(key);
-    const fill = new THREE.DirectionalLight(0xeaf2fb, 0.35);
+    const fill = new THREE.DirectionalLight(0xf4f8ff, 0.4);
     fill.position.set(-4, 2.4, 3);
     scene.add(fill);
     // 뒤에서 옅게 비춰 테두리에 잔털이 선 듯한 빛을 남긴다.
-    const rim = new THREE.DirectionalLight(0xffffff, 0.35);
+    const rim = new THREE.DirectionalLight(0xffffff, 0.45);
     rim.position.set(-1.5, 2.2, -4);
     scene.add(rim);
 
@@ -93,9 +94,7 @@ export default function HeroSceneInner() {
       rig.rightArm.rotation.z = -0.32 - pose.armLift;
       rig.leftEar.rotation.z = pose.earSwing;
       rig.rightEar.rotation.z = -pose.earSwing;
-      rig.tears.children.forEach((drop) => {
-        drop.visible = pose.crying;
-      });
+      rig.setCrying(pose.crying);
     };
 
     const resize = () => {
