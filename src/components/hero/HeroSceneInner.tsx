@@ -12,14 +12,16 @@ const SPACING = 2.7;
 const PHASE: Record<CharacterKey, number> = { chiikawa: 0, hachiware: 0.45, usagi: 0.9 };
 
 const NAME: Record<CharacterKey, string> = { chiikawa: '치이카와', hachiware: '하치와레', usagi: '우사기' };
-const LINE: Record<CharacterKey, string> = {
-  chiikawa: '와아…',
-  hachiware: '어떻게든 되겠지!',
-  usagi: '우라!',
+/** 누를 때마다 다른 말이 나오도록 여러 개 둔다. */
+const LINES: Record<CharacterKey, string[]> = {
+  chiikawa: ['와아…', '하아…', '우웅…', '고마워…'],
+  hachiware: ['어떻게든 되겠지!', '해보는 거야!', '괜찮아 괜찮아!', '같이 가자!'],
+  usagi: ['우라!', '얏하!', '푸랏!', '하!'],
 };
 
 interface Bubble {
   key: CharacterKey;
+  line: string;
   x: number;
   y: number;
 }
@@ -81,7 +83,7 @@ export default function HeroSceneInner() {
     // 캐릭터가 떠 보이지 않게 그림자만 받는 바닥을 깐다.
     const ground = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.ShadowMaterial({ opacity: 0.12 }));
     ground.rotation.x = -Math.PI / 2;
-    ground.position.y = -1.9;
+    ground.position.y = -1.78;
     ground.receiveShadow = true;
     scene.add(ground);
 
@@ -140,8 +142,10 @@ export default function HeroSceneInner() {
       const screen = entry.rig.root.position.clone();
       screen.y = 1.9;
       screen.project(camera);
+      const lines = LINES[entry.name];
       setBubble({
         key: entry.name,
+        line: lines[Math.floor(Math.random() * lines.length)],
         x: ((screen.x + 1) / 2) * 100,
         y: ((1 - screen.y) / 2) * 100,
       });
@@ -167,8 +171,8 @@ export default function HeroSceneInner() {
       rig.body.rotation.z = base.tilt;
       rig.body.rotation.y = base.spin + (burst?.spin ?? 0);
       rig.body.scale.set(2 - squash, squash, 2 - squash);
-      rig.leftArm.rotation.z = 0.32 + armLift;
-      rig.rightArm.rotation.z = -0.32 - armLift;
+      rig.leftArm.rotation.z = armLift * 0.85;
+      rig.rightArm.rotation.z = -armLift * 0.85;
       rig.leftEar.rotation.z = base.earSwing;
       rig.rightEar.rotation.z = -base.earSwing;
       rig.setCrying(base.crying);
@@ -253,11 +257,11 @@ export default function HeroSceneInner() {
     <div className={`hero-scene${hovered ? ' is-hover' : ''}`} ref={hostRef}>
       {bubble && (
         <span className="hero-bubble" style={{ left: `${bubble.x}%`, top: `${bubble.y}%` }}>
-          {LINE[bubble.key]}
+          {bubble.line}
         </span>
       )}
       <span className="hero-hint" aria-live="polite">
-        {hovered ? `${NAME[hovered]}를 눌러 보세요` : '눌러 보세요'}
+        {hovered ? `${NAME[hovered]} 쓰다듬기` : '쓰다듬어 보세요'}
       </span>
     </div>
   );

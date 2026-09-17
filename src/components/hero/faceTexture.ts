@@ -214,6 +214,13 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
   if (!patchCtx) return;
   patchCtx.drawImage(image, crop.x, crop.y, crop.w, crop.h, 0, 0, crop.w, crop.h);
 
+  // 자수 눈썹이 연해서 멀리서 잘 안 보인다. 어두운 곳만 더 어둡게 눌러 준다.
+  patchCtx.globalCompositeOperation = 'multiply';
+  patchCtx.globalAlpha = 0.45;
+  patchCtx.drawImage(patch, 0, 0);
+  patchCtx.globalAlpha = 1;
+  patchCtx.globalCompositeOperation = 'source-over';
+
   // 네모로 잘린 자국이 남지 않게 타원으로 넉넉히 흐린다.
   const radius = crop.w / 2;
   const fade = patchCtx.createRadialGradient(0, 0, radius * 0.24, 0, 0, radius);
