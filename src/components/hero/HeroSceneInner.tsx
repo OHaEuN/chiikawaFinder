@@ -30,6 +30,8 @@ export default function HeroSceneInner() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.0;
     host.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
@@ -37,22 +39,30 @@ export default function HeroSceneInner() {
     camera.position.set(0, 0.35, 7.9);
     camera.lookAt(0, -0.1, 0);
 
-    scene.add(new THREE.HemisphereLight(0xffffff, 0xf3e6d6, 1.15));
-    const key = new THREE.DirectionalLight(0xfff6ea, 1.5);
+    // 은은한 확산광을 주로 쓰고 직사광을 약하게 둬야 천처럼 보인다.
+    scene.add(new THREE.HemisphereLight(0xfffaf4, 0xf0ddc9, 1.35));
+    const key = new THREE.DirectionalLight(0xfff6ea, 1.25);
     key.position.set(3.2, 6, 5);
     key.castShadow = true;
     key.shadow.mapSize.set(1024, 1024);
     key.shadow.camera.near = 1;
     key.shadow.camera.far = 22;
+    // 그림자 경계를 흐려 인형 같은 부드러움을 남긴다.
+    key.shadow.radius = 6;
+    key.shadow.bias = -0.0015;
     scene.add(key);
-    const fill = new THREE.DirectionalLight(0xe8f0fb, 0.42);
+    const fill = new THREE.DirectionalLight(0xeaf2fb, 0.35);
     fill.position.set(-4, 2.4, 3);
     scene.add(fill);
+    // 뒤에서 옅게 비춰 테두리에 잔털이 선 듯한 빛을 남긴다.
+    const rim = new THREE.DirectionalLight(0xffffff, 0.35);
+    rim.position.set(-1.5, 2.2, -4);
+    scene.add(rim);
 
     // 캐릭터가 떠 보이지 않게 그림자만 받는 바닥을 깐다.
     const ground = new THREE.Mesh(
       new THREE.PlaneGeometry(40, 40),
-      new THREE.ShadowMaterial({ opacity: 0.13 }),
+      new THREE.ShadowMaterial({ opacity: 0.12 }),
     );
     ground.rotation.x = -Math.PI / 2;
     ground.position.y = -1.55;
