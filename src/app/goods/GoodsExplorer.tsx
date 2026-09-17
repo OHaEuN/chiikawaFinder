@@ -18,6 +18,7 @@ export function GoodsExplorer({ goods }: GoodsExplorerProps) {
   const [brand, setBrand] = useState<string | null>(null);
   const [category, setCategory] = useState<string | null>(null);
   const [query, setQuery] = useState('');
+  const [inStockOnly, setInStockOnly] = useState(false);
   const [limit, setLimit] = useState(PAGE_SIZE);
 
   const brands = useMemo(() => {
@@ -38,9 +39,10 @@ export function GoodsExplorer({ goods }: GoodsExplorerProps) {
         (!country || g.country === country) &&
         (!brand || g.brand === brand) &&
         (!category || g.category === category) &&
+        (!inStockOnly || g.available !== false) &&
         (!q || g.name.toLowerCase().includes(q) || (g.collab ?? '').toLowerCase().includes(q)),
     );
-  }, [goods, country, brand, category, query]);
+  }, [goods, country, brand, category, query, inStockOnly]);
 
   const reset = <T,>(setter: (v: T) => void) => (v: T) => { setter(v); setLimit(PAGE_SIZE); };
 
@@ -65,7 +67,18 @@ export function GoodsExplorer({ goods }: GoodsExplorerProps) {
       <FilterChips options={[{ value: 'JP', label: '🇯🇵 일본' }, { value: 'KR', label: '🇰🇷 한국' }]} value={country} onChange={reset(setCountry)} />
       <FilterChips options={categories} value={category} onChange={reset(setCategory)} allLabel="모든 카테고리" />
       <FilterChips options={brands} value={brand} onChange={reset(setBrand)} allLabel="모든 브랜드" />
-      <p className="muted" style={{ fontSize: '0.9rem' }}>{filtered.length.toLocaleString('ko-KR')}개</p>
+      <div className="chips" style={{ marginTop: -4 }}>
+        <button
+          className="chip"
+          aria-pressed={inStockOnly}
+          onClick={() => { setInStockOnly((v) => !v); setLimit(PAGE_SIZE); track('goods_instock_filter'); }}
+        >
+          지금 살 수 있는 것만
+        </button>
+        <span className="muted" style={{ alignSelf: 'center', fontSize: '0.9rem' }}>
+          {filtered.length.toLocaleString('ko-KR')}개
+        </span>
+      </div>
       <div className="grid">{filtered.slice(0, limit).map((g) => <GoodsCard key={g.id} goods={g} />)}</div>
       {filtered.length > limit && (
         <div style={{ textAlign: 'center', marginTop: 24 }}>

@@ -30,7 +30,9 @@ const CATEGORY_MAP = [
   [/寝具|インテリア|生活/, '생활용품'],
 ];
 
-const DATE_TAG = /^(?:PRE|RE)?(\d{8})$/;
+const RELEASE_TAG = /^(\d{8})$/;
+const PREORDER_TAG = /^PRE(\d{8})$/;
+const RESTOCK_TAG = /^RE(\d{8})$/;
 
 export const cutoffDate = (today = new Date()) => {
   const d = new Date(today);
@@ -40,17 +42,24 @@ export const cutoffDate = (today = new Date()) => {
 
 const stripHtml = (html = '') => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 
-/**
- * published_at은 재공개 시 갱신되어 신뢰할 수 없다.
- * 발매일은 상품 태그의 8자리 날짜(20260925 / PRE20260513 / RE20260601)에서 뽑는다.
- */
-export const releaseDateOf = (product) => {
-  const dates = (product.tags ?? [])
-    .map((t) => DATE_TAG.exec(t)?.[1])
+const datesFrom = (tags, pattern) =>
+  tags
+    .map((t) => pattern.exec(t)?.[1])
     .filter(Boolean)
     .map((d) => `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6)}`)
     .sort();
-  return dates.at(-1) ?? (product.created_at ?? '').slice(0, 10);
+
+/**
+ * published_at은 재공개 시 갱신되어 신뢰할 수 없다. 발매일은 상품 태그의 8자리 날짜에서 뽑는다.
+ * 재입고(RE)는 새 발매가 아니므로 제외한다. 재입고 이력은 restocksOf 가 따로 모은다.
+ */
+export const releaseDateOf = (product) => {
+  const tags = product.tags ?? [];
+  const released = datesFrom(tags, RELEASE_TAG);
+  if (released.length) return released[0];
+  const preorder = datesFrom(tags, PREORDER_TAG);
+  if (preorder.length) return preorder[0];
+  return (product.created_at ?? '').slice(0, 10);
 };
 
 export const guessCategory = (productType = '', title = '') => {
@@ -61,6 +70,12 @@ export const guessCategory = (productType = '', title = '') => {
 export const charactersOf = (product) =>
   (product.tags ?? []).map((t) => CHARACTER_TAGS[t]).filter(Boolean);
 
+/** 재고. 치이카와 마켓은 품절 상품도 페이지를 남겨 둬서 이 값이 없으면 살 수 있는 줄 안다. */
+export const isAvailable = (product) => (product.variants ?? []).some((v) => v.available);
+
+/** 재입고 이력. 태그에 RE + 8자리 날짜로 쌓인다. */
+export const restocksOf = (product) => datesFrom(product.tags ?? [], RESTOCK_TAG);
+
 /** 카드에서 한 줄에 들어가도록 짧게. 치이카와 마켓 표시가는 모두 세금 포함가다. */
 export const formatYen = (price) => `${Number(price).toLocaleString('ja-JP')}엔`;
 
@@ -70,6 +85,7 @@ export const cleanTitle = (title = '') => title.replace(/^ちいかわ\s+/, '').
 
 export const mapProduct = (p) => {
   const url = `${SHOP}/products/${p.handle}`;
+  const restocks = restocksOf(p);
   const cheapest = [...p.variants].sort((a, b) => Number(a.price) - Number(b.price))[0];
   return {
     id: `${SCRAPED_PREFIX}${p.handle}`,
@@ -84,6 +100,9 @@ export const mapProduct = (p) => {
     country: 'JP',
     description: stripHtml(p.body_html).slice(0, 160) || p.title,
     characters: charactersOf(p),
+    available: isAvailable(p),
+    restockCount: restocks.length,
+    ...(restocks.length ? { lastRestockDate: restocks.at(-1) } : {}),
     sources: [url],
   };
 };

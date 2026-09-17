@@ -9,9 +9,10 @@ interface GoodsCardProps { goods: GoodsSummary }
 export function GoodsCard({ goods }: GoodsCardProps) {
   return (
     <Link href={`/goods/${goods.id}`} className="card">
-      <div className="card-media contain">
+      <div className={`card-media contain${goods.available === false ? ' soldout' : ''}`}>
         <SafeImage src={goods.image} alt={goods.name} fallback="🎁" seed={goods.id} />
         <span className="card-badge"><Tag tone={goods.country === 'KR' ? 'pink' : 'blue'}>{COUNTRY_LABEL[goods.country]}</Tag></span>
+        {goods.available === false && <span className="soldout-mark">품절</span>}
       </div>
       <div className="card-body">
         <div className="card-sub">{goods.collab ?? goods.brand} · {shortDate(goods.releaseDate)}</div>

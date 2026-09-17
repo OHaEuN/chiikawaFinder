@@ -261,3 +261,13 @@ li { margin-bottom: 0.3em; }
 .customs.customs-over { background: var(--yellow); }
 .customs > strong:first-child { display: block; margin-bottom: 5px; }
 .customs p { font-size: 0.88rem; margin: 0; line-height: 1.65; }
+
+/* 품절 상품은 구매 링크로 안내하면 안 된다. 카드에서 바로 구분되게 한다. */
+.card-media.soldout img { opacity: 0.45; }
+.card-media.soldout .ph { opacity: 0.5; }
+.soldout-mark { position: absolute; right: 9px; bottom: 9px; background: rgba(87, 82, 77, 0.88); color: #fff; font-size: 0.72rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
+
+.restock { font-size: 0.88rem; border-radius: 12px; padding: 10px 13px; margin: 14px 0 0; line-height: 1.6; }
+.restock-likely { background: var(--mint); }
+.restock-possible { background: var(--yellow); }
+.restock-unknown { background: var(--surface-2); color: var(--ink-soft); }
