@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { createFaceTexture, type BrowStyle } from './faceTexture';
+import { createFaceTexture, type BrowStyle, type FacePhoto } from './faceTexture';
 
 /**
  * 세 캐릭터를 기본 도형으로 조립한다. 외부 모델 파일은 쓰지 않는다.
@@ -29,9 +29,10 @@ export interface CharacterRig {
 }
 
 const HEAD_RADIUS = 1;
-const HEAD_Y = 0.42;
-const TORSO_RADIUS = 0.6;
-const TORSO_Y = -0.72;
+const HEAD_Y = 0.38;
+/** 참조 인형은 몸통 너비가 머리의 9할쯤 된다. 좁게 잡으면 사탕처럼 보인다. */
+const TORSO_RADIUS = 0.78;
+const TORSO_Y = -0.86;
 
 /** 눈썹은 캐릭터마다 길이와 높이가 다르다. */
 const BROWS: Record<CharacterKey, BrowStyle> = {
@@ -51,6 +52,28 @@ const BODY_COLOR: Record<CharacterKey, string> = {
 
 /** 머리에 색이 덮이는 캐릭터. 하치와레만 해당한다. */
 const CAP_COLOR: Partial<Record<CharacterKey, string>> = { hachiware: HACHIWARE_BLUE };
+
+/**
+ * 공식 인형 사진에서 얼굴만 오려 쓴다. 손으로 그리는 것보다 원본에 가깝다.
+ * head 는 사진 속 머리의 경계, crop 은 눈썹 위부터 입 아래까지다.
+ */
+const FACE_PHOTO: Record<CharacterKey, FacePhoto> = {
+  chiikawa: {
+    src: '/images/hero/chiikawa.jpg',
+    head: { x: 270, y: 150, w: 670, h: 540 },
+    crop: { x: 330, y: 330, w: 550, h: 300 },
+  },
+  hachiware: {
+    src: '/images/hero/hachiware.jpg',
+    head: { x: 280, y: 120, w: 600, h: 570 },
+    crop: { x: 345, y: 370, w: 520, h: 265 },
+  },
+  usagi: {
+    src: '/images/hero/usagi.jpg',
+    head: { x: 270, y: 330, w: 660, h: 460 },
+    crop: { x: 350, y: 380, w: 510, h: 320 },
+  },
+};
 
 /**
  * 인형 재질. 일반 재질은 아무리 거칠게 해도 플라스틱처럼 보인다.
@@ -73,24 +96,26 @@ function buildTorso(color: number | string) {
   const group = new THREE.Group();
 
   const torso = ball(TORSO_RADIUS, color);
-  torso.scale.set(1.12, 1.02, 0.95);
+  torso.scale.set(1.04, 0.92, 0.92);
   torso.position.y = TORSO_Y;
   group.add(torso);
 
-  // 발은 가운데에 붙어 있는 작은 공 두 개
+  // 발은 가운데에 붙어 있는 동그란 공 두 개
   for (const side of [-1, 1]) {
-    const foot = ball(0.2, color);
-    foot.scale.set(1.05, 0.88, 1.2);
-    foot.position.set(side * 0.2, TORSO_Y - 0.56, 0.12);
+    const foot = ball(0.26, color);
+    foot.scale.set(1.02, 0.82, 1.15);
+    foot.position.set(side * 0.27, TORSO_Y - 0.62, 0.12);
     group.add(foot);
   }
 
   const makeArm = (side: number) => {
     const pivot = new THREE.Group();
-    const arm = new THREE.Mesh(new THREE.CapsuleGeometry(0.155, 0.3, 8, 16), soft(color));
+    const arm = new THREE.Mesh(new THREE.CapsuleGeometry(0.19, 0.26, 8, 18), soft(color));
     arm.position.y = -0.2;
+    arm.scale.z = 0.9;
     pivot.add(arm);
-    pivot.position.set(side * 0.72, TORSO_Y + 0.14, 0.06);
+    pivot.position.set(side * 0.76, TORSO_Y + 0.2, 0.04);
+    pivot.rotation.z = side * -0.12;
     return pivot;
   };
 
@@ -105,10 +130,10 @@ function assemble(key: CharacterKey) {
   const head = new THREE.Group();
   const skull = ball(HEAD_RADIUS, color);
   // 머리는 세로보다 가로가 조금 넓다.
-  skull.scale.set(1.12, 1, 1);
+  skull.scale.set(1.08, 1, 1);
 
   const material = skull.material as THREE.MeshPhysicalMaterial;
-  const calm = createFaceTexture(color, BROWS[key], false, CAP_COLOR[key]);
+  const calm = createFaceTexture(color, BROWS[key], false, CAP_COLOR[key], FACE_PHOTO[key]);
   material.map = calm;
   // 텍스처가 색을 결정하므로 재질 색은 흰색으로 둔다.
   material.color.set(0xffffff);
@@ -116,7 +141,7 @@ function assemble(key: CharacterKey) {
 
   let crying: THREE.CanvasTexture | null = null;
   const setCrying = (on: boolean) => {
-    if (on && !crying) crying = createFaceTexture(color, BROWS[key], true, CAP_COLOR[key]);
+    if (on && !crying) crying = createFaceTexture(color, BROWS[key], true, CAP_COLOR[key], FACE_PHOTO[key]);
     const next = on && crying ? crying : calm;
     if (material.map !== next) {
       material.map = next;
@@ -144,11 +169,27 @@ function buildChiikawa(): CharacterRig {
     // 축은 머리에 닿는 밑동에 두고 귀는 그 위로 올린다. 그래야 흔들려도 붙어 보인다.
     ear.position.y = 0.16;
     pivot.add(ear);
-    pivot.position.set(side * 0.62, 0.7, -0.04);
+    pivot.position.set(side * 0.62, 0.72, -0.04);
     base.head.add(pivot);
     ears.push(pivot);
   }
   return { ...base, leftEar: ears[0], rightEar: ears[1] };
+}
+
+/**
+ * 고양이 귀. 원뿔로 만들면 끝이 바늘처럼 뾰족해 뿔처럼 보인다.
+ * 밑동은 넓고 끝으로 갈수록 좁아지되 끝이 둥근 옆모습을 돌려 만든다.
+ */
+function catEarGeometry(): THREE.LatheGeometry {
+  const profile: THREE.Vector2[] = [];
+  const steps = 14;
+  const height = 0.46;
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps;
+    const radius = 0.27 * Math.cos((t * Math.PI) / 2) ** 0.62;
+    profile.push(new THREE.Vector2(Math.max(0.004, radius), t * height));
+  }
+  return new THREE.LatheGeometry(profile, 24);
 }
 
 function buildHachiware(): CharacterRig {
@@ -159,13 +200,12 @@ function buildHachiware(): CharacterRig {
   const ears: THREE.Group[] = [];
   for (const side of [-1, 1]) {
     const pivot = new THREE.Group();
-    const ear = new THREE.Mesh(new THREE.ConeGeometry(0.25, 0.36, 22), capMaterial);
-    ear.scale.z = 0.7;
-    ear.rotation.z = side * 0.1;
-    // 원뿔은 가운데가 원점이라 그대로 두면 밑동이 머리에서 뜬다. 절반만큼 올린다.
-    ear.position.y = 0.18;
+    const ear = new THREE.Mesh(catEarGeometry(), capMaterial);
+    // 고양이 귀라 앞뒤로 납작하다.
+    ear.scale.z = 0.62;
+    ear.rotation.z = side * 0.14;
     pivot.add(ear);
-    pivot.position.set(side * 0.5, 0.72, -0.02);
+    pivot.position.set(side * 0.52, 0.72, -0.02);
     base.head.add(pivot);
     ears.push(pivot);
   }

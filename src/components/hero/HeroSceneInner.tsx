@@ -1,18 +1,36 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { buildCharacter, type CharacterKey, type CharacterRig } from './characters';
-import { poseAt, restingPose } from './motions';
+import { poseAt, reactionAt, REACTION_SECONDS, restingPose } from './motions';
+import { track } from '@/lib/analytics';
 
 const ORDER: CharacterKey[] = ['chiikawa', 'hachiware', 'usagi'];
 const SPACING = 2.7;
 /** 캐릭터마다 동작이 겹치지 않게 시작 시점을 어긋나게 둔다. */
 const PHASE: Record<CharacterKey, number> = { chiikawa: 0, hachiware: 0.45, usagi: 0.9 };
 
+const NAME: Record<CharacterKey, string> = { chiikawa: '치이카와', hachiware: '하치와레', usagi: '우사기' };
+const LINE: Record<CharacterKey, string> = {
+  chiikawa: '와아…',
+  hachiware: '어떻게든 되겠지!',
+  usagi: '우라!',
+};
+
+interface Bubble {
+  key: CharacterKey;
+  x: number;
+  y: number;
+}
+
 export default function HeroSceneInner() {
   const hostRef = useRef<HTMLDivElement>(null);
   const [failed, setFailed] = useState(false);
+  const [bubble, setBubble] = useState<Bubble | null>(null);
+  const [hovered, setHovered] = useState<CharacterKey | null>(null);
+
+  const clearBubble = useCallback(() => setBubble(null), []);
 
   useEffect(() => {
     const host = hostRef.current;
@@ -61,40 +79,112 @@ export default function HeroSceneInner() {
     scene.add(rim);
 
     // 캐릭터가 떠 보이지 않게 그림자만 받는 바닥을 깐다.
-    const ground = new THREE.Mesh(
-      new THREE.PlaneGeometry(40, 40),
-      new THREE.ShadowMaterial({ opacity: 0.12 }),
-    );
+    const ground = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.ShadowMaterial({ opacity: 0.12 }));
     ground.rotation.x = -Math.PI / 2;
-    ground.position.y = -1.55;
+    ground.position.y = -1.9;
     ground.receiveShadow = true;
     scene.add(ground);
 
-    const rigs = ORDER.map((name, index) => {
+    interface Entry {
+      name: CharacterKey;
+      rig: CharacterRig;
+      /** 눌린 시각. 반응 애니메이션의 기준이 된다. */
+      reactionStart: number;
+    }
+
+    const entries: Entry[] = ORDER.map((name, index) => {
       const rig = buildCharacter(name);
       rig.root.position.x = (index - 1) * SPACING;
       rig.root.traverse((object) => {
-        if (object instanceof THREE.Mesh) {
-          object.castShadow = true;
-        }
+        if (object instanceof THREE.Mesh) object.castShadow = true;
       });
       scene.add(rig.root);
-      return { name, rig };
+      return { name, rig, reactionStart: -Infinity };
     });
 
-    const applyPose = ({ name, rig }: { name: CharacterKey; rig: CharacterRig }, time: number) => {
-      const pose = reduceMotion ? restingPose() : poseAt(name, time + PHASE[name]);
-      rig.body.position.y = pose.hop;
-      rig.body.rotation.z = pose.tilt;
-      rig.body.rotation.y = pose.spin;
-      rig.body.scale.set(2 - pose.squash, pose.squash, 2 - pose.squash);
-      // 머리가 크고 무거우니 점프할 때 살짝 늦게 따라온다.
-      rig.head.rotation.z = pose.tilt * -0.55;
-      rig.leftArm.rotation.z = 0.32 + pose.armLift;
-      rig.rightArm.rotation.z = -0.32 - pose.armLift;
-      rig.leftEar.rotation.z = pose.earSwing;
-      rig.rightEar.rotation.z = -pose.earSwing;
-      rig.setCrying(pose.crying);
+    // 포인터가 어느 캐릭터 위에 있는지 찾는다. 머리만 맞혀도 충분하다.
+    const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2(0, 0);
+    let pointerInside = false;
+    let hoveredEntry: Entry | null = null;
+
+    const pick = (): Entry | null => {
+      if (!pointerInside) return null;
+      raycaster.setFromCamera(pointer, camera);
+      for (const entry of entries) {
+        if (raycaster.intersectObject(entry.rig.root, true).length > 0) return entry;
+      }
+      return null;
+    };
+
+    const toLocal = (event: PointerEvent) => {
+      const rect = host.getBoundingClientRect();
+      pointer.set(((event.clientX - rect.left) / rect.width) * 2 - 1, -((event.clientY - rect.top) / rect.height) * 2 + 1);
+    };
+
+    const onPointerMove = (event: PointerEvent) => {
+      pointerInside = true;
+      toLocal(event);
+    };
+    const onPointerLeave = () => {
+      pointerInside = false;
+      hoveredEntry = null;
+      setHovered(null);
+    };
+    const onPointerDown = (event: PointerEvent) => {
+      toLocal(event);
+      pointerInside = true;
+      const entry = pick();
+      if (!entry) return;
+      entry.reactionStart = clock.getElapsedTime();
+      const screen = entry.rig.root.position.clone();
+      screen.y = 1.9;
+      screen.project(camera);
+      setBubble({
+        key: entry.name,
+        x: ((screen.x + 1) / 2) * 100,
+        y: ((1 - screen.y) / 2) * 100,
+      });
+      track('hero_character_tap', { character: entry.name });
+    };
+
+    host.addEventListener('pointermove', onPointerMove);
+    host.addEventListener('pointerleave', onPointerLeave);
+    host.addEventListener('pointerdown', onPointerDown);
+
+    /** 커서를 향해 고개를 조금 돌린다. 크게 돌리면 목이 꺾인 것처럼 보인다. */
+    const lookTarget = new THREE.Vector3();
+    const applyPose = (entry: Entry, time: number) => {
+      const { name, rig } = entry;
+      const base = reduceMotion ? restingPose() : poseAt(name, time + PHASE[name]);
+      const burst = reduceMotion ? null : reactionAt(time - entry.reactionStart);
+
+      const hop = base.hop + (burst?.hop ?? 0);
+      const squash = base.squash + (burst?.squash ?? 0);
+      const armLift = base.armLift + (burst?.armLift ?? 0);
+
+      rig.body.position.y = hop;
+      rig.body.rotation.z = base.tilt;
+      rig.body.rotation.y = base.spin + (burst?.spin ?? 0);
+      rig.body.scale.set(2 - squash, squash, 2 - squash);
+      rig.leftArm.rotation.z = 0.32 + armLift;
+      rig.rightArm.rotation.z = -0.32 - armLift;
+      rig.leftEar.rotation.z = base.earSwing;
+      rig.rightEar.rotation.z = -base.earSwing;
+      rig.setCrying(base.crying);
+
+      if (pointerInside && !reduceMotion) {
+        raycaster.setFromCamera(pointer, camera);
+        lookTarget.copy(raycaster.ray.direction).multiplyScalar(6).add(camera.position);
+        const dx = lookTarget.x - rig.root.position.x;
+        const dy = lookTarget.y - (rig.root.position.y + 1);
+        rig.head.rotation.y = THREE.MathUtils.clamp(dx * 0.06, -0.3, 0.3);
+        rig.head.rotation.x = THREE.MathUtils.clamp(-dy * 0.05, -0.16, 0.16);
+      } else {
+        rig.head.rotation.y *= 0.9;
+        rig.head.rotation.x *= 0.9;
+      }
+      rig.head.rotation.z = base.tilt * -0.55;
     };
 
     const resize = () => {
@@ -114,7 +204,12 @@ export default function HeroSceneInner() {
     let frame = 0;
     const loop = () => {
       const time = clock.getElapsedTime();
-      rigs.forEach((entry) => applyPose(entry, time));
+      const next = pick();
+      if (next !== hoveredEntry) {
+        hoveredEntry = next;
+        setHovered(next ? next.name : null);
+      }
+      entries.forEach((entry) => applyPose(entry, time));
       renderer.render(scene, camera);
       frame = requestAnimationFrame(loop);
     };
@@ -130,6 +225,9 @@ export default function HeroSceneInner() {
     return () => {
       cancelAnimationFrame(frame);
       document.removeEventListener('visibilitychange', onVisibility);
+      host.removeEventListener('pointermove', onPointerMove);
+      host.removeEventListener('pointerleave', onPointerLeave);
+      host.removeEventListener('pointerdown', onPointerDown);
       observer.disconnect();
       scene.traverse((object) => {
         if (object instanceof THREE.Mesh) {
@@ -144,6 +242,23 @@ export default function HeroSceneInner() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!bubble) return;
+    const timer = setTimeout(clearBubble, REACTION_SECONDS * 1000 + 900);
+    return () => clearTimeout(timer);
+  }, [bubble, clearBubble]);
+
   if (failed) return null;
-  return <div className="hero-scene" ref={hostRef} aria-hidden />;
+  return (
+    <div className={`hero-scene${hovered ? ' is-hover' : ''}`} ref={hostRef}>
+      {bubble && (
+        <span className="hero-bubble" style={{ left: `${bubble.x}%`, top: `${bubble.y}%` }}>
+          {LINE[bubble.key]}
+        </span>
+      )}
+      <span className="hero-hint" aria-live="polite">
+        {hovered ? `${NAME[hovered]}를 눌러 보세요` : '눌러 보세요'}
+      </span>
+    </div>
+  );
 }
