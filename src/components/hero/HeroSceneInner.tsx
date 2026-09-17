@@ -14,12 +14,16 @@ const PHASE: Record<CharacterKey, number> = { chiikawa: 0, hachiware: 0.45, usag
 const NAME: Record<CharacterKey, string> = { chiikawa: '치이카와', hachiware: '하치와레', usagi: '우사기' };
 /**
  * 누를 때마다 다른 말이 나오도록 여러 개 둔다.
- * 원작에서 실제로 쓰는 말만 넣는다. 치이카와는 말수가 거의 없어 짧은 감탄사뿐이다.
+ * 일본어 위키백과 「ちいかわ」에 실린, 작중에서 실제로 나오는 말만 넣는다.
+ * 치이카와와 우사기는 말수가 거의 없고 짧은 소리를 낸다. 하치와레만 문장으로 말한다.
  */
 const LINES: Record<CharacterKey, string[]> = {
-  chiikawa: ['와아…', '우와…', '이야…'],
-  hachiware: ['어떻게든 되겠지!', '좋잖아!'],
-  usagi: ['우라!', '얏하!', '이야ー!'],
+  // ワッ / ヤー / ヤダー！
+  chiikawa: ['왓', '야ー', '야다ー!'],
+  // なんとかなれッ / ちょっとわかんないです
+  hachiware: ['어떻게든 되라앗', '잘 모르겠어요'],
+  // ウラ / ヤハ / ウララララァ
+  usagi: ['우라', '야하', '우라라라라아'],
 };
 
 interface Bubble {

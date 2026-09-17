@@ -229,9 +229,9 @@ function buildHachiware(): CharacterRig {
     const ear = new THREE.Mesh(catEarGeometry(), capMaterial);
     // 고양이 귀라 앞뒤로 납작하다.
     ear.scale.z = 0.62;
-    ear.rotation.z = side * 0.3;
+    ear.rotation.z = side * 0.35;
     pivot.add(ear);
-    pivot.position.set(side * 0.6, 0.5, -0.02);
+    pivot.position.set(side * 0.7, 0.62, -0.02);
     base.head.add(pivot);
     ears.push(pivot);
   }
