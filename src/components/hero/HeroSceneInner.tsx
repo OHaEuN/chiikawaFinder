@@ -20,8 +20,8 @@ const NAME: Record<CharacterKey, string> = { chiikawa: '치이카와', hachiware
 const LINES: Record<CharacterKey, string[]> = {
   // ワッ / ヤー / ヤダー！
   chiikawa: ['왓', '야ー', '야다ー!'],
-  // なんとかなれッ / ちょっとわかんないです
-  hachiware: ['어떻게든 되라앗', '잘 모르겠어요'],
+  // なんとかなれッ
+  hachiware: ['어떻게든 되라앗'],
   // ウラ / ヤハ / ウララララァ
   usagi: ['우라', '야하', '우라라라라아'],
 };
