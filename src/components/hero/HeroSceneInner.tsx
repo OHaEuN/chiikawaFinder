@@ -68,8 +68,8 @@ export default function HeroSceneInner() {
     camera.lookAt(0, -0.22, 0);
 
     // 은은한 확산광을 주로 쓰고 직사광을 약하게 둬야 천처럼 보인다.
-    scene.add(new THREE.HemisphereLight(0xffffff, 0xfff2e6, 1.55));
-    const key = new THREE.DirectionalLight(0xfffaf2, 1.0);
+    scene.add(new THREE.HemisphereLight(0xffffff, 0xfffaf2, 1.75));
+    const key = new THREE.DirectionalLight(0xfffdf8, 1.05);
     key.position.set(3.2, 6, 5);
     key.castShadow = true;
     key.shadow.mapSize.set(1024, 1024);
@@ -90,7 +90,7 @@ export default function HeroSceneInner() {
     // 캐릭터가 떠 보이지 않게 그림자만 받는 바닥을 깐다.
     const ground = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.ShadowMaterial({ opacity: 0.12 }));
     ground.rotation.x = -Math.PI / 2;
-    ground.position.y = -1.9;
+    ground.position.y = -1.82;
     ground.receiveShadow = true;
     scene.add(ground);
 
