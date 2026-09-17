@@ -178,13 +178,16 @@ li { margin-bottom: 0.3em; }
 @media (min-width: 900px) { .hero h1 { font-size: 2.4rem; } }
 
 /* 메뉴 타일은 색으로 구분하지 않는다. 아이콘과 이름으로만 구분. */
-.section-tiles { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 26px; }
-@media (min-width: 721px) { .section-tiles { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
-.tile { padding: 18px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); display: grid; gap: 3px; align-content: start; transition: transform 0.14s, box-shadow 0.14s; }
-.tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-.tile-icon { width: 38px; height: 38px; border-radius: 12px; background: var(--pink); color: var(--accent-ink); display: grid; place-items: center; margin-bottom: 8px; }
-.tile h3 { font-size: 1.05rem; }
-.tile p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+/* 6칸이라 5열로 두면 한 칸만 다음 줄로 떨어진다. 가로형으로 눕혀 2열·3열로 고르게 채운다. */
+.section-tiles { display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr); margin-bottom: 26px; }
+@media (min-width: 560px) { .section-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 900px) { .section-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.tile { padding: 14px 16px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); display: flex; align-items: center; gap: 12px; transition: border-color 0.14s, transform 0.14s; }
+.tile:hover { transform: translateY(-2px); border-color: var(--pink-deep); }
+.tile-icon { width: 36px; height: 36px; flex: none; border-radius: 11px; background: var(--pink); color: var(--accent-ink); display: grid; place-items: center; }
+.tile-text { min-width: 0; }
+.tile h3 { font-size: 1rem; margin-bottom: 1px; }
+.tile p { font-size: 0.8rem; color: var(--muted); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 28px 0 13px; }
 .section-head h2 { margin: 0; font-size: 1.42rem; }
 .section-head a { color: var(--muted); font-size: 0.88rem; font-weight: 600; white-space: nowrap; }
