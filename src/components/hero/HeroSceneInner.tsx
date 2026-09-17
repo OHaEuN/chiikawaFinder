@@ -12,11 +12,14 @@ const SPACING = 2.7;
 const PHASE: Record<CharacterKey, number> = { chiikawa: 0, hachiware: 0.45, usagi: 0.9 };
 
 const NAME: Record<CharacterKey, string> = { chiikawa: '치이카와', hachiware: '하치와레', usagi: '우사기' };
-/** 누를 때마다 다른 말이 나오도록 여러 개 둔다. */
+/**
+ * 누를 때마다 다른 말이 나오도록 여러 개 둔다.
+ * 원작에서 실제로 쓰는 말만 넣는다. 치이카와는 말수가 거의 없어 짧은 감탄사뿐이다.
+ */
 const LINES: Record<CharacterKey, string[]> = {
-  chiikawa: ['와아…', '하아…', '우웅…', '고마워…'],
-  hachiware: ['어떻게든 되겠지!', '해보는 거야!', '괜찮아 괜찮아!', '같이 가자!'],
-  usagi: ['우라!', '얏하!', '푸랏!', '하!'],
+  chiikawa: ['와아…', '우와…', '이야…'],
+  hachiware: ['어떻게든 되겠지!', '좋잖아!'],
+  usagi: ['우라!', '얏하!', '이야ー!'],
 };
 
 interface Bubble {
@@ -58,7 +61,7 @@ export default function HeroSceneInner() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
     camera.position.set(0, 0.35, 7.9);
-    camera.lookAt(0, -0.1, 0);
+    camera.lookAt(0, -0.22, 0);
 
     // 은은한 확산광을 주로 쓰고 직사광을 약하게 둬야 천처럼 보인다.
     scene.add(new THREE.HemisphereLight(0xffffff, 0xfff2e6, 1.55));
@@ -83,7 +86,7 @@ export default function HeroSceneInner() {
     // 캐릭터가 떠 보이지 않게 그림자만 받는 바닥을 깐다.
     const ground = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.ShadowMaterial({ opacity: 0.12 }));
     ground.rotation.x = -Math.PI / 2;
-    ground.position.y = -1.78;
+    ground.position.y = -1.9;
     ground.receiveShadow = true;
     scene.add(ground);
 

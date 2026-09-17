@@ -159,20 +159,23 @@ function drawTears(ctx: CanvasRenderingContext2D) {
 function drawCap(ctx: CanvasRenderingContext2D, capColor: string, bodyColor: string) {
   // theta 는 정수리에서 잰 각도다. 값이 클수록 아래로 내려온다.
   const y = (theta: number) => (theta / Math.PI) * TEX_H;
-  const topY = y(1.02);
-  const lobeY = y(1.16);
-  const apexY = y(1.08);
+  // 참조 사진에서 잰 값이다. 가운데가 뾰족하게 솟고 그 양옆이 가장 깊게 파인다.
+  const sideY = y(1.294);
+  const dipY = y(1.443);
+  const peakY = y(1.139);
   const frontX = TEX_W * 0.25;
-  const span = TEX_W * 0.125;
+  const span = TEX_W * 0.135;
+  const dipX = span * 0.52;
 
   ctx.fillStyle = capColor;
-  ctx.fillRect(0, 0, TEX_W, topY);
+  ctx.fillRect(0, 0, TEX_W, sideY);
 
-  // 앞머리 끝은 아주 완만한 물결이다. 골을 깊게 파면 엉덩이처럼 보인다.
   ctx.beginPath();
-  ctx.moveTo(frontX - span, topY);
-  ctx.bezierCurveTo(frontX - span * 0.7, lobeY, frontX - span * 0.34, lobeY, frontX, apexY);
-  ctx.bezierCurveTo(frontX + span * 0.34, lobeY, frontX + span * 0.7, lobeY, frontX + span, topY);
+  ctx.moveTo(frontX - span, sideY);
+  ctx.quadraticCurveTo(frontX - dipX * 1.5, dipY, frontX - dipX, dipY);
+  ctx.quadraticCurveTo(frontX - dipX * 0.42, dipY, frontX, peakY);
+  ctx.quadraticCurveTo(frontX + dipX * 0.42, dipY, frontX + dipX, dipY);
+  ctx.quadraticCurveTo(frontX + dipX * 1.5, dipY, frontX + span, sideY);
   ctx.closePath();
   ctx.fill();
 }

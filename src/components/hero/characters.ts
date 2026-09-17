@@ -31,7 +31,7 @@ export interface CharacterRig {
 const HEAD_RADIUS = 1;
 const HEAD_Y = 0.38;
 /** 참조 인형은 몸통 너비가 머리의 9할쯤 된다. 좁게 잡으면 사탕처럼 보인다. */
-const TORSO_Y = -1.04;
+const TORSO_Y = -1.0;
 
 /** 눈썹은 캐릭터마다 길이와 높이가 다르다. */
 const BROWS: Record<CharacterKey, BrowStyle> = {
@@ -91,33 +91,56 @@ const soft = (color: number | string) =>
 const ball = (radius: number, color: number | string) =>
   new THREE.Mesh(new THREE.SphereGeometry(radius, 48, 36), soft(color));
 
+/**
+ * 몸통 옆모습을 돌려 만든다. 참조 인형은 위가 좁고 아래가 불룩한 배 모양이라
+ * 구를 눌러 쓰면 치마처럼 퍼져 보인다. 값은 사진에서 잰 비율이다.
+ */
+function torsoGeometry(): THREE.LatheGeometry {
+  // 아래에서 위 순서로 적어야 면이 바깥을 향한다. 뒤집으면 안쪽만 보여 치마처럼 된다.
+  const profile: [number, number][] = [
+    [0.001, -0.78],
+    [0.22, -0.75],
+    [0.5, -0.68],
+    [0.7, -0.56],
+    [0.82, -0.38],
+    [0.85, -0.18],
+    [0.84, 0.02],
+    [0.78, 0.22],
+    [0.64, 0.42],
+    [0.42, 0.56],
+    [0.22, 0.64],
+  ];
+  return new THREE.LatheGeometry(
+    profile.map(([r, y]) => new THREE.Vector2(r, y)),
+    36,
+  );
+}
+
 function buildTorso(color: number | string) {
   const group = new THREE.Group();
 
-  // 몸통은 공이 아니라 가로로 넉넉하고 세로로 짧다. 위쪽은 머리가 덮는다.
-  const torso = ball(1, color);
-  torso.scale.set(0.85, 0.62, 0.74);
+  // 몸통은 공이 아니라 아래가 불룩한 배 모양이다. 위는 좁아 머리 밑으로 자연스럽게 들어간다.
+  const torso = new THREE.Mesh(torsoGeometry(), soft(color));
   torso.position.y = TORSO_Y;
+  torso.scale.z = 0.86;
   group.add(torso);
 
-  // 발은 몸 아래 가운데에 붙은 작고 납작한 타원 두 개
+  // 발은 몸 아래 가운데에서 서로 맞닿은 둥근 덩어리 두 개
   for (const side of [-1, 1]) {
     const foot = ball(1, color);
-    foot.scale.set(0.28, 0.17, 0.3);
-    foot.position.set(side * 0.24, -1.58, 0.12);
+    foot.scale.set(0.23, 0.2, 0.26);
+    foot.position.set(side * 0.25, -1.66, 0.16);
     group.add(foot);
   }
 
-  // 팔은 옆으로 뻗은 혹이 아니라 몸 옆에 붙어 아래로 늘어진 짧은 팔이다.
+  // 팔은 길쭉한 막대가 아니라 몸 옆에 붙은 둥근 혹에 가깝다.
   const makeArm = (side: number) => {
     const pivot = new THREE.Group();
-    const arm = new THREE.Mesh(new THREE.CapsuleGeometry(0.17, 0.34, 8, 18), soft(color));
-    arm.position.y = -0.26;
-    arm.scale.z = 0.82;
+    const arm = ball(1, color);
+    arm.scale.set(0.23, 0.27, 0.2);
+    arm.position.y = -0.2;
     pivot.add(arm);
-    // 몸통 반너비가 0.85 라 그보다 바깥에 둬야 팔이 파묻히지 않는다.
-    pivot.position.set(side * 0.82, -0.72, 0.1);
-    pivot.rotation.z = side * -0.05;
+    pivot.position.set(side * 0.85, -0.76, 0.08);
     return pivot;
   };
 
@@ -206,9 +229,9 @@ function buildHachiware(): CharacterRig {
     const ear = new THREE.Mesh(catEarGeometry(), capMaterial);
     // 고양이 귀라 앞뒤로 납작하다.
     ear.scale.z = 0.62;
-    ear.rotation.z = side * 0.1;
+    ear.rotation.z = side * 0.3;
     pivot.add(ear);
-    pivot.position.set(side * 0.55, 0.52, -0.02);
+    pivot.position.set(side * 0.6, 0.5, -0.02);
     base.head.add(pivot);
     ears.push(pivot);
   }
