@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { CHARACTERS, PLACES, goodsSummaries, isOngoing } from '@/lib/data';
 import { Icon, type IconName } from '@/components/Icon';
+import { HeroScene } from '@/components/hero/HeroScene';
 import { GoodsCard } from '@/components/GoodsCard';
 import { PlaceCard } from '@/components/PlaceCard';
 import { CharacterCard } from '@/components/CharacterCard';
@@ -21,8 +22,11 @@ export default function HomePage() {
   return (
     <>
       <section className="hero">
-        <h1>치이카와 파인더</h1>
-        <p>작고 귀여운 것들의 세계, 치이카와 정보를 한 곳에 모았어요. 인물 프로필부터 팝업 지도, 신상 굿즈까지.</p>
+        <div className="hero-copy">
+          <h1>치이카와 파인더</h1>
+          <p>작고 귀여운 것들의 세계, 치이카와 정보를 한 곳에 모았어요. 인물 프로필부터 팝업 지도, 신상 굿즈까지.</p>
+        </div>
+        <HeroScene />
       </section>
       <section className="section-tiles">
         {TILES.map((t) => (
