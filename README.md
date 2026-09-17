@@ -21,7 +21,7 @@ pnpm scrape   # 치이카와 마켓 신상 굿즈 갱신
 | `src/data/characters.json` | 캐릭터 프로필과 등장 에피소드 | 45명 · 에피소드 581건 |
 | `src/data/online.json` | 만화 · 애니 · 나가노 작가 작품을 볼 수 있는 경로와 링크 | 72건 |
 | `src/data/places.json` | 한국 · 일본의 팝업, 매장, 카페, 콜라보 식당 (위경도 포함) | 50곳 |
-| `src/data/goods.json` | 최근 6개월 굿즈. `cm-` 접두사는 스크래퍼가 채우고 나머지는 수동 | 2,007건 |
+| `src/data/goods.json` | 최근 6개월 굿즈. `cm-` 접두사는 스크래퍼가 채우고 나머지는 수동 | 1,364건 |
 | `src/data/groupbuy-channels.json` | 공구가 열리는 플랫폼과 결제 보호 수준 | 5곳 |
 | `src/data/fx.json` | 엔/원 환율. 매일 갱신 | |
 | `src/types/` | 네 데이터셋의 도메인 타입 | |
@@ -44,6 +44,10 @@ pnpm scrape   # 치이카와 마켓 신상 굿즈 갱신
 `scripts/scrape.mjs` 가 치이카와 마켓의 Shopify `products.json` 을 읽어 최근 6개월 상품을 채웁니다.
 발매일은 `published_at` 이 아니라 상품 태그의 8자리 날짜(`20260925`, `PRE20260513`, `RE20260601`)에서 뽑습니다.
 `published_at` 은 상품이 다시 공개될 때 갱신되어 신뢰할 수 없기 때문입니다.
+
+재입고(`RE20260601`)는 새 발매가 아니므로 발매일로 세지 않고 이력으로만 모읍니다.
+재고(`variants[].available`)도 함께 가져옵니다. 치이카와 마켓은 상품의 79%가 품절 상태로 남아 있어,
+이 값이 없으면 살 수 없는 상품을 구매 링크로 안내하게 됩니다.
 
 `cm-` 접두사가 붙은 항목만 스크래퍼가 덮어쓰고, 손으로 넣은 국내 굿즈는 그대로 둡니다.
 `.github/workflows/scrape.yml` 이 매일 오전 6시(KST)에 돌면서 변경분을 커밋합니다.

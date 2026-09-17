@@ -16,8 +16,8 @@ export const PLACES = places as Place[];
 export const GOODS = [...(goods as Goods[])].sort((a, b) => b.releaseDate.localeCompare(a.releaseDate));
 
 export const goodsSummaries = (list: Goods[] = GOODS): GoodsSummary[] =>
-  list.map(({ id, name, brand, collab, category, releaseDate, price, image, country }) => ({
-    id, name, brand, collab, category, releaseDate, price, image, country,
+  list.map(({ id, name, brand, collab, category, releaseDate, price, image, country, available, restockCount }) => ({
+    id, name, brand, collab, category, releaseDate, price, image, country, available, restockCount,
   }));
 
 export const GROUPBUY_CHANNELS = groupbuyChannels as GroupBuyChannel[];

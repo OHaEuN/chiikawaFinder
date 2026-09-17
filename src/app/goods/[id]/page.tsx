@@ -6,6 +6,7 @@ import { COUNTRY_LABEL } from '@/lib/labels';
 import { SafeImage } from '@/components/SafeImage';
 import { Tag } from '@/components/Tag';
 import { TrackedLink } from '@/components/TrackedLink';
+import { restockHint } from '@/lib/restock';
 
 interface PageProps { params: Promise<{ id: string }> }
 
@@ -19,6 +20,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function GoodsDetailPage({ params }: PageProps) {
   const g = findGoods((await params).id);
   if (!g) notFound();
+  const soldOut = g.available === false;
+  const hint = restockHint(g.restockCount, g.lastRestockDate, g.available);
   return (
     <>
       <Link href="/goods" className="back">← 굿즈 목록</Link>
@@ -29,6 +32,8 @@ export default async function GoodsDetailPage({ params }: PageProps) {
             <Tag tone={g.country === 'KR' ? 'pink' : 'blue'}>{COUNTRY_LABEL[g.country]}</Tag>
             <Tag tone="yellow">{g.category}</Tag>
             {g.collab && <Tag tone="lavender">콜라보 · {g.collab}</Tag>}
+            {soldOut && <Tag>품절</Tag>}
+            {g.available === true && <Tag tone="mint">구매 가능</Tag>}
           </div>
           <h1>{g.name}</h1>
           <p className="card-price" style={{ fontSize: '1.5rem' }}>{g.price}</p>
@@ -37,19 +42,23 @@ export default async function GoodsDetailPage({ params }: PageProps) {
             <dt>브랜드</dt><dd>{g.brand}</dd>
             <dt>발매일</dt><dd>{g.releaseDate}</dd>
             <dt>구매처</dt><dd>{g.buyAt}</dd>
+            {g.restockCount ? (
+              <><dt>재입고</dt><dd>{g.restockCount}회{g.lastRestockDate ? ` · 마지막 ${g.lastRestockDate}` : ''}</dd></>
+            ) : null}
             {g.characters.length > 0 && (
               <><dt>캐릭터</dt><dd className="tags">{g.characters.map((s) => <Link key={s} href={`/characters/${s}`} className="tag mint">{characterName(s)}</Link>)}</dd></>
             )}
           </dl>
+          {hint && <p className={`restock restock-${hint.tone}`}>{hint.message}</p>}
           <div style={{ marginTop: 14 }}>
             <TrackedLink
               className="btn"
               href={g.affiliateUrl ?? g.buyUrl}
               sponsored={Boolean(g.affiliateUrl)}
               event="goods_buy_click"
-              props={{ id: g.id, brand: g.brand, country: g.country, affiliate: Boolean(g.affiliateUrl) }}
+              props={{ id: g.id, brand: g.brand, country: g.country, affiliate: Boolean(g.affiliateUrl), soldOut }}
             >
-              구매 페이지로 이동 ↗
+              {soldOut ? '상품 페이지 보기 ↗' : '구매 페이지로 이동 ↗'}
             </TrackedLink>
           </div>
         </div>
