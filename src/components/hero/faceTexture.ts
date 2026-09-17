@@ -192,6 +192,8 @@ export interface FacePhoto {
   /** 사진 속 두 눈의 중심. 이걸 기준으로 배율과 위치를 맞춘다. */
   eyes: { leftX: number; rightX: number; y: number };
   crop: { x: number; y: number; w: number; h: number };
+  /** 무늬가 없는 몸 부분. 이 색을 바탕색으로 써야 오려 붙인 얼굴과 안색이 맞는다. */
+  sample: { x: number; y: number };
 }
 
 /**
@@ -220,16 +222,16 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
   if (!patchCtx) return;
   // 자수 눈썹이 연해 멀리서 안 보인다. 대비를 올려 어두운 선만 진하게 만든다.
   // 곱하기로 누르면 흰 바탕까지 같이 어두워져 얼굴 둘레에 띠가 생긴다.
-  patchCtx.filter = 'contrast(1.4) brightness(1.04)';
+  patchCtx.filter = 'contrast(1.55)';
   patchCtx.drawImage(image, crop.x, crop.y, crop.w, crop.h, 0, 0, crop.w, crop.h);
   patchCtx.filter = 'none';
 
   // 네모로 잘린 자국이 남지 않게 타원으로 넉넉히 흐린다.
   const radius = crop.w / 2;
   const fade = patchCtx.createRadialGradient(0, 0, radius * 0.24, 0, 0, radius);
+  // 일찍 흐리면 눈썹·볼·입까지 옅어진다. 바탕색을 사진에서 뽑아 쓰므로 가장자리만 살짝 지운다.
   fade.addColorStop(0, 'rgba(0,0,0,1)');
-  fade.addColorStop(0.38, 'rgba(0,0,0,1)');
-  fade.addColorStop(0.66, 'rgba(0,0,0,0.5)');
+  fade.addColorStop(0.86, 'rgba(0,0,0,1)');
   fade.addColorStop(1, 'rgba(0,0,0,0)');
 
   patchCtx.globalCompositeOperation = 'destination-in';
@@ -245,6 +247,18 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
     ctx.scale(1, -1);
     ctx.drawImage(patch, -width / 2, -height / 2, width, height);
   });
+}
+
+/** 사진에서 무늬 없는 부분의 색을 읽어 온다. */
+function sampleColor(image: HTMLImageElement, at: { x: number; y: number }): string | null {
+  const probe = document.createElement('canvas');
+  probe.width = 1;
+  probe.height = 1;
+  const ctx = probe.getContext('2d', { willReadFrequently: true });
+  if (!ctx) return null;
+  ctx.drawImage(image, at.x, at.y, 1, 1, 0, 0, 1, 1);
+  const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
+  return `rgb(${r}, ${g}, ${b})`;
 }
 
 /** 머리에 입힐 얼굴 텍스처를 만든다. crying 을 켜면 눈물까지 그린다. */
@@ -263,7 +277,8 @@ export function createFaceTexture(
 
   const paint = (image?: HTMLImageElement) => {
     ctx.clearRect(0, 0, TEX_W, TEX_H);
-    ctx.fillStyle = bodyColor;
+    // 바탕은 사진에서 읽은 색으로 채워야 오려 붙인 얼굴과 안색이 어긋나지 않는다.
+    ctx.fillStyle = (image && photo && sampleColor(image, photo.sample)) || bodyColor;
     ctx.fillRect(0, 0, TEX_W, TEX_H);
 
     if (image && photo) {

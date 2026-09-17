@@ -54,23 +54,27 @@ const CAP_COLOR: Partial<Record<CharacterKey, string>> = { hachiware: HACHIWARE_
 
 /**
  * 공식 인형 사진에서 얼굴만 오려 쓴다. 손으로 그리는 것보다 원본에 가깝다.
- * head 는 사진 속 머리의 경계, crop 은 눈썹 위부터 입 아래까지다.
+ * eyes 는 두 눈 중심, crop 은 오려 낼 영역, sample 은 바탕색을 읽을 무늬 없는 지점이다.
  */
 const FACE_PHOTO: Record<CharacterKey, FacePhoto> = {
   chiikawa: {
     src: '/images/hero/chiikawa.jpg',
     eyes: { leftX: 506, rightX: 710, y: 490 },
-    crop: { x: 330, y: 335, w: 560, h: 275 },
+    crop: { x: 315, y: 330, w: 580, h: 290 },
+    sample: { x: 605, y: 650 },
   },
   hachiware: {
     src: '/images/hero/hachiware.jpg',
     eyes: { leftX: 486, rightX: 690, y: 470 },
-    crop: { x: 320, y: 360, w: 560, h: 245 },
+    // 눈썹이 가장자리에 걸리면 흐려져 사라진다. 눈썹 위로 여유를 두고 자른다.
+    crop: { x: 325, y: 350, w: 560, h: 300 },
+    sample: { x: 588, y: 645 },
   },
   usagi: {
     src: '/images/hero/usagi.jpg',
     eyes: { leftX: 492, rightX: 696, y: 564 },
-    crop: { x: 330, y: 385, w: 560, h: 300 },
+    crop: { x: 325, y: 375, w: 570, h: 330 },
+    sample: { x: 594, y: 745 },
   },
 };
 
@@ -209,10 +213,10 @@ function catEarGeometry(): THREE.LatheGeometry {
   // 밑면을 막지 않으면 기울였을 때 안이 들여다보여 머리에서 떨어진 것처럼 보인다.
   const profile: THREE.Vector2[] = [new THREE.Vector2(0.001, 0)];
   const steps = 16;
-  const height = 0.66;
+  const height = 0.6;
   for (let i = 0; i <= steps; i++) {
     const t = i / steps;
-    const radius = 0.28 * Math.cos((t * Math.PI) / 2) ** 0.6;
+    const radius = 0.23 * Math.cos((t * Math.PI) / 2) ** 0.5;
     profile.push(new THREE.Vector2(Math.max(0.004, radius), t * height));
   }
   return new THREE.LatheGeometry(profile, 28);
@@ -229,9 +233,9 @@ function buildHachiware(): CharacterRig {
     const ear = new THREE.Mesh(catEarGeometry(), capMaterial);
     // 고양이 귀라 앞뒤로 납작하다.
     ear.scale.z = 0.62;
-    ear.rotation.z = side * 0.35;
+    ear.rotation.z = side * 0.24;
     pivot.add(ear);
-    pivot.position.set(side * 0.7, 0.62, -0.02);
+    pivot.position.set(side * 0.64, 0.6, -0.02);
     base.head.add(pivot);
     ears.push(pivot);
   }
