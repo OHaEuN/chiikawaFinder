@@ -14,7 +14,7 @@ const TEX_W = TEX_H * 2;
 /** 머리 반지름 1 기준의 얼굴 좌표. 공식 인형 사진에서 잰 비율이다. */
 export const FACE = {
   eyeX: 0.32,
-  eyeY: -0.12,
+  eyeY: 0.04,
   eyeRadius: 0.175,
   blushX: 0.58,
   blushY: -0.46,
@@ -161,8 +161,8 @@ function drawCap(ctx: CanvasRenderingContext2D, capColor: string, bodyColor: str
   const y = (theta: number) => (theta / Math.PI) * TEX_H;
   // 앞뒤옆 사진에서 잰 값이다. 골이 파인 W 가 아니라, 앞 가운데가 가장 높고
   // 양옆으로 갈수록 내려오는 단순한 곡선이다. 옆에서 보면 눈 높이까지 덮인다.
-  const thetaSide = 1.55;
-  const thetaPeak = 1.08;
+  const thetaSide = 1.16;
+  const thetaPeak = 0.74;
   const sideY = y(thetaSide);
 
   ctx.fillStyle = capColor;
@@ -214,33 +214,57 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
   const width = crop.w * unitPerPx;
   const height = crop.h * unitPerPx;
 
-  // 그대로 붙이면 잘라 낸 네모가 그대로 드러난다. 가장자리를 둥글게 지워 둔다.
   const patch = document.createElement('canvas');
   patch.width = crop.w;
   patch.height = crop.h;
-  const patchCtx = patch.getContext('2d');
+  const patchCtx = patch.getContext('2d', { willReadFrequently: true });
   if (!patchCtx) return;
+
   // 자수 눈썹이 연해 멀리서 안 보인다. 대비를 올려 어두운 선만 진하게 만든다.
-  // 곱하기로 누르면 흰 바탕까지 같이 어두워져 얼굴 둘레에 띠가 생긴다.
-  patchCtx.filter = 'contrast(1.55)';
+  patchCtx.filter = 'contrast(1.45)';
   patchCtx.drawImage(image, crop.x, crop.y, crop.w, crop.h, 0, 0, crop.w, crop.h);
   patchCtx.filter = 'none';
 
-  // 네모로 잘린 자국이 남지 않게 타원으로 넉넉히 흐린다.
-  const radius = crop.w / 2;
-  const fade = patchCtx.createRadialGradient(0, 0, radius * 0.24, 0, 0, radius);
-  // 일찍 흐리면 눈썹·볼·입까지 옅어진다. 바탕색을 사진에서 뽑아 쓰므로 가장자리만 살짝 지운다.
-  fade.addColorStop(0, 'rgba(0,0,0,1)');
-  fade.addColorStop(0.86, 'rgba(0,0,0,1)');
-  fade.addColorStop(1, 'rgba(0,0,0,0)');
+  /*
+   * 사진을 통째로 붙이면 구워진 조명 때문에 얼굴만 밝은 네모로 떠 보인다.
+   * 한 점에서 뽑은 색과 비교하면 조명 기울기를 못 걸러내므로,
+   * 크게 흐린 사본을 그 자리의 바탕으로 보고 그보다 튀는 픽셀만 남긴다.
+   * 눈·눈썹·볼·입만 남고 바탕은 투명해져 3D 재질 색이 그대로 보인다.
+   */
+  const blurred = document.createElement('canvas');
+  blurred.width = crop.w;
+  blurred.height = crop.h;
+  const blurredCtx = blurred.getContext('2d', { willReadFrequently: true });
+  if (!blurredCtx) return;
+  // 흐림 반지름은 가장 큰 무늬(볼)보다 커야 무늬가 바탕에 섞이지 않는다.
+  blurredCtx.filter = `blur(${Math.round(crop.w * 0.12)}px)`;
+  blurredCtx.drawImage(patch, 0, 0);
+  blurredCtx.filter = 'none';
 
-  patchCtx.globalCompositeOperation = 'destination-in';
-  patchCtx.save();
-  patchCtx.translate(crop.w / 2, crop.h / 2);
-  patchCtx.scale(1, crop.h / crop.w);
-  patchCtx.fillStyle = fade;
-  patchCtx.fillRect(-radius, -radius, radius * 2, radius * 2);
-  patchCtx.restore();
+  const frame = patchCtx.getImageData(0, 0, crop.w, crop.h);
+  const base = blurredCtx.getImageData(0, 0, crop.w, crop.h).data;
+  const px = frame.data;
+  // 털 결의 잔차는 20 안팎이라 그보다 위에서 잘라야 바탕이 남지 않는다.
+  const KEEP_FROM = 30;
+  const KEEP_TO = 64;
+  // 흐림은 캔버스 밖을 투명으로 보므로 가장자리에서 값이 튄다. 테두리는 눌러 지운다.
+  const halfW = crop.w / 2;
+  const halfH = crop.h / 2;
+  const EDGE_FROM = 0.82;
+  for (let y = 0; y < crop.h; y++) {
+    const ny = (y - halfH) / halfH;
+    for (let x = 0; x < crop.w; x++) {
+      const i = (y * crop.w + x) * 4;
+      const distance = Math.hypot(px[i] - base[i], px[i + 1] - base[i + 1], px[i + 2] - base[i + 2]);
+      const keep = (distance - KEEP_FROM) / (KEEP_TO - KEEP_FROM);
+      const nx = (x - halfW) / halfW;
+      const radial = Math.hypot(nx, ny);
+      const edge = 1 - (radial - EDGE_FROM) / (1 - EDGE_FROM);
+      const alpha = Math.min(1, Math.max(0, keep)) * Math.min(1, Math.max(0, edge));
+      px[i + 3] = Math.round(255 * alpha);
+    }
+  }
+  patchCtx.putImageData(frame, 0, 0);
 
   at(ctx, centerX, centerY, () => {
     // at() 안은 세로가 뒤집힌 좌표계라 이미지도 뒤집힌다. 한 번 더 뒤집어 되돌린다.
@@ -249,8 +273,8 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
   });
 }
 
-/** 사진에서 무늬 없는 부분의 색을 읽어 온다. */
-function sampleColor(image: HTMLImageElement, at: { x: number; y: number }): string | null {
+/** 사진에서 무늬 없는 부분의 색을 읽어 온다. 얼굴을 오려 낼 기준이 된다. */
+function sampleColor(image: HTMLImageElement, at: { x: number; y: number }): [number, number, number] | null {
   const probe = document.createElement('canvas');
   probe.width = 1;
   probe.height = 1;
@@ -258,7 +282,7 @@ function sampleColor(image: HTMLImageElement, at: { x: number; y: number }): str
   if (!ctx) return null;
   ctx.drawImage(image, at.x, at.y, 1, 1, 0, 0, 1, 1);
   const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
-  return `rgb(${r}, ${g}, ${b})`;
+  return [r, g, b];
 }
 
 /** 머리에 입힐 얼굴 텍스처를 만든다. crying 을 켜면 눈물까지 그린다. */
@@ -277,11 +301,12 @@ export function createFaceTexture(
 
   const paint = (image?: HTMLImageElement) => {
     ctx.clearRect(0, 0, TEX_W, TEX_H);
-    // 바탕은 사진에서 읽은 색으로 채워야 오려 붙인 얼굴과 안색이 어긋나지 않는다.
-    ctx.fillStyle = (image && photo && sampleColor(image, photo.sample)) || bodyColor;
+    const sampled = image && photo ? sampleColor(image, photo.sample) : null;
+    // 바탕은 사진에서 읽은 색으로 채워야 오려 낸 얼굴과 안색이 어긋나지 않는다.
+    ctx.fillStyle = sampled ? `rgb(${sampled[0]}, ${sampled[1]}, ${sampled[2]})` : bodyColor;
     ctx.fillRect(0, 0, TEX_W, TEX_H);
 
-    if (image && photo) {
+    if (image && photo && sampled) {
       drawPhotoFace(ctx, image, photo);
     } else {
       drawBlush(ctx, -1);
