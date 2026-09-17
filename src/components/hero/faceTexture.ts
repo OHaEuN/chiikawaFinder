@@ -159,23 +159,26 @@ function drawTears(ctx: CanvasRenderingContext2D) {
 function drawCap(ctx: CanvasRenderingContext2D, capColor: string, bodyColor: string) {
   // theta 는 정수리에서 잰 각도다. 값이 클수록 아래로 내려온다.
   const y = (theta: number) => (theta / Math.PI) * TEX_H;
-  // 참조 사진에서 잰 값이다. 가운데가 뾰족하게 솟고 그 양옆이 가장 깊게 파인다.
-  const sideY = y(1.294);
-  const dipY = y(1.443);
-  const peakY = y(1.139);
-  const frontX = TEX_W * 0.25;
-  const span = TEX_W * 0.135;
-  const dipX = span * 0.52;
+  // 앞뒤옆 사진에서 잰 값이다. 골이 파인 W 가 아니라, 앞 가운데가 가장 높고
+  // 양옆으로 갈수록 내려오는 단순한 곡선이다. 옆에서 보면 눈 높이까지 덮인다.
+  const thetaSide = 1.55;
+  const thetaPeak = 1.08;
+  const sideY = y(thetaSide);
 
   ctx.fillStyle = capColor;
   ctx.fillRect(0, 0, TEX_W, sideY);
 
+  // 앞쪽 반구에서 파란 부분을 도려내 가운데가 솟은 모양을 만든다.
+  ctx.fillStyle = bodyColor;
   ctx.beginPath();
-  ctx.moveTo(frontX - span, sideY);
-  ctx.quadraticCurveTo(frontX - dipX * 1.5, dipY, frontX - dipX, dipY);
-  ctx.quadraticCurveTo(frontX - dipX * 0.42, dipY, frontX, peakY);
-  ctx.quadraticCurveTo(frontX + dipX * 0.42, dipY, frontX + dipX, dipY);
-  ctx.quadraticCurveTo(frontX + dipX * 1.5, dipY, frontX + span, sideY);
+  ctx.moveTo(0, sideY);
+  const steps = 72;
+  for (let i = 0; i <= steps; i++) {
+    const t = i / steps;
+    const theta = thetaSide - (thetaSide - thetaPeak) * Math.sin(t * Math.PI) ** 1.9;
+    ctx.lineTo(t * TEX_W * 0.5, y(theta));
+  }
+  ctx.lineTo(TEX_W * 0.5, sideY);
   ctx.closePath();
   ctx.fill();
 }
@@ -215,21 +218,18 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
   patch.height = crop.h;
   const patchCtx = patch.getContext('2d');
   if (!patchCtx) return;
+  // 자수 눈썹이 연해 멀리서 안 보인다. 대비를 올려 어두운 선만 진하게 만든다.
+  // 곱하기로 누르면 흰 바탕까지 같이 어두워져 얼굴 둘레에 띠가 생긴다.
+  patchCtx.filter = 'contrast(1.4) brightness(1.04)';
   patchCtx.drawImage(image, crop.x, crop.y, crop.w, crop.h, 0, 0, crop.w, crop.h);
-
-  // 자수 눈썹이 연해서 멀리서 잘 안 보인다. 어두운 곳만 더 어둡게 눌러 준다.
-  patchCtx.globalCompositeOperation = 'multiply';
-  patchCtx.globalAlpha = 0.45;
-  patchCtx.drawImage(patch, 0, 0);
-  patchCtx.globalAlpha = 1;
-  patchCtx.globalCompositeOperation = 'source-over';
+  patchCtx.filter = 'none';
 
   // 네모로 잘린 자국이 남지 않게 타원으로 넉넉히 흐린다.
   const radius = crop.w / 2;
   const fade = patchCtx.createRadialGradient(0, 0, radius * 0.24, 0, 0, radius);
   fade.addColorStop(0, 'rgba(0,0,0,1)');
-  fade.addColorStop(0.46, 'rgba(0,0,0,1)');
-  fade.addColorStop(0.74, 'rgba(0,0,0,0.55)');
+  fade.addColorStop(0.38, 'rgba(0,0,0,1)');
+  fade.addColorStop(0.66, 'rgba(0,0,0,0.5)');
   fade.addColorStop(1, 'rgba(0,0,0,0)');
 
   patchCtx.globalCompositeOperation = 'destination-in';
