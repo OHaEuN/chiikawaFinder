@@ -60,18 +60,18 @@ const CAP_COLOR: Partial<Record<CharacterKey, string>> = { hachiware: HACHIWARE_
 const FACE_PHOTO: Record<CharacterKey, FacePhoto> = {
   chiikawa: {
     src: '/images/hero/chiikawa.jpg',
-    head: { x: 270, y: 150, w: 670, h: 540 },
-    crop: { x: 330, y: 330, w: 550, h: 300 },
+    eyes: { leftX: 506, rightX: 710, y: 490 },
+    crop: { x: 330, y: 335, w: 560, h: 275 },
   },
   hachiware: {
     src: '/images/hero/hachiware.jpg',
-    head: { x: 280, y: 120, w: 600, h: 570 },
-    crop: { x: 345, y: 370, w: 520, h: 265 },
+    eyes: { leftX: 486, rightX: 690, y: 470 },
+    crop: { x: 320, y: 360, w: 560, h: 245 },
   },
   usagi: {
     src: '/images/hero/usagi.jpg',
-    head: { x: 270, y: 330, w: 660, h: 460 },
-    crop: { x: 350, y: 380, w: 510, h: 320 },
+    eyes: { leftX: 492, rightX: 696, y: 564 },
+    crop: { x: 330, y: 385, w: 560, h: 300 },
   },
 };
 

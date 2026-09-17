@@ -13,8 +13,8 @@ const TEX_W = TEX_H * 2;
 
 /** 머리 반지름 1 기준의 얼굴 좌표. 공식 인형 사진에서 잰 비율이다. */
 export const FACE = {
-  eyeX: 0.29,
-  eyeY: -0.2,
+  eyeX: 0.32,
+  eyeY: -0.12,
   eyeRadius: 0.175,
   blushX: 0.58,
   blushY: -0.46,
@@ -159,31 +159,20 @@ function drawTears(ctx: CanvasRenderingContext2D) {
 function drawCap(ctx: CanvasRenderingContext2D, capColor: string, bodyColor: string) {
   // theta 는 정수리에서 잰 각도다. 값이 클수록 아래로 내려온다.
   const y = (theta: number) => (theta / Math.PI) * TEX_H;
-  const topY = y(1.1);
-  const lobeY = y(1.4);
-  const apexY = y(1.0);
+  const topY = y(1.02);
+  const lobeY = y(1.16);
+  const apexY = y(1.08);
   const frontX = TEX_W * 0.25;
-  const span = TEX_W * 0.108;
-  const notchHalf = TEX_W * 0.048;
+  const span = TEX_W * 0.125;
 
   ctx.fillStyle = capColor;
   ctx.fillRect(0, 0, TEX_W, topY);
 
-  // 앞머리는 양옆이 둥글게 흘러내리고 가운데가 완만하게 솟는다.
-  // 꺾어 그리면 뿔처럼 뾰족해져서 전부 곡선으로 잇는다.
+  // 앞머리 끝은 아주 완만한 물결이다. 골을 깊게 파면 엉덩이처럼 보인다.
   ctx.beginPath();
   ctx.moveTo(frontX - span, topY);
-  ctx.bezierCurveTo(
-    frontX - span * 0.78, lobeY,
-    frontX - notchHalf * 0.72, lobeY,
-    frontX - notchHalf * 0.34, (lobeY + apexY) / 2,
-  );
-  ctx.quadraticCurveTo(frontX, apexY, frontX + notchHalf * 0.34, (lobeY + apexY) / 2);
-  ctx.bezierCurveTo(
-    frontX + notchHalf * 0.72, lobeY,
-    frontX + span * 0.78, lobeY,
-    frontX + span, topY,
-  );
+  ctx.bezierCurveTo(frontX - span * 0.7, lobeY, frontX - span * 0.34, lobeY, frontX, apexY);
+  ctx.bezierCurveTo(frontX + span * 0.34, lobeY, frontX + span * 0.7, lobeY, frontX + span, topY);
   ctx.closePath();
   ctx.fill();
 }
@@ -194,7 +183,8 @@ function drawCap(ctx: CanvasRenderingContext2D, capColor: string, bodyColor: str
  */
 export interface FacePhoto {
   src: string;
-  head: { x: number; y: number; w: number; h: number };
+  /** 사진 속 두 눈의 중심. 이걸 기준으로 배율과 위치를 맞춘다. */
+  eyes: { leftX: number; rightX: number; y: number };
   crop: { x: number; y: number; w: number; h: number };
 }
 
@@ -205,15 +195,16 @@ export interface FacePhoto {
  * 사진 속 머리 크기를 기준으로 실제 머리 반지름에 맞춰 축척을 맞춘다.
  */
 function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, photo: FacePhoto) {
-  const { head, crop } = photo;
-  // 사진의 머리 지름이 실제 머리 지름(2)에 대응한다.
-  const unitPerPxX = 2 / head.w;
-  const unitPerPxY = 2 / head.h;
+  const { eyes, crop } = photo;
+  // 머리 경계를 눈대중으로 재면 사진마다 달라져 얼굴이 늘어나거나 눌린다.
+  // 두 눈 사이를 기준으로 가로세로 같은 배율을 쓰면 세 캐릭터가 같은 크기로 맞는다.
+  const unitPerPx = (FACE.eyeX * 2) / (eyes.rightX - eyes.leftX);
 
-  const centerX = (crop.x + crop.w / 2 - (head.x + head.w / 2)) * unitPerPxX;
-  const centerY = -(crop.y + crop.h / 2 - (head.y + head.h / 2)) * unitPerPxY;
-  const width = crop.w * unitPerPxX;
-  const height = crop.h * unitPerPxY;
+  const eyeMidX = (eyes.leftX + eyes.rightX) / 2;
+  const centerX = (crop.x + crop.w / 2 - eyeMidX) * unitPerPx;
+  const centerY = FACE.eyeY - (crop.y + crop.h / 2 - eyes.y) * unitPerPx;
+  const width = crop.w * unitPerPx;
+  const height = crop.h * unitPerPx;
 
   // 그대로 붙이면 잘라 낸 네모가 그대로 드러난다. 가장자리를 둥글게 지워 둔다.
   const patch = document.createElement('canvas');
