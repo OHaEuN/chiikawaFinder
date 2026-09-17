@@ -1,5 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises';
-import { SHOP, cutoffDate, mapProduct, mergeGoods, releaseDateOf } from './lib.mjs';
+import { SHOP, cutoffDate, latestActivity, mapProduct, mergeGoods } from './lib.mjs';
 
 const OUT = new URL('../src/data/goods.json', import.meta.url);
 const PAGE_SIZE = 250;
@@ -19,7 +19,8 @@ async function fetchAllProducts() {
 
 const cutoff = cutoffDate();
 const products = await fetchAllProducts();
-const scraped = products.filter((p) => releaseDateOf(p) >= cutoff).map(mapProduct);
+// 발매일이 오래됐어도 최근 재입고됐으면 남긴다.
+const scraped = products.map(mapProduct).filter((g) => latestActivity(g) >= cutoff);
 const existing = JSON.parse(await readFile(OUT, 'utf8'));
 const merged = mergeGoods(existing, scraped, cutoff);
 await writeFile(OUT, JSON.stringify(merged, null, 2) + '\n');

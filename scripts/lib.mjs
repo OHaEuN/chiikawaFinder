@@ -42,11 +42,19 @@ export const cutoffDate = (today = new Date()) => {
 
 const stripHtml = (html = '') => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 
+/** 태그에 RE23042111 처럼 날짜가 아닌 8자리도 섞여 있다. 실제 날짜만 받는다. */
+const toDate = (digits) => {
+  const iso = `${digits.slice(0, 4)}-${digits.slice(4, 6)}-${digits.slice(6)}`;
+  const parsed = new Date(`${iso}T00:00:00Z`);
+  return Number.isNaN(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== iso ? null : iso;
+};
+
 const datesFrom = (tags, pattern) =>
   tags
     .map((t) => pattern.exec(t)?.[1])
     .filter(Boolean)
-    .map((d) => `${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6)}`)
+    .map(toDate)
+    .filter(Boolean)
     .sort();
 
 /**
@@ -107,8 +115,16 @@ export const mapProduct = (p) => {
   };
 };
 
+/**
+ * 기간 안에 들었는지 판단할 때 쓰는 날짜.
+ * 오래전에 나왔어도 최근에 재입고됐으면 지금 살 수 있는 상품이라 남긴다.
+ * 재입고 정보가 팬들이 가장 찾는 정보인데, 발매일만 보면 전부 빠져 버린다.
+ */
+export const latestActivity = (goods) =>
+  goods.lastRestockDate && goods.lastRestockDate > goods.releaseDate ? goods.lastRestockDate : goods.releaseDate;
+
 /** 수동 큐레이션 항목은 유지, 스크랩 항목은 교체, 기간 지난 것은 제거, 최신순 정렬 */
 export const mergeGoods = (existing, scraped, cutoff) =>
   [...existing.filter((g) => !g.id.startsWith(SCRAPED_PREFIX)), ...scraped]
-    .filter((g) => g.releaseDate >= cutoff)
-    .sort((a, b) => b.releaseDate.localeCompare(a.releaseDate));
+    .filter((g) => latestActivity(g) >= cutoff)
+    .sort((a, b) => latestActivity(b).localeCompare(latestActivity(a)));

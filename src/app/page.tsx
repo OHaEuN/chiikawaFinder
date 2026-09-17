@@ -9,7 +9,7 @@ const TILES: { href: string; icon: IconName; title: string; desc: string }[] = [
   { href: '/characters', icon: 'character', title: '인물 · 세계관', desc: '캐릭터 프로필과 등장 에피소드' },
   { href: '/online', icon: 'online', title: '온라인 콘텐츠', desc: '만화 · 애니 · 나가노 작가 작품' },
   { href: '/offline', icon: 'offline', title: '오프라인 콘텐츠', desc: '팝업 · 매장 · 카페 지도' },
-  { href: '/calendar', icon: 'calendar', title: '발매 캘린더', desc: '다음 신상이 언제 나오는지' },
+  { href: '/calendar', icon: 'calendar', title: '발매 · 재입고', desc: '신상과 다시 들어온 상품' },
   { href: '/goods', icon: 'goods', title: '굿즈 신상', desc: '최근 6개월 신상 · 콜라보' },
   { href: '/calculator', icon: 'calculator', title: '직구 계산기', desc: '최종 얼마인지 · 공구 수수료' },
 ];

@@ -7,6 +7,7 @@ import { SafeImage } from '@/components/SafeImage';
 import { Tag } from '@/components/Tag';
 import { TrackedLink } from '@/components/TrackedLink';
 import { restockHint } from '@/lib/restock';
+import { STOCK_LABEL, stockState } from '@/lib/stock';
 
 interface PageProps { params: Promise<{ id: string }> }
 
@@ -20,7 +21,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function GoodsDetailPage({ params }: PageProps) {
   const g = findGoods((await params).id);
   if (!g) notFound();
-  const soldOut = g.available === false;
+  const state = stockState(g);
+  const soldOut = state === 'soldout';
   const hint = restockHint(g.restockCount, g.lastRestockDate, g.available);
   return (
     <>
@@ -32,8 +34,8 @@ export default async function GoodsDetailPage({ params }: PageProps) {
             <Tag tone={g.country === 'KR' ? 'pink' : 'blue'}>{COUNTRY_LABEL[g.country]}</Tag>
             <Tag tone="yellow">{g.category}</Tag>
             {g.collab && <Tag tone="lavender">콜라보 · {g.collab}</Tag>}
-            {soldOut && <Tag>품절</Tag>}
-            {g.available === true && <Tag tone="mint">구매 가능</Tag>}
+            {STOCK_LABEL[state] && <Tag tone={state === 'upcoming' ? 'yellow' : 'plain'}>{STOCK_LABEL[state]}</Tag>}
+            {state === 'available' && <Tag tone="mint">구매 가능</Tag>}
           </div>
           <h1>{g.name}</h1>
           <p className="card-price" style={{ fontSize: '1.5rem' }}>{g.price}</p>
@@ -58,7 +60,7 @@ export default async function GoodsDetailPage({ params }: PageProps) {
               event="goods_buy_click"
               props={{ id: g.id, brand: g.brand, country: g.country, affiliate: Boolean(g.affiliateUrl), soldOut }}
             >
-              {soldOut ? '상품 페이지 보기 ↗' : '구매 페이지로 이동 ↗'}
+              {state === 'available' ? '구매 페이지로 이동 ↗' : '상품 페이지 보기 ↗'}
             </TrackedLink>
           </div>
         </div>
