@@ -6,7 +6,7 @@
     "nameEn": "Chiikawa",
     "group": "주인공",
     "species": "치이카와족(작고 귀여운 존재)",
-    "image": "/images/characters/chiikawa-94003ec4.png",
+    "image": "/images/characters/movie-chiikawa.png",
     "tagline": "작고 귀여운 것들의 세계에서 오늘도 풀을 뽑는 주인공",
     "description": [
       "나가노(ナガノ) 작가의 만화 「치이카와 -뭔가 작고 귀여운 녀석-」의 주인공입니다. 하얗고 작은 몸에 둥근 얼굴을 한 생물로, 작품 제목이 곧 이 캐릭터의 이름이 되었습니다. 애니메이션판 성우는 아오키 하루카(青木遥)입니다.",
@@ -916,7 +916,7 @@
     "nameEn": "Hachiware",
     "group": "주인공",
     "species": "치이카와족(고양이 모습)",
-    "image": "/images/characters/hachiware-f60bf401.png",
+    "image": "/images/characters/movie-hachiware.png",
     "tagline": "'~라는 거야!?'가 입버릇인 긍정왕 파란 고양이",
     "description": [
       "치이카와의 가장 친한 친구로, 이마 가운데가 갈라진 고양이 무늬를 뜻하는 일본어 '하치와레'가 그대로 이름이 되었습니다. 애니메이션판 성우는 다나카 마코토(田中誠人)입니다.",
@@ -1840,7 +1840,7 @@
     "nameEn": "Usagi",
     "group": "주인공",
     "species": "치이카와족(토끼 모습)",
-    "image": "/images/characters/usagi-77322e8d.png",
+    "image": "/images/characters/movie-usagi.png",
     "tagline": "'우라!' 한마디로 모든 것을 표현하는 노란 토끼",
     "description": [
       "치이카와, 하치와레와 늘 함께 다니는 노란 토끼입니다. 애니메이션판 성우는 오자와 아리(小澤亜李)입니다.",
@@ -2610,7 +2610,7 @@
     "nameEn": "Momonga",
     "group": "주요 인물",
     "species": "하늘다람쥐 모습의 존재",
-    "image": "/images/characters/momonga-166cc487.png",
+    "image": "/images/characters/movie-momonga.png",
     "tagline": "자기애 넘치는 하늘다람쥐, 관심을 갈구하는 문제아",
     "description": [
       "하늘색 꼬리를 가진 하늘다람쥐 모습의 캐릭터입니다. 애니메이션판 성우는 이구치 유카(井口裕香)입니다.",
@@ -2681,7 +2681,7 @@
     "nameEn": "Kurimanju",
     "group": "주요 인물",
     "species": "머리가 밤만쥬를 닮은 존재",
-    "image": "/images/characters/kurimanju-008bdef9.png",
+    "image": "/images/characters/movie-kurimanju.png",
     "tagline": "한잔 걸치고 '하-' 하고 한숨 쉬는 술꾼 선배",
     "description": [
       "머리 부분이 밤만쥬(栗まんじゅう)를 닮아 그렇게 불리는 캐릭터입니다. 애니메이션판 성우는 아사이 다카유키(淺井孝行)입니다.",
@@ -2754,7 +2754,7 @@
     "nameEn": "Shisa",
     "group": "주요 인물",
     "species": "오키나와 시사를 모티브로 한 존재",
-    "image": "/images/characters/shisa-7ac5a3d3.png",
+    "image": "/images/characters/movie-shisa.png",
     "tagline": "라멘집 '로(郎)'에서 수행 중인 슈퍼 알바이터",
     "description": [
       "오키나와의 수호 석상 시사(シーサー)를 모티브로 한 캐릭터입니다. 슈퍼 알바이터(スーパーアルバイター) 자격을 가진 실력자로, 치이카와 일행에게는 목표가 되는 선배입니다.",
@@ -2852,7 +2852,7 @@
     "nameEn": "Rakko",
     "group": "주요 인물",
     "species": "해달 모습의 존재",
-    "image": "/images/characters/rakko-92ccb6fd.png",
+    "image": "/images/characters/movie-rakko.png",
     "tagline": "토벌 랭킹 1위, 모두가 '선생님'이라 부르는 강자",
     "description": [
       "이마에 흉터가 있는 해달 모습의 캐릭터입니다. 애니메이션판 성우는 우치다 유마(内田雄馬)입니다.",
@@ -2967,7 +2967,7 @@
     "nameEn": "Furuhonya (Used Bookstore)",
     "group": "주요 인물",
     "species": "치이카와족(분홍색, 게 집게발 머리띠)",
-    "image": "/images/characters/furuhonya-e7b31910.png",
+    "image": "/images/characters/movie-furuhonya.png",
     "tagline": "게 집게발 머리띠를 한 분홍색 헌책 노점 상인",
     "description": [
       "노점 형태로 헌책을 파는 상인 캐릭터입니다. 귀처럼 보이는 게 집게발 머리띠가 특징인 분홍색 캐릭터로, 고유 이름 대신 직업인 고혼야(古本屋, 헌책방)로 불립니다.",
@@ -3243,7 +3243,7 @@
     "nameEn": "Dekaitsuyo",
     "group": "주요 인물",
     "species": "거대하고 강한 존재",
-    "image": "/images/characters/dekaitsuyo-df6844f8.jpg",
+    "image": "/images/characters/dekaitsuyo-4b2a455e.png",
     "tagline": "'뭔가 크고 강한 녀석', 겉보기와 달리 소심한 거인",
     "description": [
       "정식 명칭은 '난카 데카쿠테 츠요이 야츠(なんかでかくて強いやつ, 뭔가 크고 강한 녀석)'이며 줄여서 '데카츠요'라 불립니다. 애니메이션판 성우는 야마시타 타이키(山下タイキ)입니다.",
@@ -3386,7 +3386,7 @@
     "nameEn": "Ningyo (Mermaid)",
     "group": "조연",
     "species": "인어",
-    "image": "/images/characters/ningyo-17cf5cb7.jpg",
+    "image": "/images/characters/movie-ningyo.png",
     "tagline": "먹으면 영생을 준다는 섬의 인어들",
     "description": [
       "극장판 「영화 치이카와 - 인어 섬의 비밀 -」에 등장하는 인어들입니다. 세이렌과 함께 섬에 살고 있습니다.",
@@ -3431,7 +3431,7 @@
     "nameEn": "Shimajiro",
     "group": "조연",
     "species": "섬의 주민",
-    "image": "/images/characters/shimajiro-eb0e30ea.jpg",
+    "image": "/images/characters/movie-shimajiro.png",
     "tagline": "섬에서 가게를 꾸리는 든든한 조력자",
     "description": [
       "극장판 「영화 치이카와 - 인어 섬의 비밀 -」에 등장하는 섬의 주민이자 가게 주인입니다. 이름의 '시마(島)'는 섬을 뜻합니다.",
@@ -3478,7 +3478,7 @@
     "nameEn": "Hitoha",
     "group": "조연",
     "species": "섬 관련 인물",
-    "image": "/images/characters/hitoha-23b1b430.jpg",
+    "image": "/images/characters/hitoha-867db875.png",
     "tagline": "인어 고기로 영생을 얻은 두 사람 중 하나",
     "description": [
       "극장판 「영화 치이카와 - 인어 섬의 비밀 -」에 후타바와 짝을 이뤄 등장하는 인물입니다.",
@@ -3524,7 +3524,7 @@
     "nameEn": "Futaba",
     "group": "조연",
     "species": "섬 관련 인물",
-    "image": "/images/characters/futaba-daf7c353.jpg",
+    "image": "/images/characters/futaba-867db875.png",
     "tagline": "히토하와 한 쌍을 이루는 영생의 도망자",
     "description": [
       "극장판 「영화 치이카와 - 인어 섬의 비밀 -」에서 히토하와 늘 함께 다니는 인물입니다.",
@@ -3567,7 +3567,7 @@
     "nameEn": "Ode",
     "group": "조연",
     "species": "외눈 거인",
-    "image": "/images/characters/ode-117cb0fa.jpg",
+    "image": "/images/characters/ode-8b52a27f.png",
     "tagline": "'오데'라고 자칭하는 순박한 노란 외눈 거인",
     "description": [
       "노란색의 거대한 몸에 외눈, 두툼한 입술이 특징인 캐릭터입니다. 사투리 섞인 말투로 자신을 '오데(オデ)'라 부르는 데서 이름이 붙었습니다.",
@@ -3689,7 +3689,7 @@
     "nameEn": "Goblin",
     "group": "조연",
     "species": "고블린",
-    "image": "/images/characters/goblin-118c9a01.jpg",
+    "image": "/images/characters/goblin-3cae6998.jpg",
     "tagline": "버섯을 건드리면 감옥에 보내는 초록 소악마",
     "description": [
       "초록색 몸에 작은 뿔이 난 귀여운 외형의 존재들입니다. 여럿이 무리를 지어 다니며 조직적으로 움직입니다.",
@@ -4030,7 +4030,7 @@
     "nameEn": "Anoko",
     "group": "적/괴물",
     "species": "치이카와족 → 키메라",
-    "image": "/images/characters/anoko-6363f1b9.jpg",
+    "image": "/images/characters/anoko-5ae8a46e.png",
     "tagline": "친구였던 아이, 지금은 하얀 거대 키메라",
     "description": [
       "원래는 몸이 검게 칠해진 평범한 치이카와족(모브카와)이었습니다. 스티커 붙이기 노동 현장에서 치이카와와 함께 일하며 친해졌고, 분홍색 파자마를 즐겨 입는 모습으로 그려졌습니다.",
@@ -4129,7 +4129,7 @@
     "nameEn": "Kabutomushi",
     "group": "적/괴물",
     "species": "의태형 몬스터",
-    "image": "/images/characters/kabutomushi-f0f1eee1.jpg",
+    "image": "/images/characters/kabutomushi-e2aa0c08.png",
     "tagline": "귀여운 얼굴로 다가와 거대화하는 의태형 몬스터",
     "description": [
       "동굴에 봉인되어 있던 장수풍뎅이 모습의 존재입니다. 치이카와 일행이 봉인을 풀어 주면서 세상에 나오게 됩니다.",
@@ -4220,7 +4220,7 @@
     "nameEn": "Chimera",
     "group": "적/괴물",
     "species": "키메라",
-    "image": "/images/characters/chimera-8a0500d7.jpg",
+    "image": "/images/characters/chimera-18aa355b.png",
     "tagline": "'이렇게 돼 버렸어'라며 다가오는 분홍 키메라",
     "description": [
       "분홍색 몸에 날개와 보라색 꼬리를 가진 키메라입니다. 애니메이션판 성우는 코우다 마리코(國府田マリ子)입니다.",
@@ -4310,7 +4310,7 @@
     "nameEn": "Majo (The Witch)",
     "group": "적/괴물",
     "species": "마녀",
-    "image": "/images/characters/majo-2fe732f8.jpg",
+    "image": "/images/characters/majo-d9514b0a.png",
     "tagline": "'내 힘이니라'라며 몸을 바꿔 버리는 마녀",
     "description": [
       "'와시노 치카라자(ワシの力じゃ, 내 힘이니라)'라는 첫 대사로 등장하는 마녀입니다. 애니메이션판 성우는 코우다 마리코(國府田マリ子)입니다.",
@@ -4373,7 +4373,7 @@
     "nameEn": "Seiren",
     "group": "적/괴물",
     "species": "전설의 생물",
-    "image": "/images/characters/seiren-47d12176.jpg",
+    "image": "/images/characters/movie-seiren.png",
     "tagline": "노래로 식물을 움직이는 섬의 전설",
     "description": [
       "극장판 「영화 치이카와 - 인어 섬의 비밀 -」의 핵심 캐릭터로, 개를 닮은 외형의 전설 속 생물입니다.",
@@ -4425,7 +4425,7 @@
     "nameEn": "Kuroi Hoshi (Black Star)",
     "group": "적/괴물",
     "species": "별",
-    "image": "/images/characters/kuroi-hoshi-93350117.jpg",
+    "image": "/images/characters/kuroi-hoshi-c63b8039.jpg",
     "tagline": "소원을 이뤄 주지만 뒤끝이 좋지 않은 검은 별",
     "description": [
       "하얀 별과 대비되는 검은 별 개체입니다. 소원을 들어주지만 '이뤄진 뒤에 기분이 나빠진다'는 경고가 따라붙습니다.",
@@ -4603,7 +4603,7 @@
     "nameEn": "Mushi (Bug)",
     "group": "적/괴물",
     "species": "거대 벌레",
-    "image": "/images/characters/mushi-82cd1069.jpg",
+    "image": "/images/characters/mushi-5aa57fad.jpg",
     "tagline": "하치와레의 집에 나타난 초록과 보라의 거대 벌레",
     "description": [
       "초록색과 보라색 두 종류가 등장하는 거대 벌레형 토벌 대상입니다.",
@@ -4736,7 +4736,7 @@
     "nameEn": "Arijigoku (Antlion)",
     "group": "적/괴물",
     "species": "개미귀신형 몬스터",
-    "image": "",
+    "image": "/images/characters/arijigoku-ff55af4b.jpg",
     "tagline": "깔때기 모래 바닥에서 기다리는 함정형 괴물",
     "description": [
       "깔때기 모양으로 파인 모래 구덩이 바닥에 숨어 있는 개미귀신형 토벌 대상입니다.",
@@ -4773,7 +4773,7 @@
     "nameEn": "Kaichou (Giant Bird)",
     "group": "적/괴물",
     "species": "거대 조류",
-    "image": "/images/characters/kaichou-7cc5bca2.jpg",
+    "image": "/images/characters/kaichou-e7e734bb.jpg",
     "tagline": "오리를 닮은 거대한 새, 사람을 채 가는 포식자",
     "description": [
       "오리를 닮았지만 몸집이 압도적으로 큰 거대 조류입니다.",
@@ -4890,7 +4890,7 @@
     "nameEn": "Yamanba",
     "group": "적/괴물",
     "species": "산에 사는 노인형 괴이",
-    "image": "",
+    "image": "/images/characters/yamanba-feaf3300.jpg",
     "tagline": "친절하게 대접해 주다 돌변하는, 마로니에 숲의 할머니.",
     "description": [
       "흰 머리에 초록색 기모노를 입은 매부리코 노인. 마로니에 숲에 놀러 왔다가 덫에 걸려 밤을 맞은 치이카와 일행을 구해 주고 상처를 치료해 준다.",
@@ -4976,7 +4976,7 @@
     "nameEn": "Zou",
     "group": "적/괴물",
     "species": "코끼리 형태의 괴이",
-    "image": "/images/characters/zou-f05a9314.jpg",
+    "image": "/images/characters/zou-4865b1de.jpg",
     "tagline": "눈싸움에서 지면 매일 밤 악몽을 꾸게 만드는 괴이.",
     "description": [
       "얼굴과 배만 흰 코끼리 같은 모습의 캐릭터. 이족보행을 하고 말을 한다.",
@@ -5192,7 +5192,7 @@
     "nameEn": "Hoshi (Star)",
     "group": "기타",
     "species": "별",
-    "image": "/images/characters/hoshi-735f7b0c.jpg",
+    "image": "/images/characters/hoshi-33548364.png",
     "tagline": "구해 준 보답으로 거대 오므라이스를 내주는 하얀 별",
     "description": [
       "하얀 별 모양의 존재로, 작중에 세 마리가 등장합니다. 늘 화난 듯한 표정을 짓고 있는 것이 특징입니다.",
@@ -5278,7 +5278,7 @@
     "nameEn": "Muchau-Man",
     "group": "기타",
     "species": "히어로(정체는 갑옷씨)",
-    "image": "/images/characters/muchau-man-8fb93f6b.jpg",
+    "image": "/images/characters/muchau-man-1211a06b.png",
     "tagline": "요구르트 브랜드의 히어로, 정체는 갑옷씨들",
     "description": [
       "작중 요구르트 상품의 마스코트 히어로입니다. 치이카와가 열렬한 팬이라 관련 상품을 모으고 이벤트에도 찾아갑니다.",
@@ -5360,7 +5360,7 @@
     "nameEn": "Gray Ones (Mobukawa)",
     "group": "기타",
     "species": "치이카와족",
-    "image": "/images/characters/gray-no-ko-5815c22a.jpg",
+    "image": "/images/characters/gray-no-ko-fa858b86.png",
     "tagline": "이름 없이 노동 현장을 채우는 배경의 치이카와족",
     "description": [
       "이름이 주어지지 않은 채 몸이 회색이나 검은색으로 칠해져 등장하는 치이카와족들입니다. 팬들 사이에서는 '모브카와(モブかわ)'라고도 불립니다.",
@@ -5418,7 +5418,7 @@
     "nameEn": "Nanka Niteru no",
     "group": "기타",
     "species": "모조 굿즈",
-    "image": "/images/characters/nantoka-bania-e34e9aec.jpg",
+    "image": "/images/characters/nantoka-bania-55772b16.jpg",
     "tagline": "치이카와 일행을 어설프게 닮은 수상한 모조품",
     "description": [
       "치이카와, 하치와레, 우사기를 어딘가 닮았지만 미묘하게 다른 모조 인형들입니다. 작중에서 '뭔가 닮은 것(なんか似てるの)'이라는 이름 그대로 불립니다.",
@@ -5455,7 +5455,7 @@
     "nameEn": "Manbou (Sunfish)",
     "group": "기타",
     "species": "개복치형 탈것",
-    "image": "/images/characters/manbou-417fc484.jpg",
+    "image": "/images/characters/manbou-f170e826.png",
     "tagline": "목적지를 스스로 못 정하는 공중 부양 탈것",
     "description": [
       "공중에 떠다니는 개복치 모습의 탈것입니다. 치이카와 일행이 이동 수단으로 이용합니다.",

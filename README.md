@@ -29,9 +29,15 @@ pnpm scrape   # 치이카와 마켓 신상 굿즈 갱신
 | `scripts/fx.mjs` | 엔/원 환율 갱신 | |
 | `scripts/download-images.mjs` | 인물·장소 이미지를 `public/images` 로 내려받고 JSON을 로컬 경로로 교체 | |
 | `scripts/merge-characters.mjs` | 인물 데이터 두 갈래를 slug 기준으로 합침 | |
+| `scripts/movie-art.sh` | 극장판 공식 사이트의 고화질 캐릭터 일러스트를 받아 이름표를 잘라냄 | |
 | `scripts/sources.md` | 확인된 기계 판독 엔드포인트 정리 | |
 
 ## 이미지
+
+애니 공식 사이트의 캐릭터 이미지는 90x145 썸네일뿐이라 확대하면 흐리다.
+극장판 공식 사이트(`chiikawa.toho-movie.jp`)에 1080x1420 일러스트가 있어 그쪽을 쓴다.
+아래쪽에 이름표와 소개 글이 붙어 있어 `scripts/movie-art.sh` 가 `sips` 로 그림 부분만 잘라낸다.
+`sips --cropOffset` 은 음수가 위쪽이고, 앞에 공백을 두지 않으면 옵션으로 잘못 읽힌다.
 
 인물과 장소 이미지는 `pnpm images` 로 파일을 내려받아 `public/images` 에 두고 로컬 경로로 참조합니다.
 핫링크는 차단이나 CDN 만료로 조용히 깨지기 때문입니다. 굿즈는 2천 건이라 Shopify CDN을 그대로 씁니다.
