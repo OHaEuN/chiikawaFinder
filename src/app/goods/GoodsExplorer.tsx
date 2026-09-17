@@ -5,6 +5,7 @@ import type { GoodsSummary } from '@/types/goods';
 import { FilterChips } from '@/components/FilterChips';
 import { GoodsCard } from '@/components/GoodsCard';
 import { track } from '@/lib/analytics';
+import { stockState } from '@/lib/stock';
 
 interface GoodsExplorerProps { goods: GoodsSummary[] }
 
@@ -39,7 +40,7 @@ export function GoodsExplorer({ goods }: GoodsExplorerProps) {
         (!country || g.country === country) &&
         (!brand || g.brand === brand) &&
         (!category || g.category === category) &&
-        (!inStockOnly || g.available !== false) &&
+        (!inStockOnly || stockState(g) !== 'soldout') &&
         (!q || g.name.toLowerCase().includes(q) || (g.collab ?? '').toLowerCase().includes(q)),
     );
   }, [goods, country, brand, category, query, inStockOnly]);

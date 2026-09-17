@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { charactersOf, cleanTitle, cutoffDate, isAvailable, mapProduct, mergeGoods, releaseDateOf, restocksOf } from './lib.mjs';
+import { charactersOf, cleanTitle, cutoffDate, isAvailable, latestActivity, mapProduct, mergeGoods, releaseDateOf, restocksOf } from './lib.mjs';
 
 const product = {
   handle: '4571609401234',
@@ -46,6 +46,19 @@ test('품절 상품을 살 수 있는 것으로 보지 않는다', () => {
 test('재입고 이력을 날짜순으로 모은다', () => {
   assert.deepEqual(restocksOf(product), ['2026-06-01', '2026-11-01']);
   assert.deepEqual(restocksOf({ ...product, tags: ['20260925'] }), []);
+});
+
+test('날짜가 아닌 8자리 태그는 버린다', () => {
+  assert.deepEqual(restocksOf({ ...product, tags: ['RE23042111', 'RE20260601'] }), ['2026-06-01']);
+  assert.deepEqual(restocksOf({ ...product, tags: ['RE20260230'] }), []);
+});
+
+test('오래전에 나왔어도 최근 재입고면 기간 안으로 본다', () => {
+  const old = { releaseDate: '2024-01-01', lastRestockDate: '2026-09-01' };
+  assert.equal(latestActivity(old), '2026-09-01');
+  assert.equal(latestActivity({ releaseDate: '2026-09-01' }), '2026-09-01');
+  const merged = mergeGoods([], [{ id: 'cm-a', ...old }], '2026-03-17');
+  assert.equal(merged.length, 1);
 });
 
 test('재고와 재입고 이력을 상품에 담는다', () => {

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { dDayLabel, koreanDate, upcomingReleases } from './calendar.ts';
+import { agoLabel, dDayLabel, koreanDate, recentRestocks, upcomingReleases } from './calendar.ts';
 import type { GoodsSummary } from '../types/goods.ts';
 
 const goods = [
@@ -33,4 +33,23 @@ test('요일까지 한국어로 적는다', () => {
 
 test('앞으로 나올 게 없으면 빈 배열', () => {
   assert.deepEqual(upcomingReleases(goods, '2027-01-01'), []);
+});
+
+test('최근 재입고만 골라 최신순으로 묶는다', () => {
+  const items = [
+    { id: 'a', releaseDate: '2024-01-01', lastRestockDate: '2026-09-10' },
+    { id: 'b', releaseDate: '2024-01-01', lastRestockDate: '2026-09-15' },
+    { id: 'c', releaseDate: '2026-09-16', lastRestockDate: undefined },
+    { id: 'd', releaseDate: '2024-01-01', lastRestockDate: '2026-01-01' },
+    { id: 'e', releaseDate: '2026-09-10', lastRestockDate: '2026-09-10' },
+    { id: 'f', releaseDate: '2024-01-01', lastRestockDate: '2026-11-01' },
+  ] as GoodsSummary[];
+  const days = recentRestocks(items, '2026-09-17', 30);
+  assert.deepEqual(days.map((d) => d.date), ['2026-09-15', '2026-09-10']);
+  assert.equal(days[0].items[0].id, 'b');
+});
+
+test('며칠 전인지 표기한다', () => {
+  assert.equal(agoLabel(0), '오늘');
+  assert.equal(agoLabel(-7), '7일 전');
 });
