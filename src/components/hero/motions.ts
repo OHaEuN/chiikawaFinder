@@ -91,6 +91,29 @@ const POSES: Record<CharacterKey, (t: number) => Pose> = {
 
 export const poseAt = (key: CharacterKey, time: number): Pose => POSES[key](Math.max(0, time));
 
+/** 눌렀을 때 덧붙는 반응. 0.9초 동안 크게 뛰었다가 잦아든다. */
+export const REACTION_SECONDS = 0.9;
+
+export interface Reaction {
+  hop: number;
+  spin: number;
+  squash: number;
+  armLift: number;
+}
+
+export function reactionAt(elapsed: number): Reaction {
+  if (elapsed < 0 || elapsed > REACTION_SECONDS) return { hop: 0, spin: 0, squash: 0, armLift: 0 };
+  const t = elapsed / REACTION_SECONDS;
+  // 뒤로 갈수록 잦아들게 감쇠를 곱한다.
+  const decay = 1 - t;
+  return {
+    hop: Math.sin(t * Math.PI) * 0.55,
+    spin: Math.sin(t * Math.PI * 2) * 0.35 * decay,
+    squash: Math.sin(t * Math.PI * 3) * 0.12 * decay,
+    armLift: Math.sin(t * Math.PI) * 0.8,
+  };
+}
+
 /** 움직임을 줄여 달라고 설정한 사람에게 보여줄 정지 자세 */
 export const restingPose = (): Pose => ({
   hop: 0,

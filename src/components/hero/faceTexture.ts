@@ -157,23 +157,93 @@ function drawTears(ctx: CanvasRenderingContext2D) {
  * 정확히 잡을 수 있다. 이름 그대로 가운데가 八 자로 갈라져 크림색이 솟는다.
  */
 function drawCap(ctx: CanvasRenderingContext2D, capColor: string, bodyColor: string) {
-  // theta 는 정수리에서 잰 각도다. 옆은 낮게 내려오고 앞 가운데는 높이 올라간다.
-  const sideY = (1.2 / Math.PI) * TEX_H;
-  const apexY = (0.88 / Math.PI) * TEX_H;
+  // theta 는 정수리에서 잰 각도다. 값이 클수록 아래로 내려온다.
+  const y = (theta: number) => (theta / Math.PI) * TEX_H;
+  const topY = y(1.1);
+  const lobeY = y(1.4);
+  const apexY = y(1.0);
   const frontX = TEX_W * 0.25;
-  const half = TEX_W * 0.062;
+  const span = TEX_W * 0.108;
+  const notchHalf = TEX_W * 0.048;
 
   ctx.fillStyle = capColor;
-  ctx.fillRect(0, 0, TEX_W, sideY);
+  ctx.fillRect(0, 0, TEX_W, topY);
 
-  // 앞 가운데를 크림색으로 도려내 八 자 갈라짐을 만든다.
-  ctx.fillStyle = bodyColor;
+  // 앞머리는 양옆이 둥글게 흘러내리고 가운데가 완만하게 솟는다.
+  // 꺾어 그리면 뿔처럼 뾰족해져서 전부 곡선으로 잇는다.
   ctx.beginPath();
-  ctx.moveTo(frontX - half, sideY);
-  ctx.quadraticCurveTo(frontX - half * 0.35, apexY, frontX, apexY);
-  ctx.quadraticCurveTo(frontX + half * 0.35, apexY, frontX + half, sideY);
+  ctx.moveTo(frontX - span, topY);
+  ctx.bezierCurveTo(
+    frontX - span * 0.78, lobeY,
+    frontX - notchHalf * 0.72, lobeY,
+    frontX - notchHalf * 0.34, (lobeY + apexY) / 2,
+  );
+  ctx.quadraticCurveTo(frontX, apexY, frontX + notchHalf * 0.34, (lobeY + apexY) / 2);
+  ctx.bezierCurveTo(
+    frontX + notchHalf * 0.72, lobeY,
+    frontX + span * 0.78, lobeY,
+    frontX + span, topY,
+  );
   ctx.closePath();
   ctx.fill();
+}
+
+/**
+ * 공식 인형 사진에서 얼굴 부분만 잘라 쓰기 위한 좌표.
+ * head 는 사진 속 머리의 경계, crop 은 오려 낼 얼굴 영역이다. 모두 픽셀 단위.
+ */
+export interface FacePhoto {
+  src: string;
+  head: { x: number; y: number; w: number; h: number };
+  crop: { x: number; y: number; w: number; h: number };
+}
+
+/**
+ * 사진에서 오려 낸 얼굴을 머리 표면에 올린다.
+ *
+ * 손으로 그린 얼굴보다 자수 결과 잔털이 그대로 남아 인형에 가깝다.
+ * 사진 속 머리 크기를 기준으로 실제 머리 반지름에 맞춰 축척을 맞춘다.
+ */
+function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, photo: FacePhoto) {
+  const { head, crop } = photo;
+  // 사진의 머리 지름이 실제 머리 지름(2)에 대응한다.
+  const unitPerPxX = 2 / head.w;
+  const unitPerPxY = 2 / head.h;
+
+  const centerX = (crop.x + crop.w / 2 - (head.x + head.w / 2)) * unitPerPxX;
+  const centerY = -(crop.y + crop.h / 2 - (head.y + head.h / 2)) * unitPerPxY;
+  const width = crop.w * unitPerPxX;
+  const height = crop.h * unitPerPxY;
+
+  // 그대로 붙이면 잘라 낸 네모가 그대로 드러난다. 가장자리를 둥글게 지워 둔다.
+  const patch = document.createElement('canvas');
+  patch.width = crop.w;
+  patch.height = crop.h;
+  const patchCtx = patch.getContext('2d');
+  if (!patchCtx) return;
+  patchCtx.drawImage(image, crop.x, crop.y, crop.w, crop.h, 0, 0, crop.w, crop.h);
+
+  // 네모로 잘린 자국이 남지 않게 타원으로 넉넉히 흐린다.
+  const radius = crop.w / 2;
+  const fade = patchCtx.createRadialGradient(0, 0, radius * 0.24, 0, 0, radius);
+  fade.addColorStop(0, 'rgba(0,0,0,1)');
+  fade.addColorStop(0.46, 'rgba(0,0,0,1)');
+  fade.addColorStop(0.74, 'rgba(0,0,0,0.55)');
+  fade.addColorStop(1, 'rgba(0,0,0,0)');
+
+  patchCtx.globalCompositeOperation = 'destination-in';
+  patchCtx.save();
+  patchCtx.translate(crop.w / 2, crop.h / 2);
+  patchCtx.scale(1, crop.h / crop.w);
+  patchCtx.fillStyle = fade;
+  patchCtx.fillRect(-radius, -radius, radius * 2, radius * 2);
+  patchCtx.restore();
+
+  at(ctx, centerX, centerY, () => {
+    // at() 안은 세로가 뒤집힌 좌표계라 이미지도 뒤집힌다. 한 번 더 뒤집어 되돌린다.
+    ctx.scale(1, -1);
+    ctx.drawImage(patch, -width / 2, -height / 2, width, height);
+  });
 }
 
 /** 머리에 입힐 얼굴 텍스처를 만든다. crying 을 켜면 눈물까지 그린다. */
@@ -182,6 +252,7 @@ export function createFaceTexture(
   brow: BrowStyle,
   crying = false,
   capColor?: string,
+  photo?: FacePhoto,
 ): THREE.CanvasTexture {
   const canvas = document.createElement('canvas');
   canvas.width = TEX_W;
@@ -189,21 +260,42 @@ export function createFaceTexture(
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('캔버스를 만들 수 없다');
 
-  ctx.fillStyle = bodyColor;
-  ctx.fillRect(0, 0, TEX_W, TEX_H);
-  if (capColor) drawCap(ctx, capColor, bodyColor);
+  const paint = (image?: HTMLImageElement) => {
+    ctx.clearRect(0, 0, TEX_W, TEX_H);
+    ctx.fillStyle = bodyColor;
+    ctx.fillRect(0, 0, TEX_W, TEX_H);
 
-  drawBlush(ctx, -1);
-  drawBlush(ctx, 1);
-  drawEye(ctx, -1);
-  drawEye(ctx, 1);
-  drawBrow(ctx, -1, brow);
-  drawBrow(ctx, 1, brow);
-  drawMouth(ctx);
-  if (crying) drawTears(ctx);
+    if (image && photo) {
+      drawPhotoFace(ctx, image, photo);
+    } else {
+      drawBlush(ctx, -1);
+      drawBlush(ctx, 1);
+      drawEye(ctx, -1);
+      drawEye(ctx, 1);
+      drawBrow(ctx, -1, brow);
+      drawBrow(ctx, 1, brow);
+      drawMouth(ctx);
+    }
+    // 앞머리는 얼굴 위에 덮는다. 먼저 그리면 사진에 딸려 온 파란 부분과 두 겹이 된다.
+    if (capColor) drawCap(ctx, capColor, bodyColor);
+    if (crying) drawTears(ctx);
+  };
+
+  // 사진이 오기 전에는 그린 얼굴을 보여 주고, 도착하면 갈아 끼운다.
+  paint();
 
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.anisotropy = 4;
+
+  if (photo) {
+    const image = new Image();
+    image.onload = () => {
+      paint(image);
+      texture.needsUpdate = true;
+    };
+    image.src = photo.src;
+  }
+
   return texture;
 }

@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { poseAt, restingPose } from './motions.ts';
+import { poseAt, reactionAt, REACTION_SECONDS, restingPose } from './motions.ts';
 import type { CharacterKey } from './characters.ts';
 
 const KEYS: CharacterKey[] = ['chiikawa', 'hachiware', 'usagi'];
@@ -82,4 +82,24 @@ test('귀가 떨어져 보일 만큼 크게 흔들리지 않는다', () => {
       assert.ok(Math.abs(pose.earSwing) < 0.35, `${key} 의 귀가 너무 크게 흔들린다`);
     }
   }
+});
+
+test('반응은 시작과 끝에서 0이고 중간에 가장 크다', () => {
+  assert.deepEqual(reactionAt(0), { hop: 0, spin: 0, squash: 0, armLift: 0 });
+  assert.deepEqual(reactionAt(REACTION_SECONDS + 0.01), { hop: 0, spin: 0, squash: 0, armLift: 0 });
+  assert.deepEqual(reactionAt(-1), { hop: 0, spin: 0, squash: 0, armLift: 0 });
+  assert.ok(reactionAt(REACTION_SECONDS / 2).hop > 0.4);
+});
+
+test('반응 중에도 발이 바닥을 뚫지 않고 과하게 돌지 않는다', () => {
+  for (let i = 0; i <= 60; i++) {
+    const r = reactionAt((i / 60) * REACTION_SECONDS);
+    assert.ok(r.hop >= 0);
+    assert.ok(Math.abs(r.spin) < 0.4);
+    assert.ok(Math.abs(r.squash) < 0.15);
+  }
+});
+
+test('반응은 끝으로 갈수록 잦아든다', () => {
+  assert.ok(Math.abs(reactionAt(REACTION_SECONDS * 0.85).spin) < Math.abs(reactionAt(REACTION_SECONDS * 0.2).spin));
 });
