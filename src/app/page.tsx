@@ -24,16 +24,22 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-copy">
           <h1>치이카와 파인더</h1>
-          <p>작고 귀여운 것들의 세계, 치이카와 정보를 한 곳에 모았어요. 인물 프로필부터 팝업 지도, 신상 굿즈까지.</p>
+          <p>
+            작고 귀여운 것들의 세계, 치이카와 정보를 한 곳에 모았어요.
+            <br />
+            인물 프로필부터 팝업 지도, 신상 굿즈까지.
+          </p>
         </div>
         <HeroScene />
       </section>
       <section className="section-tiles">
         {TILES.map((t) => (
           <Link key={t.href} href={t.href} className="tile">
-            <span className="tile-icon"><Icon name={t.icon} size={21} /></span>
-            <h3>{t.title}</h3>
-            <p>{t.desc}</p>
+            <span className="tile-icon"><Icon name={t.icon} size={20} /></span>
+            <span className="tile-text">
+              <h3>{t.title}</h3>
+              <p>{t.desc}</p>
+            </span>
           </Link>
         ))}
       </section>
