@@ -75,3 +75,11 @@ test('정지 자세는 움직임이 없다', () => {
   assert.equal(pose.spin, 0);
   assert.equal(pose.crying, false);
 });
+
+test('귀가 떨어져 보일 만큼 크게 흔들리지 않는다', () => {
+  for (const key of KEYS) {
+    for (const pose of sample(key)) {
+      assert.ok(Math.abs(pose.earSwing) < 0.35, `${key} 의 귀가 너무 크게 흔들린다`);
+    }
+  }
+});

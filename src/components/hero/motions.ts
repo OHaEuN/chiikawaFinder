@@ -59,7 +59,7 @@ function hachiwarePose(t: number): Pose {
     spin: Math.sin(t * 0.8) * 0.3,
     squash: landing ? 0.9 : 1 + hop * 0.12,
     armLift: 0.55 + hop * 1.1,
-    earSwing: Math.sin(t * 6) * 0.18,
+    earSwing: Math.sin(t * 6) * 0.09,
     crying: false,
   };
 }
@@ -78,7 +78,7 @@ function usagiPose(t: number): Pose {
     spin: Math.sin(cycle * TAU) * 0.55,
     squash: landing ? 0.82 : 1 + hop * 0.14,
     armLift: 1.35 + Math.sin(t * 9) * 0.25,
-    earSwing: Math.sin(t * 11) * 0.42,
+    earSwing: Math.sin(t * 11) * 0.3,
     crying: false,
   };
 }
