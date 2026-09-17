@@ -159,26 +159,39 @@ function drawTears(ctx: CanvasRenderingContext2D) {
 function drawCap(ctx: CanvasRenderingContext2D, capColor: string, bodyColor: string) {
   // theta 는 정수리에서 잰 각도다. 값이 클수록 아래로 내려온다.
   const y = (theta: number) => (theta / Math.PI) * TEX_H;
-  // 앞뒤옆 사진에서 잰 값이다. 골이 파인 W 가 아니라, 앞 가운데가 가장 높고
-  // 양옆으로 갈수록 내려오는 단순한 곡선이다. 옆에서 보면 눈 높이까지 덮인다.
-  const thetaSide = 1.16;
-  const thetaPeak = 0.74;
-  const sideY = y(thetaSide);
+  /*
+   * 앞머리 아랫선. 확대한 사진에서 세 지점을 재서 만든다.
+   *  - 가운데: 크림색이 뾰족하게 솟는다. 가르마다.
+   *  - 그 양옆: 파란 부분이 가장 낮게 내려온다.
+   *  - 맨 바깥: 귀 쪽으로 가며 다시 올라간다.
+   * 가운데 솟는 폭이 좁아야 가르마로 읽힌다. 넓으면 바가지머리가 된다.
+   */
+  const thetaLow = 1.17;
+  const thetaEdge = 0.95;
+  const thetaPeak = 0.62;
+  const PEAK_WIDTH = 0.072;
 
+  const boundary = (t: number) => {
+    const fromCenter = Math.abs(2 * t - 1);
+    const sides = (thetaLow - thetaEdge) * fromCenter ** 1.6;
+    const parting = (thetaLow - thetaPeak) * Math.exp(-(((t - 0.5) / PEAK_WIDTH) ** 2));
+    return thetaLow - sides - parting;
+  };
+
+  const baseY = y(thetaLow);
   ctx.fillStyle = capColor;
-  ctx.fillRect(0, 0, TEX_W, sideY);
+  ctx.fillRect(0, 0, TEX_W, baseY);
 
-  // 앞쪽 반구에서 파란 부분을 도려내 가운데가 솟은 모양을 만든다.
+  // 앞쪽 반구에서 파란 부분을 도려내 가르마와 옆선을 만든다.
   ctx.fillStyle = bodyColor;
   ctx.beginPath();
-  ctx.moveTo(0, sideY);
-  const steps = 72;
+  ctx.moveTo(0, baseY);
+  const steps = 160;
   for (let i = 0; i <= steps; i++) {
     const t = i / steps;
-    const theta = thetaSide - (thetaSide - thetaPeak) * Math.sin(t * Math.PI) ** 1.9;
-    ctx.lineTo(t * TEX_W * 0.5, y(theta));
+    ctx.lineTo(t * TEX_W * 0.5, y(boundary(t)));
   }
-  ctx.lineTo(TEX_W * 0.5, sideY);
+  ctx.lineTo(TEX_W * 0.5, baseY);
   ctx.closePath();
   ctx.fill();
 }
@@ -192,8 +205,6 @@ export interface FacePhoto {
   /** 사진 속 두 눈의 중심. 이걸 기준으로 배율과 위치를 맞춘다. */
   eyes: { leftX: number; rightX: number; y: number };
   crop: { x: number; y: number; w: number; h: number };
-  /** 무늬가 없는 몸 부분. 이 색을 바탕색으로 써야 오려 붙인 얼굴과 안색이 맞는다. */
-  sample: { x: number; y: number };
 }
 
 /**
@@ -273,18 +284,6 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
   });
 }
 
-/** 사진에서 무늬 없는 부분의 색을 읽어 온다. 얼굴을 오려 낼 기준이 된다. */
-function sampleColor(image: HTMLImageElement, at: { x: number; y: number }): [number, number, number] | null {
-  const probe = document.createElement('canvas');
-  probe.width = 1;
-  probe.height = 1;
-  const ctx = probe.getContext('2d', { willReadFrequently: true });
-  if (!ctx) return null;
-  ctx.drawImage(image, at.x, at.y, 1, 1, 0, 0, 1, 1);
-  const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
-  return [r, g, b];
-}
-
 /** 머리에 입힐 얼굴 텍스처를 만든다. crying 을 켜면 눈물까지 그린다. */
 export function createFaceTexture(
   bodyColor: string,
@@ -301,12 +300,14 @@ export function createFaceTexture(
 
   const paint = (image?: HTMLImageElement) => {
     ctx.clearRect(0, 0, TEX_W, TEX_H);
-    const sampled = image && photo ? sampleColor(image, photo.sample) : null;
-    // 바탕은 사진에서 읽은 색으로 채워야 오려 낸 얼굴과 안색이 어긋나지 않는다.
-    ctx.fillStyle = sampled ? `rgb(${sampled[0]}, ${sampled[1]}, ${sampled[2]})` : bodyColor;
+    /*
+     * 얼굴은 요소만 오려 붙이므로 바탕은 사진 색을 따를 필요가 없다.
+     * 사진에서 뽑으면 그 지점의 그늘까지 딸려 와 얼굴이 칙칙해진다. 밝은 색을 직접 쓴다.
+     */
+    ctx.fillStyle = bodyColor;
     ctx.fillRect(0, 0, TEX_W, TEX_H);
 
-    if (image && photo && sampled) {
+    if (image && photo) {
       drawPhotoFace(ctx, image, photo);
     } else {
       drawBlush(ctx, -1);

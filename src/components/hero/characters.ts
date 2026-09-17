@@ -12,7 +12,7 @@ export type CharacterKey = 'chiikawa' | 'hachiware' | 'usagi';
 
 const CREAM = '#ffffff';
 const HACHIWARE_BLUE = '#7cb2e0';
-const USAGI_BODY = '#fde9bd';
+const USAGI_BODY = '#fdecc4';
 const USAGI_EAR = 0xf2a8b4;
 
 export interface CharacterRig {
@@ -54,27 +54,24 @@ const CAP_COLOR: Partial<Record<CharacterKey, string>> = { hachiware: HACHIWARE_
 
 /**
  * 공식 인형 사진에서 얼굴만 오려 쓴다. 손으로 그리는 것보다 원본에 가깝다.
- * eyes 는 두 눈 중심, crop 은 오려 낼 영역, sample 은 바탕색을 읽을 무늬 없는 지점이다.
+ * eyes 는 두 눈 중심, crop 은 오려 낼 영역이다.
  */
 const FACE_PHOTO: Record<CharacterKey, FacePhoto> = {
   chiikawa: {
     src: '/images/hero/chiikawa.jpg',
     eyes: { leftX: 506, rightX: 710, y: 490 },
     crop: { x: 315, y: 330, w: 580, h: 290 },
-    sample: { x: 605, y: 650 },
   },
   hachiware: {
     src: '/images/hero/hachiware.jpg',
     eyes: { leftX: 486, rightX: 690, y: 470 },
     // 눈썹이 가장자리에 걸리면 흐려져 사라진다. 눈썹 위로 여유를 두고 자른다.
     crop: { x: 325, y: 350, w: 560, h: 300 },
-    sample: { x: 588, y: 645 },
   },
   usagi: {
     src: '/images/hero/usagi.jpg',
     eyes: { leftX: 492, rightX: 696, y: 564 },
     crop: { x: 325, y: 375, w: 570, h: 330 },
-    sample: { x: 594, y: 745 },
   },
 };
 
@@ -101,18 +98,19 @@ const ball = (radius: number, color: number | string) =>
  */
 function torsoGeometry(): THREE.LatheGeometry {
   // 아래에서 위 순서로 적어야 면이 바깥을 향한다. 뒤집으면 안쪽만 보여 치마처럼 된다.
+  // 머리가 주인공이라 몸은 확실히 작아야 한다. 반지름은 머리 반너비의 6할쯤.
   const profile: [number, number][] = [
-    [0.001, -0.78],
-    [0.22, -0.75],
-    [0.5, -0.68],
-    [0.7, -0.56],
-    [0.82, -0.38],
-    [0.85, -0.18],
-    [0.84, 0.02],
-    [0.78, 0.22],
-    [0.64, 0.42],
-    [0.42, 0.56],
-    [0.22, 0.64],
+    [0.001, -0.7],
+    [0.19, -0.67],
+    [0.42, -0.61],
+    [0.58, -0.5],
+    [0.68, -0.34],
+    [0.71, -0.16],
+    [0.7, 0.02],
+    [0.65, 0.2],
+    [0.53, 0.38],
+    [0.35, 0.5],
+    [0.18, 0.58],
   ];
   return new THREE.LatheGeometry(
     profile.map(([r, y]) => new THREE.Vector2(r, y)),
@@ -132,8 +130,8 @@ function buildTorso(color: number | string) {
   // 발은 몸 아래 가운데에서 서로 맞닿은 둥근 덩어리 두 개
   for (const side of [-1, 1]) {
     const foot = ball(1, color);
-    foot.scale.set(0.23, 0.2, 0.26);
-    foot.position.set(side * 0.25, -1.66, 0.16);
+    foot.scale.set(0.2, 0.17, 0.22);
+    foot.position.set(side * 0.21, -1.6, 0.14);
     group.add(foot);
   }
 
@@ -141,10 +139,10 @@ function buildTorso(color: number | string) {
   const makeArm = (side: number) => {
     const pivot = new THREE.Group();
     const arm = ball(1, color);
-    arm.scale.set(0.23, 0.27, 0.2);
-    arm.position.y = -0.2;
+    arm.scale.set(0.19, 0.23, 0.17);
+    arm.position.y = -0.17;
     pivot.add(arm);
-    pivot.position.set(side * 0.85, -0.76, 0.08);
+    pivot.position.set(side * 0.71, -0.78, 0.08);
     return pivot;
   };
 
