@@ -35,17 +35,26 @@ export interface BrowStyle {
 /** 사진에서 이 비율보다 적게 남으면 추출에 실패한 것으로 본다. */
 const MIN_KEPT_RATIO = 0.01;
 
-/** 자수 선을 진하게 만드는 대비 배율 */
-const CONTRAST = 1.45;
-/** 비교 전에 뭉갤 털 결의 굵기(px). 이보다 가는 무늬는 얼굴로 치지 않는다. */
-const DENOISE_SPAN = 7;
-/** 남은 자국을 문지르는 정도(px) */
-const ALPHA_BLUR = 4;
-/** 털 결의 잔차보다 위에서 잘라야 바탕이 남지 않는다. */
-const KEEP_FROM = 54;
-const KEEP_TO = 96;
-/** 테두리에서 흐림 값이 튄다. 이 반지름부터 눌러 지운다. */
-const EDGE_FROM = 0.72;
+/**
+ * 사진에서 얼굴만 골라내는 기준.
+ *
+ * 인형마다 털 결의 대비와 조명이 달라 값 하나로는 못 맞춘다.
+ * 느슨하면 털이 얼룩으로 남고, 빡빡하면 볼터치처럼 연한 무늬가 먼저 지워진다.
+ */
+export interface FaceExtract {
+  /** 자수 선을 진하게 만드는 대비 배율. 털 색이 고르지 않을수록 높여야 선이 산다 */
+  contrast: number;
+  /** 이 차이부터 얼굴로 친다 */
+  keepFrom: number;
+  /** 이 차이면 완전히 얼굴로 친다 */
+  keepTo: number;
+  /** 비교 전에 뭉갤 털 결의 굵기(px). 이보다 가는 무늬는 얼굴로 치지 않는다 */
+  denoise: number;
+  /** 남은 자국을 문지르는 정도(px) */
+  alphaBlur: number;
+  /** 테두리에서 흐림 값이 튄다. 이 반지름부터 눌러 지운다 */
+  edgeFrom: number;
+}
 
 const INK = '#4a3b33';
 const BLUSH = '#f5a8b8';
@@ -220,6 +229,7 @@ export interface FacePhoto {
   /** 사진 속 두 눈의 중심. 이걸 기준으로 배율과 위치를 맞춘다. */
   eyes: { leftX: number; rightX: number; y: number };
   crop: { x: number; y: number; w: number; h: number };
+  extract: FaceExtract;
 }
 
 /**
@@ -290,7 +300,7 @@ function boxBlur(plane: Float32Array, width: number, height: number, radius: num
 
 /** 사진에서 얼굴만 남기는 데 성공했는지. 실패하면 손으로 그린 얼굴로 돌아간다. */
 function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, photo: FacePhoto): boolean {
-  const { eyes, crop } = photo;
+  const { eyes, crop, extract } = photo;
   // 머리 경계를 눈대중으로 재면 사진마다 달라져 얼굴이 늘어나거나 눌린다.
   // 두 눈 사이를 기준으로 가로세로 같은 배율을 쓰면 세 캐릭터가 같은 크기로 맞는다.
   const unitPerPx = (FACE.eyeX * 2) / (eyes.rightX - eyes.leftX);
@@ -314,9 +324,9 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
   // 자수 눈썹이 연해 멀리서 안 보인다. 대비를 올려 어두운 선만 진하게 만든다.
   // ctx.filter 로 하면 Safari 에서 무시될 수 있어 픽셀에 직접 건다.
   for (let i = 0; i < px.length; i += 4) {
-    px[i] = (px[i] - 128) * CONTRAST + 128;
-    px[i + 1] = (px[i + 1] - 128) * CONTRAST + 128;
-    px[i + 2] = (px[i + 2] - 128) * CONTRAST + 128;
+    px[i] = (px[i] - 128) * extract.contrast + 128;
+    px[i + 1] = (px[i + 1] - 128) * extract.contrast + 128;
+    px[i + 2] = (px[i + 2] - 128) * extract.contrast + 128;
   }
   patchCtx.putImageData(frame, 0, 0);
 
@@ -329,7 +339,7 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
   // 바탕은 가장 큰 무늬(볼)보다 크게 흐려야 무늬가 바탕에 섞이지 않는다.
   const base = readPixels(blurCopy(patch, crop.w * 0.12));
   // 비교에 쓸 쪽은 살짝 흐려 둔다. 털 결이 그대로면 얼굴이 얼룩덜룩해진다.
-  const smooth = readPixels(blurCopy(patch, DENOISE_SPAN));
+  const smooth = readPixels(blurCopy(patch, extract.denoise));
   if (!base || !smooth) return false;
 
   // 흐림은 캔버스 밖을 투명으로 보므로 가장자리에서 값이 튄다. 테두리는 눌러 지운다.
@@ -342,15 +352,15 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
       const p = y * crop.w + x;
       const i = p * 4;
       const distance = Math.hypot(smooth[i] - base[i], smooth[i + 1] - base[i + 1], smooth[i + 2] - base[i + 2]);
-      const keep = (distance - KEEP_FROM) / (KEEP_TO - KEEP_FROM);
+      const keep = (distance - extract.keepFrom) / (extract.keepTo - extract.keepFrom);
       const nx = (x - halfW) / halfW;
-      const edge = 1 - (Math.hypot(nx, ny) - EDGE_FROM) / (1 - EDGE_FROM);
+      const edge = 1 - (Math.hypot(nx, ny) - extract.edgeFrom) / (1 - extract.edgeFrom);
       alpha[p] = Math.min(1, Math.max(0, keep)) * Math.min(1, Math.max(0, edge));
     }
   }
 
   // 남은 자국을 문질러 없앤다. 낱개로 튄 점은 사라지고 눈·눈썹처럼 넓은 것만 버틴다.
-  boxBlur(alpha, crop.w, crop.h, ALPHA_BLUR);
+  boxBlur(alpha, crop.w, crop.h, extract.alphaBlur);
 
   let kept = 0;
   for (let p = 0; p < alpha.length; p++) {
