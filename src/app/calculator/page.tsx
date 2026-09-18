@@ -9,14 +9,15 @@ export const metadata: Metadata = {
   description: '치이카와 굿즈를 직구하거나 공구로 살 때 최종 얼마인지, 공구 환율에 수수료가 얼마나 섞였는지 계산합니다.',
 };
 
-const PICKER_LIMIT = 400;
 const SAFETY_TONE = { safer: 'mint', caution: 'yellow', risky: 'pink' } as const;
 
 export default function CalculatorPage() {
+  // 품절 상품을 담아 봐야 살 수 없다. 재고가 있는 일본 상품만 후보로 둔다.
   const options = GOODS.flatMap((g) => {
     const priceYen = yenPrice(g.price);
-    return priceYen && g.country === 'JP' ? [{ id: g.id, name: g.name, priceYen, image: g.image }] : [];
-  }).slice(0, PICKER_LIMIT);
+    const usable = priceYen && g.country === 'JP' && g.available;
+    return usable ? [{ id: g.id, name: g.name, priceYen, image: g.image }] : [];
+  });
 
   return (
     <>

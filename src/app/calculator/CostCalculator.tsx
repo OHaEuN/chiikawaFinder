@@ -107,8 +107,8 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
           <div className="freeship-bar"><span style={{ width: `${freeShippingPercent}%` }} /></div>
           <p className="muted">
             {result.toFreeShippingYen > 0
-              ? `일본 내 배송 무료까지 ${yen(result.toFreeShippingYen)} 남았어요. 공구 모집글의 '무배컷'이 이 기준입니다.`
-              : `일본 내 배송 무료 기준(${yen(FREE_DOMESTIC_SHIPPING_YEN)})을 넘겼어요.`}
+              ? `일본 내 배송 무료까지 ${yen(result.toFreeShippingYen)} 남았어요. 못 채우면 일본 내 배송료가 붙습니다. 공구 모집글의 '무배컷'이 이 기준입니다.`
+              : `일본 내 배송 무료 기준(${yen(FREE_DOMESTIC_SHIPPING_YEN)})을 넘겨 일본 내 배송료가 없습니다.`}
           </p>
         </div>
       </section>
@@ -160,17 +160,37 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
         <h2>3. 결과</h2>
         <dl className="kv">
           <dt>상품 합계</dt><dd>{yen(result.subtotalYen)}</dd>
+          {result.domesticJpYen > 0 && (
+            <>
+              <dt>일본 내 배송료</dt>
+              <dd>{yen(result.domesticJpYen)} <span className="muted">(무배컷 미달)</span></dd>
+            </>
+          )}
           <dt>상품값</dt><dd>{won(result.goodsKrw)}</dd>
-          <dt>배송비 분담</dt><dd>{won(result.shippingPerPersonKrw)} <span className="muted">({people}명이 나눔)</span></dd>
+          <dt>해외배송비 분담</dt><dd>{won(result.shippingPerPersonKrw)} <span className="muted">({people}명이 나눔)</span></dd>
           <dt>국내 택배비</dt><dd>{won(domesticKrw)}</dd>
           {result.customs.taxable && (
             <>
               <dt>관세 · 부가세</dt>
-              <dd>{won(Math.round(result.customs.totalTaxKrw / Math.max(1, people)))} <span className="muted">(전체 {won(result.customs.totalTaxKrw)})</span></dd>
+              <dd>{won(result.customs.totalTaxKrw)}</dd>
             </>
           )}
         </dl>
         <p className="total">1인 부담 <strong>{won(result.totalKrw)}</strong></p>
+        <p className="muted" style={{ fontSize: '0.82rem', marginTop: -6 }}>
+          상품값과 세금은 담은 상품에 매겨진 내 몫 전액이고, 나누는 건 해외배송비뿐입니다.
+        </p>
+
+        {people > 1 && (
+          <div className="customs">
+            <strong>공구로 합배송하면 면세 한도는 상자 전체로 따집니다.</strong>
+            <p>
+              한 운송장으로 묶여 들어온 물건은 합산해서 {DUTY_FREE_LIMIT_USD}달러를 넘는지 봅니다.
+              내 장바구니가 한도 안이어도 다른 참여자 몫과 합쳐 넘기면 전원이 과세 대상이 됩니다.
+              여기 나온 세금은 내 장바구니만 따로 들어온다고 볼 때의 값입니다.
+            </p>
+          </div>
+        )}
 
         {result.subtotalYen > 0 && (
           result.customs.taxable ? (
