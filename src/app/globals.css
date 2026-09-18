@@ -71,9 +71,10 @@ li { margin-bottom: 0.3em; }
 /* 데스크톱 좌측 사이드바: 메뉴를 화면 위쪽 끝이 아니라 손이 닿는 위치에 둔다 */
 .sidebar { display: none; }
 .sidebar-brand { padding: 0 14px; margin-bottom: 22px; font-size: 1.32rem; }
-/* 원제 「なんか小さくてかわいいやつ」 자리. 타이틀보다 작게 위에 얹는다. */
-.title-tag { display: block; font-family: var(--font-cute), var(--font-display), sans-serif; font-size: 0.74rem; font-weight: 700; color: var(--muted); letter-spacing: 0.02em; margin-bottom: 1px; }
-.brand-text { display: inline-flex; flex-direction: column; align-items: flex-start; line-height: 1.12; }
+/* 메뉴 이름 앞에 붙는 말. 이름을 가리지 않게 작고 흐리게 둔다. */
+.nav-label { display: inline-flex; align-items: baseline; gap: 4px; min-width: 0; }
+.nav-prefix { font-family: var(--font-cute), var(--font-display), sans-serif; font-size: 0.74rem; font-weight: 700; color: var(--muted); letter-spacing: 0.02em; flex: none; }
+a[aria-current='page'] .nav-prefix { color: var(--accent-ink); }
 .sidebar ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
 .sidebar li { margin: 0; }
 .sidebar a { display: flex; align-items: center; gap: 11px; padding: 11px 14px; border-radius: 14px; color: var(--ink-soft); font-weight: 600; font-size: 0.98rem; }
