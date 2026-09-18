@@ -2,8 +2,9 @@
 """
 캐릭터 얼굴로 마우스 커서 이미지를 만든다.
 
-기본 커서는 극장판 일러스트의 얼굴, 누를 수 있는 곳을 가리킬 때는 표정이 다른 얼굴을 쓴다.
-배경은 모서리에서 번져 나가는 방식으로 지운다. 색을 통째로 지우면 캐릭터의 흰 부분까지 날아간다.
+기본 커서는 극장판 공식 사이트의 캐릭터 아이콘을 쓴다. 이미 배경이 투명이라 벗겨 낼 필요가 없다.
+누를 수 있는 곳 위에서는 표정이 다른 일러스트로 바뀐다. 이쪽은 원형 배지라 원을 벗겨 내야 한다.
+둘 다 목 아래를 잘라 얼굴만 남긴다.
 """
 
 import urllib.request
@@ -12,29 +13,31 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 OUT = Path("public/cursor")
-SOURCE = Path("public/images/characters")
 SIZE = 40
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36"
 
-# 표정이 다른 일러스트. 원 안에 캐릭터가 들어간 배지 모양이라 원 바깥과 흰 원을 벗겨 쓴다.
-HOVER_FACE = {
+MOVIE_ICON = {
+    "chiikawa": "https://chiikawa.toho-movie.jp/atm/img/ch_icon_01.webp",
+    "hachiware": "https://chiikawa.toho-movie.jp/atm/img/ch_icon_02.webp",
+    "usagi": "https://chiikawa.toho-movie.jp/atm/img/ch_icon_03.webp",
+}
+
+# 표정이 다른 일러스트. 흰 원 안에 캐릭터가 들어간 배지라 원을 벗겨 낸다.
+HOVER_BADGE = {
     "chiikawa": "https://chiikawa-biyori.com/wp-content/uploads/2026/07/chiikawa.png",
     "hachiware": "https://chiikawa-biyori.com/wp-content/uploads/2026/04/hachiware.png",
     "usagi": "https://chiikawa-biyori.com/wp-content/uploads/2026/04/usagi.png",
 }
 
-# 극장판 일러스트에서 머리만 남기는 비율. 아래쪽 풀잎 목도리를 잘라 낸다.
-HEAD_RATIO = 0.74
 FLOOD_TOLERANCE = 26
+# 배지 일러스트는 전신이라 위에서 이만큼만 남기면 얼굴이 된다.
+HEAD_RATIO = 0.84
 
 
-def strip_background(image: Image.Image) -> Image.Image:
-    """네 모서리에서 번져 나가며 배경만 투명하게 만든다."""
-    canvas = image.convert("RGBA")
-    width, height = canvas.size
-    for corner in ((0, 0), (width - 1, 0), (0, height - 1), (width - 1, height - 1)):
-        ImageDraw.floodfill(canvas, corner, (0, 0, 0, 0), thresh=FLOOD_TOLERANCE)
-    return canvas
+def fetch(url: str) -> Image.Image:
+    request = urllib.request.Request(url, headers={"User-Agent": UA})
+    with urllib.request.urlopen(request, timeout=30) as response:
+        return Image.open(response).convert("RGBA")
 
 
 def to_square(image: Image.Image) -> Image.Image:
@@ -51,20 +54,37 @@ def save(image: Image.Image, name: str) -> None:
         image.resize((SIZE * scale, SIZE * scale), Image.LANCZOS).save(OUT / f"{name}{suffix}.png")
 
 
+def is_leaf(pixel: tuple[int, int, int, int]) -> bool:
+    """목에 두른 풀잎의 연둣빛. 이 색이 나오는 줄부터 아래는 얼굴이 아니다."""
+    r, g, b, a = pixel
+    return a > 80 and g > 150 and g - r > 25 and g - b > 45
+
+
+def cut_above_leaves(image: Image.Image) -> Image.Image:
+    width, height = image.size
+    for y in range(height):
+        leaves = sum(1 for x in range(0, width, 2) if is_leaf(image.getpixel((x, y))))
+        if leaves > width * 0.05:
+            return image.crop((0, 0, width, y))
+    return image
+
+
 def build_default(slug: str) -> None:
-    source = strip_background(Image.open(SOURCE / f"movie-{slug}.png"))
-    box = source.getbbox()
-    head = source.crop((box[0], box[1], box[2], box[1] + round((box[3] - box[1]) * HEAD_RATIO)))
-    save(to_square(head), slug)
+    icon = fetch(MOVIE_ICON[slug])
+    # 아이콘에는 캐릭터와 이름표가 함께 들어 있다. 위쪽 덩어리만 쓴다.
+    alpha = icon.getchannel("A")
+    filled = [
+        any(alpha.getpixel((x, y)) > 8 for x in range(0, icon.width, 2)) for y in range(icon.height)
+    ]
+    top = filled.index(True)
+    bottom = next((y for y in range(top, icon.height) if not filled[y]), icon.height)
+    save(to_square(cut_above_leaves(icon.crop((0, top, icon.width, bottom)))), slug)
 
 
 def build_hover(slug: str) -> None:
-    """원형 배지 일러스트에서 원 바깥과 흰 원을 벗겨 캐릭터만 남긴다."""
-    request = urllib.request.Request(HOVER_FACE[slug], headers={"User-Agent": UA})
-    with urllib.request.urlopen(request, timeout=30) as response:
-        badge = Image.open(response).convert("RGBA")
-
+    badge = fetch(HOVER_BADGE[slug])
     width, height = badge.size
+
     # 모서리에서 번지게 하면 배경에 그러데이션이 있을 때 색이 남는다. 원 바깥을 통째로 지운다.
     # 원을 조금 줄여야 흰 원과 색 배경 사이의 테두리까지 함께 사라진다.
     edge = round(min(width, height) * 0.045)
@@ -82,12 +102,14 @@ def build_hover(slug: str) -> None:
     ):
         ImageDraw.floodfill(badge, point, (0, 0, 0, 0), thresh=FLOOD_TOLERANCE)
 
-    save(to_square(badge), f"{slug}-hover")
+    box = badge.getbbox()
+    head = badge.crop((box[0], box[1], box[2], box[1] + round((box[3] - box[1]) * HEAD_RATIO)))
+    save(to_square(head), f"{slug}-hover")
 
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    for slug in HOVER_FACE:
+    for slug in MOVIE_ICON:
         build_default(slug)
         build_hover(slug)
         print(f"{slug} 기본·호버 생성")
