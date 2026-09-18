@@ -106,7 +106,11 @@ li { margin-bottom: 0.3em; }
 }
 
 .container { width: min(1060px, 100% - 32px); margin: 0 auto; }
-.page { padding: 20px 0 40px; }
+/*
+ * 아래 여백에 안전영역을 더한다. 노치 있는 기기는 홈 인디케이터가 화면 아래를 덮어
+ * 이걸 빼면 마지막 카드가 그 밑에 깔린다.
+ */
+.page { padding: 20px 0 calc(48px + env(safe-area-inset-bottom)); }
 /* 기본 줄바꿈은 한글을 글자 단위로 끊어 "캘린더" 가 "캘 / 린더" 로 갈라진다. */
 .page-head { margin-bottom: 16px; }
 .page-head h1 { word-break: keep-all; }
@@ -116,7 +120,8 @@ li { margin-bottom: 0.3em; }
 
 @media (min-width: 900px) {
   .topbar { display: none; }
-  .sidebar { display: block; position: fixed; left: 0; top: 0; bottom: 0; width: var(--sidebar-w); padding: 28px 12px; border-right: 1px solid var(--line); background: var(--bg); z-index: 900; }
+  /* 창이 낮으면 메뉴가 화면을 넘는다. 넘칠 때만 스크롤을 준다. */
+  .sidebar { display: block; position: fixed; left: 0; top: 0; bottom: 0; width: var(--sidebar-w); padding: 28px 12px; border-right: 1px solid var(--line); background: var(--bg); z-index: 900; overflow-y: auto; overscroll-behavior: contain; }
   body { padding-left: var(--sidebar-w); }
   .container { width: min(1000px, 100% - 64px); }
   .page { padding: 34px 0 56px; }
