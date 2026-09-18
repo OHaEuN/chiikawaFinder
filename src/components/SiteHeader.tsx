@@ -14,7 +14,7 @@ export function SiteHeader() {
     <>
       <header className="topbar">
         <Link href="/" className="brand">
-          <span className="brand-mark" />
+          <img className="brand-mark" src="/images/chiikawa-face.png" alt="" width={32} height={28} />
           치이카와 파인더
         </Link>
         <MobileMenu pathname={pathname} />
@@ -22,8 +22,11 @@ export function SiteHeader() {
 
       <nav className="sidebar" aria-label="주요 메뉴">
         <Link href="/" className="brand sidebar-brand">
-          <span className="brand-mark" />
-          치이카와 파인더
+          <img className="brand-mark" src="/images/chiikawa-face.png" alt="" width={32} height={28} />
+          <span className="brand-text">
+            <span className="title-tag">먼가 작은</span>
+            치이카와 파인더
+          </span>
         </Link>
         <ul>
           {NAV_ITEMS.map((item) => (
