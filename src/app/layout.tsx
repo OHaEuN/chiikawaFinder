@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Gaegu, Gothic_A1, Noto_Sans_KR } from 'next/font/google';
 import { SiteHeader } from '@/components/SiteHeader';
+import { asset } from '@/lib/asset';
 import { Analytics } from '@/components/Analytics';
 import './globals.css';
 
@@ -12,21 +13,29 @@ const body = Noto_Sans_KR({ weight: ['400', '500', '700'], subsets: ['latin'], v
 export const metadata: Metadata = {
   title: { default: '치이카와 파인더', template: '%s | 치이카와 파인더' },
   description: '치이카와 인물, 온라인 콘텐츠, 팝업/매장 지도, 신상 굿즈를 한 곳에서',
-  manifest: '/manifest.webmanifest',
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: '48x48' },
-      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: asset('/favicon.ico'), sizes: '48x48' },
+      { url: asset('/icon-192.png'), type: 'image/png', sizes: '192x192' },
     ],
-    apple: '/apple-icon.png',
+    apple: asset('/apple-icon.png'),
   },
 };
+
+/** 커서 그림 주소. CSS 에서는 배포 경로를 알 수 없어 여기서 변수로 내려 준다. */
+const CURSOR_KEYS = ['chiikawa', 'hachiware', 'usagi'] as const;
+const cursorVars = Object.fromEntries(
+  CURSOR_KEYS.flatMap((key) => [
+    [`--cursor-${key}-idle`, `url('${asset(`/cursor/${key}.png`)}')`],
+    [`--cursor-${key}-hover`, `url('${asset(`/cursor/${key}-hover.png`)}')`],
+  ]),
+) as React.CSSProperties;
 
 export const viewport: Viewport = { themeColor: '#fdfcfb', width: 'device-width', initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko" className={`${display.variable} ${body.variable} ${cute.variable}`}>
+    <html lang="ko" className={`${display.variable} ${body.variable} ${cute.variable}`} style={cursorVars}>
       <body>
         <SiteHeader />
         <main className="container page">{children}</main>

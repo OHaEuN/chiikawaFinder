@@ -363,18 +363,21 @@ li { margin-bottom: 0.3em; }
  * 캐릭터 얼굴을 커서로 쓴다. 고른 캐릭터는 <html data-cursor> 로 들어온다.
  * 누를 수 있는 곳 위에서는 표정이 다른 얼굴로 바뀐다.
  * 브라우저가 커서 이미지를 못 읽는 경우가 있어 뒤에 기본값을 반드시 남긴다.
+ *
+ * 그림 주소는 layout 이 <html> 인라인 스타일로 넣는다.
+ * 하위 경로에 배포될 때 앞에 붙는 값을 CSS 는 읽을 수 없다.
  */
 :root {
-  --cursor-idle: url('/cursor/chiikawa.png');
-  --cursor-hover: url('/cursor/chiikawa-hover.png');
+  --cursor-idle: var(--cursor-chiikawa-idle);
+  --cursor-hover: var(--cursor-chiikawa-hover);
 }
 [data-cursor='hachiware'] {
-  --cursor-idle: url('/cursor/hachiware.png');
-  --cursor-hover: url('/cursor/hachiware-hover.png');
+  --cursor-idle: var(--cursor-hachiware-idle);
+  --cursor-hover: var(--cursor-hachiware-hover);
 }
 [data-cursor='usagi'] {
-  --cursor-idle: url('/cursor/usagi.png');
-  --cursor-hover: url('/cursor/usagi-hover.png');
+  --cursor-idle: var(--cursor-usagi-idle);
+  --cursor-hover: var(--cursor-usagi-hover);
 }
 
 /* 그림을 아래로 맞춰 담아서 얼굴은 여섯 장 모두 y 14~21 에 온다. 그 위를 가리킨다. */

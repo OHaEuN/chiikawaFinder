@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { track } from '@/lib/analytics';
+import { asset } from '@/lib/asset';
 
 const CHARACTERS = [
   { key: 'chiikawa', name: '치이카와' },
@@ -57,7 +58,7 @@ export function CursorPicker() {
             aria-pressed={current === c.key}
             onClick={() => choose(c.key)}
           >
-            <img src={`/cursor/${c.key}.png`} alt="" width={26} height={26} />
+            <img src={asset(`/cursor/${c.key}.png`)} alt="" width={26} height={26} />
           </button>
         ))}
       </div>

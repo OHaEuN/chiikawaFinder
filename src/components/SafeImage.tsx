@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { asset } from '@/lib/asset';
 
 interface SafeImageProps {
   src?: string;
@@ -32,5 +33,5 @@ export function SafeImage({ src, alt, fallback = '🐾', seed, onWhite = false }
     }
     return <div className="ph" style={{ background }} aria-label={alt}>{fallback}</div>;
   }
-  return <img src={src} alt={alt} loading="lazy" referrerPolicy="no-referrer" onError={() => setFailed(true)} />;
+  return <img src={asset(src)} alt={alt} loading="lazy" referrerPolicy="no-referrer" onError={() => setFailed(true)} />;
 }
