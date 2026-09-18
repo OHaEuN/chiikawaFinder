@@ -61,9 +61,7 @@ li { margin-bottom: 0.3em; }
 
 /* ── 앱 셸 ───────────────────────────────── */
 .brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; font-size: 1.28rem; }
-.brand-mark { width: 26px; height: 26px; border-radius: 50%; background: var(--pink); border: 2px solid var(--pink-deep); flex: none; position: relative; }
-.brand-mark::before, .brand-mark::after { content: ''; position: absolute; top: 9px; width: 3px; height: 3px; border-radius: 50%; background: var(--accent-ink); }
-.brand-mark::before { left: 6px; } .brand-mark::after { right: 6px; }
+.brand-mark { width: 32px; height: 28px; object-fit: contain; flex: none; }
 
 /* 모바일 상단 바 */
 .topbar { position: sticky; top: 0; z-index: 900; height: var(--topbar-h); display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 12px 0 16px; background: rgba(253, 252, 251, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
@@ -73,6 +71,9 @@ li { margin-bottom: 0.3em; }
 /* 데스크톱 좌측 사이드바: 메뉴를 화면 위쪽 끝이 아니라 손이 닿는 위치에 둔다 */
 .sidebar { display: none; }
 .sidebar-brand { padding: 0 14px; margin-bottom: 22px; font-size: 1.32rem; }
+/* 원제 「なんか小さくてかわいいやつ」 자리. 타이틀보다 작게 위에 얹는다. */
+.title-tag { display: block; font-family: var(--font-cute), var(--font-display), sans-serif; font-size: 0.74rem; font-weight: 700; color: var(--muted); letter-spacing: 0.02em; margin-bottom: 1px; }
+.brand-text { display: inline-flex; flex-direction: column; align-items: flex-start; line-height: 1.12; }
 .sidebar ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
 .sidebar li { margin: 0; }
 .sidebar a { display: flex; align-items: center; gap: 11px; padding: 11px 14px; border-radius: 14px; color: var(--ink-soft); font-weight: 600; font-size: 0.98rem; }
@@ -80,9 +81,6 @@ li { margin-bottom: 0.3em; }
 .sidebar a[aria-current='page'] { background: var(--surface-2); color: var(--ink); font-weight: 700; }
 .sidebar a[aria-current='page'] svg { color: var(--accent-ink); }
 
-/* 지금 보고 있는 메뉴를 되짚어 가리킨다. 색만으로는 눈에 잘 안 들어온다. */
-.sidebar a[aria-current='page']::after,
-.drawer a[aria-current='page']::after { content: '<<'; margin-left: auto; font-size: 0.78rem; letter-spacing: -0.06em; color: var(--accent-ink); }
 
 /*
  * 모바일 메뉴 서랍. 하단 탭에 일곱 개를 늘어놓으면 글씨가 뭉개져 햄버거로 바꿨다.

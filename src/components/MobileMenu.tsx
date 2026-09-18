@@ -55,7 +55,10 @@ export function MobileMenu({ pathname }: MobileMenuProps) {
       >
         <div className="drawer-panel">
           <div className="drawer-head">
-            <span className="drawer-title">메뉴</span>
+            <span className="drawer-title">
+              <span className="title-tag">먼가 작은</span>
+              메뉴
+            </span>
             <button type="button" className="menu-button" aria-label="메뉴 닫기" onClick={() => setOpen(false)}>
               <Icon name="close" size={22} />
             </button>
