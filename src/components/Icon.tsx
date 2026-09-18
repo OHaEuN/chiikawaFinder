@@ -3,7 +3,7 @@ interface IconProps {
   size?: number;
 }
 
-export type IconName = 'home' | 'character' | 'online' | 'offline' | 'goods' | 'calculator' | 'calendar';
+export type IconName = 'home' | 'character' | 'online' | 'offline' | 'goods' | 'calculator' | 'calendar' | 'menu' | 'close';
 
 const PATHS: Record<IconName, React.ReactNode> = {
   home: (
@@ -54,6 +54,16 @@ const PATHS: Record<IconName, React.ReactNode> = {
       <rect x="3.5" y="9" width="17" height="11" rx="2.5" />
       <path d="M3.5 13h17M12 9v11" />
       <path d="M12 9S9.8 4.5 7.6 5.6 9.4 9 12 9zM12 9s2.2-4.5 4.4-3.4S14.6 9 12 9z" />
+    </>
+  ),
+  menu: (
+    <>
+      <path d="M4 7.5h16M4 12h16M4 16.5h16" />
+    </>
+  ),
+  close: (
+    <>
+      <path d="M6.5 6.5l11 11M17.5 6.5l-11 11" />
     </>
   ),
 };
