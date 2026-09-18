@@ -32,6 +32,9 @@ export interface BrowStyle {
   offsetX: number;
 }
 
+const luma = (r: number, g: number, b: number) => 0.299 * r + 0.587 * g + 0.114 * b;
+const chroma = (r: number, g: number, b: number) => Math.max(r, g, b) - Math.min(r, g, b);
+
 /** 사진에서 이 비율보다 적게 남으면 추출에 실패한 것으로 본다. */
 const MIN_KEPT_RATIO = 0.01;
 
@@ -44,9 +47,11 @@ const MIN_KEPT_RATIO = 0.01;
 export interface FaceExtract {
   /** 자수 선을 진하게 만드는 대비 배율. 털 색이 고르지 않을수록 높여야 선이 산다 */
   contrast: number;
-  /** 이 차이부터 얼굴로 친다 */
+  /** 볼터치처럼 어둡지 않고 색만 진한 무늬를 얼마나 쳐줄지 */
+  colorGain: number;
+  /** 이 점수부터 얼굴로 친다 */
   keepFrom: number;
-  /** 이 차이면 완전히 얼굴로 친다 */
+  /** 이 점수면 완전히 얼굴로 친다 */
   keepTo: number;
   /** 비교 전에 뭉갤 털 결의 굵기(px). 이보다 가는 무늬는 얼굴로 치지 않는다 */
   denoise: number;
@@ -351,8 +356,15 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
     for (let x = 0; x < crop.w; x++) {
       const p = y * crop.w + x;
       const i = p * 4;
-      const distance = Math.hypot(smooth[i] - base[i], smooth[i + 1] - base[i + 1], smooth[i + 2] - base[i + 2]);
-      const keep = (distance - extract.keepFrom) / (extract.keepTo - extract.keepFrom);
+      /*
+       * 색이 얼마나 다른지만 보면, 진한 눈 둘레에서 바탕이 어두워지는 바람에
+       * 그 옆의 밝은 털이 얼굴로 뽑혀 빛무리가 생긴다.
+       * 얼굴 무늬는 바탕보다 어둡거나(눈·눈썹·입) 색이 진하다(볼터치). 둘만 받는다.
+       */
+      const darker = luma(base[i], base[i + 1], base[i + 2]) - luma(smooth[i], smooth[i + 1], smooth[i + 2]);
+      const colorful = (chroma(smooth[i], smooth[i + 1], smooth[i + 2]) - chroma(base[i], base[i + 1], base[i + 2])) * extract.colorGain;
+      const score = Math.max(darker, colorful);
+      const keep = (score - extract.keepFrom) / (extract.keepTo - extract.keepFrom);
       const nx = (x - halfW) / halfW;
       const edge = 1 - (Math.hypot(nx, ny) - extract.edgeFrom) / (1 - extract.edgeFrom);
       alpha[p] = Math.min(1, Math.max(0, keep)) * Math.min(1, Math.max(0, edge));

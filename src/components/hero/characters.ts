@@ -62,22 +62,21 @@ const FACE_PHOTO: Record<CharacterKey, FacePhoto> = {
     src: asset('/images/hero/chiikawa.jpg'),
     eyes: { leftX: 506, rightX: 710, y: 490 },
     crop: { x: 315, y: 330, w: 580, h: 290 },
-    // 털이 하얗고 고와서 느슨하게 잡아야 볼터치가 살아남는다.
-    extract: { contrast: 1.45, keepFrom: 40, keepTo: 80, denoise: 6, alphaBlur: 3, edgeFrom: 0.72 },
+    extract: { contrast: 1.45, colorGain: 2, keepFrom: 30, keepTo: 75, denoise: 8, alphaBlur: 4, edgeFrom: 0.74 },
   },
   hachiware: {
     src: asset('/images/hero/hachiware.jpg'),
     eyes: { leftX: 486, rightX: 690, y: 470 },
     // 눈썹이 가장자리에 걸리면 흐려져 사라진다. 눈썹 위로 여유를 두고 자른다.
     crop: { x: 325, y: 350, w: 560, h: 300 },
-    extract: { contrast: 1.45, keepFrom: 54, keepTo: 96, denoise: 7, alphaBlur: 4, edgeFrom: 0.72 },
+    extract: { contrast: 1.45, colorGain: 2, keepFrom: 30, keepTo: 75, denoise: 8, alphaBlur: 4, edgeFrom: 0.74 },
   },
   usagi: {
     src: asset('/images/hero/usagi.jpg'),
     eyes: { leftX: 492, rightX: 696, y: 564 },
     crop: { x: 325, y: 375, w: 570, h: 330 },
-    // 노란 털은 색이 고르지 않아 눈 둘레에 빛무리가 남는다. 가장 빡빡하게 잡는다.
-    extract: { contrast: 1.9, keepFrom: 108, keepTo: 165, denoise: 11, alphaBlur: 6, edgeFrom: 0.68 },
+    // 노란 털이라 바탕도 색이 진하다. 볼터치를 살리려 색 쪽 가중치를 조금 올린다.
+    extract: { contrast: 1.45, colorGain: 2.6, keepFrom: 30, keepTo: 75, denoise: 8, alphaBlur: 4, edgeFrom: 0.74 },
   },
 };
 
