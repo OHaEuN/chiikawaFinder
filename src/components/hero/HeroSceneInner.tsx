@@ -3,11 +3,32 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { buildCharacter, type CharacterKey, type CharacterRig } from './characters';
-import { poseAt, reactionAt, REACTION_SECONDS, restingPose } from './motions';
+import { MAX_LIFT, poseAt, reactionAt, REACTION_SECONDS, restingPose } from './motions';
 import { track } from '@/lib/analytics';
 
 const ORDER: CharacterKey[] = ['chiikawa', 'hachiware', 'usagi'];
+const FOV = 40;
+/** 좌우 간격. 좁은 화면에서는 붙여 세워야 얼굴이 작아지지 않는다. */
 const SPACING = 2.7;
+const NARROW_SPACING = 2.15;
+const NARROW_PX = 560;
+/** 몸이 늘어나면서 머리가 조금 더 올라간다. 점프 높이와 별개로 잡는다. */
+const STRETCH_MARGIN = 0.12;
+/** 테두리에 닿지 않게 남기는 여백 */
+const FIT_MARGIN = 1.03;
+
+const spacingFor = (width: number) => (width < NARROW_PX ? NARROW_SPACING : SPACING);
+
+/**
+ * 셋이 딱 들어가는 카메라 거리를 구한다.
+ * 거리를 상수로 박아 두면 좁은 화면에서 얼굴이 뭉갤 만큼 작아진다.
+ */
+function fitDistance(aspect: number, groupWidth: number, groupHeight: number): number {
+  const half = Math.tan((FOV * Math.PI) / 360);
+  const byHeight = groupHeight / 2 / half;
+  const byWidth = groupWidth / 2 / (half * aspect);
+  return Math.max(byHeight, byWidth) * FIT_MARGIN;
+}
 /** 캐릭터마다 동작이 겹치지 않게 시작 시점을 어긋나게 둔다. */
 const PHASE: Record<CharacterKey, number> = { chiikawa: 0, hachiware: 0.45, usagi: 0.9 };
 
@@ -63,9 +84,7 @@ export default function HeroSceneInner() {
     host.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
-    camera.position.set(0, 0.35, 7.9);
-    camera.lookAt(0, -0.22, 0);
+    const camera = new THREE.PerspectiveCamera(FOV, 1, 0.1, 100);
 
     // 은은한 확산광을 주로 쓰고 직사광을 약하게 둬야 천처럼 보인다.
     scene.add(new THREE.HemisphereLight(0xffffff, 0xfffaf2, 1.75));
@@ -110,6 +129,18 @@ export default function HeroSceneInner() {
       scene.add(rig.root);
       return { name, rig, reactionStart: -Infinity };
     });
+
+    /*
+     * 정지 자세에서 셋이 차지하는 크기를 직접 잰다.
+     * 손으로 적어 두면 귀 길이나 몸 비율을 고칠 때마다 어긋난다.
+     */
+    const restBox = new THREE.Box3();
+    entries.forEach((entry) => restBox.expandByObject(entry.rig.root));
+    const bodyWidth = restBox.max.x - restBox.min.x - SPACING * 2;
+    // 위로만 뛴다. 여백도 위에만 준다. 위아래로 나눠 주면 발밑이 쓸데없이 비어 보인다.
+    const topY = restBox.max.y + (reduceMotion ? 0 : MAX_LIFT + STRETCH_MARGIN);
+    const groupHeight = topY - restBox.min.y;
+    const centerY = (topY + restBox.min.y) / 2;
 
     // 포인터가 어느 캐릭터 위에 있는지 찾는다. 머리만 맞혀도 충분하다.
     const raycaster = new THREE.Raycaster();
@@ -202,9 +233,13 @@ export default function HeroSceneInner() {
       const { clientWidth, clientHeight } = host;
       if (!clientWidth || !clientHeight) return;
       renderer.setSize(clientWidth, clientHeight, false);
+      const spacing = spacingFor(clientWidth);
+      entries.forEach((entry, index) => {
+        entry.rig.root.position.x = (index - 1) * spacing;
+      });
       camera.aspect = clientWidth / clientHeight;
-      // 화면이 좁아지면 셋이 잘리므로 카메라를 뒤로 뺀다.
-      camera.position.z = clientWidth < 520 ? 11 : 7.9;
+      camera.position.set(0, centerY, fitDistance(camera.aspect, spacing * 2 + bodyWidth, groupHeight));
+      camera.lookAt(0, centerY, 0);
       camera.updateProjectionMatrix();
     };
     resize();

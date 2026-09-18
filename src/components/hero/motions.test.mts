@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { poseAt, reactionAt, REACTION_SECONDS, restingPose } from './motions.ts';
+import { MAX_LIFT, poseAt, reactionAt, REACTION_SECONDS, restingPose } from './motions.ts';
 import type { CharacterKey } from './characters.ts';
 
 const KEYS: CharacterKey[] = ['chiikawa', 'hachiware', 'usagi'];
@@ -102,4 +102,19 @@ test('반응 중에도 발이 바닥을 뚫지 않고 과하게 돌지 않는다
 
 test('반응은 끝으로 갈수록 잦아든다', () => {
   assert.ok(Math.abs(reactionAt(REACTION_SECONDS * 0.85).spin) < Math.abs(reactionAt(REACTION_SECONDS * 0.2).spin));
+});
+
+test('어떤 시점에도 MAX_LIFT 보다 높이 뜨지 않는다', () => {
+  let highest = 0;
+  for (const key of ['chiikawa', 'hachiware', 'usagi'] as const) {
+    for (let t = 0; t < 40; t += 0.01) {
+      for (let r = 0; r <= REACTION_SECONDS; r += 0.01) {
+        const lift = poseAt(key, t).hop + reactionAt(r).hop;
+        if (lift > highest) highest = lift;
+      }
+    }
+  }
+  assert.ok(highest <= MAX_LIFT, `최대 ${highest.toFixed(3)} 이 MAX_LIFT ${MAX_LIFT} 를 넘는다`);
+  // 여백이 지나치게 크면 캐릭터가 작아진다. 실제 최대치와 너무 벌어지지 않는지도 본다.
+  assert.ok(highest > MAX_LIFT - 0.3, `여백 ${MAX_LIFT} 이 실제 최대 ${highest.toFixed(3)} 보다 너무 크다`);
 });
