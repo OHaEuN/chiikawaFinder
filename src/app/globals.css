@@ -330,3 +330,47 @@ li { margin-bottom: 0.3em; }
 @media (prefers-reduced-motion: reduce) {
   .hero-bubble { animation: none; }
 }
+
+/* ── 커서 ─────────────────────────────────── */
+/*
+ * 캐릭터 얼굴을 커서로 쓴다. 브라우저가 커서 이미지를 못 읽는 경우가 있어
+ * 뒤에 기본값을 반드시 남긴다. 좌표는 그림 왼쪽 위 근처를 가리키게 잡는다.
+ */
+body {
+  cursor: url('/cursor/chiikawa.png') 6 4, auto;
+}
+a,
+button,
+label,
+summary,
+[role='button'],
+.chip,
+.card,
+.tile,
+.row {
+  cursor: url('/cursor/usagi.png') 6 4, pointer;
+}
+input,
+select,
+textarea {
+  cursor: auto;
+}
+.leaflet-container {
+  cursor: url('/cursor/hachiware.png') 6 4, grab;
+}
+.leaflet-container:active {
+  cursor: url('/cursor/hachiware.png') 6 4, grabbing;
+}
+/* 손가락으로 쓰는 화면에서는 커서 그림이 의미가 없다. */
+@media (hover: none) {
+  body,
+  a,
+  button,
+  .chip,
+  .card,
+  .tile,
+  .row,
+  .leaflet-container {
+    cursor: auto;
+  }
+}
