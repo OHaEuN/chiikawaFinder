@@ -39,7 +39,8 @@ const BROWS: Record<CharacterKey, BrowStyle> = {
   // 치이카와: 눈 위에 짧게 걸친다.
   chiikawa: { width: 0.26, apexY: 0.13, thickness: 0.03, offsetX: 0.01 },
   // 하치와레: 파란 머리 밑에 점처럼 짧게 찍힌다.
-  hachiware: { width: 0.085, apexY: 0.15, thickness: 0.034, offsetX: -0.02 },
+  // 공식 일러스트에서 잰 값이다. 낮게 두면 눈에 겹쳐 눈이 깨져 보인다.
+  hachiware: { width: 0.057, apexY: 0.319, thickness: 0.027, offsetX: -0.047 },
   // 우사기: 이마를 가로지르는 길고 시원한 활.
   usagi: { width: 0.42, apexY: 0.185, thickness: 0.021, offsetX: 0.1 },
 };
