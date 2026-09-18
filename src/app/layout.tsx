@@ -10,9 +10,24 @@ const display = Gothic_A1({ weight: ['600', '700', '800'], subsets: ['latin'], v
 const cute = Gaegu({ weight: ['400', '700'], subsets: ['latin'], variable: '--font-cute' });
 const body = Noto_Sans_KR({ weight: ['400', '500', '700'], subsets: ['latin'], variable: '--font-body' });
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ohaeun.github.io/chiikawaFinder/';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: { default: '치이카와 파인더', template: '%s | 치이카와 파인더' },
   description: '치이카와 인물, 온라인 콘텐츠, 팝업/매장 지도, 신상 굿즈를 한 곳에서',
+  // 제목과 설명은 페이지마다 쓰는 값을 그대로 물려받는다.
+  openGraph: {
+    type: 'website',
+    siteName: '치이카와 파인더',
+    locale: 'ko_KR',
+    url: './',
+    images: [{ url: './og.png', width: 1200, height: 630, alt: '치이카와 파인더' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['./og.png'],
+  },
   icons: {
     icon: [
       { url: asset('/favicon.ico'), sizes: '48x48' },
