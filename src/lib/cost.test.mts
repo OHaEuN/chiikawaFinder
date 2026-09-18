@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { calculateCost, calculateCustoms, DUTY_FREE_LIMIT_USD, FREE_DOMESTIC_SHIPPING_YEN, type CostInput } from './cost.ts';
+import { calculateCost, calculateCustoms, DOMESTIC_JP_SHIPPING_YEN, DUTY_FREE_LIMIT_USD, FREE_DOMESTIC_SHIPPING_YEN, type CostInput } from './cost.ts';
 
 const USD_PER_JPY = 0.006448; // 150달러 = 약 23,263엔
 
@@ -24,9 +24,10 @@ test('직접 직구면 환율 마진이 0이다', () => {
 
 test('공구 환율이 높으면 숨은 수수료가 드러난다', () => {
   const r = calculateCost({ ...base, appliedRate: 10 });
-  assert.equal(r.goodsKrw, 22000);
-  assert.equal(r.goodsAtMarketKrw, 19294);
-  assert.equal(r.rateMarkupKrw, 2706);
+  const billedYen = 2200 + DOMESTIC_JP_SHIPPING_YEN;
+  assert.equal(r.goodsKrw, billedYen * 10);
+  assert.equal(r.goodsAtMarketKrw, Math.round(billedYen * 8.77));
+  assert.equal(r.rateMarkupKrw, r.goodsKrw - r.goodsAtMarketKrw);
   assert.ok(r.rateMarkupPercent > 13 && r.rateMarkupPercent < 15);
 });
 
@@ -93,9 +94,27 @@ test('의류는 세율이 더 높다', () => {
   assert.ok(apparel.totalTaxKrw > toy.totalTaxKrw);
 });
 
-test('세금도 인원수로 나눠 1인 부담에 더한다', () => {
-  const r = calculateCost({ ...base, lines: [{ id: 'a', name: 'x', priceYen: 30000, quantity: 1 }], shippingKrw: 25000, people: 5 });
-  assert.equal(r.customs.taxable, true);
-  const expected = r.goodsKrw + r.shippingPerPersonKrw + Math.round(r.customs.totalTaxKrw / 5);
-  assert.equal(r.totalKrw, expected);
+test('세금은 내 장바구니에 매겨진 값이라 인원수로 나누지 않는다', () => {
+  const heavy = { ...base, lines: [{ id: 'a', name: 'x', priceYen: 30000, quantity: 1 }], shippingKrw: 25000 };
+  const alone = calculateCost({ ...heavy, people: 1 });
+  const shared = calculateCost({ ...heavy, people: 5 });
+  assert.equal(shared.customs.taxable, true);
+  assert.equal(shared.customs.totalTaxKrw, alone.customs.totalTaxKrw);
+  assert.equal(shared.totalKrw, shared.goodsKrw + shared.shippingPerPersonKrw + shared.customs.totalTaxKrw);
+});
+
+test('무배컷에 못 미치면 일본 내 배송료가 총액에 들어간다', () => {
+  const r = calculateCost(base);
+  assert.equal(r.domesticJpYen, DOMESTIC_JP_SHIPPING_YEN);
+  assert.equal(r.goodsKrw, Math.round((2200 + DOMESTIC_JP_SHIPPING_YEN) * 8.77));
+});
+
+test('무배컷을 넘기면 일본 내 배송료가 붙지 않는다', () => {
+  const r = calculateCost({ ...base, lines: [{ id: 'a', name: 'x', priceYen: 12000, quantity: 1 }] });
+  assert.equal(r.domesticJpYen, 0);
+  assert.equal(r.goodsKrw, Math.round(12000 * 8.77));
+});
+
+test('장바구니가 비면 일본 내 배송료도 0이다', () => {
+  assert.equal(calculateCost({ ...base, lines: [] }).domesticJpYen, 0);
 });

@@ -12,7 +12,9 @@ from pathlib import Path
 from PIL import Image
 
 OUT = Path("public/cursor")
-SIZE = 40
+# 그림마다 따로 맞추면 귀가 긴 우사기만 얼굴이 작아진다.
+# 한 시리즈에는 배율 하나를 쓰고, 여섯 장 모두 같은 칸에 담아 크기를 맞춘다.
+WIDTH = 40
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36"
 
 SLUGS = ("chiikawa", "hachiware", "usagi")
@@ -50,30 +52,41 @@ def drop_name_plate(image: Image.Image) -> Image.Image:
     return image.crop((0, top, image.width, bottom))
 
 
-def to_square(image: Image.Image) -> Image.Image:
-    """여백을 잘라 내고 정사각형 가운데에 놓는다. 그래야 커서 좌표가 어긋나지 않는다."""
-    trimmed = image.crop(image.getbbox())
-    side = max(trimmed.size)
-    square = Image.new("RGBA", (side, side), (0, 0, 0, 0))
-    square.paste(trimmed, ((side - trimmed.width) // 2, (side - trimmed.height) // 2))
-    return square
-
-
-def save(image: Image.Image, name: str) -> None:
+def save(image: Image.Image, name: str, ratio: float, canvas_height: int) -> None:
+    """ratio 는 시리즈 공통 배율(px 당), canvas_height 는 여섯 장 공통 높이다."""
+    width = round(image.width * ratio)
+    height = round(image.height * ratio)
     for scale, suffix in ((1, ""), (2, "@2x")):
-        image.resize((SIZE * scale, SIZE * scale), Image.LANCZOS).save(OUT / f"{name}{suffix}.png")
+        canvas = Image.new("RGBA", (WIDTH * scale, canvas_height * scale), (0, 0, 0, 0))
+        resized = image.resize((width * scale, height * scale), Image.LANCZOS)
+        # 위를 맞춘다. 우사기 귀가 아래로 밀려 얼굴 위치가 들쭉날쭉해지는 걸 막는다.
+        canvas.paste(resized, ((canvas.width - resized.width) // 2, 0))
+        canvas.save(OUT / f"{name}{suffix}.png")
+
+
+def collect(template: str, halo: bool) -> list[Image.Image]:
+    images = []
+    for index in range(1, len(SLUGS) + 1):
+        image = fetch(template.format(n=index))
+        if halo:
+            drop_halo(image)
+        art = drop_name_plate(image)
+        images.append(art.crop(art.getbbox()))
+    return images
 
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
-    for index, slug in enumerate(SLUGS, start=1):
-        idle = fetch(IDLE.format(n=index))
-        drop_halo(idle)
-        save(to_square(drop_name_plate(idle)), slug)
-
-        hover = fetch(HOVER.format(n=index))
-        save(to_square(drop_name_plate(hover)), f"{slug}-hover")
-        print(f"{slug} 기본·호버 생성")
+    series = {"": collect(IDLE, halo=True), "-hover": collect(HOVER, halo=False)}
+    # 시리즈마다 원본 해상도가 달라 배율은 따로, 담기는 칸은 같이 쓴다.
+    ratios = {suffix: WIDTH / max(i.width for i in images) for suffix, images in series.items()}
+    canvas_height = max(
+        round(image.height * ratios[suffix]) for suffix, images in series.items() for image in images
+    )
+    for suffix, images in series.items():
+        for slug, image in zip(SLUGS, images):
+            save(image, f"{slug}{suffix}", ratios[suffix], canvas_height)
+    print(f"여섯 장 {WIDTH}x{canvas_height} 로 생성")
 
 
 if __name__ == "__main__":

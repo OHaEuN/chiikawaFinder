@@ -84,6 +84,20 @@ export const isAvailable = (product) => (product.variants ?? []).some((v) => v.a
 /** 재입고 이력. 태그에 RE + 8자리 날짜로 쌓인다. */
 export const restocksOf = (product) => datesFrom(product.tags ?? [], RESTOCK_TAG);
 
+/**
+ * 엔화가 맞는지 확인한다. 환산가가 섞이면 통화 표시가 없어 그대로 엔으로 저장되고
+ * 굿즈 가격과 직구 계산이 전부 어긋난다. 이 가게 물건값 중앙값은 천 엔대다.
+ */
+export const MAX_PLAUSIBLE_MEDIAN_YEN = 5000;
+
+export const assertYen = (products) => {
+  const prices = products.flatMap((p) => (p.variants ?? []).map((v) => Number(v.price))).filter(Boolean).sort((a, b) => a - b);
+  const median = prices[Math.floor(prices.length / 2)] ?? 0;
+  if (median > MAX_PLAUSIBLE_MEDIAN_YEN) {
+    throw new Error(`엔화가 아닌 값으로 보인다 (중앙값 ${median}). 지역 통화로 환산된 응답이다.`);
+  }
+};
+
 /** 카드에서 한 줄에 들어가도록 짧게. 치이카와 마켓 표시가는 모두 세금 포함가다. */
 export const formatYen = (price) => `${Number(price).toLocaleString('ja-JP')}엔`;
 

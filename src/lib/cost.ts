@@ -9,6 +9,12 @@
 export const FREE_DOMESTIC_SHIPPING_YEN = 11000;
 
 /**
+ * 무배컷에 못 미칠 때 붙는 일본 내 배송료. 배대지가 몰려 있는 関東·中部 요금이다.
+ * 近畿 1,045 / 東北·中国·四国 1,100 / 北海道·九州 1,320 / 沖縄 4,070 이라 지역마다 다르다.
+ */
+export const DOMESTIC_JP_SHIPPING_YEN = 990;
+
+/**
  * 일본발 해외직구 소액면세 한도(미국 달러). 이 금액을 넘으면 초과분이 아니라 전체가 과세된다.
  * 근거는 docs/import-cost.md 참고.
  */
@@ -72,6 +78,8 @@ export interface CustomsResult {
 export interface CostResult {
   /** 엔화 상품 합계 */
   subtotalYen: number;
+  /** 일본 내 배송료 (엔). 무배컷을 넘기면 0 */
+  domesticJpYen: number;
   /** 무배컷까지 남은 금액 (엔). 이미 넘겼으면 0 */
   toFreeShippingYen: number;
   /** 적용 환율로 환산한 상품값 (원) */
@@ -86,7 +94,7 @@ export interface CostResult {
   shippingPerPersonKrw: number;
   /** 통관 예상 */
   customs: CustomsResult;
-  /** 최종 1인 부담 총액 (원). 세금은 인원수로 나눈 몫을 더한다. */
+  /** 최종 1인 부담 총액 (원). 배송비만 나눠 내고 상품값과 세금은 내 몫 전액이다. */
   totalKrw: number;
 }
 
@@ -96,17 +104,26 @@ export function calculateCost(input: CostInput): CostResult {
   const { lines, marketRate, appliedRate, shippingKrw, people, domesticKrw, usdPerJpy, taxCategory } = input;
 
   const subtotalYen = lines.reduce((sum, l) => sum + l.priceYen * l.quantity, 0);
-  const customs = calculateCustoms({ subtotalYen, shippingKrw, marketRate, usdPerJpy, taxCategory });
-  const goodsKrw = round(subtotalYen * appliedRate);
-  const goodsAtMarketKrw = round(subtotalYen * marketRate);
+  // 무배컷에 못 미치면 일본 안에서 배대지까지 보내는 값이 따로 든다.
+  const domesticJpYen =
+    subtotalYen > 0 && subtotalYen < FREE_DOMESTIC_SHIPPING_YEN ? DOMESTIC_JP_SHIPPING_YEN : 0;
+  // 일본 내 운임은 면세 한도 판정용 물품가격에 들어간다. 국제운임과 달리 제외 대상이 아니다.
+  const customs = calculateCustoms({
+    subtotalYen: subtotalYen + domesticJpYen,
+    shippingKrw,
+    marketRate,
+    usdPerJpy,
+    taxCategory,
+  });
+  const goodsKrw = round((subtotalYen + domesticJpYen) * appliedRate);
+  const goodsAtMarketKrw = round((subtotalYen + domesticJpYen) * marketRate);
   const rateMarkupKrw = goodsKrw - goodsAtMarketKrw;
   // 사람 수가 0이나 음수로 들어와도 계산이 깨지지 않게 최소 1로 본다.
   const shippingPerPersonKrw = round(shippingKrw / Math.max(1, people));
 
-  const taxPerPersonKrw = round(customs.totalTaxKrw / Math.max(1, people));
-
   return {
     subtotalYen,
+    domesticJpYen,
     toFreeShippingYen: Math.max(0, FREE_DOMESTIC_SHIPPING_YEN - subtotalYen),
     goodsKrw,
     goodsAtMarketKrw,
@@ -114,7 +131,8 @@ export function calculateCost(input: CostInput): CostResult {
     rateMarkupPercent: goodsAtMarketKrw === 0 ? 0 : (rateMarkupKrw / goodsAtMarketKrw) * 100,
     shippingPerPersonKrw,
     customs,
-    totalKrw: goodsKrw + shippingPerPersonKrw + domesticKrw + taxPerPersonKrw,
+    // 세금은 내 장바구니에 매겨진 값이라 인원수로 나누지 않는다. 배송비만 나눠 낸다.
+    totalKrw: goodsKrw + shippingPerPersonKrw + domesticKrw + customs.totalTaxKrw,
   };
 }
 
