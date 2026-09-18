@@ -5,3 +5,7 @@ next-env.d.ts
 *.tsbuildinfo
 .DS_Store
 .playwright-mcp
+
+# next dev 가 만드는 에이전트용 안내 파일
+AGENTS.md
+CLAUDE.md

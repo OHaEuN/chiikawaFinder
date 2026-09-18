@@ -29,7 +29,6 @@
   --shadow: 0 1px 2px rgba(90, 80, 70, 0.04), 0 6px 16px rgba(90, 80, 70, 0.05);
   --shadow-lg: 0 2px 4px rgba(90, 80, 70, 0.05), 0 12px 26px rgba(90, 80, 70, 0.09);
 
-  --nav-h: 66px;
   --topbar-h: 58px;
   --sidebar-w: 218px;
 }
@@ -67,7 +66,9 @@ li { margin-bottom: 0.3em; }
 .brand-mark::before { left: 6px; } .brand-mark::after { right: 6px; }
 
 /* 모바일 상단 바 */
-.topbar { position: sticky; top: 0; z-index: 900; height: var(--topbar-h); display: flex; align-items: center; padding: 0 16px; background: rgba(253, 252, 251, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.topbar { position: sticky; top: 0; z-index: 900; height: var(--topbar-h); display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 12px 0 16px; background: rgba(253, 252, 251, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.menu-button { display: grid; place-items: center; width: 40px; height: 40px; border: none; border-radius: 13px; background: transparent; color: var(--ink-soft); padding: 0; }
+.menu-button:hover { background: var(--surface-2); color: var(--ink); }
 
 /* 데스크톱 좌측 사이드바: 메뉴를 화면 위쪽 끝이 아니라 손이 닿는 위치에 둔다 */
 .sidebar { display: none; }
@@ -79,21 +80,38 @@ li { margin-bottom: 0.3em; }
 .sidebar a[aria-current='page'] { background: var(--surface-2); color: var(--ink); font-weight: 700; }
 .sidebar a[aria-current='page'] svg { color: var(--accent-ink); }
 
-/* 모바일 하단 탭: 무채색 라인 아이콘 */
-.tabbar { position: fixed; left: 0; right: 0; bottom: 0; height: calc(var(--nav-h) + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(10px); border-top: 1px solid var(--line); display: flex; z-index: 1000; }
-.tabbar a { flex: 1; display: grid; place-items: center; gap: 2px; font-size: 0.7rem; color: var(--muted); padding-top: 10px; font-weight: 600; }
-.tabbar a[aria-current='page'] { color: var(--ink); }
+/*
+ * 모바일 메뉴 서랍. 하단 탭에 일곱 개를 늘어놓으면 글씨가 뭉개져 햄버거로 바꿨다.
+ * <dialog> 기본 스타일은 화면 가운데 상자라서 오른쪽 전체 높이로 다시 잡는다.
+ */
+.drawer { margin: 0 0 0 auto; width: min(304px, 84vw); max-width: none; height: 100dvh; max-height: none; border: none; padding: 0; background: transparent; overflow: visible; }
+.drawer-panel { height: 100%; padding: 18px 12px calc(20px + env(safe-area-inset-bottom)); background: var(--bg); border-left: 1px solid var(--line); overflow-y: auto; }
+.drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 0 4px 0 14px; margin-bottom: 14px; }
+.drawer-title { font-family: var(--font-cute), var(--font-display), sans-serif; font-weight: 700; font-size: 1.16rem; color: var(--ink); }
+.drawer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+.drawer li { margin: 0; }
+.drawer a { display: flex; align-items: center; gap: 12px; padding: 13px 14px; border-radius: 14px; color: var(--ink-soft); font-weight: 600; font-size: 1.02rem; }
+.drawer a[aria-current='page'] { background: var(--surface-2); color: var(--ink); font-weight: 700; }
+.drawer a[aria-current='page'] svg { color: var(--accent-ink); }
+
+/* display 가 none 으로 꺼지는 요소라 discrete 전환을 켜야 닫힐 때도 미끄러진다. */
+.drawer, .drawer::backdrop { transition: translate 0.24s ease, opacity 0.24s ease, display 0.24s allow-discrete, overlay 0.24s allow-discrete; }
+.drawer { translate: 100% 0; }
+.drawer[open] { translate: 0 0; }
+.drawer::backdrop { background: rgba(84, 72, 64, 0.3); opacity: 0; }
+.drawer[open]::backdrop { opacity: 1; }
+@starting-style {
+  .drawer[open] { translate: 100% 0; }
+  .drawer[open]::backdrop { opacity: 0; }
+}
 
 .container { width: min(1060px, 100% - 32px); margin: 0 auto; }
 .page { padding: 20px 0 40px; }
 .page-head { margin-bottom: 16px; }
 .page-head p { color: var(--ink-soft); }
 
-@media (max-width: 899px) {
-  body { padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom)); }
-}
 @media (min-width: 900px) {
-  .topbar, .tabbar { display: none; }
+  .topbar { display: none; }
   .sidebar { display: block; position: fixed; left: 0; top: 0; bottom: 0; width: var(--sidebar-w); padding: 28px 12px; border-right: 1px solid var(--line); background: var(--bg); z-index: 900; }
   body { padding-left: var(--sidebar-w); }
   .container { width: min(1000px, 100% - 64px); }
@@ -444,4 +462,5 @@ textarea {
   .grid > .card:hover,
   .grid > .card:nth-child(even):hover,
   .tile:hover { transform: none; }
+  .drawer, .drawer::backdrop { transition: none; }
 }
