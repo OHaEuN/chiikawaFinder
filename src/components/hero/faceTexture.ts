@@ -35,6 +35,18 @@ export interface BrowStyle {
 /** 사진에서 이 비율보다 적게 남으면 추출에 실패한 것으로 본다. */
 const MIN_KEPT_RATIO = 0.01;
 
+/** 자수 선을 진하게 만드는 대비 배율 */
+const CONTRAST = 1.45;
+/** 비교 전에 뭉갤 털 결의 굵기(px). 이보다 가는 무늬는 얼굴로 치지 않는다. */
+const DENOISE_SPAN = 7;
+/** 남은 자국을 문지르는 정도(px) */
+const ALPHA_BLUR = 4;
+/** 털 결의 잔차보다 위에서 잘라야 바탕이 남지 않는다. */
+const KEEP_FROM = 54;
+const KEEP_TO = 96;
+/** 테두리에서 흐림 값이 튄다. 이 반지름부터 눌러 지운다. */
+const EDGE_FROM = 0.72;
+
 const INK = '#4a3b33';
 const BLUSH = '#f5a8b8';
 
@@ -241,6 +253,41 @@ function blurCopy(source: HTMLCanvasElement, radiusPx: number): HTMLCanvasElemen
   return blurred;
 }
 
+function readPixels(canvas: HTMLCanvasElement): Uint8ClampedArray | null {
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+  return ctx ? ctx.getImageData(0, 0, canvas.width, canvas.height).data : null;
+}
+
+/**
+ * 가로세로로 나눠 도는 상자 흐림. 낱개로 튄 점을 없애는 데만 쓰므로 정확한 가우시안이 필요 없다.
+ */
+function boxBlur(plane: Float32Array, width: number, height: number, radius: number): void {
+  if (radius < 1) return;
+  const span = radius * 2 + 1;
+  const line = new Float32Array(Math.max(width, height));
+  for (let y = 0; y < height; y++) {
+    const row = y * width;
+    for (let x = 0; x < width; x++) {
+      let sum = 0;
+      for (let k = -radius; k <= radius; k++) {
+        sum += plane[row + Math.min(width - 1, Math.max(0, x + k))];
+      }
+      line[x] = sum / span;
+    }
+    for (let x = 0; x < width; x++) plane[row + x] = line[x];
+  }
+  for (let x = 0; x < width; x++) {
+    for (let y = 0; y < height; y++) {
+      let sum = 0;
+      for (let k = -radius; k <= radius; k++) {
+        sum += plane[Math.min(height - 1, Math.max(0, y + k)) * width + x];
+      }
+      line[y] = sum / span;
+    }
+    for (let y = 0; y < height; y++) plane[y * width + x] = line[y];
+  }
+}
+
 /** 사진에서 얼굴만 남기는 데 성공했는지. 실패하면 손으로 그린 얼굴로 돌아간다. */
 function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, photo: FacePhoto): boolean {
   const { eyes, crop } = photo;
@@ -260,10 +307,18 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
   const patchCtx = patch.getContext('2d', { willReadFrequently: true });
   if (!patchCtx) return false;
 
-  // 자수 눈썹이 연해 멀리서 안 보인다. 대비를 올려 어두운 선만 진하게 만든다.
-  patchCtx.filter = 'contrast(1.45)';
   patchCtx.drawImage(image, crop.x, crop.y, crop.w, crop.h, 0, 0, crop.w, crop.h);
-  patchCtx.filter = 'none';
+
+  const frame = patchCtx.getImageData(0, 0, crop.w, crop.h);
+  const px = frame.data;
+  // 자수 눈썹이 연해 멀리서 안 보인다. 대비를 올려 어두운 선만 진하게 만든다.
+  // ctx.filter 로 하면 Safari 에서 무시될 수 있어 픽셀에 직접 건다.
+  for (let i = 0; i < px.length; i += 4) {
+    px[i] = (px[i] - 128) * CONTRAST + 128;
+    px[i + 1] = (px[i + 1] - 128) * CONTRAST + 128;
+    px[i + 2] = (px[i + 2] - 128) * CONTRAST + 128;
+  }
+  patchCtx.putImageData(frame, 0, 0);
 
   /*
    * 사진을 통째로 붙이면 구워진 조명 때문에 얼굴만 밝은 네모로 떠 보인다.
@@ -271,35 +326,36 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
    * 크게 흐린 사본을 그 자리의 바탕으로 보고 그보다 튀는 픽셀만 남긴다.
    * 눈·눈썹·볼·입만 남고 바탕은 투명해져 3D 재질 색이 그대로 보인다.
    */
-  // 흐림 반지름은 가장 큰 무늬(볼)보다 커야 무늬가 바탕에 섞이지 않는다.
-  const blurred = blurCopy(patch, crop.w * 0.12);
-  const blurredCtx = blurred.getContext('2d', { willReadFrequently: true });
-  if (!blurredCtx) return false;
+  // 바탕은 가장 큰 무늬(볼)보다 크게 흐려야 무늬가 바탕에 섞이지 않는다.
+  const base = readPixels(blurCopy(patch, crop.w * 0.12));
+  // 비교에 쓸 쪽은 살짝 흐려 둔다. 털 결이 그대로면 얼굴이 얼룩덜룩해진다.
+  const smooth = readPixels(blurCopy(patch, DENOISE_SPAN));
+  if (!base || !smooth) return false;
 
-  const frame = patchCtx.getImageData(0, 0, crop.w, crop.h);
-  const base = blurredCtx.getImageData(0, 0, crop.w, crop.h).data;
-  const px = frame.data;
-  // 털 결의 잔차는 20 안팎이라 그보다 위에서 잘라야 바탕이 남지 않는다.
-  const KEEP_FROM = 30;
-  const KEEP_TO = 64;
   // 흐림은 캔버스 밖을 투명으로 보므로 가장자리에서 값이 튄다. 테두리는 눌러 지운다.
   const halfW = crop.w / 2;
   const halfH = crop.h / 2;
-  const EDGE_FROM = 0.82;
-  let kept = 0;
+  const alpha = new Float32Array(crop.w * crop.h);
   for (let y = 0; y < crop.h; y++) {
     const ny = (y - halfH) / halfH;
     for (let x = 0; x < crop.w; x++) {
-      const i = (y * crop.w + x) * 4;
-      const distance = Math.hypot(px[i] - base[i], px[i + 1] - base[i + 1], px[i + 2] - base[i + 2]);
+      const p = y * crop.w + x;
+      const i = p * 4;
+      const distance = Math.hypot(smooth[i] - base[i], smooth[i + 1] - base[i + 1], smooth[i + 2] - base[i + 2]);
       const keep = (distance - KEEP_FROM) / (KEEP_TO - KEEP_FROM);
       const nx = (x - halfW) / halfW;
-      const radial = Math.hypot(nx, ny);
-      const edge = 1 - (radial - EDGE_FROM) / (1 - EDGE_FROM);
-      const alpha = Math.min(1, Math.max(0, keep)) * Math.min(1, Math.max(0, edge));
-      px[i + 3] = Math.round(255 * alpha);
-      if (alpha > 0.5) kept++;
+      const edge = 1 - (Math.hypot(nx, ny) - EDGE_FROM) / (1 - EDGE_FROM);
+      alpha[p] = Math.min(1, Math.max(0, keep)) * Math.min(1, Math.max(0, edge));
     }
+  }
+
+  // 남은 자국을 문질러 없앤다. 낱개로 튄 점은 사라지고 눈·눈썹처럼 넓은 것만 버틴다.
+  boxBlur(alpha, crop.w, crop.h, ALPHA_BLUR);
+
+  let kept = 0;
+  for (let p = 0; p < alpha.length; p++) {
+    px[p * 4 + 3] = Math.round(255 * alpha[p]);
+    if (alpha[p] > 0.5) kept++;
   }
 
   // 거의 다 지워졌으면 사진에서 얼굴을 못 뽑은 것이다. 빈 얼굴을 내보내느니 그린 얼굴을 쓴다.
