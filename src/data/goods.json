@@ -696,7 +696,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609403234"
@@ -717,7 +717,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609403241"
@@ -740,7 +740,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609403852"
@@ -761,7 +761,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609403258"
@@ -811,7 +811,7 @@
       "usagi",
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392064"
@@ -944,7 +944,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392224"
@@ -1070,7 +1070,7 @@
     "characters": [
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392262"
@@ -1112,7 +1112,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392132"
@@ -1133,7 +1133,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392149"
@@ -1154,7 +1154,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392118"
@@ -1175,7 +1175,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392125"
@@ -1196,7 +1196,7 @@
     "characters": [
       "rakko"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392170"
@@ -1217,7 +1217,7 @@
     "characters": [
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392187"
@@ -1238,7 +1238,7 @@
     "characters": [
       "kurimanju"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392156"
@@ -1259,7 +1259,7 @@
     "characters": [
       "shisa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392163"
@@ -1280,7 +1280,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392453"
@@ -1301,7 +1301,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392460"
@@ -1322,7 +1322,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392446"
@@ -1343,7 +1343,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392439"
@@ -1364,7 +1364,7 @@
     "characters": [
       "shisa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392484"
@@ -1385,7 +1385,7 @@
     "characters": [
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392507"
@@ -1406,7 +1406,7 @@
     "characters": [
       "kurimanju"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392477"
@@ -1427,7 +1427,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392309"
@@ -1469,7 +1469,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392279"
@@ -1490,7 +1490,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392293"
@@ -1511,7 +1511,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392286"
@@ -1553,7 +1553,7 @@
     "characters": [
       "shisa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392323"
@@ -1574,7 +1574,7 @@
     "characters": [
       "kurimanju"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392316"
@@ -1595,7 +1595,7 @@
     "characters": [
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392347"
@@ -1786,7 +1786,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189210898"
@@ -1809,7 +1809,7 @@
       "shisa",
       "rakko"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189210867"
@@ -1831,7 +1831,7 @@
       "momonga",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189210836"
@@ -1854,7 +1854,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189210805"
@@ -1899,7 +1899,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189212106"
@@ -1942,7 +1942,7 @@
       "momonga",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189210911"
@@ -1986,7 +1986,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189212267"
@@ -2009,7 +2009,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189210621"
@@ -2059,7 +2059,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189208758"
@@ -2081,7 +2081,7 @@
       "momonga",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189210638"
@@ -2186,7 +2186,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726007303"
@@ -2207,7 +2207,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726007297"
@@ -2228,7 +2228,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726007310"
@@ -2335,7 +2335,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4547855349312"
@@ -2377,7 +2377,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4547855349305"
@@ -2607,7 +2607,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4970825153402"
@@ -2630,7 +2630,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4970825153396"
@@ -2653,7 +2653,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4970825153389"
@@ -2674,7 +2674,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550432308954"
@@ -2733,7 +2733,7 @@
       "rakko",
       "yoroi-san"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4970381815769"
@@ -2754,7 +2754,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550432308961"
@@ -2802,7 +2802,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550432308985"
@@ -2823,7 +2823,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550432308978"
@@ -3215,7 +3215,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550311322415"
@@ -3299,7 +3299,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030219"
@@ -3320,7 +3320,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030202"
@@ -3362,7 +3362,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030196"
@@ -3383,7 +3383,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030226"
@@ -3509,7 +3509,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030295"
@@ -3530,7 +3530,7 @@
     "characters": [
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030288"
@@ -3551,7 +3551,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030325"
@@ -3572,7 +3572,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030318"
@@ -3593,7 +3593,7 @@
     "characters": [
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030332"
@@ -3614,7 +3614,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030301"
@@ -3635,7 +3635,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030356"
@@ -3656,7 +3656,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030349"
@@ -3677,7 +3677,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030370"
@@ -3698,7 +3698,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030363"
@@ -3740,7 +3740,7 @@
     "characters": [
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030387"
@@ -3847,7 +3847,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030448"
@@ -3891,7 +3891,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030455"
@@ -4000,7 +4000,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550681827831"
@@ -4355,7 +4355,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 7,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -4443,7 +4443,7 @@
     "characters": [
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 3,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -4639,7 +4639,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 7,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -5506,7 +5506,7 @@
     "country": "JP",
     "description": "サイズ（約）： Sサイズ：着丈65×身幅49×肩幅42×袖丈19cm Mサイズ：着丈69×身幅52×肩幅46×袖丈20cm Lサイズ：着丈73×身幅55×肩幅50×袖丈22cm XLサイズ：着丈77×身幅58×肩幅54×袖丈24cm 材質：綿100% 製造地：中国",
     "characters": [],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -5606,7 +5606,7 @@
     "country": "JP",
     "description": "サイズ（約）：H440×W400mm 材質：綿100% 製造地：中国",
     "characters": [],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -5666,7 +5666,7 @@
     "country": "JP",
     "description": "サイズ（約）：頭囲57cm（ベルトで±1.5cm〜2cm） 材質：綿100% 製造地：中国",
     "characters": [],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -5900,7 +5900,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -6047,7 +6047,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -6101,7 +6101,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -6148,7 +6148,7 @@
       "seiren",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -6437,7 +6437,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -6573,7 +6573,7 @@
     "characters": [
       "kurimanju"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -6621,7 +6621,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -6669,7 +6669,7 @@
       "shisa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -6693,7 +6693,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -6865,7 +6865,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -6887,7 +6887,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -7110,7 +7110,7 @@
       "momonga",
       "rakko"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4901770057453"
@@ -7182,7 +7182,7 @@
       "hachiware",
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4901770057286"
@@ -7289,7 +7289,7 @@
     "country": "JP",
     "description": "サイズ：フリーサイズ(伸縮性あり) 幅／約80mm(耳含め100mm) 内寸／約530mm(平置き時) 材質：ポリエステル 製造地：中国",
     "characters": [],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -7553,7 +7553,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 5,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -7689,7 +7689,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 6,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -8325,7 +8325,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 4,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -8459,7 +8459,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -8547,7 +8547,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -9280,7 +9280,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -9558,7 +9558,7 @@
       "seiren",
       "rakko"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -9671,7 +9671,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -9782,7 +9782,7 @@
     "characters": [
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -9804,7 +9804,7 @@
     "characters": [
       "kurimanju"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -10108,7 +10108,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -10407,7 +10407,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -10429,7 +10429,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -10517,7 +10517,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -10622,7 +10622,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609398691"
@@ -12058,7 +12058,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-03",
     "sources": [
@@ -13650,7 +13650,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-08-27",
     "sources": [
@@ -16092,7 +16092,7 @@
     "characters": [
       "kabutomushi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609410188"
@@ -17482,7 +17482,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4901770052755"
@@ -17767,7 +17767,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4901770057361"
@@ -19894,7 +19894,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-08-05",
     "sources": [
@@ -19941,7 +19941,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-08-05",
     "sources": [
@@ -20297,7 +20297,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-08-05",
     "sources": [
@@ -22187,7 +22187,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189208161"
@@ -24101,7 +24101,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4548598445682"
@@ -24164,7 +24164,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4548598445637"
@@ -28225,7 +28225,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 8,
     "lastRestockDate": "2026-07-02",
     "sources": [
@@ -34692,7 +34692,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 4,
     "lastRestockDate": "2026-06-04",
     "sources": [
@@ -43578,7 +43578,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4573256437754"
@@ -45023,7 +45023,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 9,
     "lastRestockDate": "2026-04-30",
     "sources": [
@@ -56089,7 +56089,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-03-18",
     "sources": [
@@ -56542,7 +56542,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-03-18",
     "sources": [
@@ -57086,7 +57086,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-03-18",
     "sources": [
