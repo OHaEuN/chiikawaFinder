@@ -54,32 +54,14 @@ const BODY_COLOR: Record<CharacterKey, string> = {
 const CAP_COLOR: Partial<Record<CharacterKey, string>> = { hachiware: HACHIWARE_BLUE };
 
 /**
- * 공식 인형 사진에서 얼굴만 오려 쓴다. 손으로 그리는 것보다 원본에 가깝다.
- * eyes 는 두 눈 중심, crop 은 오려 낼 영역이다.
+ * 극장판 공식 일러스트에서 미리 잘라 둔 얼굴 그림. scripts/hero-face.py 가 만든다.
+ * eyeSpan 과 eyeY 는 그 스크립트가 찍어 주는 값이다.
  */
 const FACE_PHOTO: Record<CharacterKey, FacePhoto> = {
-  chiikawa: {
-    src: asset('/images/hero/chiikawa.jpg'),
-    eyes: { leftX: 506, rightX: 710, y: 490 },
-    crop: { x: 315, y: 330, w: 580, h: 290 },
-    extract: { contrast: 1.45, colorGain: 2, keepFrom: 30, keepTo: 75, denoise: 8, alphaBlur: 4, edgeFrom: 0.74 },
-  },
-  hachiware: {
-    src: asset('/images/hero/hachiware.jpg'),
-    eyes: { leftX: 486, rightX: 690, y: 470 },
-    // 눈썹이 가장자리에 걸리면 흐려져 사라진다. 눈썹 위로 여유를 두고 자른다.
-    crop: { x: 325, y: 350, w: 560, h: 300 },
-    extract: { contrast: 1.45, colorGain: 2, keepFrom: 30, keepTo: 75, denoise: 8, alphaBlur: 4, edgeFrom: 0.74 },
-  },
-  usagi: {
-    src: asset('/images/hero/usagi.jpg'),
-    eyes: { leftX: 492, rightX: 696, y: 564 },
-    crop: { x: 325, y: 375, w: 570, h: 330 },
-    // 노란 털이라 바탕도 색이 진하다. 볼터치를 살리려 색 쪽 가중치를 조금 올린다.
-    extract: { contrast: 1.45, colorGain: 2.6, keepFrom: 30, keepTo: 75, denoise: 8, alphaBlur: 4, edgeFrom: 0.74 },
-  },
+  chiikawa: { src: asset('/images/hero/face-chiikawa.png'), eyeSpan: 163, eyeY: 82 },
+  hachiware: { src: asset('/images/hero/face-hachiware.png'), eyeSpan: 168, eyeY: 64 },
+  usagi: { src: asset('/images/hero/face-usagi.png'), eyeSpan: 163, eyeY: 133 },
 };
-
 /**
  * 인형 재질. 일반 재질은 아무리 거칠게 해도 플라스틱처럼 보인다.
  * sheen 을 주면 잔털이 빛을 비스듬히 받아 테두리가 뽀얗게 떠서 천처럼 읽힌다.
