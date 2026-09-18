@@ -32,6 +32,9 @@ export interface BrowStyle {
   offsetX: number;
 }
 
+/** 사진에서 이 비율보다 적게 남으면 추출에 실패한 것으로 본다. */
+const MIN_KEPT_RATIO = 0.01;
+
 const INK = '#4a3b33';
 const BLUSH = '#f5a8b8';
 
@@ -213,7 +216,33 @@ export interface FacePhoto {
  * 손으로 그린 얼굴보다 자수 결과 잔털이 그대로 남아 인형에 가깝다.
  * 사진 속 머리 크기를 기준으로 실제 머리 반지름에 맞춰 축척을 맞춘다.
  */
-function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, photo: FacePhoto) {
+/**
+ * 크게 흐린 사본을 만든다.
+ *
+ * ctx.filter 의 blur 는 Safari 에서 조용히 무시되는 경우가 있다. 그러면 사본이 원본과
+ * 같아져 아래 비교에서 모든 픽셀이 지워지고 얼굴이 통째로 사라진다.
+ * 작게 줄였다가 다시 키우면 같은 효과를 어느 브라우저에서나 얻는다.
+ */
+function blurCopy(source: HTMLCanvasElement, radiusPx: number): HTMLCanvasElement {
+  const small = document.createElement('canvas');
+  // 줄인 뒤 다시 키우면 한 픽셀이 radiusPx 만큼을 평균한 값이 된다.
+  small.width = Math.max(1, Math.round(source.width / radiusPx));
+  small.height = Math.max(1, Math.round(source.height / radiusPx));
+  const smallCtx = small.getContext('2d');
+  const blurred = document.createElement('canvas');
+  blurred.width = source.width;
+  blurred.height = source.height;
+  const blurredCtx = blurred.getContext('2d', { willReadFrequently: true });
+  if (!smallCtx || !blurredCtx) return blurred;
+  smallCtx.imageSmoothingEnabled = true;
+  smallCtx.drawImage(source, 0, 0, small.width, small.height);
+  blurredCtx.imageSmoothingEnabled = true;
+  blurredCtx.drawImage(small, 0, 0, blurred.width, blurred.height);
+  return blurred;
+}
+
+/** 사진에서 얼굴만 남기는 데 성공했는지. 실패하면 손으로 그린 얼굴로 돌아간다. */
+function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, photo: FacePhoto): boolean {
   const { eyes, crop } = photo;
   // 머리 경계를 눈대중으로 재면 사진마다 달라져 얼굴이 늘어나거나 눌린다.
   // 두 눈 사이를 기준으로 가로세로 같은 배율을 쓰면 세 캐릭터가 같은 크기로 맞는다.
@@ -229,7 +258,7 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
   patch.width = crop.w;
   patch.height = crop.h;
   const patchCtx = patch.getContext('2d', { willReadFrequently: true });
-  if (!patchCtx) return;
+  if (!patchCtx) return false;
 
   // 자수 눈썹이 연해 멀리서 안 보인다. 대비를 올려 어두운 선만 진하게 만든다.
   patchCtx.filter = 'contrast(1.45)';
@@ -242,15 +271,10 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
    * 크게 흐린 사본을 그 자리의 바탕으로 보고 그보다 튀는 픽셀만 남긴다.
    * 눈·눈썹·볼·입만 남고 바탕은 투명해져 3D 재질 색이 그대로 보인다.
    */
-  const blurred = document.createElement('canvas');
-  blurred.width = crop.w;
-  blurred.height = crop.h;
-  const blurredCtx = blurred.getContext('2d', { willReadFrequently: true });
-  if (!blurredCtx) return;
   // 흐림 반지름은 가장 큰 무늬(볼)보다 커야 무늬가 바탕에 섞이지 않는다.
-  blurredCtx.filter = `blur(${Math.round(crop.w * 0.12)}px)`;
-  blurredCtx.drawImage(patch, 0, 0);
-  blurredCtx.filter = 'none';
+  const blurred = blurCopy(patch, crop.w * 0.12);
+  const blurredCtx = blurred.getContext('2d', { willReadFrequently: true });
+  if (!blurredCtx) return false;
 
   const frame = patchCtx.getImageData(0, 0, crop.w, crop.h);
   const base = blurredCtx.getImageData(0, 0, crop.w, crop.h).data;
@@ -262,6 +286,7 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
   const halfW = crop.w / 2;
   const halfH = crop.h / 2;
   const EDGE_FROM = 0.82;
+  let kept = 0;
   for (let y = 0; y < crop.h; y++) {
     const ny = (y - halfH) / halfH;
     for (let x = 0; x < crop.w; x++) {
@@ -273,8 +298,13 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
       const edge = 1 - (radial - EDGE_FROM) / (1 - EDGE_FROM);
       const alpha = Math.min(1, Math.max(0, keep)) * Math.min(1, Math.max(0, edge));
       px[i + 3] = Math.round(255 * alpha);
+      if (alpha > 0.5) kept++;
     }
   }
+
+  // 거의 다 지워졌으면 사진에서 얼굴을 못 뽑은 것이다. 빈 얼굴을 내보내느니 그린 얼굴을 쓴다.
+  if (kept < crop.w * crop.h * MIN_KEPT_RATIO) return false;
+
   patchCtx.putImageData(frame, 0, 0);
 
   at(ctx, centerX, centerY, () => {
@@ -282,6 +312,7 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
     ctx.scale(1, -1);
     ctx.drawImage(patch, -width / 2, -height / 2, width, height);
   });
+  return true;
 }
 
 /** 머리에 입힐 얼굴 텍스처를 만든다. crying 을 켜면 눈물까지 그린다. */
@@ -307,9 +338,7 @@ export function createFaceTexture(
     ctx.fillStyle = bodyColor;
     ctx.fillRect(0, 0, TEX_W, TEX_H);
 
-    if (image && photo) {
-      drawPhotoFace(ctx, image, photo);
-    } else {
+    if (!image || !photo || !drawPhotoFace(ctx, image, photo)) {
       drawBlush(ctx, -1);
       drawBlush(ctx, 1);
       drawEye(ctx, -1);
