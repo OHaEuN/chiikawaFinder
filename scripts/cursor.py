@@ -16,13 +16,12 @@ SOURCE = Path("public/images/characters")
 SIZE = 40
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36"
 
-# 표정이 다른 얼굴. 치이카와파크 얼굴 접시 상품으로, 얼굴만 나오고 배경이 희다.
+# 표정이 다른 일러스트. 원 안에 캐릭터가 들어간 배지 모양이라 원 바깥과 흰 원을 벗겨 쓴다.
 HOVER_FACE = {
-    "chiikawa": "4571609367710_1",
-    "hachiware": "4571609367727_1",
-    "usagi": "4571609367734_1",
+    "chiikawa": "https://chiikawa-biyori.com/wp-content/uploads/2026/07/chiikawa.png",
+    "hachiware": "https://chiikawa-biyori.com/wp-content/uploads/2026/04/hachiware.png",
+    "usagi": "https://chiikawa-biyori.com/wp-content/uploads/2026/04/usagi.png",
 }
-SHOP_CDN = "https://cdn.shopify.com/s/files/1/0626/7142/1681/files"
 
 # 극장판 일러스트에서 머리만 남기는 비율. 아래쪽 풀잎 목도리를 잘라 낸다.
 HEAD_RATIO = 0.74
@@ -60,11 +59,30 @@ def build_default(slug: str) -> None:
 
 
 def build_hover(slug: str) -> None:
-    url = f"{SHOP_CDN}/{HOVER_FACE[slug]}.jpg"
-    request = urllib.request.Request(url, headers={"User-Agent": UA})
+    """원형 배지 일러스트에서 원 바깥과 흰 원을 벗겨 캐릭터만 남긴다."""
+    request = urllib.request.Request(HOVER_FACE[slug], headers={"User-Agent": UA})
     with urllib.request.urlopen(request, timeout=30) as response:
-        photo = Image.open(response)
-    save(to_square(strip_background(photo)), f"{slug}-hover")
+        badge = Image.open(response).convert("RGBA")
+
+    width, height = badge.size
+    # 모서리에서 번지게 하면 배경에 그러데이션이 있을 때 색이 남는다. 원 바깥을 통째로 지운다.
+    # 원을 조금 줄여야 흰 원과 색 배경 사이의 테두리까지 함께 사라진다.
+    edge = round(min(width, height) * 0.045)
+    mask = Image.new("L", (width, height), 0)
+    ImageDraw.Draw(mask).ellipse((edge, edge, width - 1 - edge, height - 1 - edge), fill=255)
+    badge.putalpha(mask)
+
+    # 원 안쪽 가장자리에서 번지면 캐릭터 윤곽에서 멈춰 흰 원만 지워진다.
+    inset = round(min(width, height) * 0.08)
+    for point in (
+        (width // 2, inset),
+        (inset, height // 2),
+        (width - inset, height // 2),
+        (width // 2, height - inset),
+    ):
+        ImageDraw.floodfill(badge, point, (0, 0, 0, 0), thresh=FLOOD_TOLERANCE)
+
+    save(to_square(badge), f"{slug}-hover")
 
 
 def main() -> None:
