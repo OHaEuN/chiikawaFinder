@@ -44,8 +44,8 @@ export default function HomePage() {
         ))}
       </section>
 
-      <div className="section-head"><h2>최신 굿즈</h2><Link href="/goods">전체 보기 →</Link></div>
-      <div className="grid">{goodsSummaries().slice(0, HOME_LIMIT).map((g) => <GoodsCard key={g.id} goods={g} />)}</div>
+      <div className="section-head"><h2>인물</h2><Link href="/characters">전체 보기 →</Link></div>
+      <div className="grid">{CHARACTERS.slice(0, HOME_LIMIT).map((c) => <CharacterCard key={c.slug} character={c} />)}</div>
 
       {ongoing.length > 0 && (
         <>
@@ -54,8 +54,8 @@ export default function HomePage() {
         </>
       )}
 
-      <div className="section-head"><h2>인물</h2><Link href="/characters">전체 보기 →</Link></div>
-      <div className="grid">{CHARACTERS.slice(0, HOME_LIMIT).map((c) => <CharacterCard key={c.slug} character={c} />)}</div>
+      <div className="section-head"><h2>최신 굿즈</h2><Link href="/goods">전체 보기 →</Link></div>
+      <div className="grid">{goodsSummaries().slice(0, HOME_LIMIT).map((g) => <GoodsCard key={g.id} goods={g} />)}</div>
     </>
   );
 }
