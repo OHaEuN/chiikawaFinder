@@ -213,6 +213,8 @@ export interface FacePhoto {
   eyeSpan: number;
   /** 그림 위쪽에서 눈까지의 거리(px) */
   eyeY: number;
+  /** 눈썹을 따로 그려야 하는지. 앞머리 선과 붙어 있어 그림에서 떼어 낼 수 없을 때 쓴다. */
+  drawnBrows?: boolean;
 }
 
 function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, photo: FacePhoto): void {
@@ -255,6 +257,10 @@ export function createFaceTexture(
 
     if (image && photo) {
       drawPhotoFace(ctx, image, photo);
+      if (photo.drawnBrows) {
+        drawBrow(ctx, -1, brow);
+        drawBrow(ctx, 1, brow);
+      }
     } else {
       // 그림을 못 받아 왔을 때만 손으로 그린다.
       drawBlush(ctx, -1);

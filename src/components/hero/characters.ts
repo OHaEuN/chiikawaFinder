@@ -59,8 +59,9 @@ const CAP_COLOR: Partial<Record<CharacterKey, string>> = { hachiware: HACHIWARE_
  */
 const FACE_PHOTO: Record<CharacterKey, FacePhoto> = {
   chiikawa: { src: asset('/images/hero/face-chiikawa.png'), eyeSpan: 163, eyeY: 82 },
-  hachiware: { src: asset('/images/hero/face-hachiware.png'), eyeSpan: 168, eyeY: 64 },
-  usagi: { src: asset('/images/hero/face-usagi.png'), eyeSpan: 163, eyeY: 133 },
+  // 눈썹이 파란 앞머리 선에 붙어 있어 그림에서 떼어 낼 수 없다. 코드로 찍는다.
+  hachiware: { src: asset('/images/hero/face-hachiware.png'), eyeSpan: 168, eyeY: 65, drawnBrows: true },
+  usagi: { src: asset('/images/hero/face-usagi.png'), eyeSpan: 163, eyeY: 139 },
 };
 /**
  * 인형 재질. 일반 재질은 아무리 거칠게 해도 플라스틱처럼 보인다.

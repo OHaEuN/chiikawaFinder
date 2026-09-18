@@ -1,14 +1,32 @@
 import type { Metadata, Viewport } from 'next';
-import { Gaegu, Gothic_A1, Noto_Sans_KR } from 'next/font/google';
+import { Gaegu, Noto_Sans_KR } from 'next/font/google';
 import { SiteHeader } from '@/components/SiteHeader';
 import { asset } from '@/lib/asset';
 import { Analytics } from '@/components/Analytics';
 import './globals.css';
 
-const display = Gothic_A1({ weight: ['600', '700', '800'], subsets: ['latin'], variable: '--font-display' });
+/*
+ * 한글 웹폰트는 글자 범위별로 백 개 넘는 조각으로 쪼개져 온다.
+ * preload 를 켜면 그 조각을 전부 미리 받느라 2MB 가 넘고, 그동안 글자가 기본 글씨체로 보이다 바뀐다.
+ * 끄면 브라우저가 화면에 실제로 쓰인 글자의 조각만 가져온다.
+ *
+ * 굵기도 쓰는 것만 남겼다. 하나 늘릴 때마다 조각 수가 그만큼 곱해진다.
+ */
+const body = Noto_Sans_KR({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+  preload: false,
+});
 // 페이지 타이틀에만 쓰는 귀여운 서체. 본문·카드는 산세리프를 유지한다.
-const cute = Gaegu({ weight: ['400', '700'], subsets: ['latin'], variable: '--font-cute' });
-const body = Noto_Sans_KR({ weight: ['400', '500', '700'], subsets: ['latin'], variable: '--font-body' });
+const cute = Gaegu({
+  weight: ['700'],
+  subsets: ['latin'],
+  variable: '--font-cute',
+  display: 'swap',
+  preload: false,
+});
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ohaeun.github.io/chiikawaFinder/';
 
@@ -50,7 +68,7 @@ export const viewport: Viewport = { themeColor: '#fdfcfb', width: 'device-width'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ko" className={`${display.variable} ${body.variable} ${cute.variable}`} style={cursorVars}>
+    <html lang="ko" className={`${body.variable} ${cute.variable}`} style={cursorVars}>
       <body>
         <SiteHeader />
         <main className="container page">{children}</main>
