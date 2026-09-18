@@ -13,7 +13,13 @@ export const metadata: Metadata = {
   title: { default: '치이카와 파인더', template: '%s | 치이카와 파인더' },
   description: '치이카와 인물, 온라인 콘텐츠, 팝업/매장 지도, 신상 굿즈를 한 곳에서',
   manifest: '/manifest.webmanifest',
-  icons: '/icon.svg',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' },
+    ],
+    apple: '/apple-icon.png',
+  },
 };
 
 export const viewport: Viewport = { themeColor: '#fdfcfb', width: 'device-width', initialScale: 1 };
