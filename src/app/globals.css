@@ -107,10 +107,12 @@ li { margin-bottom: 0.3em; }
 
 .container { width: min(1060px, 100% - 32px); margin: 0 auto; }
 .page { padding: 20px 0 40px; }
+/* 기본 줄바꿈은 한글을 글자 단위로 끊어 "캘린더" 가 "캘 / 린더" 로 갈라진다. */
 .page-head { margin-bottom: 16px; }
+.page-head h1 { word-break: keep-all; }
 .page-head p { color: var(--ink-soft); }
-/* 원제 「なんか小さくてかわいいやつ」 에서 따온 말. 제목을 가리지 않게 작고 흐리게 앞에 붙인다. */
-.page-head h1::before { content: '먼가 작은 '; font-size: 0.48em; color: var(--muted); margin-right: 7px; vertical-align: 0.5em; }
+/* 원제 「なんか小さくてかわいいやつ」 에서 따온 말. 제목과 같은 크기·서체로 앞에 붙인다. */
+.page-head h1::before { content: '먼가 작은 '; }
 
 @media (min-width: 900px) {
   .topbar { display: none; }
