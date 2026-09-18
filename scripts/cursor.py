@@ -59,8 +59,8 @@ def save(image: Image.Image, name: str, ratio: float, canvas_height: int) -> Non
     for scale, suffix in ((1, ""), (2, "@2x")):
         canvas = Image.new("RGBA", (WIDTH * scale, canvas_height * scale), (0, 0, 0, 0))
         resized = image.resize((width * scale, height * scale), Image.LANCZOS)
-        # 위를 맞춘다. 우사기 귀가 아래로 밀려 얼굴 위치가 들쭉날쭉해지는 걸 막는다.
-        canvas.paste(resized, ((canvas.width - resized.width) // 2, 0))
+        # 발끝을 맞춘다. 위를 맞추면 귀가 긴 우사기만 혼자 아래로 내려가 보인다.
+        canvas.paste(resized, ((canvas.width - resized.width) // 2, canvas.height - resized.height))
         canvas.save(OUT / f"{name}{suffix}.png")
 
 
