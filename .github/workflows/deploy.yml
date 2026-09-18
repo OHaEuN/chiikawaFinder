@@ -1,42 +1,57 @@
-name: build and deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, master]
+  # 스크랩이 데이터를 갱신한 뒤에도 다시 올린다.
+  # GITHUB_TOKEN 이 만든 푸시는 push 트리거를 켜지 않아 따로 걸어 둔다.
+  workflow_run:
+    workflows: ['scrape goods']
+    types: [completed]
   workflow_dispatch:
 
+# 정적 파일을 Pages 로 올리는 데 필요한 최소 권한
 permissions:
   contents: read
   pages: write
   id-token: write
 
+# 배포가 겹치면 뒤엣것을 기다리게 한다. 취소하면 사이트가 반쯤 올라간 채로 남는다.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+
       - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: pnpm
+
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
       - run: pnpm build
-        env:
-          NEXT_PUBLIC_PLAUSIBLE_DOMAIN: ${{ vars.NEXT_PUBLIC_PLAUSIBLE_DOMAIN }}
-          NEXT_PUBLIC_UMAMI_ID: ${{ vars.NEXT_PUBLIC_UMAMI_ID }}
-          NEXT_PUBLIC_GA_ID: ${{ vars.NEXT_PUBLIC_GA_ID }}
+
+      # _next 처럼 밑줄로 시작하는 폴더를 Jekyll 이 건너뛰지 않게 한다.
+      - run: touch out/.nojekyll
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
-      - id: deploy
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
         uses: actions/deploy-pages@v4
