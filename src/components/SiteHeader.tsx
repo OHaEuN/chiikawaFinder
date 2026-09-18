@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Icon, type IconName } from './Icon';
+import { CursorPicker } from './CursorPicker';
 
 const NAV: { href: string; label: string; icon: IconName }[] = [
   { href: '/', label: '홈', icon: 'home' },
@@ -42,6 +43,7 @@ export function SiteHeader() {
             </li>
           ))}
         </ul>
+        <CursorPicker />
       </nav>
 
       <nav className="tabbar" aria-label="주요 메뉴">
