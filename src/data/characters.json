@@ -3312,7 +3312,7 @@
     "nameEn": "Erai Yoroi-san",
     "group": "조연",
     "species": "갑옷 존재",
-    "image": "",
+    "image": "/images/characters/erai-yoroi-san-panel.png",
     "tagline": "'감사'를 나온다고 선언하는 상급 갑옷",
     "description": [
       "갑옷씨들 중에서도 상급자에 해당하는 존재로, 다른 갑옷씨들을 감독하는 위치에 있습니다.",
@@ -3349,7 +3349,7 @@
     "nameEn": "Ippon Tsuno-chan",
     "group": "조연",
     "species": "치이카와족",
-    "image": "",
+    "image": "/images/characters/ippon-tsuno-chan-panel.png",
     "tagline": "뿔이 부러진 뒤 싸움을 그만둔 아이",
     "description": [
       "머리에 뿔이 하나 난 것이 특징인 치이카와족입니다. 토벌에 참여하던 실력자였습니다.",
@@ -3980,7 +3980,7 @@
     "nameEn": "Kusa no Yoroi-san",
     "group": "조연",
     "species": "갑옷족(鎧さん) - 주황색 갑옷",
-    "image": "",
+    "image": "/images/characters/kusa-no-yoroi-panel.png",
     "tagline": "풀뽑기로 뜯어 온 풀을 회수하고 계량하는 검수 담당.",
     "description": [
       "주황색 갑옷상으로 머리에 알록달록한 반다나를 쓰고 있다. 치이카와 일행이 풀뽑기로 뜯어 온 풀을 회수하고 계량하는 일을 담당한다.",
@@ -4815,7 +4815,7 @@
     "nameEn": "Kyojin (The Giant)",
     "group": "적/괴물",
     "species": "거인",
-    "image": "",
+    "image": "/images/characters/kyojin-panel.png",
     "tagline": "삼성급 레스토랑의 점장, 전모를 알 수 없는 거인",
     "description": [
       "삼성(三ツ星) 레스토랑의 점장으로 등장하는 거대한 존재입니다. 목 아래만 화면에 잡힐 뿐 전체 모습은 끝내 드러나지 않습니다.",
@@ -4857,7 +4857,7 @@
     "nameEn": "Hebi no Okimono",
     "group": "적/괴물",
     "species": "뱀형 몬스터",
-    "image": "",
+    "image": "/images/characters/hebi-no-okimono-panel.png",
     "tagline": "눈에서 광선을 쏘아 분홍 돌로 만드는 새하얀 뱀",
     "description": [
       "온몸이 새하얀 뱀 모습의 존재입니다. 표면이 미끌미끌해 붙잡기가 대단히 어렵습니다.",
@@ -5088,7 +5088,7 @@
     "nameEn": "Medusa",
     "group": "적/괴물",
     "species": "도자기 같은 흰 뱀",
-    "image": "",
+    "image": "/images/characters/medusa-panel.png",
     "tagline": "'슈우마'의 제단에 장식품으로 의태한 채 사람을 돌로 바꾸던 흰 뱀.",
     "description": [
       "도자기 같은 겉모습의 흰 뱀. 등장 시에는 '슈우마(拾魔)'의 제단에서 장식물로 의태하고 있었다. 이변의 원흉임을 눈치챈 치이카와와 하치와레가 부수려 하자 움직여 도망쳤다.",
