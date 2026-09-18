@@ -1,9 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { Icon } from './Icon';
-import { NAV_ITEMS, isActivePath } from './nav';
+import { NavLinks } from './NavLinks';
 
 interface MobileMenuProps {
   pathname: string;
@@ -55,26 +54,14 @@ export function MobileMenu({ pathname }: MobileMenuProps) {
       >
         <div className="drawer-panel">
           <div className="drawer-head">
-            <span className="drawer-title">
-              <span className="title-tag">먼가 작은</span>
-              메뉴
-            </span>
+            <span className="drawer-title">메뉴</span>
             <button type="button" className="menu-button" aria-label="메뉴 닫기" onClick={() => setOpen(false)}>
               <Icon name="close" size={22} />
             </button>
           </div>
 
           <nav aria-label="주요 메뉴">
-            <ul>
-              {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} aria-current={isActivePath(pathname, item.href) ? 'page' : undefined}>
-                    <Icon name={item.icon} />
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <NavLinks pathname={pathname} />
           </nav>
         </div>
       </dialog>
