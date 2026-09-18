@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { asset } from '@/lib/asset';
 import { CursorPicker } from './CursorPicker';
 import { MobileMenu } from './MobileMenu';
 import { NavLinks } from './NavLinks';
@@ -13,7 +14,7 @@ export function SiteHeader() {
     <>
       <header className="topbar">
         <Link href="/" className="brand">
-          <img className="brand-mark" src="/images/chiikawa-face.png" alt="" width={32} height={28} />
+          <img className="brand-mark" src={asset('/images/chiikawa-face.png')} alt="" width={32} height={28} />
           치이카와 파인더
         </Link>
         <MobileMenu pathname={pathname} />
@@ -21,7 +22,7 @@ export function SiteHeader() {
 
       <nav className="sidebar" aria-label="주요 메뉴">
         <Link href="/" className="brand sidebar-brand">
-          <img className="brand-mark" src="/images/chiikawa-face.png" alt="" width={32} height={28} />
+          <img className="brand-mark" src={asset('/images/chiikawa-face.png')} alt="" width={32} height={28} />
           치이카와 파인더
         </Link>
         <NavLinks pathname={pathname} />

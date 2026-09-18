@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { createFaceTexture, type BrowStyle, type FacePhoto } from './faceTexture';
+import { asset } from '@/lib/asset';
 
 /**
  * 세 캐릭터를 기본 도형으로 조립한다. 외부 모델 파일은 쓰지 않는다.
@@ -58,18 +59,18 @@ const CAP_COLOR: Partial<Record<CharacterKey, string>> = { hachiware: HACHIWARE_
  */
 const FACE_PHOTO: Record<CharacterKey, FacePhoto> = {
   chiikawa: {
-    src: '/images/hero/chiikawa.jpg',
+    src: asset('/images/hero/chiikawa.jpg'),
     eyes: { leftX: 506, rightX: 710, y: 490 },
     crop: { x: 315, y: 330, w: 580, h: 290 },
   },
   hachiware: {
-    src: '/images/hero/hachiware.jpg',
+    src: asset('/images/hero/hachiware.jpg'),
     eyes: { leftX: 486, rightX: 690, y: 470 },
     // 눈썹이 가장자리에 걸리면 흐려져 사라진다. 눈썹 위로 여유를 두고 자른다.
     crop: { x: 325, y: 350, w: 560, h: 300 },
   },
   usagi: {
-    src: '/images/hero/usagi.jpg',
+    src: asset('/images/hero/usagi.jpg'),
     eyes: { leftX: 492, rightX: 696, y: 564 },
     crop: { x: 325, y: 375, w: 570, h: 330 },
   },
