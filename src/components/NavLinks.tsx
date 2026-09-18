@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Icon } from './Icon';
-import { NAV_ITEMS, NAV_PREFIX, isActivePath } from './nav';
+import { NAV_ITEMS, isActivePath } from './nav';
 
 interface NavLinksProps {
   pathname: string;
@@ -14,10 +14,7 @@ export function NavLinks({ pathname }: NavLinksProps) {
         <li key={item.href}>
           <Link href={item.href} aria-current={isActivePath(pathname, item.href) ? 'page' : undefined}>
             <Icon name={item.icon} />
-            <span className="nav-label">
-              <span className="nav-prefix">{NAV_PREFIX}</span>
-              {item.label}
-            </span>
+            {item.label}
           </Link>
         </li>
       ))}
