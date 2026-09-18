@@ -333,11 +333,25 @@ li { margin-bottom: 0.3em; }
 
 /* ── 커서 ─────────────────────────────────── */
 /*
- * 캐릭터 얼굴을 커서로 쓴다. 브라우저가 커서 이미지를 못 읽는 경우가 있어
- * 뒤에 기본값을 반드시 남긴다. 좌표는 그림 왼쪽 위 근처를 가리키게 잡는다.
+ * 캐릭터 얼굴을 커서로 쓴다. 고른 캐릭터는 <html data-cursor> 로 들어온다.
+ * 누를 수 있는 곳 위에서는 표정이 다른 얼굴로 바뀐다.
+ * 브라우저가 커서 이미지를 못 읽는 경우가 있어 뒤에 기본값을 반드시 남긴다.
  */
+:root {
+  --cursor-idle: url('/cursor/chiikawa.png');
+  --cursor-hover: url('/cursor/chiikawa-hover.png');
+}
+[data-cursor='hachiware'] {
+  --cursor-idle: url('/cursor/hachiware.png');
+  --cursor-hover: url('/cursor/hachiware-hover.png');
+}
+[data-cursor='usagi'] {
+  --cursor-idle: url('/cursor/usagi.png');
+  --cursor-hover: url('/cursor/usagi-hover.png');
+}
+
 body {
-  cursor: url('/cursor/chiikawa.png') 6 4, auto;
+  cursor: var(--cursor-idle) 6 4, auto;
 }
 a,
 button,
@@ -347,20 +361,35 @@ summary,
 .chip,
 .card,
 .tile,
-.row {
-  cursor: url('/cursor/usagi.png') 6 4, pointer;
+.row,
+.leaflet-container {
+  cursor: var(--cursor-hover) 6 4, pointer;
 }
 input,
 select,
 textarea {
   cursor: auto;
 }
-.leaflet-container {
-  cursor: url('/cursor/hachiware.png') 6 4, grab;
+
+/* 커서 고르기 */
+.cursor-picker { margin-top: 22px; padding: 0 14px; display: grid; gap: 7px; }
+.cursor-picker-label { font-size: 0.76rem; color: var(--muted); font-weight: 600; }
+.cursor-picker-options { display: flex; gap: 6px; }
+.cursor-picker-options button {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: var(--surface-2);
+  padding: 0;
+  transition: border-color 0.14s, transform 0.14s;
 }
-.leaflet-container:active {
-  cursor: url('/cursor/hachiware.png') 6 4, grabbing;
-}
+.cursor-picker-options button:hover { transform: translateY(-2px); }
+.cursor-picker-options button[aria-pressed='true'] { border-color: var(--pink-deep); background: var(--pink); }
+.cursor-picker-options img { width: 26px; height: 26px; object-fit: contain; }
+
 /* 손가락으로 쓰는 화면에서는 커서 그림이 의미가 없다. */
 @media (hover: none) {
   body,
@@ -373,4 +402,44 @@ textarea {
   .leaflet-container {
     cursor: auto;
   }
+  .cursor-picker { display: none; }
+}
+
+/* ── 자잘한 재미 ─────────────────────────── */
+/* 카드를 살짝 기울여 들어 올린다. 전부 같은 각도면 기계처럼 보여 짝수·홀수를 다르게 준다. */
+.grid > .card:hover { transform: translateY(-4px) rotate(-1.2deg); }
+.grid > .card:nth-child(even):hover { transform: translateY(-4px) rotate(1.2deg); }
+.tile:hover { transform: translateY(-2px) rotate(-0.5deg); }
+
+/* 누르면 눌리는 느낌 */
+.btn:active,
+.chip:active,
+.cursor-picker-options button:active { transform: scale(0.95); }
+
+/* 섹션 제목 앞에 작은 점을 찍어 목차처럼 보이게 한다. */
+.section-head h2::before {
+  content: '';
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 9px;
+  border-radius: 50%;
+  background: var(--pink-deep);
+  vertical-align: 0.1em;
+}
+
+/* 스크롤바도 파스텔로 */
+* { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 999px; border: 3px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--pink-deep); }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* 글자를 끌어 선택하면 분홍으로 */
+::selection { background: var(--pink); color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  .grid > .card:hover,
+  .grid > .card:nth-child(even):hover,
+  .tile:hover { transform: none; }
 }
