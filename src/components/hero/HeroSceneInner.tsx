@@ -15,7 +15,7 @@ const NARROW_PX = 560;
 /** 몸이 늘어나면서 머리가 조금 더 올라간다. 점프 높이와 별개로 잡는다. */
 const STRETCH_MARGIN = 0.12;
 /** 테두리에 닿지 않게 남기는 여백 */
-const FIT_MARGIN = 1.03;
+const FIT_MARGIN = 1.08;
 
 const spacingFor = (width: number) => (width < NARROW_PX ? NARROW_SPACING : SPACING);
 
