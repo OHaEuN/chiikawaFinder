@@ -18,8 +18,13 @@ const TIMEOUT_MS = 20000;
 const isLocal = (src) => !src || src.startsWith('/');
 
 async function download(src, dir, name) {
+  // 일부 공식 사이트는 브라우저처럼 보이지 않으면 403 을 준다. referer 까지 맞춰 준다.
   const res = await fetch(src, {
-    headers: { 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/124 Safari/537.36' },
+    headers: {
+      'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+      accept: 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
+      referer: new URL(src).origin,
+    },
     signal: AbortSignal.timeout(TIMEOUT_MS),
   });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
