@@ -18,13 +18,34 @@ const VIEW: Record<Country, { center: [number, number]; zoom: number }> = {
 };
 const ALL_VIEW = { center: [36.5, 132] as [number, number], zoom: 5 };
 
+/**
+ * 진행 중(곧 끝나는 순) → 상설 → 종료(최근에 끝난 순).
+ * 묶음 번호와 날짜를 따로 돌려주고 숫자로 비교한다.
+ */
+function sortRank(place: Place): [number, number] {
+  const end = place.period?.end;
+  if (!end) return [1, 0];
+  const date = Number(end.replaceAll('-', ''));
+  return isOngoing(place) ? [0, date] : [2, -date];
+}
+
+const byRank = (a: Place, b: Place) => {
+  const [groupA, dateA] = sortRank(a);
+  const [groupB, dateB] = sortRank(b);
+  return groupA - groupB || dateA - dateB;
+};
+
 export function OfflineExplorer({ places }: OfflineExplorerProps) {
   const [country, setCountry] = useState<Country | null>(null);
   const [type, setType] = useState<PlaceType | null>(null);
   const [onlyOngoing, setOnlyOngoing] = useState(true);
 
   const filtered = useMemo(
-    () => places.filter((p) => (!country || p.country === country) && (!type || p.type === type) && (!onlyOngoing || isOngoing(p))),
+    () =>
+      places
+        .filter((p) => (!country || p.country === country) && (!type || p.type === type) && (!onlyOngoing || isOngoing(p)))
+        // 곧 끝나는 것부터 보여 준다. 기간이 없는 상설 매장은 그 뒤, 끝난 것은 맨 뒤로 보낸다.
+        .sort(byRank),
     [places, country, type, onlyOngoing],
   );
   const view = country ? VIEW[country] : ALL_VIEW;
