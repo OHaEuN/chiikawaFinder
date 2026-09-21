@@ -4407,7 +4407,7 @@
     "characters": [
       "rakko"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 6,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -8672,7 +8672,7 @@
       "momonga",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -9128,7 +9128,7 @@
       "hachiware",
       "rakko"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-10",
     "sources": [
