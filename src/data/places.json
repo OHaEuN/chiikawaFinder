@@ -1369,5 +1369,915 @@
       "https://gift.kakao.com/search/result?query=%EC%95%84%ED%8A%B8%EB%B0%95%EC%8A%A4+%EB%A8%BC%EC%9E%91%EA%B7%80"
     ],
     "image": "/images/places/kr-artbox-hongdae-ebf7ace4.jpg"
+  },
+  {
+    "id": "jp-pus-aomori-elm-2026",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE 아오모리 ELM (ちいかわPOP UP STORE 青森ELM)",
+    "country": "JP",
+    "city": "고쇼가와라",
+    "address": "青森県五所川原市唐笠柳藤巻517-1 青森ELM 2階 ELMホール",
+    "lat": 40.7987,
+    "lng": 140.4539,
+    "description": "아오모리 ELM 2층 ELM홀에서 열리는 공식 팝업스토어입니다. 할로윈 사양 '다 같이 분장한 마스코트' 전 8종을 비롯한 신상품을 팝니다. 구매 시 오리지널 스티커, 2,200엔 이상이면 전용 쇼퍼를 줍니다.",
+    "sells": [
+      "다 같이 분장한 마스코트 전 8종",
+      "치이카와 스시 봉봉드롭 씰",
+      "Chiikawa Baby 봉봉드롭 씰",
+      "「물」 마스코트",
+      "표범무늬 버니티 파우치",
+      "트레이딩 캔뱃지",
+      "트레이딩 미니미러 키홀더",
+      "카드홀더",
+      "스티커",
+      "티셔츠",
+      "스웨트",
+      "집업 파커"
+    ],
+    "priceRange": "330~7,700엔",
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/pus_aomr/index.html",
+    "period": {
+      "start": "2026-10-02",
+      "end": "2026-10-19"
+    },
+    "hours": "10:00~19:00 (최종일 18:00 마감)",
+    "sources": [
+      "https://chiikawa-info.jp/pus"
+    ],
+    "image": "/images/places/jp-pus-aomori-elm-2026-2ea1a8e8.jpg"
+  },
+  {
+    "id": "jp-pus-aeonmall-saga-yamato-2026",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE 이온몰 사가 야마토 (ちいかわPOP UP STORE イオンモール佐賀大和)",
+    "country": "JP",
+    "city": "사가",
+    "address": "佐賀県佐賀市大和町大字尼寺3535 イオンモール佐賀大和 2F フードコート横 特設会場",
+    "lat": 33.3039,
+    "lng": 130.281,
+    "description": "이온몰 사가 야마토 2층 푸드코트 옆 특설회장에서 아오모리 ELM과 같은 기간에 열립니다. 할로윈 사양 마스코트 전 8종이 주력입니다. 붐빌 때는 입장 제한이 걸리고 첫날에는 당일 정리권을 나눠 줄 수 있습니다.",
+    "sells": [
+      "다 같이 분장한 마스코트 전 8종",
+      "치이카와 스시 봉봉드롭 씰",
+      "Chiikawa Baby 봉봉드롭 씰",
+      "「물」 마스코트",
+      "표범무늬 버니티 파우치",
+      "트레이딩 캔뱃지",
+      "트레이딩 미니미러 키홀더",
+      "카드홀더",
+      "스티커",
+      "티셔츠",
+      "스웨트",
+      "집업 파커"
+    ],
+    "priceRange": "330~7,700엔",
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/pus_asag/index.html",
+    "period": {
+      "start": "2026-10-02",
+      "end": "2026-10-19"
+    },
+    "hours": "10:00~19:00 (최종일 18:00 마감)",
+    "sources": [
+      "https://chiikawa-info.jp/pus"
+    ],
+    "image": "/images/places/jp-pus-aeonmall-saga-yamato-2026-2ea1a8e8.jpg"
+  },
+  {
+    "id": "jp-pus-jr-sendai-2026",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE JR 센다이역 (ちいかわPOP UP STORE JR仙台駅)",
+    "country": "JP",
+    "city": "센다이",
+    "address": "宮城県仙台市青葉区 JR仙台駅 2階 ステンドグラス前催事場",
+    "lat": 38.2604,
+    "lng": 140.8824,
+    "description": "JR 센다이역 2층 스테인드글라스 앞 행사장에서 아흐레 동안 열립니다. 할로윈 사양 마스코트 전 8종과 봉봉드롭 씰을 팝니다. 첫날인 10월 1일은 13시에 열어서 오전에 가면 들어갈 수 없습니다.",
+    "sells": [
+      "다 같이 분장한 마스코트 전 8종",
+      "치이카와 스시 봉봉드롭 씰",
+      "Chiikawa Baby 봉봉드롭 씰",
+      "「물」 마스코트",
+      "트레이딩 캔뱃지",
+      "카드홀더",
+      "스티커",
+      "티셔츠"
+    ],
+    "priceRange": "330~7,700엔",
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/pus_jrss/index.html",
+    "period": {
+      "start": "2026-10-01",
+      "end": "2026-10-09"
+    },
+    "hours": "10:00~20:00 (첫날 13:00 개장, 마감은 날짜별로 다름)",
+    "sources": [
+      "https://chiikawa-info.jp/pus"
+    ],
+    "image": "/images/places/jp-pus-jr-sendai-2026-2ea1a8e8.jpg"
+  },
+  {
+    "id": "jp-pus-aeonmall-niihama-2026",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE 이온몰 니이하마 (ちいかわPOP UP STORE イオンモール新居浜)",
+    "country": "JP",
+    "city": "니이하마",
+    "address": "愛媛県新居浜市前田町8-8 イオンモール新居浜 サウスコート",
+    "lat": 33.9548,
+    "lng": 133.268,
+    "description": "이온몰 니이하마 사우스코트에서 열립니다. 할로윈 사양 마스코트 전 8종과 봉봉드롭 씰 등 신상품이 많습니다. 구매 시 오리지널 스티커, 2,200엔 이상이면 전용 쇼퍼를 줍니다.",
+    "sells": [
+      "다 같이 분장한 마스코트 전 8종",
+      "치이카와 스시 봉봉드롭 씰",
+      "Chiikawa Baby 봉봉드롭 씰",
+      "「물」 마스코트",
+      "표범무늬 버니티 파우치",
+      "트레이딩 캔뱃지",
+      "카드홀더",
+      "스티커",
+      "티셔츠"
+    ],
+    "priceRange": "330~7,700엔",
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/pus_anhm/index.html",
+    "period": {
+      "start": "2026-09-26",
+      "end": "2026-10-12"
+    },
+    "hours": "10:00~19:00 (최종일 18:00 마감)",
+    "sources": [
+      "https://chiikawa-info.jp/pus"
+    ],
+    "image": "/images/places/jp-pus-aeonmall-niihama-2026-2ea1a8e8.jpg"
+  },
+  {
+    "id": "jp-pus-semboku-takashimaya-2026",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE 센보쿠 다카시마야 (ちいかわPOP UP STORE 泉北髙島屋)",
+    "country": "JP",
+    "city": "사카이",
+    "address": "大阪府堺市南区茶山台1-3-1 泉北髙島屋 4階 催事場",
+    "lat": 34.4972,
+    "lng": 135.5104,
+    "description": "센보쿠 고속철도 이즈미가오카역과 붙어 있는 쇼핑센터 판죠 안, 센보쿠 다카시마야 4층 행사장에서 열립니다. 9월 24일 나온 「물」 마스코트와 표범무늬 시리즈가 주력입니다. 파스타 라이스케 디자인 의류와 호러 시리즈 집업 파커도 나옵니다.",
+    "sells": [
+      "「물」 마스코트",
+      "표범무늬 쇼핑백",
+      "표범무늬 버니티 파우치",
+      "트레이딩 캔뱃지 전 8종",
+      "트레이딩 미니미러 키홀더 전 8종",
+      "표범무늬 카드홀더",
+      "스웨트 키홀더",
+      "스마트폰 스티커",
+      "퍼피 숄더백",
+      "파스타 라이스케 티셔츠·파우치",
+      "호러 시리즈 집업 파커"
+    ],
+    "priceRange": "330~7,700엔",
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/pus_snbk/index.html",
+    "period": {
+      "start": "2026-09-24",
+      "end": "2026-10-06"
+    },
+    "hours": "10:00~19:00 (최종일 15:00 마감)",
+    "sources": [
+      "https://chiikawa-info.jp/pus"
+    ],
+    "image": "/images/places/jp-pus-semboku-takashimaya-2026-2ea1a8e8.jpg"
+  },
+  {
+    "id": "jp-pus-yonago-tenmaya-2026",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE 요나고 덴마야 (ちいかわPOP UP STORE 米子天満屋)",
+    "country": "JP",
+    "city": "요나고",
+    "address": "鳥取県米子市 米子天満屋 1階 しんまち広場",
+    "lat": 35.4404,
+    "lng": 133.3412,
+    "description": "돗토리현 요나고 덴마야 1층 신마치 광장에서 열립니다. 전국을 도는 공식 팝업스토어의 한 회장으로 9월 신상품과 할로윈 상품을 함께 팝니다.",
+    "sells": [
+      "다 같이 분장한 마스코트 전 8종",
+      "치이카와 스시 봉봉드롭 씰",
+      "Chiikawa Baby 봉봉드롭 씰",
+      "「물」 마스코트",
+      "트레이딩 캔뱃지",
+      "스티커",
+      "티셔츠"
+    ],
+    "priceRange": "330~7,700엔",
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/pus_ygtm/index.html",
+    "period": {
+      "start": "2026-09-18",
+      "end": "2026-10-12"
+    },
+    "sources": [
+      "https://chiikawa-info.jp/pus"
+    ],
+    "image": "/images/places/jp-pus-yonago-tenmaya-2026-2ea1a8e8.jpg"
+  },
+  {
+    "id": "jp-pus-aeonmall-okazaki-2026",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE 이온몰 오카자키 (ちいかわPOP UP STORE イオンモール岡崎)",
+    "country": "JP",
+    "city": "오카자키",
+    "address": "愛知県岡崎市戸崎町外山38-5 イオンモール岡崎 1F セントラルコート",
+    "lat": 34.9378,
+    "lng": 137.1645,
+    "description": "이온몰 오카자키 1층 센트럴코트에서 열립니다. 9월 18일 나온 신상품이 많고 관내에서 가장 큰 행사 공간을 씁니다. 트레이딩 캔뱃지와 미니미러 키홀더는 전 8종 랜덤이라 BOX로 사도 전 종류가 모이지 않을 수 있습니다.",
+    "sells": [
+      "「물」 마스코트",
+      "표범무늬 버니티 파우치",
+      "트레이딩 캔뱃지 전 8종",
+      "트레이딩 미니미러 키홀더 전 8종",
+      "카드홀더",
+      "스티커",
+      "파스타 라이스케 티셔츠",
+      "호러 시리즈 집업 파커"
+    ],
+    "priceRange": "330~7,700엔",
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/pus_aoka/index.html",
+    "period": {
+      "start": "2026-09-18",
+      "end": "2026-10-05"
+    },
+    "hours": "10:00~19:00 (최종일 18:00 마감)",
+    "sources": [
+      "https://chiikawa-info.jp/pus"
+    ],
+    "image": "/images/places/jp-pus-aeonmall-okazaki-2026-2ea1a8e8.jpg"
+  },
+  {
+    "id": "jp-pus-aeonmall-wakayama-2026",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE 이온몰 와카야마 (ちいかわPOP UP STORE イオンモール和歌山)",
+    "country": "JP",
+    "city": "와카야마",
+    "address": "和歌山県和歌山市 イオンモール和歌山 1F サークルコート",
+    "lat": 34.2759,
+    "lng": 135.1492,
+    "description": "이온몰 와카야마 1층 서클코트에서 열립니다. 같은 기간 같은 장소에서 나가노마켓 팝업숍도 함께 열립니다.",
+    "sells": [
+      "다 같이 분장한 마스코트 전 8종",
+      "치이카와 스시 봉봉드롭 씰",
+      "Chiikawa Baby 봉봉드롭 씰",
+      "「물」 마스코트",
+      "트레이딩 캔뱃지",
+      "스티커",
+      "티셔츠"
+    ],
+    "priceRange": "330~7,700엔",
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/pus_awak/index.html",
+    "period": {
+      "start": "2026-09-18",
+      "end": "2026-10-05"
+    },
+    "sources": [
+      "https://chiikawa-info.jp/pus"
+    ],
+    "image": "/images/places/jp-pus-aeonmall-wakayama-2026-2ea1a8e8.jpg"
+  },
+  {
+    "id": "jp-pus-fkd-utsunomiya-2026",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE FKD 우쓰노미야점 (ちいかわPOP UP STORE FKD宇都宮店)",
+    "country": "JP",
+    "city": "우쓰노미야",
+    "address": "栃木県宇都宮市今泉町237 FKD宇都宮店 3階 大催事会場",
+    "lat": 36.5737,
+    "lng": 139.9003,
+    "description": "FKD 우쓰노미야점 3층 대행사장에서 열립니다. 사이타마 야기하시 백화점과 같은 기간에 동시 개최됩니다.",
+    "sells": [
+      "「물」 마스코트",
+      "표범무늬 버니티 파우치",
+      "트레이딩 캔뱃지",
+      "카드홀더",
+      "스티커",
+      "티셔츠"
+    ],
+    "priceRange": "330~7,700엔",
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/pus_utnm/index.html",
+    "period": {
+      "start": "2026-09-16",
+      "end": "2026-09-28"
+    },
+    "hours": "10:00~19:00 (최종일 15:00 마감)",
+    "sources": [
+      "https://chiikawa-info.jp/pus"
+    ],
+    "image": "/images/places/jp-pus-fkd-utsunomiya-2026-2ea1a8e8.jpg"
+  },
+  {
+    "id": "jp-pus-yagihashi-2026",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE 야기하시 백화점 (ちいかわPOP UP STORE 八木橋百貨店)",
+    "country": "JP",
+    "city": "구마가야",
+    "address": "埼玉県熊谷市仲町74 八木橋百貨店 7階 催事場",
+    "lat": 36.146,
+    "lng": 139.382,
+    "description": "사이타마현 구마가야시 야기하시 백화점 7층 행사장에서 열립니다. 도치기 FKD 우쓰노미야점과 같은 기간에 동시 개최됩니다.",
+    "sells": [
+      "「물」 마스코트",
+      "표범무늬 버니티 파우치",
+      "트레이딩 캔뱃지",
+      "카드홀더",
+      "스티커",
+      "티셔츠"
+    ],
+    "priceRange": "330~7,700엔",
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/pus_yghs/index.html",
+    "period": {
+      "start": "2026-09-16",
+      "end": "2026-09-28"
+    },
+    "hours": "10:00~18:30 (최종일 17:00 마감)",
+    "sources": [
+      "https://chiikawa-info.jp/pus"
+    ],
+    "image": "/images/places/jp-pus-yagihashi-2026-2ea1a8e8.jpg"
+  },
+  {
+    "id": "jp-pus-aeonmall-nogata-2026",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE 이온몰 노가타 (ちいかわPOP UP STORE イオンモール直方)",
+    "country": "JP",
+    "city": "노가타",
+    "address": "福岡県直方市 イオンモール直方 1F リリーコート",
+    "lat": 33.7687,
+    "lng": 130.7505,
+    "description": "후쿠오카현 이온몰 노가타 1층 릴리코트에서 열립니다. 전국을 도는 공식 팝업스토어의 규슈 회장입니다.",
+    "sells": [
+      "「물」 마스코트",
+      "표범무늬 버니티 파우치",
+      "트레이딩 캔뱃지",
+      "스티커",
+      "티셔츠"
+    ],
+    "priceRange": "330~7,700엔",
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/pus_angt/index.html",
+    "period": {
+      "start": "2026-09-11",
+      "end": "2026-09-28"
+    },
+    "sources": [
+      "https://chiikawa-info.jp/pus"
+    ],
+    "image": "/images/places/jp-pus-aeonmall-nogata-2026-2ea1a8e8.jpg"
+  },
+  {
+    "id": "jp-pus-favore-toyama-2026",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE 퓨처시티 파보레 (ちいかわPOP UP STORE フューチャーシティ・ファボーレ)",
+    "country": "JP",
+    "city": "도야마",
+    "address": "富山県富山市 フューチャーシティ・ファボーレ 本館1F 太陽の広場",
+    "lat": 36.663,
+    "lng": 137.1713,
+    "description": "도야마현 퓨처시티 파보레 본관 1층 태양의 광장에서 열립니다. 9월 신상품과 상시 굿즈를 함께 팝니다.",
+    "sells": [
+      "「물」 마스코트",
+      "표범무늬 버니티 파우치",
+      "트레이딩 캔뱃지",
+      "스티커",
+      "티셔츠"
+    ],
+    "priceRange": "330~7,700엔",
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/pus_favo/index.html",
+    "period": {
+      "start": "2026-09-11",
+      "end": "2026-09-27"
+    },
+    "sources": [
+      "https://chiikawa-info.jp/pus"
+    ],
+    "image": "/images/places/jp-pus-favore-toyama-2026-2ea1a8e8.jpg"
+  },
+  {
+    "id": "jp-pus-chubu-airport-2026",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE 주부국제공항 제1터미널 (ちいかわPOP UP STORE 中部国際空港 第1ターミナル)",
+    "country": "JP",
+    "city": "도코나메",
+    "address": "愛知県常滑市 中部国際空港 第1ターミナル4階 イベントプラザ",
+    "lat": 34.8599,
+    "lng": 136.8162,
+    "description": "주부국제공항(센트레아) 제1터미널 4층 이벤트플라자에서 약 4주간 열립니다. 투구벌레 마스코트, 자카드 핸드타올, 밥그릇·렝게 세트, 홀로그램 스티커 등이 나옵니다.",
+    "sells": [
+      "투구벌레 마스코트",
+      "자카드 핸드타올",
+      "밥그릇·렝게 세트",
+      "홀로그램 스티커",
+      "박 프린트 티셔츠",
+      "라인스톤 굿즈"
+    ],
+    "priceRange": "330~7,700엔",
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/pus_cbca/index.html",
+    "period": {
+      "start": "2026-09-08",
+      "end": "2026-10-05"
+    },
+    "sources": [
+      "https://chiikawa-info.jp/pus"
+    ],
+    "image": "/images/places/jp-pus-chubu-airport-2026-2ea1a8e8.jpg"
+  },
+  {
+    "id": "jp-pus-ati-koriyama-2026",
+    "type": "popup",
+    "name": "치이카와 POP UP STORE 아티 고리야마 (ちいかわPOP UP STORE アティ郡山)",
+    "country": "JP",
+    "city": "고리야마",
+    "address": "福島県郡山市 アティ郡山 4階 E-SPACE",
+    "lat": 37.3969,
+    "lng": 140.3875,
+    "description": "후쿠시마현 아티 고리야마 4층 E-SPACE에서 열립니다. 전국을 도는 공식 팝업스토어의 도호쿠 회장입니다.",
+    "sells": [
+      "「물」 마스코트",
+      "표범무늬 버니티 파우치",
+      "트레이딩 캔뱃지",
+      "스티커",
+      "티셔츠"
+    ],
+    "priceRange": "330~7,700엔",
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/pus_atik/index.html",
+    "period": {
+      "start": "2026-09-04",
+      "end": "2026-09-27"
+    },
+    "sources": [
+      "https://chiikawa-info.jp/pus"
+    ],
+    "image": "/images/places/jp-pus-ati-koriyama-2026-2ea1a8e8.jpg"
+  },
+  {
+    "id": "jp-magical-grandduo-tachikawa-2026",
+    "type": "popup",
+    "name": "마지컬 치이카와 POP UP STORE 그란듀오 다치카와 (まじかるちいかわPOP UP STORE グランデュオ立川)",
+    "country": "JP",
+    "city": "다치카와",
+    "address": "東京都立川市柴崎町3-2-1 グランデュオ立川 2F イベントスペース2",
+    "lat": 35.6974,
+    "lng": 139.4144,
+    "description": "JR 다치카와역과 붙은 역빌딩 그란듀오 다치카와 2층에서 약 6주간 열리는 마법소녀 시리즈 팝업입니다. 새로 나온 양말 전 4종과 스타추 피규어 컬렉션이 주력입니다. 피규어는 BOX로 사면 전 6종이 반드시 다 들어 있습니다.",
+    "sells": [
+      "마지컬 치이카와 양말 전 4종 (각 1,760엔)",
+      "스타추 피규어 컬렉션 전 6종",
+      "리본·스틱 비주얼 굿즈"
+    ],
+    "priceRange": "1,760엔~",
+    "official": true,
+    "url": "https://chiikawa-info.jp/magical_s.html",
+    "period": {
+      "start": "2026-09-30",
+      "end": "2026-11-08"
+    },
+    "hours": "10:00~20:30 (최종일 17:00 마감)",
+    "sources": [
+      "https://chiikawa-info.jp/magical_s.html"
+    ],
+    "image": "/images/places/jp-magical-grandduo-tachikawa-2026-ece34b2b.jpg"
+  },
+  {
+    "id": "jp-magical-kochi-tsutaya-2026",
+    "type": "popup",
+    "name": "마지컬 치이카와 POP UP STORE 고치 쓰타야 서점 (まじかるちいかわPOP UP STORE 高知 蔦屋書店)",
+    "country": "JP",
+    "city": "고치",
+    "address": "高知県高知市 高知 蔦屋書店 1F 中央広場",
+    "lat": 33.5666,
+    "lng": 133.5631,
+    "description": "고치 쓰타야 서점 1층 중앙광장에서 열리는 마지컬 치이카와 팝업입니다. 마법소녀 콘셉트의 리본·스틱 비주얼 굿즈를 팝니다.",
+    "sells": [
+      "마지컬 치이카와 굿즈",
+      "마지컬 치이카와 양말",
+      "스타추 피규어 컬렉션"
+    ],
+    "priceRange": "1,760엔~",
+    "official": true,
+    "url": "https://chiikawa-info.jp/magical_s.html",
+    "period": {
+      "start": "2026-09-11",
+      "end": "2026-10-05"
+    },
+    "sources": [
+      "https://chiikawa-info.jp/magical_s.html"
+    ],
+    "image": "/images/places/jp-magical-kochi-tsutaya-2026-ece34b2b.jpg"
+  },
+  {
+    "id": "jp-magical-kiddyland-sapporo-2026",
+    "type": "popup",
+    "name": "마지컬 치이카와 키디랜드 POP UP SHOP 삿포로 (まじかるちいかわ キデイランドPOP UP SHOP 札幌)",
+    "country": "JP",
+    "city": "삿포로",
+    "address": "北海道札幌市北区 アピア ファッションウォーク B1F (札幌駅)",
+    "lat": 43.0672,
+    "lng": 141.3507,
+    "description": "삿포로역 지하 상업시설 아피아 패션워크 B1F에 10월 2일 새로 여는 키디랜드 팝업숍의 첫 기획입니다. 붐빔을 줄이려고 입점 예약을 받을 예정입니다.",
+    "sells": [
+      "마지컬 치이카와 굿즈"
+    ],
+    "official": true,
+    "url": "https://chiikawa-info.jp/magical_s.html",
+    "period": {
+      "start": "2026-10-02",
+      "end": "2026-11-03"
+    },
+    "sources": [
+      "https://chiikawa-info.jp/magical_s.html",
+      "https://www.apiadome.com/open_renewal_detail/?id=1041"
+    ],
+    "image": "/images/places/jp-magical-kiddyland-sapporo-2026-ece34b2b.jpg"
+  },
+  {
+    "id": "jp-baby-aomori-elm-2026",
+    "type": "popup",
+    "name": "Chiikawa Baby POP UP SHOP 아오모리 ELM",
+    "country": "JP",
+    "city": "고쇼가와라",
+    "address": "青森県五所川原市唐笠柳藤巻517-1 青森ELM 2階 ELMホール",
+    "lat": 40.7987,
+    "lng": 140.4539,
+    "description": "아기 모습이 된 치이카와들을 주제로 한 Chiikawa Baby 팝업숍입니다. 같은 회장에서 치이카와 POP UP STORE와 함께 열립니다.",
+    "sells": [
+      "Chiikawa Baby 마스코트",
+      "베이비 굿즈"
+    ],
+    "official": true,
+    "url": "https://chiikawa-info.jp/ckbaby.html",
+    "period": {
+      "start": "2026-10-02",
+      "end": "2026-10-19"
+    },
+    "sources": [
+      "https://chiikawa-info.jp/ckbaby.html"
+    ],
+    "image": "/images/places/jp-baby-aomori-elm-2026-820a95a9.jpg"
+  },
+  {
+    "id": "jp-baby-haneda-t1-2026",
+    "type": "popup",
+    "name": "Chiikawa Baby POP UP SHOP 하네다공항 제1터미널",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都大田区 羽田空港第1ターミナル 2F 出発ロビー HANEDA POPUP STORE",
+    "lat": 35.5491,
+    "lng": 139.7845,
+    "description": "하네다공항 제1터미널 2층 출발로비의 HANEDA POPUP STORE에서 열립니다. 아기 모습 치이카와 굿즈와 마스코트를 팝니다.",
+    "sells": [
+      "Chiikawa Baby 마스코트",
+      "베이비 굿즈"
+    ],
+    "official": true,
+    "url": "https://chiikawa-info.jp/ckbaby.html",
+    "period": {
+      "start": "2026-08-18",
+      "end": "2026-09-28"
+    },
+    "sources": [
+      "https://chiikawa-info.jp/ckbaby.html"
+    ],
+    "image": "/images/places/jp-baby-haneda-t1-2026-820a95a9.jpg"
+  },
+  {
+    "id": "jp-land-amu-plaza-oita-2026",
+    "type": "popup",
+    "name": "치이카와랜드 POP UP SHOP 아뮤플라자 오이타 (ちいかわらんど POP UP SHOP アミュプラザおおいた)",
+    "country": "JP",
+    "city": "오이타",
+    "address": "大分県大分市 アミュプラザおおいた 2階 特設会場",
+    "lat": 33.2331,
+    "lng": 131.6063,
+    "description": "아뮤플라자 오이타 2층 특설회장에서 열립니다. 상설점 치이카와랜드의 굿즈를 기간 한정으로 가져와 팝니다.",
+    "sells": [
+      "치이카와랜드 굿즈"
+    ],
+    "official": true,
+    "url": "https://chiikawa-info.jp/ck_land.html",
+    "period": {
+      "start": "2026-09-11",
+      "end": "2026-10-12"
+    },
+    "sources": [
+      "https://chiikawa-info.jp/ck_land.html"
+    ],
+    "image": "/images/places/jp-land-amu-plaza-oita-2026-b7b3f78b.jpg"
+  },
+  {
+    "id": "jp-pocket-mini-sapporo-2026",
+    "type": "popup",
+    "name": "치이카와 포켓 mini POP UP STORE 삿포로 (ちいかわぽけっと mini POP UP STORE in 札幌)",
+    "country": "JP",
+    "city": "삿포로",
+    "address": "北海道札幌市中央区南1条西3丁目3番地 札幌PARCO 7F PARCO FACTORY",
+    "lat": 43.0587,
+    "lng": 141.3532,
+    "description": "스마트폰 게임 치이카와 포켓의 mini 팝업스토어 첫 회장입니다. 공룡 시리즈와 앨리스 시리즈 굿즈를 팝니다. 붐빔을 피하려고 LINE 앱 예약 신청으로 입장을 제한합니다.",
+    "sells": [
+      "공룡 마스코트 전 7종 (각 2,200엔)",
+      "공룡 트레이딩 아크릴 스탠드 전 7종",
+      "앨리스 트레이딩 캔뱃지 전 7종",
+      "티컵",
+      "한정 스티커(구매 특전)"
+    ],
+    "priceRange": "2,200엔~",
+    "official": true,
+    "url": "https://chiikawa-info.jp/ck_pocket.html",
+    "period": {
+      "start": "2026-09-18",
+      "end": "2026-10-04"
+    },
+    "hours": "10:00~20:00 (최종일 18:00 마감)",
+    "sources": [
+      "https://chiikawa-info.jp/ck_pocket.html"
+    ],
+    "image": "/images/places/jp-pocket-mini-sapporo-2026-df5f6f20.jpg"
+  },
+  {
+    "id": "jp-shisa-mija-naha-2026",
+    "type": "popup",
+    "name": "시사의 기념품 가게 POP UP STORE Mi-ja 고쿠사이도리 2호점 (シーサーのおみやげやさんPOP UP STORE)",
+    "country": "JP",
+    "city": "나하",
+    "address": "沖縄県那覇市 国際通り Mi-ja 国際通り2号店",
+    "lat": 26.2169,
+    "lng": 127.6901,
+    "description": "오키나와 나하 고쿠사이도리의 Mi-ja 2호점에서 열립니다. 오키나와 한정 시사 시리즈 굿즈를 팝니다.",
+    "sells": [
+      "시사 시리즈 오키나와 한정 굿즈"
+    ],
+    "official": true,
+    "url": "https://chiikawa-info.jp/s_fes.html",
+    "period": {
+      "start": "2026-07-17",
+      "end": "2026-09-30"
+    },
+    "sources": [
+      "https://chiikawa-info.jp/s_fes.html"
+    ],
+    "image": "/images/places/jp-shisa-mija-naha-2026-31152a65.jpg"
+  },
+  {
+    "id": "jp-movie-hawaiians-2026",
+    "type": "popup",
+    "name": "영화 치이카와 인어의 섬의 비밀 POP UP STORE 스파리조트 하와이안즈",
+    "country": "JP",
+    "city": "이와키",
+    "address": "福島県いわき市 スパリゾート ハワイアンズ ビッグアロハ2階 特設会場",
+    "lat": 36.9931,
+    "lng": 140.8157,
+    "description": "후쿠시마현 스파리조트 하와이안즈 빅알로하 2층 특설회장에서 열리는 극장판 팝업입니다. 시마지로와 세이렌 굿즈 등 영화 관련 상품을 팝니다.",
+    "sells": [
+      "극장판 치이카와 굿즈",
+      "시마지로 굿즈",
+      "세이렌 굿즈"
+    ],
+    "official": true,
+    "url": "https://chiikawa-info.jp/p26/mck_scpus/index.html",
+    "period": {
+      "start": "2026-07-17",
+      "end": "2026-09-27"
+    },
+    "sources": [
+      "https://chiikawa-info.jp/p26/mck_scpus/index.html"
+    ]
+  },
+  {
+    "id": "jp-bakery-okinawa-2026",
+    "type": "popup",
+    "name": "치이카와 베이커리 OKINAWA POP UP SHOP (ちいかわベーカリー OKINAWA POP UP SHOP)",
+    "country": "JP",
+    "city": "나하",
+    "address": "沖縄県那覇市久茂地1-1-1 デパートリウボウ 6階 イベントスペース",
+    "lat": 26.2137,
+    "lng": 127.6796,
+    "description": "상설점 치이카와 베이커리의 굿즈를 파는 기간 한정 숍이 오키나와에 처음 갑니다. 나하시 데파트 리우보우 6층에서 열리고 오키나와 한정 흑설탕 식빵을 팝니다. 첫날은 디지털 정리권으로 안내하고 이후에도 붐비면 정리권을 씁니다.",
+    "sells": [
+      "치이카와 식빵 흑설탕 950엔 (오키나와 한정)",
+      "캐릭터 모티프 오리지널 식빵",
+      "스태프 마스코트",
+      "샌드 마스코트",
+      "베이커리 오리지널 굿즈"
+    ],
+    "priceRange": "950엔~",
+    "official": true,
+    "url": "https://chiikawabakery.jp",
+    "period": {
+      "start": "2026-10-01",
+      "end": "2026-10-12"
+    },
+    "hours": "10:00~20:00 (최종일 17:00 마감)",
+    "sources": [
+      "https://chiikawabakery.jp"
+    ]
+  },
+  {
+    "id": "jp-park-halloween-2026",
+    "type": "event",
+    "name": "치이카와 파크 할로윈 한정 기획 (ちいかわパーク ハロウィーン限定企画)",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都豊島区東池袋3-3-5 サンシャインシティ アネックス B1F・1F",
+    "lat": 35.729,
+    "lng": 139.7167,
+    "description": "이케부쿠로 선샤인시티의 체험형 시설 치이카와 파크가 기간 한정으로 할로윈 사양이 됩니다. 입구와 1층 숍이 할로윈 장식으로 바뀌고 한정 포토스팟과 할로윈 의상 그리팅이 열립니다. 축광 소재 한정 굿즈 6종은 수량 한정이고 재판매 예정이 없습니다.",
+    "sells": [
+      "미니 마스코트 키링 전 3종 (각 1,540엔)",
+      "3연 축광 아크릴 참 1,540엔",
+      "축광 스티커 전 3종 (각 330엔)",
+      "축광 GHOST 티셔츠 4,180엔",
+      "호박 우사기 티셔츠 4,180엔",
+      "할로윈 복주머니 쿠키 1,650엔"
+    ],
+    "priceRange": "굿즈 330~4,180엔 / 입장료 1,300~3,500엔",
+    "official": true,
+    "url": "https://chiikawapark-tokyo.jp/",
+    "period": {
+      "start": "2026-09-25",
+      "end": "2026-10-31"
+    },
+    "hours": "10:00~19:00 (사전 티켓 구매제, 매진 시간대는 당일권 없음)",
+    "sources": [
+      "https://chiikawapark.com/events/18331/"
+    ]
+  },
+  {
+    "id": "jp-bakery-halloween-omotesando-2026",
+    "type": "cafe",
+    "name": "치이카와 베이커리 할로윈 한정 빵 오모테산도",
+    "country": "JP",
+    "city": "도쿄",
+    "address": "東京都渋谷区 東急プラザ表参道「オモカド」 ちいかわベーカリー",
+    "lat": 35.6687,
+    "lng": 139.706,
+    "description": "치이카와 베이커리 오모테산도 본점에서 할로윈 한정 빵이 나옵니다. 작년에 호평이던 검은고양이 얼굴빵이 밤앙금·호지차크림·호박앙금의 가을 맛으로 돌아옵니다. 할로윈 빵을 3개 살 때마다 한정 디자인 상자에 담아 주고 캐릭터는 마음대로 고를 수 있습니다.",
+    "sells": [
+      "치이카와 빵(검은고양이)·밤앙금 660엔",
+      "하치와레 빵(검은고양이)·호지차크림 660엔",
+      "우사기 빵(검은고양이)·호박앙금 660엔",
+      "펌킨스프 790엔 (테이크아웃 한정)",
+      "홍차 캔 1,870엔",
+      "할로윈 한정 디자인 상자"
+    ],
+    "priceRange": "660~1,870엔",
+    "official": true,
+    "url": "https://chiikawabakery.jp",
+    "period": {
+      "start": "2026-10-02",
+      "end": "2026-10-31"
+    },
+    "hours": "노벨티 포함 우선입장권(1,000엔, 쇼핑권 포함) 사전 예약제",
+    "sources": [
+      "https://chiikawabakery.jp"
+    ]
+  },
+  {
+    "id": "jp-bakery-halloween-kitte-osaka-2026",
+    "type": "cafe",
+    "name": "치이카와 베이커리 OSAKA 할로윈 한정 빵",
+    "country": "JP",
+    "city": "오사카",
+    "address": "大阪府大阪市北区 KITTE大阪 3F ちいかわベーカリー OSAKA",
+    "lat": 34.7006,
+    "lng": 135.494,
+    "description": "새로 문을 연 오사카 우메다 KITTE 오사카 3층 치이카와 베이커리에서 할로윈 한정 빵이 오모테산도점과 같은 날 나옵니다. 검은고양이 모습 얼굴빵 3종과 테이크아웃 한정 펌킨스프가 나옵니다. 모두 기간·수량 한정이라 소진되면 끝납니다.",
+    "sells": [
+      "치이카와 빵(검은고양이)·밤앙금 660엔",
+      "하치와레 빵(검은고양이)·호지차크림 660엔",
+      "우사기 빵(검은고양이)·호박앙금 660엔",
+      "펌킨스프 790엔 (테이크아웃 한정)",
+      "홍차 캔 1,870엔",
+      "할로윈 한정 디자인 상자"
+    ],
+    "priceRange": "660~1,870엔",
+    "official": true,
+    "url": "https://chiikawabakery.jp",
+    "period": {
+      "start": "2026-10-02",
+      "end": "2026-10-31"
+    },
+    "sources": [
+      "https://chiikawabakery.jp"
+    ]
+  },
+  {
+    "id": "kr-nagano-0percent-seoul-2026",
+    "type": "popup",
+    "name": "나가노마켓 POP UP SHOP 0% SEOUL (홍대)",
+    "country": "KR",
+    "city": "서울",
+    "address": "서울 마포구 월드컵북로2길 29, 0% SEOUL",
+    "lat": 37.5567,
+    "lng": 126.9224,
+    "description": "치이카와 작가 나가노의 캐릭터 브랜드 나가노마켓 공식 팝업숍이 홍대 0% SEOUL에서 열립니다. 먼작귀를 포함한 나가노 IP 굿즈와 한국 한정 상품을 팝니다. 네이버 사전예약제로 운영합니다.",
+    "sells": [
+      "나가노 캐릭터즈 굿즈",
+      "먼작귀(치이카와) 굿즈",
+      "농담곰 굿즈",
+      "한국 한정 상품",
+      "마스코트 인형"
+    ],
+    "official": true,
+    "url": "https://nagano-info.jp/pus.html",
+    "period": {
+      "start": "2026-08-28",
+      "end": "2026-10-11"
+    },
+    "hours": "11:00~21:00 (네이버 사전예약제)",
+    "sources": [
+      "https://nagano-info.jp/pus.html"
+    ]
+  },
+  {
+    "id": "kr-nagano-shinsegae-centum-2026",
+    "type": "popup",
+    "name": "나가노마켓 POP UP SHOP 신세계백화점 센텀시티점",
+    "country": "KR",
+    "city": "부산",
+    "address": "부산 해운대구 센텀남대로 35, 신세계백화점 센텀시티점 지하 2층 하이퍼스테이지",
+    "lat": 35.1688,
+    "lng": 129.1296,
+    "description": "나가노마켓 공식 팝업숍이 부산 신세계백화점 센텀시티점 지하 2층 하이퍼스테이지에서 열립니다. 먼작귀와 농담곰 등 나가노 IP 굿즈를 팝니다. 네이버 사전예약제로 운영합니다.",
+    "sells": [
+      "나가노 캐릭터즈 굿즈",
+      "먼작귀(치이카와) 굿즈",
+      "농담곰 굿즈"
+    ],
+    "official": true,
+    "url": "https://nagano-info.jp/pus.html",
+    "period": {
+      "start": "2026-09-18",
+      "end": "2026-10-04"
+    },
+    "hours": "월~목 10:30~20:00 / 금~일 10:30~20:30 (네이버 사전예약제)",
+    "sources": [
+      "https://nagano-info.jp/pus.html"
+    ]
+  },
+  {
+    "id": "kr-yeondo-mungu-ak-hongdae-2026",
+    "type": "popup",
+    "name": "연도문구 팝업 우주정거장점 (AK PLAZA 홍대)",
+    "country": "KR",
+    "city": "서울",
+    "address": "서울 마포구 양화로 188, AK PLAZA 홍대 3층",
+    "lat": 37.5579,
+    "lng": 126.9261,
+    "description": "AK PLAZA 홍대 3층에서 약 3개월간 열리는 문구·소품 편집숍 팝업입니다. 먼작귀를 비롯해 담곰이, 다마고치, 주술회전 등 여러 IP 굿즈를 함께 팝니다. 1만원 이상 사면 스티커를 줍니다.",
+    "sells": [
+      "먼작귀(치이카와) 굿즈",
+      "담곰이 굿즈",
+      "다마고치 굿즈",
+      "주술회전 굿즈",
+      "문구·소품"
+    ],
+    "official": false,
+    "period": {
+      "start": "2026-09-11",
+      "end": "2026-12-06"
+    },
+    "hours": "평일 11:00~22:00 / 주말 10:30~22:00",
+    "sources": [
+      "https://popply.co.kr/popup"
+    ]
+  },
+  {
+    "id": "kr-yumemori-colte-space-2026",
+    "type": "popup",
+    "name": "유메모리 팝업 (콜테 스페이스)",
+    "country": "KR",
+    "city": "서울",
+    "address": "서울 마포구 와우산로 161, 콜테 스페이스 2F",
+    "lat": 37.5554,
+    "lng": 126.9304,
+    "description": "홍대 콜테 스페이스 2층에서 사흘간 열리는 캐릭터 굿즈 편집 팝업입니다. 치이카와를 비롯해 산리오, 산엑스, 포켓몬 등 국내외 굿즈를 팝니다. 무료입장입니다.",
+    "sells": [
+      "치이카와 굿즈",
+      "산리오 굿즈",
+      "산엑스 굿즈",
+      "포켓몬 굿즈"
+    ],
+    "official": false,
+    "url": "https://popply.co.kr/popup",
+    "period": {
+      "start": "2026-10-03",
+      "end": "2026-10-05"
+    },
+    "hours": "13:00~19:00 (무료입장)",
+    "sources": [
+      "https://popply.co.kr/popup"
+    ]
   }
 ]
