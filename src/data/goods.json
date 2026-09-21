@@ -48659,7 +48659,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570198433448"
@@ -53282,48 +53282,6 @@
     "lastRestockDate": "2026-03-26",
     "sources": [
       "https://chiikawamarket.jp/products/4994209146446"
-    ]
-  },
-  {
-    "id": "lgtwins-tshirt",
-    "name": "먼작귀 콜라보 캐릭터 티셔츠",
-    "brand": "LG트윈스",
-    "collab": "트윈스 X 먼작귀 1차",
-    "category": "의류",
-    "releaseDate": "2026-03-20",
-    "price": "39,000원",
-    "image": "https://www.twinscorestore.co.kr/web/product/big/202603/df916df393f82784e3753a1cf49e749d.jpg",
-    "buyUrl": "https://twinscorestore.co.kr/project/%ED%8A%B8%EC%9C%88%EC%8A%A4-x-%EB%A8%BC%EC%9E%91%EA%B7%80/92/",
-    "buyAt": "LG트윈스 콜랩샵",
-    "country": "KR",
-    "description": "프로야구 LG트윈스와의 2026년 첫 콜라보 상품입니다. 사이즈는 90부터 120까지 나왔고 현재는 품절입니다.",
-    "characters": [
-      "chiikawa",
-      "hachiware",
-      "usagi"
-    ],
-    "sources": [
-      "https://www.lg.co.kr/media/release/29873"
-    ]
-  },
-  {
-    "id": "lgtwins-keyring",
-    "name": "먼작귀 콜라보 플레이어 랜덤 키링(치이카와)",
-    "brand": "LG트윈스",
-    "collab": "트윈스 X 먼작귀 1차",
-    "category": "키링/참",
-    "releaseDate": "2026-03-20",
-    "price": "10,000원",
-    "image": "https://www.twinscorestore.co.kr/web/product/medium/202603/e107f18db173431ee4de3be18b924159.jpg",
-    "buyUrl": "https://twinscorestore.co.kr/project/%ED%8A%B8%EC%9C%88%EC%8A%A4-x-%EB%A8%BC%EC%9E%91%EA%B7%80/92/",
-    "buyAt": "LG트윈스 콜랩샵",
-    "country": "KR",
-    "description": "어떤 선수가 나올지 모르는 랜덤 키링입니다. 같은 차수에 아크릴 키링 3종 12,000원, 응원 타올 10,000원, 짐쌕 25,000원이 나왔습니다.",
-    "characters": [
-      "chiikawa"
-    ],
-    "sources": [
-      "https://twinscorestore.co.kr/project/%ED%8A%B8%EC%9C%88%EC%8A%A4-x-%EB%A8%BC%EC%9E%91%EA%B7%80/92/"
     ]
   }
 ]
