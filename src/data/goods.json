@@ -3497,7 +3497,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030264"
@@ -5844,7 +5844,7 @@
     "characters": [
       "kabutomushi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 3,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -7441,7 +7441,7 @@
     "country": "JP",
     "description": "サイズ：フリーサイズ(伸縮性あり) 幅／約80mm(耳含め100mm) 内寸／約530mm(平置き時) 材質：ポリエステル 製造地：中国",
     "characters": [],
-    "available": true,
+    "available": false,
     "restockCount": 3,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -17265,7 +17265,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189210294"
@@ -39280,7 +39280,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609368984"
@@ -43545,7 +43545,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4547855361567"
@@ -44880,7 +44880,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 4,
     "lastRestockDate": "2026-04-30",
     "sources": [
@@ -47388,7 +47388,7 @@
     "characters": [
       "shisa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4930972619046"
