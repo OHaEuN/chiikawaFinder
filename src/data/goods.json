@@ -1079,7 +1079,7 @@
     "characters": [
       "kurimanju"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392231"
@@ -2993,7 +2993,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550213585840"
@@ -5142,7 +5142,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -6373,7 +6373,7 @@
       "usagi",
       "shisa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -6443,7 +6443,7 @@
       "hachiware",
       "rakko"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -7279,7 +7279,7 @@
     "country": "JP",
     "description": "サイズ：H48×W79mm 材質：PET 製造地：日本",
     "characters": [],
-    "available": true,
+    "available": false,
     "restockCount": 5,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -8918,7 +8918,7 @@
       "usagi",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -13920,7 +13920,7 @@
     "characters": [
       "kurimanju"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-08-27",
     "sources": [
@@ -15848,7 +15848,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609411680"
@@ -20149,7 +20149,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": false,
+    "available": true,
     "restockCount": 1,
     "lastRestockDate": "2026-08-05",
     "sources": [
@@ -20193,7 +20193,7 @@
     "characters": [
       "usagi"
     ],
-    "available": false,
+    "available": true,
     "restockCount": 1,
     "lastRestockDate": "2026-08-05",
     "sources": [
@@ -20237,7 +20237,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": false,
+    "available": true,
     "restockCount": 1,
     "lastRestockDate": "2026-08-05",
     "sources": [
@@ -22803,7 +22803,7 @@
       "hachiware",
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550432322349"
@@ -39112,7 +39112,7 @@
     "country": "JP",
     "description": "サイズ（約）：H300×W250×D220mm 材質：ポリエステル、合成ゴム、ABS 製造地：中国",
     "characters": [],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609370895"
@@ -39574,7 +39574,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609390268"
@@ -44528,7 +44528,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4901435218342"
