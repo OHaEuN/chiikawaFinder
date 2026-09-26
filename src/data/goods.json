@@ -4357,7 +4357,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726007907"
@@ -4546,7 +4546,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550311356274"
@@ -6220,7 +6220,7 @@
     "characters": [
       "kurimanju"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 13,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -8474,7 +8474,7 @@
     "country": "JP",
     "description": "サイズ：H66×W58mm 材質：PET 製造地：日本",
     "characters": [],
-    "available": true,
+    "available": false,
     "restockCount": 6,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -11173,7 +11173,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 3,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -50792,7 +50792,7 @@
     "characters": [
       "shisa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-04-15",
     "sources": [
