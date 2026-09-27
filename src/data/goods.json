@@ -3789,7 +3789,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4970825152917"
@@ -4966,7 +4966,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726030417"
@@ -7666,7 +7666,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -10140,7 +10140,7 @@
       "momonga",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -40308,7 +40308,7 @@
     "characters": [
       "anoko"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609385080"
@@ -42662,7 +42662,7 @@
     "country": "JP",
     "description": "サイズ（約）：H190×W160×D30mm 材質： マスコット：ポリエステル 表地：ポリエステル100% 中材：ABS、ポリウレタン 製造地：中国",
     "characters": [],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609362333"
@@ -53842,7 +53842,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550213590240"
@@ -53909,554 +53909,6 @@
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4573256433275"
-    ]
-  },
-  {
-    "id": "cm-4571609369233",
-    "name": "ちいかわパーク おかお巾着（フグ）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2026-03-26",
-    "price": "1,540엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609369233_1_93aed1f1-3227-447d-8e43-54ef573a55ce.jpg?v=1776303747",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609369233",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：H240×W220mm 材質：ポリエステル100% 製造地：中国",
-    "characters": [],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609369233"
-    ]
-  },
-  {
-    "id": "cm-4571609354987",
-    "name": "ちいかわパーク ネックレス（報酬袋）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-03-26",
-    "price": "1,870엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609354987_1.jpg?v=1774853219",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609354987",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）： アクセサリーパーツ：H25×W22×D6mmmm チェーン全長：580mm 材質： 本体：亜鉛合金、鉄 チェーン/引き輪：真鍮 製造地：中国",
-    "characters": [],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609354987"
-    ]
-  },
-  {
-    "id": "cm-4571609354970",
-    "name": "ちいかわパーク ネックレス（討伐棒 うさぎ）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-03-26",
-    "price": "1,870엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609354970_1.jpg?v=1774853248",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609354970",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）： アクセサリーパーツ：H50×W5×D4mm チェーン全長：580mm 材質： 本体：亜鉛合金、鉄 チェーン/引き輪：真鍮 製造地：中国",
-    "characters": [],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609354970"
-    ]
-  },
-  {
-    "id": "cm-4571609354963",
-    "name": "ちいかわパーク ネックレス（さすまた ハチワレ）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-03-26",
-    "price": "1,870엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609354963_1.jpg?v=1774853287",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609354963",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）： アクセサリーパーツ：H48×W20×D4mm チェーン全長：580mm 材質： 本体：亜鉛合金、鉄 チェーン/引き輪：真鍮 製造地：中国",
-    "characters": [],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609354963"
-    ]
-  },
-  {
-    "id": "cm-4571609354956",
-    "name": "ちいかわパーク ネックレス（さすまた ちいかわ）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-03-26",
-    "price": "1,870엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609354956_1.jpg?v=1774853311",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609354956",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）： アクセサリーパーツ：H48×W20×D4mm チェーン全長：580mm 材質： 本体：亜鉛合金、鉄 チェーン/引き輪：真鍮 製造地：中国",
-    "characters": [],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609354956"
-    ]
-  },
-  {
-    "id": "cm-4571609354949",
-    "name": "ちいかわパーク ネックレス（草むしり検定5級 ちいかわ）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-03-26",
-    "price": "1,870엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609354949_1.jpg?v=1774853332",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609354949",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）： アクセサリーパーツ：H25×W22×D4mm チェーン全長：580mm 材質： 本体：亜鉛合金、鉄、ネオジム磁石、エポキシ樹脂 チェーン/引き輪：真鍮 製造地：中国",
-    "characters": [],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609354949"
-    ]
-  },
-  {
-    "id": "cm-4571609370642",
-    "name": "ちいかわパーク ポストカード（暗い森）",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2026-03-26",
-    "price": "330엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609370642_1_fa38428a-cbba-4023-b36b-341c7b4ad9c7.jpg?v=1774958734",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609370642",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：H100×W150mm 材質：紙 製造地：日本",
-    "characters": [
-      "anoko",
-      "usagi",
-      "chiikawa",
-      "kabutomushi",
-      "hachiware",
-      "momonga"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609370642"
-    ]
-  },
-  {
-    "id": "cm-4571609370512",
-    "name": "ちいかわパーク スマホに貼れるサイズのテーマステッカー（ちいかわの家）",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2026-03-26",
-    "price": "330엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609370512_1.jpg?v=1774942288",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609370512",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：80×60mm以内 材質：PET 製造地：日本",
-    "characters": [
-      "usagi",
-      "chiikawa",
-      "hachiware"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609370512"
-    ]
-  },
-  {
-    "id": "cm-4571609370482",
-    "name": "ちいかわパーク スマホに貼れるサイズのテーマステッカー（悪夢）",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2026-03-26",
-    "price": "330엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609370482_1.jpg?v=1774942241",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609370482",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：80×60mm以内 材質：PET 製造地：日本",
-    "characters": [
-      "chiikawa"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609370482"
-    ]
-  },
-  {
-    "id": "cm-4571609370451",
-    "name": "ちいかわパーク テーマアクリルキーホルダー（オデとゴブリン）",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-03-26",
-    "price": "770엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609370451_1.jpg?v=1774942971",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609370451",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：H78×W62mm 材質：アクリル、亜鉛合金 製造地：中国",
-    "characters": [],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609370451"
-    ]
-  },
-  {
-    "id": "cm-4571609370444",
-    "name": "ちいかわパーク テーマアクリルキーホルダー（穴に落ちたハチワレ）",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-03-26",
-    "price": "770엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609370444_1.jpg?v=1774942966",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609370444",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：H80×W70mm 材質：アクリル、亜鉛合金 製造地：中国",
-    "characters": [
-      "hachiware"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609370444"
-    ]
-  },
-  {
-    "id": "cm-4571609370413",
-    "name": "ちいかわパーク テーマアクリルキーホルダー（木）",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-03-26",
-    "price": "770엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609370413_1.jpg?v=1774942916",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609370413",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：H66×W60mm 材質：アクリル、亜鉛合金、PVC 製造地：中国",
-    "characters": [],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609370413"
-    ]
-  },
-  {
-    "id": "cm-4571609370406",
-    "name": "ちいかわパーク テーマアクリルキーホルダー（悪夢）",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-03-26",
-    "price": "770엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609370406_1.jpg?v=1774942907",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609370406",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：H73×W63mm 材質：アクリル、亜鉛合金 製造地：中国",
-    "characters": [
-      "chiikawa"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609370406"
-    ]
-  },
-  {
-    "id": "cm-4571609370390",
-    "name": "ちいかわパーク テーマアクリルキーホルダー（拾魔）",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-03-26",
-    "price": "770엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609370390_1.jpg?v=1774942901",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609370390",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：H94×W35mm 材質：アクリル、亜鉛合金 製造地：中国",
-    "characters": [
-      "usagi",
-      "chiikawa",
-      "hachiware"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609370390"
-    ]
-  },
-  {
-    "id": "cm-4571609367703",
-    "name": "ちいかわパーク メダル風アクリルキーホルダー（古本屋）",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-03-26",
-    "price": "880엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609367703_1.jpg?v=1774942271",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609367703",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：直径50mm 材質：アクリル、亜鉛合金、鉄、ポリエステル 製造地：中国",
-    "characters": [
-      "furuhonya"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609367703"
-    ]
-  },
-  {
-    "id": "cm-4571609367697",
-    "name": "ちいかわパーク メダル風アクリルキーホルダー（ラッコ）",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-03-26",
-    "price": "880엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609367697_1.jpg?v=1774942293",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609367697",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：直径50mm 材質：アクリル、亜鉛合金、鉄、ポリエステル 製造地：中国",
-    "characters": [
-      "rakko"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609367697"
-    ]
-  },
-  {
-    "id": "cm-4571609367680",
-    "name": "ちいかわパーク メダル風アクリルキーホルダー（シーサー）",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-03-26",
-    "price": "880엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609367680_1.jpg?v=1774942310",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609367680",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：直径50mm 材質：アクリル、亜鉛合金、鉄、ポリエステル 製造地：中国",
-    "characters": [
-      "shisa"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609367680"
-    ]
-  },
-  {
-    "id": "cm-4571609367673",
-    "name": "ちいかわパーク メダル風アクリルキーホルダー（くりまんじゅう）",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-03-26",
-    "price": "880엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609367673_1.jpg?v=1774942325",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609367673",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：直径50mm 材質：アクリル、亜鉛合金、鉄、ポリエステル 製造地：中国",
-    "characters": [
-      "kurimanju"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609367673"
-    ]
-  },
-  {
-    "id": "cm-4571609365808",
-    "name": "ちいかわパーク ぱっちんバンド（古本屋）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-03-26",
-    "price": "1,760엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609365808_1_baa0f58a-c34c-4dd2-910b-f3a3f61bed6f.jpg?v=1774957431",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609365808",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：H65×W260×D45mm 材質： 表地：ポリエステル 中材：ポリウレタン、スチール 製造地：中国",
-    "characters": [
-      "furuhonya"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609365808"
-    ]
-  },
-  {
-    "id": "cm-4571609365792",
-    "name": "ちいかわパーク ぱっちんバンド（ラッコ）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-03-26",
-    "price": "1,760엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609365792_1_f6415c4e-7b93-4c53-aad8-12c53a09d4a6.jpg?v=1774957443",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609365792",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：H55×W260×D45mm 材質： 表地：ポリエステル 中材：ポリウレタン、スチール 製造地：中国",
-    "characters": [
-      "rakko"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609365792"
-    ]
-  },
-  {
-    "id": "cm-4571609365785",
-    "name": "ちいかわパーク ぱっちんバンド（シーサー）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-03-26",
-    "price": "1,760엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609365785_1_805f6212-6564-418a-baed-0dc4e966b679.jpg?v=1774957453",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609365785",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：H55×W260×D45mm 材質： 表地：ポリエステル 中材：ポリウレタン、スチール 製造地：中国",
-    "characters": [
-      "shisa"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609365785"
-    ]
-  },
-  {
-    "id": "cm-4571609365778",
-    "name": "ちいかわパーク ぱっちんバンド（くりまんじゅう）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-03-26",
-    "price": "1,760엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609365778_1_215dd761-7b8b-486c-ae32-0ef980c192d6.jpg?v=1774957467",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609365778",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "サイズ（約）：H55×W260×D45mm 材質： 表地：ポリエステル 中材：ポリウレタン、スチール 製造地：中国",
-    "characters": [
-      "kurimanju"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609365778"
-    ]
-  },
-  {
-    "id": "cm-4994209146392",
-    "name": "コミックマグ（～ウヤハァ！！～うさぎ）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2024-12-13",
-    "price": "1,430엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4994209146392_1_ff807cba-a1b0-4532-8903-b4ac2da3a4fb.jpg?v=1733799529",
-    "buyUrl": "https://chiikawamarket.jp/products/4994209146392",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "各キャラクターのストーリーを抜粋したコミック風デザインのマグカップです！ 電子レンジ対応で、寒い冬でも温めなおすことができます♪ ※電子レンジ・食器洗浄機・食器乾燥機使用可能 ※オーブン使用不可 サイズ（約）：H90×W136×D101mm 容量：約380ml（最大） 重さ（約）：375g 材質：磁器 製造地：中国",
-    "characters": [
-      "usagi",
-      "chiikawa",
-      "hachiware"
-    ],
-    "available": true,
-    "restockCount": 2,
-    "lastRestockDate": "2026-03-26",
-    "sources": [
-      "https://chiikawamarket.jp/products/4994209146392"
-    ]
-  },
-  {
-    "id": "cm-4994209146385",
-    "name": "コミックマグ（～自信～ハチワレ）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2024-12-13",
-    "price": "1,430엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4994209146385_1.jpg?v=1733799663",
-    "buyUrl": "https://chiikawamarket.jp/products/4994209146385",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "各キャラクターのストーリーを抜粋したコミック風デザインのマグカップです！ 電子レンジ対応で、寒い冬でも温めなおすことができます♪ ※電子レンジ・食器洗浄機・食器乾燥機使用可能 ※オーブン使用不可 サイズ（約）：H90×W136×D101mm 容量：約380ml（最大） 重さ（約）：375g 材質：磁器 製造地：中国",
-    "characters": [
-      "hachiware",
-      "rakko"
-    ],
-    "available": true,
-    "restockCount": 2,
-    "lastRestockDate": "2026-03-26",
-    "sources": [
-      "https://chiikawamarket.jp/products/4994209146385"
-    ]
-  },
-  {
-    "id": "cm-4994209146408",
-    "name": "コミックマグ（～もう一杯～くりまんじゅう）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2024-12-13",
-    "price": "1,430엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4994209146408_1.jpg?v=1733799423",
-    "buyUrl": "https://chiikawamarket.jp/products/4994209146408",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "各キャラクターのストーリーを抜粋したコミック風デザインのマグカップです！ 電子レンジ対応で、寒い冬でも温めなおすことができます♪ ※電子レンジ・食器洗浄機・食器乾燥機使用可能 ※オーブン使用不可 サイズ（約）：H90×W136×D101mm 容量：約380ml（最大） 重さ（約）：375g 材質：磁器 製造地：中国",
-    "characters": [
-      "kurimanju",
-      "shisa"
-    ],
-    "available": false,
-    "restockCount": 4,
-    "lastRestockDate": "2026-03-26",
-    "sources": [
-      "https://chiikawamarket.jp/products/4994209146408"
-    ]
-  },
-  {
-    "id": "cm-4994209146446",
-    "name": "コミックマグ（～ともだち～モモンガ）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2024-12-13",
-    "price": "1,430엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4994209146446_1.jpg?v=1733799358",
-    "buyUrl": "https://chiikawamarket.jp/products/4994209146446",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "各キャラクターのストーリーを抜粋したコミック風デザインのマグカップです！ 電子レンジ対応で、寒い冬でも温めなおすことができます♪ ※電子レンジ・食器洗浄機・食器乾燥機使用可能 ※オーブン使用不可 サイズ（約）：H90×W136×D101mm 容量：約380ml（最大） 重さ（約）：375g 材質：磁器 製造地：中国",
-    "characters": [
-      "momonga",
-      "furuhonya"
-    ],
-    "available": false,
-    "restockCount": 3,
-    "lastRestockDate": "2026-03-26",
-    "sources": [
-      "https://chiikawamarket.jp/products/4994209146446"
     ]
   }
 ]
