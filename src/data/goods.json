@@ -1452,6 +1452,69 @@
     ]
   },
   {
+    "id": "cm-4571609418351",
+    "name": "【予約】ちいかわ ちいプラ うさぎと自転車【2027年1月下旬より順次発送予定（発送延期の場合もキャンセル不可）】【通常商品と同時購入・配送希望日指定不可】【キャンペーン対象外】",
+    "brand": "치이카와 마켓",
+    "category": "피규어/프라이즈",
+    "releaseDate": "2026-10-03",
+    "price": "1,650엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609418351_0.jpg?v=1790823957",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609418351",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "【送料無料について】 「ちいプラ」の「ちいかわと自転車」「ハチワレと自転車」「うさぎと自転車」の3種を同時にカートに投入後、チェックアウトまで進むと自動で送料無料が適用されます。 【お届け日について】 ※「うさぎと自転車」のみ、2027年1月下旬頃出荷予定です。 ※「うさぎと自転車」が含まれるご注文はまとめて2027年",
+    "characters": [
+      "usagi"
+    ],
+    "available": true,
+    "restockCount": 0,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609418351"
+    ]
+  },
+  {
+    "id": "cm-4571609412274",
+    "name": "【予約】ちいかわ ちいプラ ハチワレと自転車【2026年12月下旬より順次発送予定（発送延期の場合もキャンセル不可）】【通常商品と同時購入・配送希望日指定不可】【キャンペーン対象外】",
+    "brand": "치이카와 마켓",
+    "category": "피규어/프라이즈",
+    "releaseDate": "2026-10-03",
+    "price": "1,980엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609412274_0.jpg?v=1790823925",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609412274",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "【送料無料について】 「ちいプラ」の「ちいかわと自転車」「ハチワレと自転車」「うさぎと自転車」の3種を同時にカートに投入後、チェックアウトまで進むと自動で送料無料が適用されます。 【お届け日について】 ※「うさぎと自転車」のみ、2027年1月下旬頃出荷予定です。 ※「うさぎと自転車」が含まれるご注文はまとめて2027年",
+    "characters": [
+      "hachiware"
+    ],
+    "available": false,
+    "restockCount": 0,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609412274"
+    ]
+  },
+  {
+    "id": "cm-4571609412267",
+    "name": "【予約】ちいかわ ちいプラ ちいかわと自転車【2026年12月下旬より順次発送予定（発送延期の場合もキャンセル不可）】【通常商品と同時購入・配送希望日指定不可】【キャンペーン対象外】",
+    "brand": "치이카와 마켓",
+    "category": "피규어/프라이즈",
+    "releaseDate": "2026-10-03",
+    "price": "1,650엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609412267_0.jpg?v=1790823869",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609412267",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "【送料無料について】 「ちいプラ」の「ちいかわと自転車」「ハチワレと自転車」「うさぎと自転車」の3種を同時にカートに投入後、チェックアウトまで進むと自動で送料無料が適用されます。 【お届け日について】 ※「うさぎと自転車」のみ、2027年1月下旬頃出荷予定です。 ※「うさぎと自転車」が含まれるご注文はまとめて2027年",
+    "characters": [
+      "chiikawa"
+    ],
+    "available": false,
+    "restockCount": 0,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609412267"
+    ]
+  },
+  {
     "id": "cm-4570189210386",
     "name": "ちいかわパーク トートバッグ カボチャなうさぎ パープル",
     "brand": "치이카와 마켓",
@@ -2465,7 +2528,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 3,
     "lastRestockDate": "2026-10-01",
     "sources": [
@@ -2532,7 +2595,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-10-01",
     "sources": [
@@ -2679,7 +2742,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 8,
     "lastRestockDate": "2026-10-01",
     "sources": [
@@ -3674,7 +3737,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-10-01",
     "sources": [
@@ -3700,7 +3763,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-10-01",
     "sources": [
@@ -3768,7 +3831,7 @@
     "characters": [
       "kurimanju"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-10-01",
     "sources": [
@@ -6684,7 +6747,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550213585826"
@@ -9018,7 +9081,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 3,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -12569,7 +12632,7 @@
     "characters": [
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -22918,7 +22981,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 5,
     "lastRestockDate": "2026-08-05",
     "sources": [
@@ -31054,7 +31117,7 @@
       "hachiware",
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 7,
     "lastRestockDate": "2026-07-02",
     "sources": [
@@ -35273,7 +35336,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189205931"
@@ -48611,7 +48674,7 @@
     "characters": [
       "kurimanju"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-04-30",
     "sources": [
