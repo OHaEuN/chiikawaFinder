@@ -2083,7 +2083,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4967678401262"
@@ -3183,7 +3183,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 5,
     "lastRestockDate": "2026-10-01",
     "sources": [
@@ -3625,7 +3625,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 3,
     "lastRestockDate": "2026-10-01",
     "sources": [
@@ -3713,7 +3713,7 @@
     "characters": [
       "kurimanju"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 3,
     "lastRestockDate": "2026-10-01",
     "sources": [
@@ -4728,7 +4728,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392194"
@@ -7767,7 +7767,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550681037155"
@@ -12907,7 +12907,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-10",
     "sources": [
@@ -32351,7 +32351,7 @@
       "momonga",
       "rakko"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-07-02",
     "sources": [
@@ -42231,7 +42231,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609390282"
@@ -51766,7 +51766,7 @@
     "country": "JP",
     "description": "サイズ：約直径125×H65mm 材質：陶器 製造地：日本",
     "characters": [],
-    "available": true,
+    "available": false,
     "restockCount": 3,
     "lastRestockDate": "2026-04-15",
     "sources": [
