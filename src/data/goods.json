@@ -2225,7 +2225,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 5,
     "lastRestockDate": "2026-10-08",
     "sources": [
@@ -2423,7 +2423,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 3,
     "lastRestockDate": "2026-10-08",
     "sources": [
@@ -2676,7 +2676,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-10-08",
     "sources": [
@@ -16564,7 +16564,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-03",
     "sources": [
@@ -18060,7 +18060,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-08-27",
     "sources": [
@@ -36448,7 +36448,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4582100664536"
@@ -42093,7 +42093,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 3,
     "lastRestockDate": "2026-05-14",
     "sources": [
@@ -46957,7 +46957,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4547855361505"
@@ -48446,7 +48446,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-04-30",
     "sources": [
@@ -50465,7 +50465,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609385943"
@@ -51268,7 +51268,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4970825153365"
@@ -53483,207 +53483,6 @@
     "lastRestockDate": "2026-04-15",
     "sources": [
       "https://chiikawamarket.jp/products/4582662952881"
-    ]
-  },
-  {
-    "id": "cm-4570198434476",
-    "name": "アニメ『ちいかわ』 カラビナ晴雨兼用折傘 50cm（ちいかわハチワレうさぎ・オフホワイト）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-04-10",
-    "price": "3,960엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4570198434476_1.jpg?v=1775570948",
-    "buyUrl": "https://chiikawamarket.jp/products/4570198434476",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "ちいかわの晴雨兼用折りたたみ傘が新登場！バッグなどの持ち手に取り付け可能なカラビナ仕様の手元で、持ち運びにとても便利。 ※グラスファイバー部分に素手で触らないでください。 サイズ（約）：H260×W50×D50mm 重さ（約）：240g 材質：ポリエステル 製造地：中国",
-    "characters": [
-      "usagi",
-      "chiikawa",
-      "hachiware"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4570198434476"
-    ]
-  },
-  {
-    "id": "cm-4582769923722",
-    "name": "アニメ『ちいかわ』 コースターコレクション Vol.1（全22種）1BOX 20個入",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-04-10",
-    "price": "2,200엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4582769923722_1.jpg?v=1775570678",
-    "buyUrl": "https://chiikawamarket.jp/products/4582769923722",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "アニメ『ちいかわ』のコースターコレクションの第1弾がついに登場！ コースターは、直径約75mm、厚さ約1mmで、表面フルカラー印刷、裏面モノクロ印刷の両面印刷仕様。 コースター全面にはマットPPコートがかかり、美麗なイラストをマットな質感で再現します。 ノーマルコースター20種、スペシャルコースター2種の全22種類。 ",
-    "characters": [
-      "usagi",
-      "kurimanju",
-      "chiikawa",
-      "shisa",
-      "hachiware",
-      "momonga",
-      "rakko",
-      "yoroi-san"
-    ],
-    "available": true,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4582769923722"
-    ]
-  },
-  {
-    "id": "cm-4570198433844",
-    "name": "アニメ『ちいかわ』 カラビナ晴雨兼用折傘 50cm（なかまたち・ピンク）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-04-10",
-    "price": "3,960엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4570198433844_1.jpg?v=1775639468",
-    "buyUrl": "https://chiikawamarket.jp/products/4570198433844",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "ちいかわの晴雨兼用折りたたみ傘が新登場！バッグなどの持ち手に取り付け可能なカラビナ仕様の手元で、持ち運びにとても便利。 ※グラスファイバー部分に素手で触らないでください。 サイズ（約）：H260×W50×D50mm 重さ（約）：240g 材質：ポリエステル 製造地：中国",
-    "characters": [
-      "usagi",
-      "kurimanju",
-      "chiikawa",
-      "shisa",
-      "hachiware",
-      "momonga",
-      "rakko"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4570198433844"
-    ]
-  },
-  {
-    "id": "cm-4902923159475",
-    "name": "アニメ『ちいかわ』 うきわ4（70cm）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-04-10",
-    "price": "2,750엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4902923159475_1.jpg?v=1775570814",
-    "buyUrl": "https://chiikawamarket.jp/products/4902923159475",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "ちいかわたちが勢揃いしたイラストが可愛い70cmうきわです。 ※対象年齢 6歳以上 サイズ（約）： 本体：直径70cm（空気注入前） 内周：95～100cm（空気注入後） 胸囲の目安：66cm パッケージ：H260×W210×D25mm 重さ（約）：330g 材質： 本体・空気栓：塩化ビニール樹脂 ロープ・ジョイントパ",
-    "characters": [
-      "usagi",
-      "kurimanju",
-      "chiikawa",
-      "shisa",
-      "hachiware",
-      "momonga",
-      "rakko"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4902923159475"
-    ]
-  },
-  {
-    "id": "cm-4570198433851",
-    "name": "アニメ『ちいかわ』 カラビナ晴雨兼用折傘 50cm（パジャマ・ブルー）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-04-10",
-    "price": "3,960엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4570198433851_1.jpg?v=1775570938",
-    "buyUrl": "https://chiikawamarket.jp/products/4570198433851",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "ちいかわの晴雨兼用折りたたみ傘が新登場！バッグなどの持ち手に取り付け可能なカラビナ仕様の手元で、持ち運びにとても便利。 ※グラスファイバー部分に素手で触らないでください。 サイズ（約）：H260×W50×D50mm 重さ（約）：240g 材質：ポリエステル 製造地：中国",
-    "characters": [
-      "usagi",
-      "chiikawa",
-      "hachiware"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4570198433851"
-    ]
-  },
-  {
-    "id": "cm-4902923159482",
-    "name": "アニメ『ちいかわ』 うきわ4（90cm）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-04-10",
-    "price": "3,740엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4902923159482_1.jpg?v=1775570854",
-    "buyUrl": "https://chiikawamarket.jp/products/4902923159482",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "ちいかわ、ハチワレ、うさぎのイラストが可愛い90cmうきわです。 うきわ表面と内面に柄が入っていて、奥行き感がおしゃれなデザインです。 ※対象年齢 12歳以上 サイズ（約）： 本体：直径90cm（空気注入前） 内周：110～115cm（空気注入後） 胸囲の目安：78cm パッケージ：H370×W280×D30mm 重さ",
-    "characters": [
-      "usagi",
-      "chiikawa",
-      "hachiware"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4902923159482"
-    ]
-  },
-  {
-    "id": "cm-4902923159291",
-    "name": "アニメ『ちいかわ』 うきわ4（60cm）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-04-10",
-    "price": "2,200엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4902923159291_1.jpg?v=1775570796",
-    "buyUrl": "https://chiikawamarket.jp/products/4902923159291",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "ちいかわ、ハチワレ、うさぎ、モモンガのイラストが可愛い60cmうきわです。 ※対象年齢 3歳以上 サイズ（約）： 本体：直径60cm（空気注入前） 内周：85～90cm（空気注入後） 胸囲の目安：58cm パッケージ：H260×W210×D25mm 重さ（約）：250g 材質： 本体・空気栓：塩化ビニール樹脂 ロープ・",
-    "characters": [
-      "usagi",
-      "chiikawa",
-      "hachiware",
-      "momonga"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4902923159291"
-    ]
-  },
-  {
-    "id": "cm-4902923159499",
-    "name": "アニメ『ちいかわ』 ビーチボール4",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-04-10",
-    "price": "1,210엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4902923159499_1.jpg?v=1775570886",
-    "buyUrl": "https://chiikawamarket.jp/products/4902923159499",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "ちいかわたちが勢揃いしたイラストが可愛いビーチボールです。 ※対象年齢 3歳以上 サイズ（約）： 本体：H400×W400mm（空気注入前）／直径280×H280mm（空気注入後） パッケージ：H210×W180×D15mm 重さ（約）：90g 材質：塩化ビニール樹脂 製造地：中国",
-    "characters": [
-      "usagi",
-      "chiikawa",
-      "shisa",
-      "hachiware",
-      "momonga",
-      "rakko"
-    ],
-    "available": false,
-    "restockCount": 0,
-    "sources": [
-      "https://chiikawamarket.jp/products/4902923159499"
     ]
   }
 ]
