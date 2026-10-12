@@ -2467,7 +2467,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 3,
     "lastRestockDate": "2026-10-08",
     "sources": [
@@ -7962,7 +7962,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4970825152870"
@@ -8450,7 +8450,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550726007884"
@@ -9338,7 +9338,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4550681827848"
@@ -10167,7 +10167,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 4,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -10472,7 +10472,7 @@
     "characters": [
       "kabutomushi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -10494,7 +10494,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 1,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -17831,7 +17831,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-08-27",
     "sources": [
@@ -26523,7 +26523,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609409052"
@@ -42776,7 +42776,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609368977"
