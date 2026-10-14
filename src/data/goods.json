@@ -277,6 +277,69 @@
     ]
   },
   {
+    "id": "cm-4571609413769",
+    "name": "【予約】ちいかわ まじかるちいかわ ふんわりもっちり ごろりん抱きぬいぐるみ（あのこ）【2027年2月下旬より順次発送予定（発送延期の場合もキャンセル不可）】【通常商品と同時購入・配送希望日指定不可】【キャンペーン対象外】",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-10-13",
+    "price": "7,700엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609413769.jpg?v=1791364626",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609413769",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "【必ずお読みください】 ◆【予約】ちいかわ まじかるちいかわ ふんわりもっちり ごろりん抱きぬいぐるみシリーズ（全3種）は、他の商品と一緒にご注文・ご購入いただけません。 一緒に購入された場合は、ご注文をキャンセルさせていただきます。 ご了承くださいませ。 ◆予約商品と販売中の商品は同時注文できません。 個別にご注文く",
+    "characters": [
+      "anoko"
+    ],
+    "available": true,
+    "restockCount": 0,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609413769"
+    ]
+  },
+  {
+    "id": "cm-4571609413776",
+    "name": "【予約】ちいかわ まじかるちいかわ ふんわりもっちり ごろりん抱きぬいぐるみ（強くなったハチワレ）【2027年2月下旬より順次発送予定（発送延期の場合もキャンセル不可）】【通常商品と同時購入・配送希望日指定不可】【キャンペーン対象外】",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-10-13",
+    "price": "7,700엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609413776.jpg?v=1791364565",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609413776",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "【必ずお読みください】 ◆【予約】ちいかわ まじかるちいかわ ふんわりもっちり ごろりん抱きぬいぐるみシリーズ（全3種）は、他の商品と一緒にご注文・ご購入いただけません。 一緒に購入された場合は、ご注文をキャンセルさせていただきます。 ご了承くださいませ。 ◆予約商品と販売中の商品は同時注文できません。 個別にご注文く",
+    "characters": [
+      "hachiware"
+    ],
+    "available": true,
+    "restockCount": 0,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609413776"
+    ]
+  },
+  {
+    "id": "cm-4571609413783",
+    "name": "【予約】ちいかわ まじかるちいかわ ふんわりもっちり ごろりん抱きぬいぐるみ（強くなったうさぎ）【2027年2月下旬より順次発送予定（発送延期の場合もキャンセル不可）】【通常商品と同時購入・配送希望日指定不可】【キャンペーン対象外】",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-10-13",
+    "price": "7,700엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609413783.jpg?v=1791364448",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609413783",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "【必ずお読みください】 ◆【予約】ちいかわ まじかるちいかわ ふんわりもっちり ごろりん抱きぬいぐるみシリーズ（全3種）は、他の商品と一緒にご注文・ご購入いただけません。 一緒に購入された場合は、ご注文をキャンセルさせていただきます。 ご了承くださいませ。 ◆予約商品と販売中の商品は同時注文できません。 個別にご注文く",
+    "characters": [
+      "usagi"
+    ],
+    "available": true,
+    "restockCount": 0,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609413783"
+    ]
+  },
+  {
     "id": "cm-4571609351351",
     "name": "肉まん食べるよマスコット（ちいかわ）",
     "brand": "치이카와 마켓",
@@ -539,7 +602,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609417187"
@@ -1152,7 +1215,7 @@
       "shisa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4571609413738"
@@ -2910,7 +2973,7 @@
       "hachiware",
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 2,
     "lastRestockDate": "2026-10-08",
     "sources": [
@@ -5469,7 +5532,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 3,
     "lastRestockDate": "2026-10-01",
     "sources": [
@@ -7526,7 +7589,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189205894"
@@ -10022,7 +10085,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 4,
     "lastRestockDate": "2026-09-17",
     "sources": [
@@ -36238,7 +36301,7 @@
       "momonga",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restockCount": 0,
     "sources": [
       "https://chiikawamarket.jp/products/4570189206068"
