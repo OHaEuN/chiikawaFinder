@@ -1,7 +1,10 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { SHOP, assertYen, cutoffDate, latestActivity, mapProduct, mergeGoods } from './lib.mjs';
+import { appendDay, diffDay, emptyHistory } from './history.mjs';
 
 const OUT = new URL('../src/data/goods.json', import.meta.url);
+const HISTORY = new URL('../src/data/history.json', import.meta.url);
+const FX = new URL('../src/data/fx.json', import.meta.url);
 const PAGE_SIZE = 250;
 const MAX_PAGES = 20;
 
@@ -21,6 +24,14 @@ async function fetchAllProducts() {
   return all;
 }
 
+const readJson = async (url, fallback) => {
+  try {
+    return JSON.parse(await readFile(url, 'utf8'));
+  } catch {
+    return fallback;
+  }
+};
+
 const cutoff = cutoffDate();
 const products = await fetchAllProducts();
 assertYen(products);
@@ -29,4 +40,17 @@ const scraped = products.map(mapProduct).filter((g) => latestActivity(g) >= cuto
 const existing = JSON.parse(await readFile(OUT, 'utf8'));
 const merged = mergeGoods(existing, scraped, cutoff);
 await writeFile(OUT, JSON.stringify(merged, null, 2) + '\n');
+
+// 덮어쓰기 전의 목록과 맞대야 그날의 변화가 나온다. 환율은 먼저 갱신된 값을 읽는다.
+const { krwPerJpy } = await readJson(FX, { krwPerJpy: 0 });
+const history = await readJson(HISTORY, emptyHistory());
+const day = diffDay({
+  date: new Date().toISOString().slice(0, 10),
+  previous: existing,
+  current: merged,
+  krwPerJpy,
+});
+await writeFile(HISTORY, JSON.stringify(appendDay(history, day), null, 2) + '\n');
+
 console.log(`fetched ${products.length} products, ${scraped.length} within ${cutoff}~, total ${merged.length} goods`);
+console.log(`변화: 신상 ${day.added.length} · 품절 ${day.soldOut.length} · 재입고 ${day.backInStock.length}`);

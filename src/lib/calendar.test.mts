@@ -37,12 +37,12 @@ test('앞으로 나올 게 없으면 빈 배열', () => {
 
 test('최근 재입고만 골라 최신순으로 묶는다', () => {
   const items = [
-    { id: 'a', releaseDate: '2024-01-01', lastRestockDate: '2026-09-10' },
-    { id: 'b', releaseDate: '2024-01-01', lastRestockDate: '2026-09-15' },
-    { id: 'c', releaseDate: '2026-09-16', lastRestockDate: undefined },
-    { id: 'd', releaseDate: '2024-01-01', lastRestockDate: '2026-01-01' },
-    { id: 'e', releaseDate: '2026-09-10', lastRestockDate: '2026-09-10' },
-    { id: 'f', releaseDate: '2024-01-01', lastRestockDate: '2026-11-01' },
+    { id: 'a', releaseDate: '2024-01-01', restocks: ['2026-09-10'] },
+    { id: 'b', releaseDate: '2024-01-01', restocks: ['2026-05-01', '2026-09-15'] },
+    { id: 'c', releaseDate: '2026-09-16' },
+    { id: 'd', releaseDate: '2024-01-01', restocks: ['2026-01-01'] },
+    { id: 'e', releaseDate: '2026-09-10', restocks: ['2026-09-10'] },
+    { id: 'f', releaseDate: '2024-01-01', restocks: ['2026-11-01'] },
   ] as GoodsSummary[];
   const days = recentRestocks(items, '2026-09-17', 30);
   assert.deepEqual(days.map((d) => d.date), ['2026-09-15', '2026-09-10']);

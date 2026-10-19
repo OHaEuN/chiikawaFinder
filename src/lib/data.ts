@@ -4,11 +4,13 @@ import places from '@/data/places.json';
 import goods from '@/data/goods.json';
 import groupbuyChannels from '@/data/groupbuy-channels.json';
 import fx from '@/data/fx.json';
+import history from '@/data/history.json';
 import type { Character } from '@/types/character';
 import type { OnlineContent } from '@/types/online';
 import type { Place } from '@/types/place';
 import type { Goods, GoodsSummary } from '@/types/goods';
 import type { GroupBuyChannel } from '@/types/groupbuy';
+import type { History } from '@/types/history';
 
 export const CHARACTERS = characters as Character[];
 export const ONLINE = online as OnlineContent[];
@@ -16,11 +18,16 @@ export const PLACES = places as Place[];
 export const GOODS = [...(goods as Goods[])].sort((a, b) => b.releaseDate.localeCompare(a.releaseDate));
 
 export const goodsSummaries = (list: Goods[] = GOODS): GoodsSummary[] =>
-  list.map(({ id, name, brand, collab, category, releaseDate, price, image, country, available, restockCount, lastRestockDate }) => ({
-    id, name, brand, collab, category, releaseDate, price, image, country, available, restockCount, lastRestockDate,
+  list.map(({ id, name, brand, collab, category, releaseDate, price, image, country, available, restocks }) => ({
+    id, name, brand, collab, category, releaseDate, price, image, country, available, restocks,
   }));
 
 export const GROUPBUY_CHANNELS = groupbuyChannels as GroupBuyChannel[];
+
+export const HISTORY = history as History;
+
+/** 기록에 남은 id 로 상품을 되찾을 때 쓴다. */
+export const goodsById = (list: GoodsSummary[]) => new Map(list.map((g) => [g.id, g]));
 
 export const FX = fx as { krwPerJpy: number; usdPerJpy: number; updatedAt: string; source: string };
 

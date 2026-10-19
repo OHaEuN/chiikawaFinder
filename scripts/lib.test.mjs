@@ -54,20 +54,18 @@ test('날짜가 아닌 8자리 태그는 버린다', () => {
 });
 
 test('오래전에 나왔어도 최근 재입고면 기간 안으로 본다', () => {
-  const old = { releaseDate: '2024-01-01', lastRestockDate: '2026-09-01' };
+  const old = { releaseDate: '2024-01-01', restocks: ['2025-05-01', '2026-09-01'] };
   assert.equal(latestActivity(old), '2026-09-01');
   assert.equal(latestActivity({ releaseDate: '2026-09-01' }), '2026-09-01');
   const merged = mergeGoods([], [{ id: 'cm-a', ...old }], '2026-03-17');
   assert.equal(merged.length, 1);
 });
 
-test('재고와 재입고 이력을 상품에 담는다', () => {
+test('재고와 재입고 날짜 전체를 상품에 담는다', () => {
   const g = mapProduct(product);
   assert.equal(g.available, true);
-  assert.equal(g.restockCount, 2);
-  assert.equal(g.lastRestockDate, '2026-11-01');
-  assert.equal(mapProduct({ ...product, tags: ['20260925'] }).restockCount, 0);
-  assert.equal('lastRestockDate' in mapProduct({ ...product, tags: ['20260925'] }), false);
+  assert.deepEqual(g.restocks, ['2026-06-01', '2026-11-01']);
+  assert.equal('restocks' in mapProduct({ ...product, tags: ['20260925'] }), false);
 });
 
 test('mergeGoods는 수동 항목을 지키고 스크랩 항목을 교체하며 기간 지난 것을 버린다', () => {

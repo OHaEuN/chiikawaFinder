@@ -11,7 +11,8 @@
     "images": "node scripts/download-images.mjs",
     "fx": "node scripts/fx.mjs",
     "movie-art": "python3 scripts/movie-art.py",
-    "cursor": "python3 scripts/cursor.py"
+    "cursor": "python3 scripts/cursor.py",
+    "backfill-history": "node scripts/backfill-history.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

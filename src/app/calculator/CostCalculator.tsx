@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { calculateCost, DUTY_FREE_LIMIT_USD, FREE_DOMESTIC_SHIPPING_YEN, TAX_RATES, type CartLine, type TaxCategory } from '@/lib/cost';
 import { track } from '@/lib/analytics';
 import { SafeImage } from '@/components/SafeImage';
@@ -36,6 +36,22 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
   const [people, setPeople] = useState(1);
   const [domesticKrw, setDomesticKrw] = useState(DEFAULT_DOMESTIC_KRW);
   const [taxCategory, setTaxCategory] = useState<TaxCategory>('toy');
+
+  /**
+   * 굿즈 상세의 "계산기에 담기"로 넘어온 상품을 담는다.
+   * 정적 사이트라 서버가 쿼리를 읽어 줄 수 없어 주소에서 직접 꺼낸다.
+   */
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const id = url.searchParams.get('add');
+    const option = id && options.find((o) => o.id === id);
+    if (!option) return;
+    setLines((prev) => (prev.some((l) => l.id === option.id) ? prev : [...prev, { id: option.id, name: option.name, priceYen: option.priceYen, quantity: 1 }]));
+    track('calculator_add_item', { from: 'goods' });
+    // 새로고침할 때마다 다시 담기지 않게 주소를 정리한다.
+    url.searchParams.delete('add');
+    window.history.replaceState(null, '', url);
+  }, [options]);
 
   const matches = useMemo(() => {
     const q = query.trim().toLowerCase();

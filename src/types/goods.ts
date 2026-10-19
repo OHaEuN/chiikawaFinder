@@ -16,10 +16,11 @@ export interface Goods {
   affiliateUrl?: string;
   /** 지금 살 수 있는지. 치이카와 마켓은 상품 대부분이 품절 상태로 남아 있다. */
   available?: boolean;
-  /** 지금까지 재입고된 횟수. 많을수록 또 들어올 가능성이 크다. */
-  restockCount?: number;
-  /** 마지막 재입고일 YYYY-MM-DD */
-  lastRestockDate?: string;
+  /**
+   * 재입고된 날짜 전체. 오름차순. 상품 태그의 RE+날짜에서 모은다.
+   * 횟수만 세면 주기를 알 수 없어 날짜를 그대로 남긴다.
+   */
+  restocks?: string[];
   buyAt: string;
   country: 'KR' | 'JP' | 'GLOBAL';
   description: string;
@@ -30,5 +31,5 @@ export interface Goods {
 /** 목록 화면에 내려보내는 축약형. 본문(description)·출처는 상세에서만 쓴다. */
 export type GoodsSummary = Pick<
   Goods,
-  'id' | 'name' | 'brand' | 'collab' | 'category' | 'releaseDate' | 'price' | 'image' | 'country' | 'available' | 'restockCount' | 'lastRestockDate'
+  'id' | 'name' | 'brand' | 'collab' | 'category' | 'releaseDate' | 'price' | 'image' | 'country' | 'available' | 'restocks'
 >;

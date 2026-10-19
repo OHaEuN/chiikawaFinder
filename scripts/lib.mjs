@@ -81,7 +81,7 @@ export const charactersOf = (product) =>
 /** 재고. 치이카와 마켓은 품절 상품도 페이지를 남겨 둬서 이 값이 없으면 살 수 있는 줄 안다. */
 export const isAvailable = (product) => (product.variants ?? []).some((v) => v.available);
 
-/** 재입고 이력. 태그에 RE + 8자리 날짜로 쌓인다. */
+/** 재입고 이력. 태그에 RE + 8자리 날짜로 쌓인다. 날짜 전체를 남겨야 상세 화면에서 주기를 보여줄 수 있다. */
 export const restocksOf = (product) => datesFrom(product.tags ?? [], RESTOCK_TAG);
 
 /**
@@ -123,8 +123,7 @@ export const mapProduct = (p) => {
     description: stripHtml(p.body_html).slice(0, 160) || p.title,
     characters: charactersOf(p),
     available: isAvailable(p),
-    restockCount: restocks.length,
-    ...(restocks.length ? { lastRestockDate: restocks.at(-1) } : {}),
+    ...(restocks.length ? { restocks } : {}),
     sources: [url],
   };
 };
@@ -134,8 +133,12 @@ export const mapProduct = (p) => {
  * 오래전에 나왔어도 최근에 재입고됐으면 지금 살 수 있는 상품이라 남긴다.
  * 재입고 정보가 팬들이 가장 찾는 정보인데, 발매일만 보면 전부 빠져 버린다.
  */
-export const latestActivity = (goods) =>
-  goods.lastRestockDate && goods.lastRestockDate > goods.releaseDate ? goods.lastRestockDate : goods.releaseDate;
+export const lastRestockOf = (goods) => goods.restocks?.at(-1);
+
+export const latestActivity = (goods) => {
+  const restocked = lastRestockOf(goods);
+  return restocked && restocked > goods.releaseDate ? restocked : goods.releaseDate;
+};
 
 /** 수동 큐레이션 항목은 유지, 스크랩 항목은 교체, 기간 지난 것은 제거, 최신순 정렬 */
 export const mergeGoods = (existing, scraped, cutoff) =>

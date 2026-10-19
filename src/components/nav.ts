@@ -8,6 +8,7 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { href: '/', label: '홈', icon: 'home' },
+  { href: '/today', label: '오늘', icon: 'today' },
   { href: '/characters', label: '인물', icon: 'character' },
   { href: '/online', label: '온라인', icon: 'online' },
   { href: '/offline', label: '오프라인', icon: 'offline' },

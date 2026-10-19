@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { GOODS, characterName, findGoods } from '@/lib/data';
+import { GOODS, HISTORY, characterName, findGoods, yenPrice } from '@/lib/data';
 import { COUNTRY_LABEL } from '@/lib/labels';
 import { SafeImage } from '@/components/SafeImage';
 import { Tag } from '@/components/Tag';
 import { TrackedLink } from '@/components/TrackedLink';
-import { restockHint } from '@/lib/restock';
+import { GoodsTimeline } from '@/components/GoodsTimeline';
+import { PriceTrend } from '@/components/PriceTrend';
+import { restockCadence, restockHint } from '@/lib/restock';
+import { fxSeries, goodsTimeline } from '@/lib/history';
 import { STOCK_LABEL, stockState } from '@/lib/stock';
 
 interface PageProps { params: Promise<{ id: string }> }
@@ -23,7 +26,14 @@ export default async function GoodsDetailPage({ params }: PageProps) {
   if (!g) notFound();
   const state = stockState(g);
   const soldOut = state === 'soldout';
-  const hint = restockHint(g.restockCount, g.lastRestockDate, g.available);
+  const hint = restockHint(g);
+  const cadence = restockCadence(g.restocks);
+  const timeline = goodsTimeline(HISTORY, g);
+  const series = fxSeries(HISTORY);
+  const priceYen = yenPrice(g.price);
+  // 품절 상품을 담아 봐야 살 수 없다. 계산기에 넘기는 건 지금 살 수 있는 일본 상품만.
+  const calculable = priceYen !== null && g.country === 'JP' && state === 'available';
+
   return (
     <>
       <Link href="/goods" className="back">← 굿즈 목록</Link>
@@ -44,15 +54,21 @@ export default async function GoodsDetailPage({ params }: PageProps) {
             <dt>브랜드</dt><dd>{g.brand}</dd>
             <dt>발매일</dt><dd>{g.releaseDate}</dd>
             <dt>구매처</dt><dd>{g.buyAt}</dd>
-            {g.restockCount ? (
-              <><dt>재입고</dt><dd>{g.restockCount}회{g.lastRestockDate ? ` · 마지막 ${g.lastRestockDate}` : ''}</dd></>
-            ) : null}
+            {cadence && (
+              <>
+                <dt>재입고</dt>
+                <dd>
+                  {cadence.count}회 · 마지막 {cadence.lastDate}
+                  {cadence.averageGapDays ? ` · 평균 ${cadence.averageGapDays}일 간격` : ''}
+                </dd>
+              </>
+            )}
             {g.characters.length > 0 && (
               <><dt>캐릭터</dt><dd className="tags">{g.characters.map((s) => <Link key={s} href={`/characters/${s}`} className="tag mint">{characterName(s)}</Link>)}</dd></>
             )}
           </dl>
           {hint && <p className={`restock restock-${hint.tone}`}>{hint.message}</p>}
-          <div style={{ marginTop: 14 }}>
+          <div className="detail-actions">
             <TrackedLink
               className="btn"
               href={g.affiliateUrl ?? g.buyUrl}
@@ -62,6 +78,11 @@ export default async function GoodsDetailPage({ params }: PageProps) {
             >
               {state === 'available' ? '구매 페이지로 이동 ↗' : '상품 페이지 보기 ↗'}
             </TrackedLink>
+            {calculable && (
+              <Link className="btn soft" href={`/calculator?add=${g.id}`}>
+                계산기에 담기
+              </Link>
+            )}
           </div>
         </div>
       </div>
@@ -71,6 +92,10 @@ export default async function GoodsDetailPage({ params }: PageProps) {
           구매자가 내는 금액은 달라지지 않습니다.
         </div>
       )}
+
+      {priceYen !== null && <PriceTrend priceYen={priceYen} series={series} />}
+
+      <GoodsTimeline events={timeline} cadence={cadence} since={HISTORY.days[0]?.date ?? HISTORY.updatedAt} />
 
       <section className="panel">
         <h2>출처</h2>

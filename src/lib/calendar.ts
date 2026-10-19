@@ -1,4 +1,5 @@
 import type { GoodsSummary } from '@/types/goods';
+import { lastRestock } from './restock.ts';
 
 export interface ReleaseDay {
   date: string;
@@ -31,7 +32,7 @@ export function recentRestocks(goods: GoodsSummary[], from = today(), windowDays
   const since = new Date(Date.parse(`${from}T00:00:00Z`) - windowDays * 86_400_000).toISOString().slice(0, 10);
   const byDate = new Map<string, GoodsSummary[]>();
   for (const item of goods) {
-    const restocked = item.lastRestockDate;
+    const restocked = lastRestock(item);
     // 발매 자체가 최근이면 신상이지 재입고가 아니다.
     if (!restocked || restocked <= item.releaseDate || restocked < since || restocked > from) continue;
     const bucket = byDate.get(restocked);

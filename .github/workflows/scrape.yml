@@ -20,11 +20,12 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
-      - run: pnpm scrape
+      # 환율을 먼저 받아야 그날 기록에 오늘 값이 들어간다.
       - run: pnpm fx
+      - run: pnpm scrape
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add src/data/goods.json src/data/fx.json
+          git add src/data/goods.json src/data/fx.json src/data/history.json
           git diff --cached --quiet || git commit -m "chore : 굿즈·환율 데이터 자동 갱신 $(date -u +%F)"
           git push

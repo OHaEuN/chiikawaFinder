@@ -206,7 +206,8 @@
     "description": "애니메이션 공식 사이트가 안내하는 공식 YouTube 채널입니다. 매주 화·금 방송 직후 최신 에피소드가 1주일 한정으로 무료 공개되고, 1기·2기 일부 에피소드는 상시 공개됩니다. 일본어 음성, 자막 없음.",
     "region": "JP",
     "free": true,
-    "official": true
+    "official": true,
+    "audio": "original"
   },
   {
     "id": "anime-youtube-ep1",
@@ -217,7 +218,8 @@
     "description": "공식 채널에 상시 공개된 애니메이션 1화입니다. 치이카와 애니를 처음 접할 때 가장 먼저 볼 수 있는 무료 에피소드입니다. 일본어.",
     "region": "JP",
     "free": true,
-    "official": true
+    "official": true,
+    "audio": "original"
   },
   {
     "id": "anime-tver",
@@ -228,7 +230,8 @@
     "description": "일본 민방 공식 다시보기 서비스 TVer의 치이카와 페이지입니다. 방송 후 1주일 동안 무료로 볼 수 있으나 일본 IP에서만 재생됩니다.",
     "region": "JP",
     "free": true,
-    "official": true
+    "official": true,
+    "audio": "original"
   },
   {
     "id": "anime-hulu-jp",
@@ -239,7 +242,12 @@
     "description": "일본 Hulu에서 애니메이션 치이카와 전편을 시청할 수 있는 페이지입니다. 월정액 유료 서비스이며 일본 계정과 IP가 필요합니다.",
     "region": "JP",
     "free": false,
-    "official": true
+    "official": true,
+    "seasons": [
+      "1",
+      "2"
+    ],
+    "audio": "original"
   },
   {
     "id": "anime-prime-video-jp-s1",
@@ -250,7 +258,11 @@
     "description": "일본 아마존 프라임 비디오의 치이카와 시즌1 페이지입니다. 프라임 회원이면 추가 요금 없이 볼 수 있으며 일본 지역 한정입니다.",
     "region": "JP",
     "free": false,
-    "official": true
+    "official": true,
+    "seasons": [
+      "1"
+    ],
+    "audio": "original"
   },
   {
     "id": "anime-prime-video-jp-s2",
@@ -261,7 +273,11 @@
     "description": "일본 아마존 프라임 비디오의 치이카와 시즌2 페이지입니다. 세이렌편 등 후반 에피소드가 포함되어 있습니다. 프라임 회원 대상, 일본 지역 한정.",
     "region": "JP",
     "free": false,
-    "official": true
+    "official": true,
+    "seasons": [
+      "2"
+    ],
+    "audio": "original"
   },
   {
     "id": "anime-netflix",
@@ -269,10 +285,15 @@
     "title": "치이카와 (넷플릭스 일본)",
     "platform": "넷플릭스",
     "url": "https://www.netflix.com/search?q=%E3%81%A1%E3%81%84%E3%81%8B%E3%82%8F",
-    "description": "넷플릭스 일본에서 치이카와 시즌1·2(362화까지)를 스트리밍하고 있습니다. 한국 넷플릭스는 2026년 9월 말 추가 예정이라는 이야기가 있으나 공식 확인은 되지 않았습니다. 로그인 후 검색 결과로 이동합니다. 유료.",
+    "description": "넷플릭스 일본에서 치이카와 시즌1·2를 스트리밍하고 있습니다. 로그인 후 검색 결과로 이동합니다. 유료.",
     "region": "JP",
     "free": false,
-    "official": true
+    "official": true,
+    "seasons": [
+      "1",
+      "2"
+    ],
+    "audio": "original"
   },
   {
     "id": "anime-laftel-kr",
@@ -280,10 +301,108 @@
     "title": "먼작귀 몰아보기 시즌1 (라프텔)",
     "platform": "라프텔",
     "url": "https://laftel.net/item/44149",
-    "description": "국내 애니 스트리밍 라프텔에서 볼 수 있는 한국 정식 방영판 먼작귀입니다. 한국어 자막·더빙 버전이 제공되며 멤버십 유료 서비스입니다.",
+    "description": "국내 애니 스트리밍 라프텔의 시즌1 페이지입니다. 대원방송 한국어 더빙판이며 멤버십 유료 서비스입니다.",
     "region": "KR",
     "free": false,
-    "official": true
+    "official": true,
+    "seasons": [
+      "1"
+    ],
+    "audio": "dub"
+  },
+  {
+    "id": "anime-laftel-kr-s2",
+    "category": "anime",
+    "title": "먼작귀 몰아보기 시즌2 (라프텔)",
+    "platform": "라프텔",
+    "url": "https://laftel.net/item/47614",
+    "description": "라프텔의 시즌2 페이지입니다. 시즌1과 같은 한국어 더빙판으로, 세이렌편 이후 에피소드가 이어집니다. 멤버십 유료.",
+    "region": "KR",
+    "free": false,
+    "official": true,
+    "seasons": [
+      "2"
+    ],
+    "audio": "dub"
+  },
+  {
+    "id": "anime-netflix-kr",
+    "category": "anime",
+    "title": "먼작귀 (넷플릭스 한국)",
+    "platform": "넷플릭스",
+    "url": "https://www.netflix.com/kr/search?q=%EB%A8%BC%EC%9E%91%EA%B7%80",
+    "description": "2026년 9월 20일 한국 넷플릭스에 올라왔습니다. 시즌1·2를 한국어 자막으로 볼 수 있고 더빙 음성은 없습니다. 구독 유료. 제목이 바뀌어도 찾을 수 있도록 검색 결과로 보냅니다.",
+    "region": "KR",
+    "free": false,
+    "official": true,
+    "seasons": [
+      "1",
+      "2"
+    ],
+    "audio": "sub"
+  },
+  {
+    "id": "anime-tving-kr",
+    "category": "anime",
+    "title": "먼작귀 몰아보기 (티빙)",
+    "platform": "티빙",
+    "url": "https://www.tving.com/search?keyword=%EB%A8%BC%EC%9E%91%EA%B7%80",
+    "description": "티빙에서 시즌1·2를 한국어 더빙으로 볼 수 있습니다. 대원방송 계열 작품이 먼저 올라오는 편입니다. 구독 유료.",
+    "region": "KR",
+    "free": false,
+    "official": true,
+    "seasons": [
+      "1",
+      "2"
+    ],
+    "audio": "dub"
+  },
+  {
+    "id": "anime-watcha-kr",
+    "category": "anime",
+    "title": "먼작귀 몰아보기 (왓챠)",
+    "platform": "왓챠",
+    "url": "https://watcha.com/search?query=%EB%A8%BC%EC%9E%91%EA%B7%80",
+    "description": "왓챠에서 시즌1을 제공해 왔고 시즌2는 2026년 10월 16일 올라왔습니다. 한국어 더빙판. 구독 유료.",
+    "region": "KR",
+    "free": false,
+    "official": true,
+    "seasons": [
+      "1",
+      "2"
+    ],
+    "audio": "dub"
+  },
+  {
+    "id": "anime-wavve-kr",
+    "category": "anime",
+    "title": "먼작귀 몰아보기 (웨이브)",
+    "platform": "웨이브",
+    "url": "https://www.wavve.com/search?searchWord=%EB%A8%BC%EC%9E%91%EA%B7%80",
+    "description": "웨이브에서 시즌1을 한국어 더빙으로 볼 수 있습니다. 시즌2는 순차 공개됩니다. 구독 유료.",
+    "region": "KR",
+    "free": false,
+    "official": true,
+    "seasons": [
+      "1"
+    ],
+    "audio": "dub"
+  },
+  {
+    "id": "anime-anibox-youtube-kr",
+    "category": "anime",
+    "title": "[전편공개] 먼작귀 (애니박스 YouTube)",
+    "platform": "YouTube",
+    "url": "https://www.youtube.com/playlist?list=PLsmaUhkCwW3q5q46uc9So2b4D-pZqVZOV",
+    "description": "대원방송 애니박스 공식 채널의 한국어 더빙 전편 재생목록입니다. 258화까지 무료로 공개돼 있어 돈 한 푼 안 내고 볼 수 있는 가장 빠른 길입니다.",
+    "region": "KR",
+    "free": true,
+    "official": true,
+    "seasons": [
+      "1",
+      "2"
+    ],
+    "audio": "dub"
   },
   {
     "id": "anime-hidive-youtube-playlist",
@@ -305,7 +424,11 @@
     "description": "2026년 7월 24일 일본 개봉한 첫 극장판의 공식 사이트입니다. 세이렌편을 원작으로 하며 상영관, 캐스트, 특전, 예고편을 확인할 수 있습니다. 배급 TOHO.",
     "region": "JP",
     "free": true,
-    "official": true
+    "official": true,
+    "seasons": [
+      "극장판"
+    ],
+    "audio": "original"
   },
   {
     "id": "anime-movie-kr-cgv",
@@ -316,7 +439,11 @@
     "description": "2026년 9월 30일 국내 개봉하는 극장판의 CGV 무대인사 이벤트 페이지입니다. 수입 대원미디어, 배급 CJ ENM으로 자막판과 한국어 더빙판이 함께 개봉합니다. 극장 관람 유료.",
     "region": "KR",
     "free": false,
-    "official": true
+    "official": true,
+    "audio": "both",
+    "seasons": [
+      "극장판"
+    ]
   },
   {
     "id": "video-anime-pv",
