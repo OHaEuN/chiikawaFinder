@@ -8,7 +8,10 @@ import { SafeImage } from '@/components/SafeImage';
 
 interface Option {
   id: string;
+  /** 공식몰 원문. 검색은 원문으로도 걸려야 한다. */
   name: string;
+  /** 화면에 띄우는 한국어 이름 */
+  nameKo: string;
   category: string;
   priceYen: number;
   image?: string;
@@ -62,7 +65,7 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
     const id = url.searchParams.get('add');
     const option = id && options.find((o) => o.id === id);
     if (!option) return;
-    setLines((prev) => (prev.some((l) => l.id === option.id) ? prev : [...prev, { id: option.id, name: option.name, priceYen: option.priceYen, quantity: 1 }]));
+    setLines((prev) => (prev.some((l) => l.id === option.id) ? prev : [...prev, { id: option.id, name: option.nameKo, priceYen: option.priceYen, quantity: 1 }]));
     track('calculator_add_item', { from: 'goods' });
     // 새로고침할 때마다 다시 담기지 않게 주소를 정리한다.
     url.searchParams.delete('add');
@@ -84,7 +87,7 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
     setLines((prev) => {
       const found = prev.find((l) => l.id === option.id);
       if (found) return prev.map((l) => (l.id === option.id ? { ...l, quantity: l.quantity + 1 } : l));
-      return [...prev, { id: option.id, name: option.name, priceYen: option.priceYen, quantity: 1 }];
+      return [...prev, { id: option.id, name: option.nameKo, priceYen: option.priceYen, quantity: 1 }];
     });
     setQuery('');
     track('calculator_add_item');
@@ -111,8 +114,8 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
             {matches.map((o) => (
               <li key={o.id}>
                 <button onClick={() => addLine(o)}>
-                  <span className="picker-thumb"><SafeImage src={o.image} alt={o.name} fallback="🎁" seed={o.id} /></span>
-                  <span className="picker-name">{o.name}</span>
+                  <span className="picker-thumb"><SafeImage src={o.image} alt={o.nameKo} fallback="🎁" seed={o.id} /></span>
+                  <span className="picker-name">{o.nameKo}</span>
                   <span className="picker-price">{yen(o.priceYen)}</span>
                 </button>
               </li>
@@ -121,7 +124,7 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
         )}
 
         {lines.length === 0 ? (
-          <p className="muted" style={{ marginTop: 12 }}>아직 담은 상품이 없어요.</p>
+          <p className="muted" style={{ marginTop: 12 }}>아직 담은 상품이 없습니다.</p>
         ) : (
           <ul className="cart">
             {lines.map((l) => (
@@ -142,14 +145,14 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
           <div className="freeship-bar"><span style={{ width: `${freeShippingPercent}%` }} /></div>
           <p className="muted">
             {result.toFreeShippingYen > 0
-              ? `일본 내 배송 무료까지 ${yen(result.toFreeShippingYen)} 남았어요. 못 채우면 일본 내 배송료가 붙습니다. 공구 모집글의 '무배컷'이 이 기준입니다.`
+              ? `일본 내 배송 무료까지 ${yen(result.toFreeShippingYen)} 남았습니다. 이 금액을 넘기지 못하면 일본 내 배송료가 붙습니다. 공구 모집글의 '무배컷'이 이 기준입니다.`
               : `일본 내 배송 무료 기준(${yen(FREE_DOMESTIC_SHIPPING_YEN)})을 넘겨 일본 내 배송료가 없습니다.`}
           </p>
         </div>
       </section>
 
       <section className="panel">
-        <h2>2. 조건을 넣으세요</h2>
+        <h2>2. 조건을 맞추세요</h2>
         <div className="fields">
           <label>
             적용 환율 <span className="muted">(원/엔)</span>
@@ -187,7 +190,7 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
           ))}
         </div>
         <p className="muted" style={{ fontSize: '0.82rem', marginTop: 10, marginBottom: 0 }}>
-          실환율 기준일 {rateUpdatedAt}. 해외배송비와 국내 택배비는 기본값이니 실제 공구 안내에 맞춰 고치세요.
+          실환율 기준일은 {rateUpdatedAt}입니다. 해외배송비와 국내 택배비는 기본값이라, 실제 공구 안내에 맞춰 바꿔 주세요.
         </p>
       </section>
 
@@ -213,7 +216,7 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
         </dl>
         <p className="total">1인 부담 <strong>{won(result.totalKrw)}</strong></p>
         <p className="muted" style={{ fontSize: '0.82rem', marginTop: -6 }}>
-          상품값과 세금은 담은 상품에 매겨진 내 몫 전액이고, 나누는 건 해외배송비뿐입니다.
+          상품값과 세금은 내가 담은 몫을 그대로 내고, 나눠 내는 건 해외배송비뿐입니다.
         </p>
 
         {people > 1 && (
@@ -251,11 +254,11 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
 
         {result.rateMarkupKrw > 0 && (
           <div className="markup">
-            <strong>이 환율에는 수수료 {won(result.rateMarkupKrw)}이 섞여 있어요.</strong>
+            <strong>이 환율에는 수수료 {won(result.rateMarkupKrw)}이 섞여 있습니다.</strong>
             <p>
               실환율 {marketRate.toFixed(2)}원으로 사면 상품값이 {won(result.goodsAtMarketKrw)}입니다.
               적용 환율 {appliedRate.toFixed(2)}원은 그보다 {result.rateMarkupPercent.toFixed(1)}% 비쌉니다.
-                  공구는 배송비를 나누는 대신 환율에 수수료를 얹는 경우가 많습니다. 배송비 절감분과 견줘 보세요.
+                  공구는 배송비를 나누는 대신 환율에 수수료를 얹는 경우가 많습니다. 배송비를 아낀 만큼과 견줘 보세요.
             </p>
           </div>
         )}

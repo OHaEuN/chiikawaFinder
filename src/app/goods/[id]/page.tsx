@@ -11,20 +11,42 @@ import { PriceTrend } from '@/components/PriceTrend';
 import { restockCadence, restockHint } from '@/lib/restock';
 import { fxSeries, goodsTimeline } from '@/lib/history';
 import { STOCK_LABEL, stockState } from '@/lib/stock';
+import { hasJapanese, koreanName } from '@/lib/goods-name';
+import type { Goods } from '@/types/goods';
 
 interface PageProps { params: Promise<{ id: string }> }
 
 export const generateStaticParams = () => GOODS.map((g) => ({ id: g.id }));
 
+const STOCK_SENTENCE: Record<ReturnType<typeof stockState>, string> = {
+  available: '지금 살 수 있습니다.',
+  soldout: '지금은 품절입니다.',
+  upcoming: '아직 발매 전입니다.',
+  unknown: '재고는 확인되지 않았습니다.',
+};
+
+/**
+ * 굿즈가 2천 장이 넘는데 설명이 전부 같으면 검색엔진은 알맹이 없는 중복 문서로 보고 넘긴다.
+ * 상품마다 다른 값으로 한 문장을 만든다.
+ */
+function goodsDescription(g: Goods): string {
+  const name = koreanName(g.name);
+  const cadence = restockCadence(g.restocks);
+  const restock = cadence ? ` 지금까지 ${cadence.count}번 재입고됐습니다.` : '';
+  return `${name} — ${g.price}, ${g.brand}, ${g.releaseDate} 발매. ${STOCK_SENTENCE[stockState(g)]}${restock} 원화로 얼마인지, 품절과 재입고가 언제였는지 함께 봅니다.`;
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const g = findGoods((await params).id);
-  return { title: g ? g.name : '굿즈' };
+  if (!g) return { title: '굿즈' };
+  return { title: koreanName(g.name), description: goodsDescription(g) };
 }
 
 export default async function GoodsDetailPage({ params }: PageProps) {
   const g = findGoods((await params).id);
   if (!g) notFound();
   const state = stockState(g);
+  const name = koreanName(g.name);
   const soldOut = state === 'soldout';
   const hint = restockHint(g);
   const cadence = restockCadence(g.restocks);
@@ -38,7 +60,7 @@ export default async function GoodsDetailPage({ params }: PageProps) {
     <>
       <Link href="/goods" className="back">← 굿즈 목록</Link>
       <div className="detail-hero">
-        <div className="card-media contain"><SafeImage src={g.image} alt={g.name} fallback="🎁" seed={g.id} /></div>
+        <div className="card-media contain"><SafeImage src={g.image} alt={name} fallback="🎁" seed={g.id} /></div>
         <div>
           <div className="tags" style={{ marginBottom: 8 }}>
             <Tag tone={g.country === 'KR' ? 'pink' : 'blue'}>{COUNTRY_LABEL[g.country]}</Tag>
@@ -47,9 +69,11 @@ export default async function GoodsDetailPage({ params }: PageProps) {
             {STOCK_LABEL[state] && <Tag tone={state === 'upcoming' ? 'yellow' : 'plain'}>{STOCK_LABEL[state]}</Tag>}
             {state === 'available' && <Tag tone="mint">구매 가능</Tag>}
           </div>
-          <h1>{g.name}</h1>
+          <h1>{name}</h1>
+          {name !== g.name && <p className="muted original-name">공식몰 표기 {g.name}</p>}
           <p className="card-price" style={{ fontSize: '1.5rem' }}>{g.price}</p>
-          <p>{g.description}</p>
+          {hasJapanese(g.description) && <p className="muted blurb-label">공식몰 소개문 (일본어 원문)</p>}
+          <p className="goods-blurb">{g.description}</p>
           <dl className="kv">
             <dt>브랜드</dt><dd>{g.brand}</dd>
             <dt>발매일</dt><dd>{g.releaseDate}</dd>

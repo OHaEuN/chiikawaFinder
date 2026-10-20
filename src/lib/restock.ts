@@ -53,7 +53,7 @@ export function restockHint(
   if (goods.available !== false) return null;
   const cadence = restockCadence(goods.restocks);
   if (!cadence) {
-    return { tone: 'unknown', message: '재입고된 적이 없는 상품입니다. 다시 들어올지 알 수 없습니다.' };
+    return { tone: 'unknown', message: '아직 재입고된 적이 없습니다. 다시 들어올지는 알 수 없습니다.' };
   }
 
   const elapsed = daysBetween(cadence.lastDate, today);

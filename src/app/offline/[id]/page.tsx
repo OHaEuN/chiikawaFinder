@@ -16,7 +16,8 @@ export const generateStaticParams = () => PLACES.map((p) => ({ id: p.id }));
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const p = findPlace((await params).id);
-  return { title: p ? p.name : '오프라인' };
+  if (!p) return { title: '오프라인' };
+  return { title: p.name, description: `${p.city}의 ${PLACE_TYPE_LABEL[p.type]}. ${p.description ?? ''}`.slice(0, 160) };
 }
 
 export default async function PlaceDetailPage({ params }: PageProps) {

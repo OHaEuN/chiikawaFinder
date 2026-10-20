@@ -28,14 +28,14 @@ export function GoodsTimeline({ events, cadence, since }: GoodsTimelineProps) {
     const days = Math.round(average(spans));
     lines.push(
       days === 0
-        ? `다시 들어온 날 바로 품절됐습니다. (${spans.length}번 봤습니다)`
-        : `다시 들어온 뒤 평균 ${days}일 만에 품절됐습니다. (${spans.length}번 봤습니다)`,
+        ? `다시 들어온 날 바로 품절됐습니다. 기록에 남은 ${spans.length}번 기준입니다.`
+        : `다시 들어온 뒤 평균 ${days}일 만에 품절됐습니다. 기록에 남은 ${spans.length}번 기준입니다.`,
     );
   }
 
   return (
     <section className="panel">
-      <h2>이 상품이 지나온 길</h2>
+      <h2>품절 · 재입고 기록</h2>
       {lines.map((line) => (
         <p key={line}>{line}</p>
       ))}
@@ -48,8 +48,8 @@ export function GoodsTimeline({ events, cadence, since }: GoodsTimelineProps) {
         ))}
       </ol>
       <p className="muted">
-        발매일과 재입고일은 공식 상품 정보에 붙은 날짜입니다. 품절과 재개는 {since}부터 매일 아침 직접 보고 적은
-        것이라, 그 앞의 일은 빠져 있습니다.
+        발매일과 재입고일은 공식 상품 정보에 붙은 날짜입니다. 품절과 재판매는 {since}부터 매일 아침 확인해 적은
+        것이라, 그 전 기록은 들어 있지 않습니다.
       </p>
     </section>
   );

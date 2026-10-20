@@ -33,7 +33,7 @@ test('가장 싼 날이면 그렇게 말한다', () => {
   assert.equal(verdict?.tone, 'good');
   assert.equal(verdict?.cheaperDays, 0);
   assert.match(verdict!.message, /가장 쌉니다/);
-  assert.match(verdict!.message, /싸졌어요/);
+  assert.match(verdict!.message, /싸졌습니다/);
   assert.equal(verdict?.min.krwPerJpy, 8.4);
   assert.equal(verdict?.max.krwPerJpy, 8.8);
 });
@@ -45,7 +45,7 @@ test('비싼 쪽에 있으면 비싼 편이라고 말한다', () => {
     { date: '2026-10-03', krwPerJpy: 8.9 },
   ]);
   assert.equal(rising?.tone, 'bad');
-  assert.match(rising!.message, /비싸졌어요/);
+  assert.match(rising!.message, /비싸졌습니다/);
 });
 
 test('하루치만 있으면 판단하지 않는다', () => {

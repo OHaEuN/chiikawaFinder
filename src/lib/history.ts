@@ -46,7 +46,7 @@ export function fxVerdict(series: FxPoint[]): FxVerdict | null {
 
   const tone = ratio <= GOOD_PERCENTILE ? 'good' : ratio >= 1 - GOOD_PERCENTILE ? 'bad' : 'mid';
   const span = daysBetween(series[0].date, today.date);
-  const moved = `${span}일 전보다 엔이 ${Math.abs(changePercent).toFixed(1)}% ${changePercent < 0 ? '싸졌어요' : '비싸졌어요'}.`;
+  const moved = `${span}일 전보다 엔이 ${Math.abs(changePercent).toFixed(1)}% ${changePercent < 0 ? '싸졌습니다' : '비싸졌습니다'}.`;
   const rank =
     cheaperDays === 0
       ? '기록한 날 중 가장 쌉니다.'

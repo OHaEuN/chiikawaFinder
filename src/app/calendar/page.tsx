@@ -24,11 +24,11 @@ export default function CalendarPage() {
     <>
       <div className="page-head">
         <h1>발매 · 재입고 캘린더</h1>
-        <p>일본 신상은 발매일이 상품 정보에만 일본어로 붙어 있고, 재입고 목록은 공식몰이 전날 숨깁니다. 날짜순으로 정리했습니다.</p>
+        <p>일본 신상은 발매일이 상품 정보에만 일본어로 적혀 있고, 재입고 목록은 하루가 지나면 공식몰에서 사라집니다. 날짜순으로 정리했습니다.</p>
       </div>
 
       {days.length === 0 ? (
-        <div className="panel"><h2>예정된 발매가 없어요</h2><p className="muted">새 발매일이 확인되면 여기에 올라옵니다.</p></div>
+        <div className="panel"><h2>예정된 발매가 없습니다</h2><p className="muted">새 발매일이 확인되면 여기에 올라옵니다.</p></div>
       ) : (
         days.map((day) => (
           <section key={day.date} className="release-day">
@@ -83,7 +83,7 @@ export default function CalendarPage() {
 
       <div className="notice">
         발매일과 재입고일은 치이카와 마켓 상품 정보에 붙은 날짜를 따릅니다. 예약 상품은 실제 발송이 늦어질 수 있고,
-        한정 수량 상품은 발매 당일 품절되는 경우가 많습니다. 재입고된 상품도 이미 다시 품절됐을 수 있어 카드의 품절 표시를 함께 보세요.
+        한정 수량 상품은 발매 당일 품절되는 경우가 많습니다. 재입고된 상품도 이미 다시 품절됐을 수 있으니 카드의 품절 표시를 함께 확인해 주세요.
       </div>
     </>
   );

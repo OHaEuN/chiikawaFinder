@@ -585,6 +585,11 @@ textarea {
 .watch-table td:first-child a { display: inline-block; padding: 8px 0; }
 .watch-note { font-size: 0.8rem; margin-top: 3px; white-space: normal; max-width: 42ch; }
 
+/* 공식몰에서 상품을 찾으려면 일본어 원문이 필요하다. 제목 아래에 작게 남긴다. */
+.original-name { font-size: 0.84rem; margin: -6px 0 10px; word-break: break-all; }
+.goods-blurb { font-size: 0.92rem; }
+.blurb-label { font-size: 0.78rem; margin: 14px 0 2px; font-weight: 600; }
+
 .detail-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
 .course-emoji { margin-right: 6px; }
 

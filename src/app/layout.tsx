@@ -33,7 +33,8 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ohaeun.github.io/c
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: '치이카와 파인더', template: '%s | 치이카와 파인더' },
-  description: '치이카와 인물, 온라인 콘텐츠, 팝업/매장 지도, 신상 굿즈를 한 곳에서',
+  description:
+    '치이카와 굿즈를 살 때 보는 곳. 공식몰을 매일 확인해 오늘 품절된 것과 새로 올라온 것을 모으고, 일본어 상품명을 한국어로 바꾸고, 환율과 관부가세까지 더한 실구매가를 계산합니다.',
   // 제목과 설명은 페이지마다 쓰는 값을 그대로 물려받는다.
   openGraph: {
     type: 'website',
@@ -45,6 +46,16 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     images: ['./og.png'],
+  },
+  /*
+   * 소유 확인. 서브경로로 배포하는 사이트는 도메인 루트에 파일을 둘 수 없어
+   * 파일 방식이 안 되고, 이 메타 태그 방식만 통한다.
+   */
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+    other: process.env.NEXT_PUBLIC_NAVER_VERIFICATION
+      ? { 'naver-site-verification': process.env.NEXT_PUBLIC_NAVER_VERIFICATION }
+      : {},
   },
   icons: {
     icon: [

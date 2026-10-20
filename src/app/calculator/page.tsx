@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { FX, GOODS, GROUPBUY_CHANNELS, yenPrice } from '@/lib/data';
 import { GROUPBUY_SAFETY_LABEL } from '@/lib/labels';
+import { koreanName } from '@/lib/goods-name';
 import { Tag } from '@/components/Tag';
 import { CostCalculator } from './CostCalculator';
 
@@ -19,7 +20,7 @@ export default function CalculatorPage() {
   const options = GOODS.flatMap((g) => {
     const priceYen = yenPrice(g.price);
     const usable = priceYen && g.country === 'JP' && g.available;
-    return usable ? [{ id: g.id, name: g.name, category: g.category, priceYen, image: g.image }] : [];
+    return usable ? [{ id: g.id, name: g.name, nameKo: koreanName(g.name), category: g.category, priceYen, image: g.image }] : [];
   });
 
   return (

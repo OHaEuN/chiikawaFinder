@@ -5,6 +5,8 @@
  * 그래도 안 걸리는 말은 실제 상품명에 쓰인 일본어 표기로 바꿔 준다.
  * 표기는 goods.json 에 실제로 등장하는 것만 넣었다. 안 쓰이는 말을 넣으면 검색이 조용히 비는 걸 못 알아챈다.
  */
+import { koreanName } from './goods-name.ts';
+
 const ALIASES: Record<string, string[]> = {
   치이카와: ['ちいかわ'],
   하치와레: ['ハチワレ'],
@@ -65,9 +67,15 @@ export interface Searchable {
   collab?: string;
 }
 
-/** 한 상품에서 검색어를 찾아볼 글자 뭉치. 목록이 길어 미리 한 번만 만들어 둔다. */
+/**
+ * 한 상품에서 검색어를 찾아볼 글자 뭉치. 목록이 길어 미리 한 번만 만들어 둔다.
+ * 바꾼 한국어 이름과 일본어 원문을 모두 담는다. 원문으로 찾는 사람도 있다.
+ */
 export const searchText = (item: Searchable) =>
-  [item.name, item.category, item.brand, item.collab].filter(Boolean).join(' ').toLowerCase();
+  [item.name, koreanName(item.name), item.category, item.brand, item.collab]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
 
 /** 검색어 하나가 한국어·일본어 여러 갈래로 퍼진다. 하나라도 걸리면 맞는 것으로 본다. */
 export const searchTerms = (query: string): string[] => {

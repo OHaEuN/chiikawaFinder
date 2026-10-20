@@ -31,9 +31,9 @@ export default function HomePage() {
         <div className="hero-copy">
           <h1>치이카와 파인더</h1>
           <p>
-            작고 귀여운 것들의 세계, 치이카와 정보를 한 곳에 모았어요.
+            치이카와 굿즈를 살 때 보는 곳.
             <br />
-            인물 프로필부터 팝업 지도, 신상 굿즈까지.
+            오늘 뭐가 품절됐고, 원화로 얼마인지, 어디서 사면 되는지 매일 확인해 정리합니다.
           </p>
         </div>
         <HeroScene />
@@ -53,7 +53,7 @@ export default function HomePage() {
       {latest && verdict && (
         <Link href="/today" className="panel pulse">
           <div className="pulse-main">
-            <strong>{latest.date}</strong> 치이카와 마켓에서 {changeCount(latest)}건이 달라졌어요
+            <strong>{latest.date}</strong> 치이카와 마켓에서 {changeCount(latest)}건이 달라졌습니다
             {latest.soldOut.length > 0 && ` · 품절 ${latest.soldOut.length}`}
             {latest.added.length > 0 && ` · 신상 ${latest.added.length}`}
             {latest.backInStock.length > 0 && ` · 재입고 ${latest.backInStock.length}`}
@@ -64,8 +64,8 @@ export default function HomePage() {
         </Link>
       )}
 
-      <div className="section-head"><h2>인물</h2><Link href="/characters">전체 보기 →</Link></div>
-      <div className="grid">{CHARACTERS.slice(0, HOME_LIMIT).map((c) => <CharacterCard key={c.slug} character={c} />)}</div>
+      <div className="section-head"><h2>최신 굿즈</h2><Link href="/goods">전체 보기 →</Link></div>
+      <div className="grid">{summaries.slice(0, HOME_LIMIT).map((g) => <GoodsCard key={g.id} goods={g} />)}</div>
 
       {ongoing.length > 0 && (
         <>
@@ -74,8 +74,8 @@ export default function HomePage() {
         </>
       )}
 
-      <div className="section-head"><h2>최신 굿즈</h2><Link href="/goods">전체 보기 →</Link></div>
-      <div className="grid">{summaries.slice(0, HOME_LIMIT).map((g) => <GoodsCard key={g.id} goods={g} />)}</div>
+      <div className="section-head"><h2>인물</h2><Link href="/characters">전체 보기 →</Link></div>
+      <div className="grid">{CHARACTERS.slice(0, HOME_LIMIT).map((c) => <CharacterCard key={c.slug} character={c} />)}</div>
     </>
   );
 }

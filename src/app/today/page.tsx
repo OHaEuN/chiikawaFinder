@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { GOODS, HISTORY, goodsById, goodsSummaries } from '@/lib/data';
 import { changeCount, fxSeries, fxVerdict, recentChanges, type DayChange } from '@/lib/history';
 import { koreanDate } from '@/lib/calendar';
+import { koreanName } from '@/lib/goods-name';
 import { GoodsCard } from '@/components/GoodsCard';
 import { Sparkline } from '@/components/Sparkline';
 import { Tag } from '@/components/Tag';
@@ -10,7 +11,7 @@ import { Tag } from '@/components/Tag';
 export const metadata: Metadata = {
   title: '오늘의 변화',
   description:
-    '치이카와 마켓을 매일 긁어 어제와 달라진 것만 모읍니다. 오늘 품절된 상품, 새로 올라온 상품, 다시 들어온 상품과 원/엔 환율 흐름.',
+    '치이카와 마켓을 매일 확인해 어제와 달라진 것만 모읍니다. 오늘 품절된 상품, 새로 올라온 상품, 다시 들어온 상품과 원/엔 환율 흐름.',
 };
 
 /** 한 날짜에 다 펼치면 화면이 길어진다. 나머지는 숫자로만 알린다. */
@@ -32,7 +33,7 @@ function NameList({ items }: { items: DayChange['added'] }) {
   return (
     <ul className="namelist">
       {items.map((g) => (
-        <li key={g.id}><Link href={`/goods/${g.id}`}>{g.name}</Link></li>
+        <li key={g.id}><Link href={`/goods/${g.id}`}>{koreanName(g.name)}</Link></li>
       ))}
     </ul>
   );
@@ -82,8 +83,8 @@ export default function TodayPage() {
       <div className="page-head">
         <h1>오늘의 변화</h1>
         <p>
-          매일 아침 치이카와 마켓을 통째로 긁어 어제와 맞대 봅니다. 공식몰은 뭐가 품절됐는지 알려주지 않고,
-          재입고 목록은 하루 지나면 사라집니다. 그 사이에 달라진 것만 여기 남습니다.
+          매일 아침 치이카와 마켓 전체를 훑어 어제와 맞대 봅니다. 공식몰은 무엇이 품절됐는지 알려 주지 않고,
+          재입고 목록도 하루가 지나면 사라집니다. 그래서 그사이에 달라진 것만 여기에 모읍니다.
         </p>
       </div>
 
@@ -128,8 +129,8 @@ export default function TodayPage() {
         </>
       ) : (
         <div className="panel">
-          <h2>아직 쌓인 기록이 없어요</h2>
-          <p className="muted">매일 아침 한 번 긁습니다. 하루 지나면 여기에 변화가 올라옵니다.</p>
+          <h2>아직 쌓인 기록이 없습니다</h2>
+          <p className="muted">매일 아침 한 번 확인합니다. 하루가 지나면 여기에 달라진 점이 올라옵니다.</p>
         </div>
       )}
 
@@ -152,7 +153,7 @@ export default function TodayPage() {
                   <span className="daylog-names muted">
                     {[...day.added, ...day.backInStock, ...day.soldOut]
                       .slice(0, 3)
-                      .map((g) => g.name)
+                      .map((g) => koreanName(g.name))
                       .join(' · ')}
                   </span>
                 </summary>
@@ -169,9 +170,9 @@ export default function TodayPage() {
 
       <div className="notice">
         {HISTORY.days.length}일치 기록을 쌓는 동안 품절 {totals.soldOut.toLocaleString('ko-KR')}건, 신상{' '}
-        {totals.added.toLocaleString('ko-KR')}건, 재입고 {totals.backInStock.toLocaleString('ko-KR')}건을 봤습니다.
-        지금 추적 중인 상품은 {GOODS.length.toLocaleString('ko-KR')}개입니다. 긁는 시점은 매일 06:00(KST) 한 번이라,
-        그 사이에 들어왔다 나간 상품은 잡히지 않습니다.
+        {totals.added.toLocaleString('ko-KR')}건, 재입고 {totals.backInStock.toLocaleString('ko-KR')}건을 기록했습니다.
+        지금 보고 있는 상품은 {GOODS.length.toLocaleString('ko-KR')}개입니다. 확인하는 때는 매일 06:00(KST) 한 번이라,
+        그사이에 들어왔다 나간 상품은 기록에 남지 않습니다.
       </div>
     </>
   );

@@ -12,7 +12,8 @@ export const generateStaticParams = () => CHARACTERS.map((c) => ({ slug: c.slug 
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const c = findCharacter((await params).slug);
-  return { title: c ? c.name : '인물' };
+  if (!c) return { title: '인물' };
+  return { title: c.name, description: `${c.name} — ${c.species}. ${c.description[0] ?? ''}`.slice(0, 160) };
 }
 
 export default async function CharacterDetailPage({ params }: PageProps) {
@@ -59,7 +60,7 @@ export default async function CharacterDetailPage({ params }: PageProps) {
 
       <section className="panel">
         <h2>등장 에피소드 <span className="muted" style={{ fontSize: '0.9rem' }}>({c.episodes.length}화)</span></h2>
-        {c.episodes.length === 0 ? <p className="muted">확인된 애니메이션 등장 에피소드가 없어요.</p> : (
+        {c.episodes.length === 0 ? <p className="muted">확인된 애니메이션 등장 에피소드가 없습니다.</p> : (
           <div className="table-wrap">
             <table className="table">
               <thead><tr>{multiSeason && <th>시즌</th>}<th>화</th><th>제목</th><th>비고</th></tr></thead>

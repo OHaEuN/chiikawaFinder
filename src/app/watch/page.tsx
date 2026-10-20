@@ -94,7 +94,7 @@ export default function WatchPage() {
       <WatchTable items={elsewhere} />
 
       <div className="notice">
-        넷플릭스·티빙·왓챠·웨이브는 작품 주소가 자주 바뀌어 검색 결과로 보냅니다. 더빙판은 일본 방영을 몇 달 뒤따라오기 때문에
+        넷플릭스·티빙·왓챠·웨이브는 작품 주소가 자주 바뀌어 검색 결과 페이지로 연결합니다. 더빙판은 일본 방영을 몇 달 뒤따라오기 때문에
         최신 화를 바로 보려면 자막이나 일본어 쪽을 봐야 합니다. 만화·게임·굿즈 경로는{' '}
         <Link href="/online">온라인 콘텐츠</Link>에 모아 두었습니다.
       </div>
