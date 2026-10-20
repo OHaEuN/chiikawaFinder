@@ -13,7 +13,12 @@ export const generateStaticParams = () => CHARACTERS.map((c) => ({ slug: c.slug 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const c = findCharacter((await params).slug);
   if (!c) return { title: '인물' };
-  return { title: c.name, description: `${c.name} — ${c.species}. ${c.description[0] ?? ''}`.slice(0, 160) };
+  const description = `${c.name} — ${c.species}. ${c.description[0] ?? ''}`.slice(0, 160);
+  return {
+    title: c.name,
+    description,
+    openGraph: { title: c.name, description, images: c.image ? [{ url: c.image, alt: c.name }] : undefined },
+  };
 }
 
 export default async function CharacterDetailPage({ params }: PageProps) {
@@ -25,7 +30,7 @@ export default async function CharacterDetailPage({ params }: PageProps) {
     <>
       <Link href="/characters" className="back">← 인물 목록</Link>
       <div className="detail-hero">
-        <div className="card-media contain"><SafeImage src={c.image} alt={c.name} fallback={GROUP_EMOJI[c.group]} seed={c.slug} onWhite /></div>
+        <div className="card-media contain"><SafeImage width={340} src={c.image} alt={c.name} fallback={GROUP_EMOJI[c.group]} seed={c.slug} onWhite /></div>
         <div>
           <div className="tags" style={{ marginBottom: 8 }}><Tag tone="pink">{c.group}</Tag><Tag tone="mint">{c.species}</Tag></div>
           <h1>{c.name}</h1>

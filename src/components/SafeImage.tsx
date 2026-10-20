@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { asset } from '@/lib/asset';
+import { imageSources } from '@/lib/image';
 
 interface SafeImageProps {
   src?: string;
@@ -11,6 +12,8 @@ interface SafeImageProps {
   onWhite?: boolean;
   /** 이미지가 없을 때 파스텔 배경을 고르는 기준값. 같은 항목은 늘 같은 색이 된다. */
   seed?: string;
+  /** 화면에서 차지하는 가로 폭(CSS px). 주면 그 크기에 맞춰 줄인 이미지를 받는다. */
+  width?: number;
 }
 
 const PALETTE = ['var(--pink)', 'var(--blue)', 'var(--yellow)', 'var(--mint)', 'var(--lavender)', 'var(--peach)'];
@@ -20,7 +23,7 @@ const DISC_STYLE = { width: '54%', aspectRatio: '1', borderRadius: '50%', displa
 
 const hash = (text: string) => [...text].reduce((acc, ch) => (acc * 31 + ch.charCodeAt(0)) >>> 0, 7);
 
-export function SafeImage({ src, alt, fallback = '🐾', seed, onWhite = false }: SafeImageProps) {
+export function SafeImage({ src, alt, fallback = '🐾', seed, onWhite = false, width }: SafeImageProps) {
   const [failed, setFailed] = useState(false);
   if (!src || failed) {
     const background = PALETTE[hash(seed ?? alt) % PALETTE.length];
@@ -33,5 +36,17 @@ export function SafeImage({ src, alt, fallback = '🐾', seed, onWhite = false }
     }
     return <div className="ph" style={{ background }} aria-label={alt}>{fallback}</div>;
   }
-  return <img src={asset(src)} alt={alt} loading="lazy" referrerPolicy="no-referrer" onError={() => setFailed(true)} />;
+  const sized = width ? imageSources(src, width) : { src, srcSet: undefined, sizes: undefined };
+  return (
+    <img
+      src={asset(sized.src)}
+      srcSet={sized.srcSet}
+      sizes={sized.sizes}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      referrerPolicy="no-referrer"
+      onError={() => setFailed(true)}
+    />
+  );
 }

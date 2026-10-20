@@ -15,7 +15,7 @@ export function GoodsCard({ goods }: GoodsCardProps) {
   return (
     <Link href={`/goods/${goods.id}`} className="card">
       <div className={`card-media contain${state === 'soldout' ? ' soldout' : ''}`}>
-        <SafeImage src={goods.image} alt={name} fallback="🎁" seed={goods.id} />
+        <SafeImage src={goods.image} alt={name} fallback="🎁" seed={goods.id} width={200} />
         <span className="card-badge"><Tag tone={goods.country === 'KR' ? 'pink' : 'blue'}>{COUNTRY_LABEL[goods.country]}</Tag></span>
         {stockLabel && <span className={`stock-mark stock-${state}`}>{stockLabel}</span>}
       </div>

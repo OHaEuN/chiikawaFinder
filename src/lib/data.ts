@@ -37,6 +37,13 @@ export const yenPrice = (price: string): number | null => {
   return match ? Number(match[1].replace(/,/g, '')) : null;
 };
 
+/** 「1,320엔」·「25,000원」에서 숫자와 통화를 뽑는다. 「가격 미정」처럼 값이 없는 것은 걸러진다. */
+export const parsePrice = (price: string): { amount: number; currency: 'JPY' | 'KRW' } | null => {
+  const match = /^([\d,]+)(엔|원)$/.exec(price.trim());
+  if (!match) return null;
+  return { amount: Number(match[1].replace(/,/g, '')), currency: match[2] === '엔' ? 'JPY' : 'KRW' };
+};
+
 export const findCharacter = (slug: string) => CHARACTERS.find((c) => c.slug === slug);
 export const findPlace = (id: string) => PLACES.find((p) => p.id === id);
 export const findGoods = (id: string) => GOODS.find((g) => g.id === id);

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { GOODS, HISTORY, characterName, findGoods, yenPrice } from '@/lib/data';
+import { GOODS, HISTORY, characterName, findGoods, parsePrice, yenPrice } from '@/lib/data';
 import { COUNTRY_LABEL } from '@/lib/labels';
 import { SafeImage } from '@/components/SafeImage';
 import { Tag } from '@/components/Tag';
@@ -39,7 +39,52 @@ function goodsDescription(g: Goods): string {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const g = findGoods((await params).id);
   if (!g) return { title: '굿즈' };
-  return { title: koreanName(g.name), description: goodsDescription(g) };
+  const title = koreanName(g.name);
+  const description = goodsDescription(g);
+  // 링크를 공유했을 때 사이트 공용 그림 대신 그 상품이 보이게 한다.
+  return {
+    title,
+    description,
+    openGraph: { title, description, images: g.image ? [{ url: g.image, alt: title }] : undefined },
+  };
+}
+
+const AVAILABILITY: Record<ReturnType<typeof stockState>, string> = {
+  available: 'https://schema.org/InStock',
+  soldout: 'https://schema.org/OutOfStock',
+  upcoming: 'https://schema.org/PreOrder',
+  unknown: 'https://schema.org/LimitedAvailability',
+};
+
+/**
+ * 검색 결과에 값과 재고를 같이 띄우기 위한 구조화 데이터.
+ * 파는 건 공식몰이라 offers.url 은 그 상품 페이지를 가리킨다.
+ */
+function productSchema(g: Goods) {
+  const price = parsePrice(g.price);
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: koreanName(g.name),
+    alternateName: g.name,
+    // 공식몰 소개문은 일본어다. 검색 결과에 뜨는 건 우리가 쓴 한국어 쪽이어야 한다.
+    description: goodsDescription(g),
+    ...(g.image ? { image: [g.image] } : {}),
+    brand: { '@type': 'Brand', name: g.brand },
+    releaseDate: g.releaseDate,
+    ...(price
+      ? {
+          offers: {
+            '@type': 'Offer',
+            url: g.buyUrl,
+            priceCurrency: price.currency,
+            price: price.amount,
+            availability: AVAILABILITY[stockState(g)],
+            seller: { '@type': 'Organization', name: g.buyAt },
+          },
+        }
+      : {}),
+  });
 }
 
 export default async function GoodsDetailPage({ params }: PageProps) {
@@ -58,9 +103,10 @@ export default async function GoodsDetailPage({ params }: PageProps) {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: productSchema(g) }} />
       <Link href="/goods" className="back">← 굿즈 목록</Link>
       <div className="detail-hero">
-        <div className="card-media contain"><SafeImage src={g.image} alt={name} fallback="🎁" seed={g.id} /></div>
+        <div className="card-media contain"><SafeImage src={g.image} alt={name} fallback="🎁" seed={g.id} width={340} /></div>
         <div>
           <div className="tags" style={{ marginBottom: 8 }}>
             <Tag tone={g.country === 'KR' ? 'pink' : 'blue'}>{COUNTRY_LABEL[g.country]}</Tag>

@@ -12,7 +12,7 @@ export function PlaceCard({ place }: PlaceCardProps) {
   return (
     <Link href={`/offline/${place.id}`} className="card">
       <div className="card-media">
-        <SafeImage src={place.image} alt={place.name} fallback={PLACE_EMOJI[place.type]} seed={place.id} />
+        <SafeImage width={340} src={place.image} alt={place.name} fallback={PLACE_EMOJI[place.type]} seed={place.id} />
         <span className="card-badge"><Tag tone={place.country === 'KR' ? 'pink' : 'blue'}>{COUNTRY_LABEL[place.country]} · {place.city}</Tag></span>
       </div>
       <div className="card-body">

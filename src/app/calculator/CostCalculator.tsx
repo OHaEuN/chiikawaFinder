@@ -114,7 +114,7 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
             {matches.map((o) => (
               <li key={o.id}>
                 <button onClick={() => addLine(o)}>
-                  <span className="picker-thumb"><SafeImage src={o.image} alt={o.nameKo} fallback="🎁" seed={o.id} /></span>
+                  <span className="picker-thumb"><SafeImage src={o.image} alt={o.nameKo} fallback="🎁" seed={o.id} width={48} /></span>
                   <span className="picker-name">{o.nameKo}</span>
                   <span className="picker-price">{yen(o.priceYen)}</span>
                 </button>

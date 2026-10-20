@@ -17,7 +17,7 @@ export function OnlineRow({ item }: OnlineRowProps) {
       data-analytics-event="online_open"
       data-analytics-event-platform={item.platform}
     >
-      <div className="row-thumb"><SafeImage src={item.image} alt={item.title} fallback="🔗" /></div>
+      <div className="row-thumb"><SafeImage src={item.image} alt={item.title} fallback="🔗" width={80} /></div>
       <div className="row-body">
         <div className="card-title">{item.title}</div>
         <div className="card-sub">{item.platform} · {item.description}</div>

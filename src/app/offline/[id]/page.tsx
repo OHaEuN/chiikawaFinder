@@ -17,7 +17,12 @@ export const generateStaticParams = () => PLACES.map((p) => ({ id: p.id }));
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const p = findPlace((await params).id);
   if (!p) return { title: '오프라인' };
-  return { title: p.name, description: `${p.city}의 ${PLACE_TYPE_LABEL[p.type]}. ${p.description ?? ''}`.slice(0, 160) };
+  const description = `${p.city}의 ${PLACE_TYPE_LABEL[p.type]}. ${p.description ?? ''}`.slice(0, 160);
+  return {
+    title: p.name,
+    description,
+    openGraph: { title: p.name, description, images: p.image ? [{ url: p.image, alt: p.name }] : undefined },
+  };
 }
 
 export default async function PlaceDetailPage({ params }: PageProps) {
@@ -29,7 +34,7 @@ export default async function PlaceDetailPage({ params }: PageProps) {
     <>
       <Link href="/offline" className="back">← 오프라인 목록</Link>
       <div className="detail-hero">
-        <div className="card-media"><SafeImage src={p.image} alt={p.name} fallback={PLACE_EMOJI[p.type]} seed={p.id} /></div>
+        <div className="card-media"><SafeImage width={340} src={p.image} alt={p.name} fallback={PLACE_EMOJI[p.type]} seed={p.id} /></div>
         <div>
           <div className="tags" style={{ marginBottom: 8 }}>
             <Tag tone={p.country === 'KR' ? 'pink' : 'blue'}>{COUNTRY_LABEL[p.country]} · {p.city}</Tag>
