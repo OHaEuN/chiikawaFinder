@@ -5,6 +5,7 @@ import type { GoodsSummary } from '@/types/goods';
 import { FilterChips } from '@/components/FilterChips';
 import { GoodsCard } from '@/components/GoodsCard';
 import { track } from '@/lib/analytics';
+import { matchesSearch, searchTerms, searchText } from '@/lib/search';
 import { stockState } from '@/lib/stock';
 
 interface GoodsExplorerProps { goods: GoodsSummary[] }
@@ -33,17 +34,22 @@ export function GoodsExplorer({ goods }: GoodsExplorerProps) {
     [goods],
   );
 
+  // 이름이 일본어뿐이라 한국어로 찾으면 안 나온다. 카테고리와 바꿔 쓰는 말까지 같이 본다.
+  const index = useMemo(() => goods.map((g) => ({ goods: g, text: searchText(g) })), [goods]);
+
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return goods.filter(
-      (g) =>
-        (!country || g.country === country) &&
-        (!brand || g.brand === brand) &&
-        (!category || g.category === category) &&
-        (!inStockOnly || stockState(g) !== 'soldout') &&
-        (!q || g.name.toLowerCase().includes(q) || (g.collab ?? '').toLowerCase().includes(q)),
-    );
-  }, [goods, country, brand, category, query, inStockOnly]);
+    const terms = searchTerms(query);
+    return index
+      .filter(
+        ({ goods: g, text }) =>
+          (!country || g.country === country) &&
+          (!brand || g.brand === brand) &&
+          (!category || g.category === category) &&
+          (!inStockOnly || stockState(g) !== 'soldout') &&
+          (terms.length === 0 || matchesSearch(text, terms)),
+      )
+      .map(({ goods: g }) => g);
+  }, [index, country, brand, category, query, inStockOnly]);
 
   const reset = <T,>(setter: (v: T) => void) => (v: T) => { setter(v); setLimit(PAGE_SIZE); };
 
@@ -61,7 +67,7 @@ export function GoodsExplorer({ goods }: GoodsExplorerProps) {
       <input
         className="search"
         type="search"
-        placeholder="상품명으로 검색 (예: マスコット, 스시, ぬいぐるみ)"
+        placeholder="상품명으로 검색 (예: 인형, 키링, 하치와레, マスコット)"
         value={query}
         onChange={(e) => onSearch(e.target.value)}
       />

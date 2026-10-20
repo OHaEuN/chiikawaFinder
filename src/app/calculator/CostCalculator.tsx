@@ -3,11 +3,13 @@
 import { useEffect, useMemo, useState } from 'react';
 import { calculateCost, DUTY_FREE_LIMIT_USD, FREE_DOMESTIC_SHIPPING_YEN, TAX_RATES, type CartLine, type TaxCategory } from '@/lib/cost';
 import { track } from '@/lib/analytics';
+import { matchesSearch, searchTerms, searchText } from '@/lib/search';
 import { SafeImage } from '@/components/SafeImage';
 
 interface Option {
   id: string;
   name: string;
+  category: string;
   priceYen: number;
   image?: string;
 }
@@ -28,14 +30,28 @@ const SEARCH_RESULTS = 8;
 const won = (value: number) => `${Math.round(value).toLocaleString('ko-KR')}원`;
 const yen = (value: number) => `${value.toLocaleString('ko-KR')}엔`;
 
+/**
+ * 숫자 칸은 적은 글자 그대로 들고 있는다.
+ * 매 글자를 숫자로 바꿔 되돌려 주면 칸을 비울 수도, 소수점을 찍을 수도 없다.
+ */
+const num = (value: string, fallback = 0) => {
+  const parsed = Number(value);
+  return value.trim() === '' || Number.isNaN(parsed) ? fallback : parsed;
+};
+
 export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }: CostCalculatorProps) {
   const [lines, setLines] = useState<CartLine[]>([]);
   const [query, setQuery] = useState('');
-  const [appliedRate, setAppliedRate] = useState(marketRate);
-  const [shippingKrw, setShippingKrw] = useState(DEFAULT_SHIPPING_KRW);
-  const [people, setPeople] = useState(1);
-  const [domesticKrw, setDomesticKrw] = useState(DEFAULT_DOMESTIC_KRW);
+  const [rateInput, setRateInput] = useState(String(marketRate));
+  const [shippingInput, setShippingInput] = useState(String(DEFAULT_SHIPPING_KRW));
+  const [peopleInput, setPeopleInput] = useState('1');
+  const [domesticInput, setDomesticInput] = useState(String(DEFAULT_DOMESTIC_KRW));
   const [taxCategory, setTaxCategory] = useState<TaxCategory>('toy');
+
+  const appliedRate = num(rateInput);
+  const shippingKrw = num(shippingInput);
+  const people = Math.max(1, num(peopleInput, 1));
+  const domesticKrw = num(domesticInput);
 
   /**
    * 굿즈 상세의 "계산기에 담기"로 넘어온 상품을 담는다.
@@ -53,11 +69,14 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
     window.history.replaceState(null, '', url);
   }, [options]);
 
+  // 이름이 일본어뿐이라 한국어로 찾으면 안 나온다. 카테고리와 바꿔 쓰는 말까지 같이 본다.
+  const index = useMemo(() => options.map((option) => ({ option, text: searchText(option) })), [options]);
+
   const matches = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q) return [];
-    return options.filter((o) => o.name.toLowerCase().includes(q)).slice(0, SEARCH_RESULTS);
-  }, [options, query]);
+    const terms = searchTerms(query);
+    if (terms.length === 0) return [];
+    return index.filter(({ text }) => matchesSearch(text, terms)).slice(0, SEARCH_RESULTS).map(({ option }) => option);
+  }, [index, query]);
 
   const result = calculateCost({ lines, marketRate, appliedRate, shippingKrw, people, domesticKrw, usdPerJpy, taxCategory });
 
@@ -83,7 +102,7 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
         <input
           className="search"
           type="search"
-          placeholder="상품명으로 검색 (예: マスコット, ぬいぐるみ, キーホルダー)"
+          placeholder="상품명으로 검색 (예: 인형, 키링, 하치와레, マスコット)"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
@@ -134,19 +153,19 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
         <div className="fields">
           <label>
             적용 환율 <span className="muted">(원/엔)</span>
-            <input type="number" step="0.01" min="0" value={appliedRate} onChange={(e) => setAppliedRate(Number(e.target.value))} />
+            <input type="number" inputMode="decimal" step="0.01" min="0" value={rateInput} onChange={(e) => setRateInput(e.target.value)} />
           </label>
           <label>
             해외배송비 <span className="muted">(원, 전체)</span>
-            <input type="number" step="1000" min="0" value={shippingKrw} onChange={(e) => setShippingKrw(Number(e.target.value))} />
+            <input type="number" inputMode="numeric" step="1000" min="0" value={shippingInput} onChange={(e) => setShippingInput(e.target.value)} />
           </label>
           <label>
             나눠 낼 인원
-            <input type="number" min="1" value={people} onChange={(e) => setPeople(Number(e.target.value))} />
+            <input type="number" inputMode="numeric" min="1" value={peopleInput} onChange={(e) => setPeopleInput(e.target.value)} />
           </label>
           <label>
             국내 택배비 <span className="muted">(원)</span>
-            <input type="number" step="500" min="0" value={domesticKrw} onChange={(e) => setDomesticKrw(Number(e.target.value))} />
+            <input type="number" inputMode="numeric" step="500" min="0" value={domesticInput} onChange={(e) => setDomesticInput(e.target.value)} />
           </label>
           <label>
             품목
@@ -158,11 +177,11 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
           </label>
         </div>
         <div className="chips" style={{ marginBottom: 0 }}>
-          <button className="chip" aria-pressed={appliedRate === marketRate} onClick={() => { setAppliedRate(marketRate); track('calculator_rate_market'); }}>
+          <button className="chip" aria-pressed={appliedRate === marketRate} onClick={() => { setRateInput(String(marketRate)); track('calculator_rate_market'); }}>
             실환율 {marketRate.toFixed(2)}
           </button>
           {GROUPBUY_RATE_PRESETS.map((rate) => (
-            <button key={rate} className="chip" aria-pressed={appliedRate === rate} onClick={() => { setAppliedRate(rate); track('calculator_rate_groupbuy'); }}>
+            <button key={rate} className="chip" aria-pressed={appliedRate === rate} onClick={() => { setRateInput(String(rate)); track('calculator_rate_groupbuy'); }}>
               공구 {rate.toFixed(1)}
             </button>
           ))}

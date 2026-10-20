@@ -60,7 +60,7 @@ li { margin-bottom: 0.3em; }
 .stack { display: grid; gap: 12px; grid-template-columns: minmax(0, 1fr); }
 
 /* ── 앱 셸 ───────────────────────────────── */
-.brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; font-size: 1.28rem; }
+.brand { display: inline-flex; align-items: center; gap: 9px; padding: 6px 0; font-weight: 700; font-size: 1.28rem; }
 .brand-mark { width: 32px; height: 28px; object-fit: contain; flex: none; }
 
 /* 모바일 상단 바 */
@@ -146,10 +146,12 @@ li { margin-bottom: 0.3em; }
 /* ── 태그 / 칩 ───────────────────────────── */
 .tags { display: flex; flex-wrap: wrap; gap: 5px; min-width: 0; }
 .tag { display: inline-block; max-width: 100%; font-size: 0.74rem; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); color: var(--ink-soft); line-height: 1.55; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
+/* 누를 수 있는 태그는 손가락이 닿을 만큼 키운다. 그냥 표시용 태그는 그대로 둔다. */
+a.tag { padding: 8px 12px; }
 .tag.pink { background: var(--pink); } .tag.blue { background: var(--blue); } .tag.yellow { background: var(--yellow); } .tag.mint { background: var(--mint); } .tag.lavender { background: var(--lavender); }
 
 .chips { display: flex; gap: 7px; flex-wrap: wrap; margin: 10px 0 14px; }
-.chip { border: 1px solid var(--line-strong); background: var(--surface); border-radius: 999px; padding: 7px 15px; cursor: pointer; font-size: 0.88rem; font-weight: 600; color: var(--ink-soft); transition: background 0.12s, border-color 0.12s; }
+.chip { border: 1px solid var(--line-strong); background: var(--surface); border-radius: 999px; padding: 10px 16px; cursor: pointer; font-size: 0.88rem; font-weight: 600; color: var(--ink-soft); transition: background 0.12s, border-color 0.12s; }
 .chip[aria-pressed='true'] { background: var(--ink); color: #fff; border-color: var(--ink); }
 .chip:hover:not([aria-pressed='true']) { background: var(--surface-2); }
 
@@ -169,7 +171,7 @@ li { margin-bottom: 0.3em; }
 .btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border-radius: 999px; background: var(--ink); color: #fff; font-family: var(--font-body), sans-serif; font-weight: 700; font-size: 0.95rem; }
 .btn:hover { opacity: 0.88; }
 .btn.soft { background: var(--pink); color: var(--accent-ink); }
-.back { display: inline-block; margin-bottom: 12px; color: var(--muted); font-size: 0.9rem; font-weight: 600; }
+.back { display: inline-block; margin-bottom: 8px; padding: 9px 0; color: var(--muted); font-size: 0.9rem; font-weight: 600; }
 .back:hover { color: var(--ink); }
 
 /* ── 표 ───────────────────────────────────── */
@@ -238,7 +240,7 @@ li { margin-bottom: 0.3em; }
 .tile p { font-size: 0.8rem; color: var(--muted); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 28px 0 13px; }
 .section-head h2 { margin: 0; font-size: 1.42rem; }
-.section-head a { color: var(--muted); font-size: 0.88rem; font-weight: 600; white-space: nowrap; }
+.section-head a { display: inline-block; padding: 9px 0; color: var(--muted); font-size: 0.88rem; font-weight: 600; white-space: nowrap; }
 .section-head a:hover { color: var(--ink); }
 
 /* ── 지도 ─────────────────────────────────── */
@@ -276,7 +278,7 @@ li { margin-bottom: 0.3em; }
 /* ── 계산기 ──────────────────────────────── */
 .picker { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 4px; }
 .picker li { margin: 0; }
-.picker button { display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px 10px; border: 1px solid var(--line); background: var(--surface); border-radius: 14px; cursor: pointer; text-align: left; }
+.picker button { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px; border: 1px solid var(--line); background: var(--surface); border-radius: 14px; cursor: pointer; text-align: left; }
 .picker button:hover { background: var(--surface-2); }
 .picker-thumb { width: 38px; height: 38px; flex: none; border-radius: 10px; overflow: hidden; background: var(--surface-2); }
 .picker-thumb img { width: 100%; height: 100%; object-fit: contain; }
@@ -289,7 +291,7 @@ li { margin-bottom: 0.3em; }
 .cart-name { flex: 1; min-width: 0; font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .cart-price { font-size: 0.86rem; color: var(--muted); white-space: nowrap; }
 .cart-qty { display: flex; align-items: center; gap: 8px; flex: none; }
-.cart-qty button { width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--surface); cursor: pointer; line-height: 1; }
+.cart-qty button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--surface); cursor: pointer; line-height: 1; }
 .cart-qty button:hover { background: var(--pink); }
 .cart-qty b { min-width: 1.2em; text-align: center; }
 
@@ -312,7 +314,10 @@ li { margin-bottom: 0.3em; }
 .release-day { margin-bottom: 8px; }
 .release-day .section-head h2 { display: flex; align-items: center; gap: 9px; }
 .release-more { font-size: 0.86rem; margin: 10px 0 0; }
-.release-more a { text-decoration: underline; }
+.release-more > summary { display: inline-block; padding: 9px 16px; border: 1px solid var(--line-strong); border-radius: 999px; cursor: pointer; font-weight: 600; color: var(--ink-soft); list-style: none; }
+.release-more > summary::-webkit-details-marker { display: none; }
+.release-more > summary:hover { background: var(--surface-2); }
+.release-more .namelist { margin-top: 10px; }
 
 .fields select { padding: 10px 13px; border-radius: 12px; border: 1px solid var(--line-strong); background: var(--surface); font: inherit; font-weight: 600; color: var(--ink); width: 100%; }
 .fields select:focus { outline: none; border-color: var(--pink-deep); }
@@ -520,9 +525,22 @@ textarea {
 .trend-chart { flex: 1; min-width: 180px; }
 
 /* 하루치 요약 줄. 카드를 다 펼치면 화면이 길어져 날짜별로 접어 둔다. */
-.daylog { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 12px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; }
+.daylog { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; }
+.daylog-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding: 13px 16px; cursor: pointer; list-style: none; }
+.daylog-head::-webkit-details-marker { display: none; }
+.daylog-head::after { content: '▾'; margin-left: auto; color: var(--muted); font-size: 0.8rem; transition: transform 0.15s; }
+.daylog[open] > .daylog-head::after { transform: rotate(180deg); }
+.daylog-head:hover { background: var(--surface-2); border-radius: 16px; }
 .daylog-date { font-weight: 700; font-size: 0.92rem; white-space: nowrap; }
 .daylog-names { flex: 1; min-width: 0; font-size: 0.84rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.daylog-body { padding: 0 16px 14px; border-top: 1px solid var(--line); margin-top: 2px; }
+.daylog-body h3 { font-size: 0.88rem; margin: 14px 0 6px; color: var(--muted); }
+
+/* 접어 둔 나머지 목록. 카드 대신 이름만 잇는다. */
+.namelist { list-style: none; padding: 0; margin: 0; display: grid; gap: 2px; }
+.namelist li { margin: 0; }
+.namelist a { display: block; padding: 9px 2px; font-size: 0.88rem; border-bottom: 1px solid var(--line); }
+.namelist a:hover { color: var(--pink-deep); }
 
 /* 홈 맨 위에서 오늘 뭐가 달라졌는지 한 줄로 알린다 */
 .pulse { display: block; margin: 18px 0 2px; background: var(--mint); border-color: var(--mint-deep); }
@@ -556,6 +574,7 @@ textarea {
 /* ── 다른 페이지로 보내는 안내 상자 ──────── */
 .crosslink { margin-bottom: 16px; background: var(--lavender); border-color: var(--lavender-deep); }
 .crosslink p { margin: 5px 0 11px; font-size: 0.9rem; }
+.watch-table td:first-child a { display: inline-block; padding: 8px 0; }
 .watch-note { font-size: 0.8rem; margin-top: 3px; white-space: normal; max-width: 42ch; }
 
 .detail-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }

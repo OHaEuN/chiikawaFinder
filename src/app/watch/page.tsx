@@ -80,12 +80,10 @@ export default function WatchPage() {
       {free && (
         <div className="panel">
           <h2>돈 안 내고 보려면</h2>
-          <p>
-            <TrackedLink href={free.url} event="watch_open" props={{ platform: free.platform, slot: 'free' }}>
-              <strong>{free.title}</strong> ↗
-            </TrackedLink>
-          </p>
-          <p className="muted">{free.description}</p>
+          <p className="muted">{free.title} · {free.description}</p>
+          <TrackedLink className="btn" href={free.url} event="watch_open" props={{ platform: free.platform, slot: 'free' }}>
+            {free.platform}에서 보기 ↗
+          </TrackedLink>
         </div>
       )}
 

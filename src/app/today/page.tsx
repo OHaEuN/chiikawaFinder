@@ -27,8 +27,20 @@ interface ChangeGroupProps {
   items: DayChange['added'];
 }
 
+/** 접어 둔 나머지. 카드까지 다 그리면 한 화면이 끝없이 길어져 이름만 잇는다. */
+function NameList({ items }: { items: DayChange['added'] }) {
+  return (
+    <ul className="namelist">
+      {items.map((g) => (
+        <li key={g.id}><Link href={`/goods/${g.id}`}>{g.name}</Link></li>
+      ))}
+    </ul>
+  );
+}
+
 function ChangeGroup({ title, tone, items }: ChangeGroupProps) {
   if (items.length === 0) return null;
+  const rest = items.slice(PREVIEW);
   return (
     <section className="release-day">
       <div className="section-head">
@@ -38,7 +50,12 @@ function ChangeGroup({ title, tone, items }: ChangeGroupProps) {
         </h2>
       </div>
       <div className="grid">{items.slice(0, PREVIEW).map((g) => <GoodsCard key={g.id} goods={g} />)}</div>
-      {items.length > PREVIEW && <p className="muted release-more">외 {items.length - PREVIEW}건</p>}
+      {rest.length > 0 && (
+        <details className="release-more">
+          <summary>외 {rest.length}건 더 보기</summary>
+          <NameList items={rest} />
+        </details>
+      )}
     </section>
   );
 }
@@ -124,20 +141,27 @@ export default function TodayPage() {
           </div>
           <div className="stack">
             {past.map((day) => (
-              <div key={day.date} className="daylog">
-                <div className="daylog-date">{koreanDate(day.date)}</div>
-                <div className="tags">
-                  {day.added.length > 0 && <Tag tone="mint">신상 {day.added.length}</Tag>}
-                  {day.backInStock.length > 0 && <Tag tone="yellow">재입고 {day.backInStock.length}</Tag>}
-                  {day.soldOut.length > 0 && <Tag tone="pink">품절 {day.soldOut.length}</Tag>}
+              <details key={day.date} className="daylog">
+                <summary className="daylog-head">
+                  <span className="daylog-date">{koreanDate(day.date)}</span>
+                  <span className="tags">
+                    {day.added.length > 0 && <Tag tone="mint">신상 {day.added.length}</Tag>}
+                    {day.backInStock.length > 0 && <Tag tone="yellow">재입고 {day.backInStock.length}</Tag>}
+                    {day.soldOut.length > 0 && <Tag tone="pink">품절 {day.soldOut.length}</Tag>}
+                  </span>
+                  <span className="daylog-names muted">
+                    {[...day.added, ...day.backInStock, ...day.soldOut]
+                      .slice(0, 3)
+                      .map((g) => g.name)
+                      .join(' · ')}
+                  </span>
+                </summary>
+                <div className="daylog-body">
+                  {day.added.length > 0 && <><h3>새로 올라온 상품</h3><NameList items={day.added} /></>}
+                  {day.backInStock.length > 0 && <><h3>다시 들어온 상품</h3><NameList items={day.backInStock} /></>}
+                  {day.soldOut.length > 0 && <><h3>품절된 상품</h3><NameList items={day.soldOut} /></>}
                 </div>
-                <div className="daylog-names muted">
-                  {[...day.added, ...day.backInStock, ...day.soldOut]
-                    .slice(0, 3)
-                    .map((g) => g.name)
-                    .join(' · ')}
-                </div>
-              </div>
+              </details>
             ))}
           </div>
         </>
