@@ -1452,7 +1452,7 @@
     "characters": [
       "anoko"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609413769"
     ]
@@ -1472,7 +1472,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609413776"
     ]
@@ -1492,7 +1492,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609413783"
     ]
@@ -5371,7 +5371,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550311335583"
     ]
@@ -5585,34 +5585,6 @@
     ],
     "sources": [
       "https://chiikawamarket.jp/products/4582547933646"
-    ]
-  },
-  {
-    "id": "cm-4977524129134",
-    "name": "先生のごほうびスタンプ",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2023-09-22",
-    "price": "2,750엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4977524129134_01.jpg?v=1695270886",
-    "buyUrl": "https://chiikawamarket.jp/products/4977524129134",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "学校やおけいこ教室でも大活躍の浸透印4個セット。 薄くなってきた時には別売りの補充インクで、繰り返しご使用になれます。 収納プラケース入り。 サイズ： スタンプ：直径37.5×H30mm 印面：約直径31mm 収納ケース：約H83.5×W82×D36mm パッケージ：約H136×W108×D38mm 重さ：約197g ",
-    "characters": [
-      "usagi",
-      "chiikawa",
-      "hachiware"
-    ],
-    "available": false,
-    "restocks": [
-      "2023-12-14",
-      "2024-05-09",
-      "2024-08-29",
-      "2026-10-01"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4977524129134"
     ]
   },
   {
@@ -13103,7 +13075,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-09-17"
     ],
@@ -40404,7 +40376,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550432324916"
     ]
@@ -44397,7 +44369,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-05-14"
     ],
@@ -45476,7 +45448,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609390329"
     ]
