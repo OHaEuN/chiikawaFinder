@@ -72,14 +72,14 @@ export default function WatchPage() {
       <div className="page-head">
         <h1>애니 어디서 봐</h1>
         <p>
-          치이카와는 한국에서 「먼작귀」라는 이름으로 나옵니다. 그래서 치이카와로 검색하면 안 나오는 곳이 많습니다.
+          치이카와는 한국에서 「먼작귀」라는 이름으로 나옵니다. 그래서 「먼작귀」로 검색해야 찾아지는 곳이 많습니다.
           한국에서 볼 수 있는 곳을 전부 모아 시즌과 더빙 여부까지 한 표에 담았습니다.
         </p>
       </div>
 
       {free && (
         <div className="panel">
-          <h2>돈 안 내고 보려면</h2>
+          <h2>무료로 보려면</h2>
           <p className="muted">{free.title} · {free.description}</p>
           <TrackedLink className="btn" href={free.url} event="watch_open" props={{ platform: free.platform, slot: 'free' }}>
             {free.platform}에서 보기 ↗

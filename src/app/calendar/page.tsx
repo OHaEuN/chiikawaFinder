@@ -28,7 +28,7 @@ export default function CalendarPage() {
       </div>
 
       {days.length === 0 ? (
-        <div className="panel"><h2>예정된 발매가 없습니다</h2><p className="muted">새 발매일이 확인되면 여기에 올라옵니다.</p></div>
+        <div className="panel"><h2>다음 발매를 기다리는 중입니다</h2><p className="muted">새 발매일이 확인되면 여기에 올라옵니다.</p></div>
       ) : (
         days.map((day) => (
           <section key={day.date} className="release-day">

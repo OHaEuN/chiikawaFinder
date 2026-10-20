@@ -124,7 +124,7 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
         )}
 
         {lines.length === 0 ? (
-          <p className="muted" style={{ marginTop: 12 }}>아직 담은 상품이 없습니다.</p>
+          <p className="muted" style={{ marginTop: 12 }}>위에서 상품을 검색해 담아 보세요.</p>
         ) : (
           <ul className="cart">
             {lines.map((l) => (
@@ -145,7 +145,7 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
           <div className="freeship-bar"><span style={{ width: `${freeShippingPercent}%` }} /></div>
           <p className="muted">
             {result.toFreeShippingYen > 0
-              ? `일본 내 배송 무료까지 ${yen(result.toFreeShippingYen)} 남았습니다. 이 금액을 넘기지 못하면 일본 내 배송료가 붙습니다. 공구 모집글의 '무배컷'이 이 기준입니다.`
+              ? `일본 내 배송 무료까지 ${yen(result.toFreeShippingYen)} 남았습니다. 이 금액을 넘기면 일본 내 배송료가 없어집니다. 공구 모집글의 '무배컷'이 이 기준입니다.`
               : `일본 내 배송 무료 기준(${yen(FREE_DOMESTIC_SHIPPING_YEN)})을 넘겨 일본 내 배송료가 없습니다.`}
           </p>
         </div>

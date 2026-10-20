@@ -111,7 +111,7 @@ export default function TodayPage() {
             {won(SAMPLE_YEN * verdict.max.krwPerJpy)}입니다.
           </p>
           <p className="muted fx-note">
-            상품값은 엔화로 고정돼 좀처럼 바뀌지 않습니다. 한국에서 내는 돈이 움직이는 건 거의 환율 때문이라,
+            상품값은 엔화로 고정돼 거의 그대로입니다. 한국에서 내는 돈이 움직이는 건 거의 환율 때문이라,
             날짜별 환율 하나로 전부 환산합니다. <Link href="/calculator">직구 계산기에서 실제 총액 보기 →</Link>
           </p>
         </section>
@@ -129,7 +129,7 @@ export default function TodayPage() {
         </>
       ) : (
         <div className="panel">
-          <h2>아직 쌓인 기록이 없습니다</h2>
+          <h2>기록을 모으는 중입니다</h2>
           <p className="muted">매일 아침 한 번 확인합니다. 하루가 지나면 여기에 달라진 점이 올라옵니다.</p>
         </div>
       )}

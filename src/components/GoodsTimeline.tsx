@@ -48,8 +48,8 @@ export function GoodsTimeline({ events, cadence, since }: GoodsTimelineProps) {
         ))}
       </ol>
       <p className="muted">
-        발매일과 재입고일은 공식 상품 정보에 붙은 날짜입니다. 품절과 재판매는 {since}부터 매일 아침 확인해 적은
-        것이라, 그 전 기록은 들어 있지 않습니다.
+        발매일과 재입고일은 공식 상품 정보에 붙은 날짜입니다. 품절과 재판매는 {since}부터 매일 아침 확인해
+        적었으니, 기록은 그날부터입니다.
       </p>
     </section>
   );

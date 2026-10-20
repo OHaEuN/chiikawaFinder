@@ -19,7 +19,7 @@ export default function OnlinePage() {
       <div className="panel crosslink">
         <strong>애니부터 보려고요?</strong>
         <p className="muted">
-          한국에서는 「먼작귀」라는 이름으로 나와 치이카와로 검색하면 안 나오는 곳이 많습니다.
+          한국에서는 「먼작귀」라는 이름으로 나와, 그 이름으로 검색해야 찾아지는 곳이 많습니다.
           볼 수 있는 곳을 시즌·더빙까지 한 표에 모아 두었습니다.
         </p>
         <Link className="btn soft" href="/watch">애니 어디서 봐 →</Link>

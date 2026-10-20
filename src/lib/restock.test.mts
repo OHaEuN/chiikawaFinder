@@ -10,7 +10,7 @@ test('살 수 있는 상품에는 안내하지 않는다', () => {
 test('재입고 이력이 없으면 알 수 없다고 말한다', () => {
   const hint = restockHint({ available: false });
   assert.equal(hint?.tone, 'unknown');
-  assert.match(hint!.message, /아직 재입고된 적이 없습니다/);
+  assert.match(hint!.message, /아직 재입고된 적이 없어/);
 });
 
 test('세 번 넘게 재입고됐으면 기다려 볼 만하다고 한다', () => {
