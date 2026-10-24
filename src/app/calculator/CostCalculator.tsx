@@ -30,6 +30,17 @@ const DEFAULT_SHIPPING_KRW = 25000;
 const DEFAULT_DOMESTIC_KRW = 3500;
 const SEARCH_RESULTS = 8;
 const CART_STORAGE_KEY = 'chiikawa-calculator-cart';
+const SETTINGS_STORAGE_KEY = 'chiikawa-calculator-settings';
+
+interface SavedSettings {
+  rate: string;
+  /** 실환율을 그대로 쓰고 있었으면 다음 방문에는 그날의 실환율을 넣는다. */
+  rateIsMarket: boolean;
+  shipping: string;
+  people: string;
+  domestic: string;
+  tax: TaxCategory;
+}
 
 const won = (value: number) => `${Math.round(value).toLocaleString('ko-KR')}원`;
 const yen = (value: number) => `${value.toLocaleString('ko-KR')}엔`;
@@ -92,6 +103,20 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
       window.history.replaceState(null, '', url);
     }
     setLines(next);
+
+    try {
+      const raw = localStorage.getItem(SETTINGS_STORAGE_KEY);
+      const settings: Partial<SavedSettings> | null = raw ? JSON.parse(raw) : null;
+      if (settings) {
+        if (!settings.rateIsMarket && typeof settings.rate === 'string') setRateInput(settings.rate);
+        if (typeof settings.shipping === 'string') setShippingInput(settings.shipping);
+        if (typeof settings.people === 'string') setPeopleInput(settings.people);
+        if (typeof settings.domestic === 'string') setDomesticInput(settings.domestic);
+        if (settings.tax && settings.tax in TAX_RATES) setTaxCategory(settings.tax);
+      }
+    } catch {
+      // 깨진 값이면 기본 조건으로 둔다.
+    }
     setRestored(true);
   }, [options]);
 
@@ -105,6 +130,31 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
       // 저장에 실패해도 이번 방문에는 계산된다.
     }
   }, [lines, restored]);
+
+  useEffect(() => {
+    if (!restored) return;
+    const settings: SavedSettings = {
+      rate: rateInput,
+      rateIsMarket: num(rateInput) === marketRate,
+      shipping: shippingInput,
+      people: peopleInput,
+      domestic: domesticInput,
+      tax: taxCategory,
+    };
+    try {
+      localStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(settings));
+    } catch {
+      // 저장에 실패해도 이번 방문에는 계산된다.
+    }
+  }, [restored, rateInput, shippingInput, peopleInput, domesticInput, taxCategory, marketRate]);
+
+  const resetSettings = () => {
+    setRateInput(String(marketRate));
+    setShippingInput(String(DEFAULT_SHIPPING_KRW));
+    setPeopleInput('1');
+    setDomesticInput(String(DEFAULT_DOMESTIC_KRW));
+    setTaxCategory('toy');
+  };
 
   // 이름이 일본어뿐이라 한국어로 찾으면 안 나온다. 카테고리와 바꿔 쓰는 말까지 같이 본다.
   const index = useMemo(() => options.map((option) => ({ option, text: searchText(option) })), [options]);
@@ -227,6 +277,7 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
               공구 {rate.toFixed(1)}
             </button>
           ))}
+          <button className="chip" onClick={resetSettings}>기본값으로</button>
         </div>
         <p className="muted" style={{ fontSize: '0.82rem', marginTop: 10, marginBottom: 0 }}>
           실환율 기준일은 {rateUpdatedAt}입니다. 해외배송비와 국내 택배비는 기본값이라, 실제 공구 안내에 맞춰 바꿔 주세요.
