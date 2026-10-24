@@ -1,6 +1,7 @@
 import type { OnlineContent } from '@/types/online';
 import { SafeImage } from './SafeImage';
 import { Tag } from './Tag';
+import { TrackedLink } from './TrackedLink';
 import { COUNTRY_LABEL, ONLINE_CATEGORY_LABEL } from '@/lib/labels';
 
 const REGION_TONE = { KR: 'pink', JP: 'blue', GLOBAL: 'lavender' } as const;
@@ -9,14 +10,7 @@ interface OnlineRowProps { item: OnlineContent }
 
 export function OnlineRow({ item }: OnlineRowProps) {
   return (
-    <a
-      href={item.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="row"
-      data-analytics-event="online_open"
-      data-analytics-event-platform={item.platform}
-    >
+    <TrackedLink href={item.url} event="online_open" props={{ platform: item.platform }} className="row">
       <div className="row-thumb"><SafeImage src={item.image} alt={item.title} fallback="🔗" width={80} /></div>
       <div className="row-body">
         <div className="card-title">{item.title}</div>
@@ -29,6 +23,6 @@ export function OnlineRow({ item }: OnlineRowProps) {
         </div>
       </div>
       <span className="muted" aria-hidden>↗</span>
-    </a>
+    </TrackedLink>
   );
 }

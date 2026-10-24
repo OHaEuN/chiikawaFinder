@@ -22,7 +22,4 @@ HTML 태그 확인 → 값을 `NEXT_PUBLIC_NAVER_VERIFICATION` 변수에 넣는�
 
 ## 분석 붙이기
 
-[cloud.umami.is](https://cloud.umami.is) 에서 웹사이트를 추가하면 Website ID 가 나온다.
-Vercel 프로젝트 Settings → Environment Variables 에
-`NEXT_PUBLIC_UMAMI_ID` 로 넣으면 다음 배포부터 스크립트가 붙는다.
-`src/lib/analytics.ts` 가 Umami·Plausible·GA 를 모두 받아 두었으니 도구를 바꿔도 화면 코드는 그대로다.
+Vercel 프로젝트의 Analytics 탭에서 Web Analytics 를 켜면 된다. 코드는 이미 붙어 있다(`src/components/Analytics.tsx`).
