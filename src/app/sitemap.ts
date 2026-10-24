@@ -8,7 +8,7 @@ import { CHARACTERS, GOODS, HISTORY, PLACES } from '@/lib/data';
  * 주소 끝의 / 는 next.config 의 trailingSlash 설정과 같아야 한다.
  * 다르면 색인된 주소와 실제 주소가 어긋나 중복 문서로 잡힌다.
  */
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ohaeun.github.io/chiikawaFinder/';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://chiikawa-finder.vercel.app/';
 
 const url = (path: string) => new URL(path, SITE_URL).toString();
 

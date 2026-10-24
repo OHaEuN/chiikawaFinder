@@ -13,8 +13,8 @@
 | Umami Cloud | `NEXT_PUBLIC_UMAMI_ID` | 필요 없음 | 무료 구간 있음 |
 | GA4 | `NEXT_PUBLIC_GA_ID` | 필요 | 무료. 설정이 번거로움 |
 
-배포는 `.github/workflows/deploy.yml` 이 GitHub Pages로 올린다.
-저장소 설정의 Variables 에 위 환경변수를 넣으면 빌드에 반영된다.
+배포는 Vercel 이 main 브랜치 푸시를 받아 한다.
+Vercel 프로젝트 Settings → Environment Variables 에 위 환경변수를 넣으면 다음 빌드에 반영된다.
 
 ## 남기는 이벤트
 
