@@ -74,7 +74,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4573660290877"
     ]
@@ -764,7 +764,7 @@
       "momonga",
       "rakko"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4901771321621"
     ]
@@ -2602,7 +2602,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-10-22"
     ],
@@ -2968,7 +2968,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-09-17",
       "2026-10-22"
@@ -3148,7 +3148,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550432346048"
     ]
@@ -7023,7 +7023,7 @@
       "furuhonya",
       "yoroi-san"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-08-27",
       "2026-10-08"
@@ -8358,7 +8358,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550311334616"
     ]
@@ -14664,7 +14664,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2025-10-09",
       "2025-10-23",
@@ -30609,7 +30609,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609409045"
     ]
@@ -42075,7 +42075,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550432324947"
     ]
