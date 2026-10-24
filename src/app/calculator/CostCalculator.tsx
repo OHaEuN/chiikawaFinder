@@ -29,6 +29,7 @@ const GROUPBUY_RATE_PRESETS = [9.5, 10];
 const DEFAULT_SHIPPING_KRW = 25000;
 const DEFAULT_DOMESTIC_KRW = 3500;
 const SEARCH_RESULTS = 8;
+const CART_STORAGE_KEY = 'chiikawa-calculator-cart';
 
 const won = (value: number) => `${Math.round(value).toLocaleString('ko-KR')}원`;
 const yen = (value: number) => `${value.toLocaleString('ko-KR')}엔`;
@@ -56,21 +57,54 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
   const people = Math.max(1, num(peopleInput, 1));
   const domesticKrw = num(domesticInput);
 
+  /** 담은 상품이 있는지 다 읽기 전에 저장하면 빈 목록으로 덮어쓴다. */
+  const [restored, setRestored] = useState(false);
+
   /**
-   * 굿즈 상세의 "계산기에 담기"로 넘어온 상품을 담는다.
+   * 지난번에 담아 둔 상품을 되살리고, 굿즈 상세의 "계산기에 담기"로 넘어온 상품을 더한다.
    * 정적 사이트라 서버가 쿼리를 읽어 줄 수 없어 주소에서 직접 꺼낸다.
    */
   useEffect(() => {
+    let saved: CartLine[] = [];
+    try {
+      const raw = localStorage.getItem(CART_STORAGE_KEY);
+      if (raw) saved = JSON.parse(raw);
+    } catch {
+      // 저장소를 막아 두었거나 내용이 깨졌으면 빈 장바구니로 시작한다.
+    }
+    // 스크랩으로 가격이 바뀌었을 수 있어 지금 목록의 값으로 맞춘다.
+    const byId = new Map(options.map((o) => [o.id, o]));
+    let next = (Array.isArray(saved) ? saved : [])
+      .filter((l) => l && typeof l.id === 'string' && l.quantity > 0)
+      .map((l) => {
+        const option = byId.get(l.id);
+        return option ? { ...l, name: option.nameKo, priceYen: option.priceYen } : l;
+      });
+
     const url = new URL(window.location.href);
     const id = url.searchParams.get('add');
-    const option = id && options.find((o) => o.id === id);
-    if (!option) return;
-    setLines((prev) => (prev.some((l) => l.id === option.id) ? prev : [...prev, { id: option.id, name: option.nameKo, priceYen: option.priceYen, quantity: 1 }]));
-    track('calculator_add_item', { from: 'goods' });
-    // 새로고침할 때마다 다시 담기지 않게 주소를 정리한다.
-    url.searchParams.delete('add');
-    window.history.replaceState(null, '', url);
+    const option = id && byId.get(id);
+    if (option) {
+      if (!next.some((l) => l.id === option.id)) next = [...next, { id: option.id, name: option.nameKo, priceYen: option.priceYen, quantity: 1 }];
+      track('calculator_add_item', { from: 'goods' });
+      // 새로고침할 때마다 다시 담기지 않게 주소를 정리한다.
+      url.searchParams.delete('add');
+      window.history.replaceState(null, '', url);
+    }
+    setLines(next);
+    setRestored(true);
   }, [options]);
+
+  // 다른 페이지에 다녀와도 담은 상품이 남도록 바뀔 때마다 저장한다.
+  useEffect(() => {
+    if (!restored) return;
+    try {
+      if (lines.length === 0) localStorage.removeItem(CART_STORAGE_KEY);
+      else localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(lines));
+    } catch {
+      // 저장에 실패해도 이번 방문에는 계산된다.
+    }
+  }, [lines, restored]);
 
   // 이름이 일본어뿐이라 한국어로 찾으면 안 나온다. 카테고리와 바꿔 쓰는 말까지 같이 본다.
   const index = useMemo(() => options.map((option) => ({ option, text: searchText(option) })), [options]);
@@ -139,6 +173,11 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
               </li>
             ))}
           </ul>
+        )}
+        {lines.length > 0 && (
+          <button className="chip" style={{ marginTop: 8 }} onClick={() => setLines([])}>
+            담은 상품 모두 비우기
+          </button>
         )}
 
         <div className="freeship">
