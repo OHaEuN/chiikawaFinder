@@ -5,16 +5,14 @@
 
 ## 붙이는 법
 
-분석 도구는 환경변수 하나만 채우면 붙는다. 비워 두면 스크립트가 아예 실려 나가지 않는다.
+분석은 Vercel Web Analytics 를 쓴다. `src/components/Analytics.tsx` 가 레이아웃에 붙어 있고,
+Vercel 프로젝트의 Analytics 탭에서 기능을 켜 두면 다음 배포부터 방문자와 페이지뷰가 모인다.
+쿠키를 쓰지 않아 동의 배너가 필요 없다.
 
-| 도구 | 환경변수 | 쿠키 동의 배너 | 비고 |
-|---|---|---|---|
-| Plausible | `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | 필요 없음 | 유료. 이벤트 속성까지 봄 |
-| Umami Cloud | `NEXT_PUBLIC_UMAMI_ID` | 필요 없음 | 무료 구간 있음 |
-| GA4 | `NEXT_PUBLIC_GA_ID` | 필요 | 무료. 설정이 번거로움 |
+아래 이벤트는 `src/lib/analytics.ts` 의 `track()` 으로 보낸다.
+사용자 정의 이벤트는 Vercel Pro 이상에서만 대시보드에 보인다. Hobby 에서는 호출만 되고 집계되지 않는다.
 
-배포는 Vercel 이 main 브랜치 푸시를 받아 한다.
-Vercel 프로젝트 Settings → Environment Variables 에 위 환경변수를 넣으면 다음 빌드에 반영된다.
+배포는 Vercel 이 master 브랜치 푸시를 받아 한다.
 
 ## 남기는 이벤트
 
