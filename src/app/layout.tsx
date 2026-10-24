@@ -28,7 +28,7 @@ const cute = Gaegu({
   preload: false,
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://ohaeun.github.io/chiikawaFinder/';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://chiikawa-finder.vercel.app/';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
