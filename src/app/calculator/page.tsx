@@ -15,6 +15,12 @@ const SAFETY_TONE = { safer: 'mint', caution: 'yellow', risky: 'pink' } as const
 /** 환율 칸에 8.445558 이 뜨면 고쳐 쓰기 어렵다. 보이는 자리까지만 쓰고 계산도 같은 값으로 한다. */
 const marketRate = Math.round(FX.krwPerJpy * 100) / 100;
 
+/** 기준일은 "Mon, 26 Oct 2026 00:02:31 +0000" 처럼 들어온다. 한국 날짜로 바꿔 보여 준다. */
+const rateDate = new Date(FX.updatedAt);
+const rateUpdatedAt = Number.isNaN(rateDate.getTime())
+  ? FX.updatedAt
+  : new Intl.DateTimeFormat('ko-KR', { month: 'long', day: 'numeric', timeZone: 'Asia/Seoul' }).format(rateDate);
+
 export default function CalculatorPage() {
   // 품절 상품을 담아 봐야 살 수 없다. 재고가 있는 일본 상품만 후보로 둔다.
   const options = GOODS.flatMap((g) => {
@@ -30,7 +36,7 @@ export default function CalculatorPage() {
         <p>담아 보면 최종 얼마인지 바로 나옵니다. 공구 환율을 넣으면 수수료가 얼마나 섞였는지도 보입니다.</p>
       </div>
 
-      <CostCalculator options={options} marketRate={marketRate} usdPerJpy={FX.usdPerJpy} rateUpdatedAt={FX.updatedAt} />
+      <CostCalculator options={options} marketRate={marketRate} usdPerJpy={FX.usdPerJpy} rateUpdatedAt={rateUpdatedAt} />
 
       <div className="section-head"><h2>공구가 열리는 곳</h2></div>
       <div className="stack">
