@@ -1,5 +1,446 @@
 [
   {
+    "id": "cm-4571609412281",
+    "name": "Kiramekko Teddy Bear Christmas（ちいかわ）",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "2,420엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/2571609412281_1.jpg?v=1792545320",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609412281",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）： 本体：H128×W93×D75mm 以内 ストラップ：H65mm パッケージ：H160×W105×D90mm 材質： 本体：ポリエステル、ABS、PMMA、PU ナスカン・カラビナ：亜鉛合金、鉄 不織布：PP、ナイロン 製造地：中国",
+    "characters": [
+      "chiikawa"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609412281"
+    ]
+  },
+  {
+    "id": "cm-4571609412304",
+    "name": "Kiramekko Teddy Bear Christmas（うさぎ）",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "2,420엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/2571609412304_1_1c5c9635-0d22-4f58-a0d1-7a05904f7c25.jpg?v=1792545478",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609412304",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）： 本体：H128×W93×D75mm 以内 ストラップ：H65mm パッケージ：H160×W105×D90mm 材質： 本体：ポリエステル、ABS、PMMA、PU ナスカン・カラビナ：亜鉛合金、鉄 不織布：PP、ナイロン 製造地：中国",
+    "characters": [
+      "usagi"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609412304"
+    ]
+  },
+  {
+    "id": "cm-4571609412298",
+    "name": "Kiramekko Teddy Bear Christmas（ハチワレ）",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "2,420엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/2571609412298_1.jpg?v=1792545421",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609412298",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）： 本体：H128×W93×D75mm 以内 ストラップ：H65mm パッケージ：H160×W105×D90mm 材質： 本体：ポリエステル、ABS、PMMA、PU ナスカン・カラビナ：亜鉛合金、鉄 不織布：PP、ナイロン 製造地：中国",
+    "characters": [
+      "hachiware"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609412298"
+    ]
+  },
+  {
+    "id": "cm-4571609413035",
+    "name": "ツリーなうさぎマスコット",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "1,650엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609413035_1_c3654edd-c72c-4868-a155-2a9069e33da4.jpg?v=1792546661",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609413035",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）：H135×W110×D70mm 材質： 本体：ポリエステル、ナイロン ボールチェーン：鉄 製造地：中国",
+    "characters": [
+      "usagi"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609413035"
+    ]
+  },
+  {
+    "id": "cm-4571609413028",
+    "name": "【抽選販売】ちいかわ 動く！？ ツリーなうさぎぬいぐるみ",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "2,860엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609413028_1.jpg?v=1792546494",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609413028",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": ".important-container { border: 2px solid #f55656; padding: 35px 30px; margin-bottom: 30px; color: #555; line-height: 1.8; } .important-title { font-size: 1.1em;",
+    "characters": [
+      "usagi"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609413028"
+    ]
+  },
+  {
+    "id": "cm-4571609414148",
+    "name": "クリスマスリースなぬいぐるみ",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "6,820엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609414148_1_c24c0311-2eaf-44a4-bcd6-7c7b1b770518.jpg?v=1792546752",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609414148",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）：H260×W200×D70mm 材質：ポリエステル、ポリウレタン、ABS、PET 製造地：中国",
+    "characters": [
+      "usagi",
+      "chiikawa",
+      "hachiware"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609414148"
+    ]
+  },
+  {
+    "id": "cm-4571609414124",
+    "name": "クリスマスの精マスコット（ハチワレ）",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "1,870엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609414124_1_3a32232e-dbc0-4aa0-be32-c7cae3772e90.jpg?v=1792546874",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609414124",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）：H130×W100×D55mm 材質： 本体：ポリエステル、ポリウレタン、アクリル、ナイロン ボールチェーン・パーツ：鉄、ポリエステル 製造地：中国",
+    "characters": [
+      "hachiware"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609414124"
+    ]
+  },
+  {
+    "id": "cm-4571609414117",
+    "name": "クリスマスの精マスコット（ちいかわ）",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "1,870엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609414117_1.jpg?v=1792546794",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609414117",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）：H130×W100×D55mm 材質： 本体：ポリエステル、ポリウレタン、アクリル、ナイロン ボールチェーン・パーツ：鉄、ポリエステル 製造地：中国",
+    "characters": [
+      "chiikawa"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609414117"
+    ]
+  },
+  {
+    "id": "cm-4571609415169",
+    "name": "ライティングペンダント（星）",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "1,870엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609415169_4_3b70400c-ca95-41de-ac8f-3402d1468432.jpg?v=1792656949",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609415169",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）： 本体：H106×W86×D41mm ネックストラップ：全長750mm 使用電池：LR41×2個（交換可能） 材質： 本体：ABS 紐：ポリエステル ジョイントパーツ：ABS 製造地：中国",
+    "characters": [],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609415169"
+    ]
+  },
+  {
+    "id": "cm-4571609414131",
+    "name": "クリスマスの精マスコット（うさぎ）",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "1,870엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609414131_1_1deafaf9-27dd-475d-b6b7-887c807d1d45.jpg?v=1792546922",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609414131",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）：H150×W100×D55mm 材質： 本体：ポリエステル、ポリウレタン、アクリル、ナイロン ボールチェーン・パーツ：鉄、ポリエステル 製造地：中国",
+    "characters": [
+      "usagi"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609414131"
+    ]
+  },
+  {
+    "id": "cm-4571609409946",
+    "name": "ちいかわラーメン豚 店員さんなマスコット（くりまんじゅう）",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "1,870엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609409946_1.jpg?v=1792548385",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609409946",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）：H100×W80×D55mm 材質： 本体：ポリエステル、ポリウレタン、ナイロン ボールチェーン・パーツ：鉄、ポリエステル 製造地：中国",
+    "characters": [
+      "kurimanju"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609409946"
+    ]
+  },
+  {
+    "id": "cm-4571609409939",
+    "name": "ちいかわラーメン豚 店員さんなマスコット（モモンガ）",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "1,870엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609409939_1_4c459399-2bcd-43cb-99bf-ed7b3b9731ab.jpg?v=1792548522",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609409939",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）：H115×W110×D90mm 材質： 本体：ポリエステル、ポリウレタン、ナイロン ボールチェーン・パーツ：鉄、ポリエステル 製造地：中国",
+    "characters": [
+      "momonga"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609409939"
+    ]
+  },
+  {
+    "id": "cm-4571609409960",
+    "name": "ちいかわラーメン豚 店員さんなマスコット（ラッコ）",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "1,870엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609409960_1.jpg?v=1792548465",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609409960",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）：H105×W95×D55mm 材質： 本体：ポリエステル、ポリウレタン、ナイロン ボールチェーン・パーツ：鉄、ポリエステル 製造地：中国",
+    "characters": [
+      "rakko"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609409960"
+    ]
+  },
+  {
+    "id": "cm-4571609409953",
+    "name": "ちいかわラーメン豚 店員さんなマスコット（シーサー）",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "1,870엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609409953_1.jpg?v=1792548428",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609409953",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）：H110×W95×D55mm 材質： 本体：ポリエステル、ポリウレタン、ナイロン ボールチェーン・パーツ：鉄、ポリエステル 製造地：中国",
+    "characters": [
+      "shisa"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609409953"
+    ]
+  },
+  {
+    "id": "cm-4571609403173",
+    "name": "まじかるちいかわ ボンボンドロップシール ジュエル（まじかるちいかわ）",
+    "brand": "치이카와 마켓",
+    "category": "문구",
+    "releaseDate": "2026-11-06",
+    "price": "660엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609403173_1.jpg?v=1792547500",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609403173",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）： 各シール：H35×W35×D5mm以内 台紙：H200×W95×D7mm 材質：PVC 製造地：中国",
+    "characters": [
+      "usagi",
+      "kurimanju",
+      "chiikawa",
+      "shisa",
+      "hachiware",
+      "momonga",
+      "rakko"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609403173"
+    ]
+  },
+  {
+    "id": "cm-4571609409977",
+    "name": "ちいかわラーメン豚 店員さんなマスコット（古本屋）",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "1,870엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609409977_1.jpg?v=1792548330",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609409977",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）：H115×W80×D55mm 材質： 本体：ポリエステル、ポリウレタン、ナイロン ボールチェーン・パーツ：鉄、ポリエステル 製造地：中国",
+    "characters": [
+      "furuhonya"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609409977"
+    ]
+  },
+  {
+    "id": "cm-4571609403197",
+    "name": "超まじかるちいかわ ボンボンドロップシール ジュエル",
+    "brand": "치이카와 마켓",
+    "category": "문구",
+    "releaseDate": "2026-11-06",
+    "price": "660엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609403197_1.jpg?v=1792547677",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609403197",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）： 各シール：H50×W35×D5mm以内 台紙：H200×W95×D7mm 材質：PVC 製造地：中国",
+    "characters": [
+      "usagi",
+      "kurimanju",
+      "chiikawa",
+      "kabutomushi",
+      "shisa",
+      "hachiware",
+      "momonga"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609403197"
+    ]
+  },
+  {
+    "id": "cm-4571609403180",
+    "name": "まじかるちいかわ ボンボンドロップシール ジュエル（悪いバージョン）",
+    "brand": "치이카와 마켓",
+    "category": "문구",
+    "releaseDate": "2026-11-06",
+    "price": "660엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609403180_1.jpg?v=1792547587",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609403180",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）： 各シール：H40×W35×D5mm以内 台紙：H200×W95×D7mm 材質：PVC 製造地：中国",
+    "characters": [
+      "usagi",
+      "chiikawa",
+      "hachiware",
+      "momonga"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609403180"
+    ]
+  },
+  {
+    "id": "cm-4571609414100",
+    "name": "まじかるちいかわ 強くなったうさぎマスコット",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "2,090엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609414100_1.jpg?v=1792548023",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609414100",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）：H140×W140×D120mm 材質： 本体：ポリエステル、ナイロン ボールチェーン：鉄 製造地：中国",
+    "characters": [
+      "usagi"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609414100"
+    ]
+  },
+  {
+    "id": "cm-4571609414094",
+    "name": "まじかるちいかわ 強くなったハチワレマスコット",
+    "brand": "치이카와 마켓",
+    "category": "인형/마스코트",
+    "releaseDate": "2026-11-06",
+    "price": "2,090엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609414094_1.jpg?v=1792547968",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609414094",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）：H160×W110×D110mm 材質： 本体：ポリエステル、ナイロン ボールチェーン：鉄 製造地：中国",
+    "characters": [
+      "hachiware"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609414094"
+    ]
+  },
+  {
+    "id": "cm-4571609403203",
+    "name": "てんし♡あくま ボンボンドロップシール ジュエル",
+    "brand": "치이카와 마켓",
+    "category": "문구",
+    "releaseDate": "2026-11-06",
+    "price": "660엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609403203_1.jpg?v=1792547725",
+    "buyUrl": "https://chiikawamarket.jp/products/4571609403203",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "サイズ（約）： 各シール：H35×W35×D5mm以内 台紙：H200×W95×D7mm 材質：PVC 製造地：中国",
+    "characters": [
+      "usagi",
+      "kurimanju",
+      "chiikawa",
+      "shisa",
+      "hachiware",
+      "momonga",
+      "rakko"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4571609403203"
+    ]
+  },
+  {
     "id": "cm-4901770054162",
     "name": "ボンボンドロップシール ミニ（ちいかわ×ハチワレ×うさぎ）",
     "brand": "치이카와 마켓",
@@ -990,7 +1431,7 @@
       "momonga",
       "rakko"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4901770084473"
     ]
@@ -1733,7 +2174,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-10-22"
     ],
@@ -2306,7 +2747,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2025-10-09",
       "2025-12-04",
@@ -2964,7 +3405,7 @@
     "characters": [
       "shisa"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-09-03",
       "2026-10-22"
@@ -5496,7 +5937,7 @@
     "characters": [
       "shisa"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609413646"
     ]
@@ -7087,7 +7528,7 @@
       "usagi",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-03-18",
       "2026-09-10",
@@ -53462,7 +53903,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-01-23",
       "2026-04-30"
