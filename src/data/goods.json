@@ -535,7 +535,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4580052816669"
     ]
@@ -4488,7 +4488,7 @@
       "chiikawa",
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4995502124803"
     ]
@@ -10322,7 +10322,7 @@
       "furuhonya",
       "yoroi-san"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-08-27",
       "2026-10-08"
@@ -21757,7 +21757,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-09-10"
     ],
