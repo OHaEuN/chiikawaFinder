@@ -1016,7 +1016,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4995027210869"
     ]
@@ -1119,7 +1119,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4582769946929"
     ]
@@ -1494,7 +1494,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2024-09-12",
       "2026-10-01",
@@ -1802,7 +1802,7 @@
       "momonga",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-05-21",
       "2026-10-01",
@@ -2091,7 +2091,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2025-05-22",
       "2025-07-03",
@@ -2462,7 +2462,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-03-18",
       "2026-10-29"
@@ -9712,7 +9712,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2024-02-08",
       "2024-12-19",
