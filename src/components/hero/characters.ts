@@ -31,8 +31,16 @@ export interface CharacterRig {
 
 const HEAD_RADIUS = 1;
 const HEAD_Y = 0.38;
-/** 참조 인형은 몸통 너비가 머리의 9할쯤 된다. 좁게 잡으면 사탕처럼 보인다. */
-const TORSO_Y = -1.0;
+/**
+ * 공식 피규어(GPSBOX 우사기 시리즈)의 실루엣을 픽셀로 재어 맞췄다.
+ * 귀가 선 개체로 재야 한다. 귀가 늘어진 개체는 귀가 몸 옆에 겹쳐 몸이 넓게 잡힌다.
+ *
+ *          몸너비/머리너비   몸높이/머리높이   머리/전체   머리 가로/세로
+ *   피규어       0.52            0.29          0.69         1.26
+ *
+ * 몸이 길면 사탕처럼, 넓으면 치마처럼 보인다. 실제로는 아주 납작하고 좁다.
+ */
+const TORSO_Y = -0.78;
 
 /** 눈썹은 캐릭터마다 길이와 높이가 다르다. */
 const BROWS: Record<CharacterKey, BrowStyle> = {
@@ -87,19 +95,19 @@ const ball = (radius: number, color: number | string) =>
  */
 function torsoGeometry(): THREE.LatheGeometry {
   // 아래에서 위 순서로 적어야 면이 바깥을 향한다. 뒤집으면 안쪽만 보여 치마처럼 된다.
-  // 머리가 주인공이라 몸은 확실히 작아야 한다. 반지름은 머리 반너비의 6할쯤.
+  // 가장 넓은 자리가 머리 너비의 0.52 배. 위쪽은 좁혀 머리 안으로 집어넣는다.
   const profile: [number, number][] = [
-    [0.001, -0.7],
-    [0.19, -0.67],
-    [0.42, -0.61],
-    [0.58, -0.5],
-    [0.68, -0.34],
-    [0.71, -0.16],
-    [0.7, 0.02],
-    [0.65, 0.2],
-    [0.53, 0.38],
-    [0.35, 0.5],
-    [0.18, 0.58],
+    [0.001, -0.47],
+    [0.21, -0.45],
+    [0.41, -0.39],
+    [0.55, -0.29],
+    [0.62, -0.16],
+    [0.655, -0.01],
+    [0.64, 0.14],
+    [0.59, 0.29],
+    [0.49, 0.43],
+    [0.34, 0.54],
+    [0.18, 0.6],
   ];
   return new THREE.LatheGeometry(
     profile.map(([r, y]) => new THREE.Vector2(r, y)),
@@ -113,25 +121,25 @@ function buildTorso(color: number | string) {
   // 몸통은 공이 아니라 아래가 불룩한 배 모양이다. 위는 좁아 머리 밑으로 자연스럽게 들어간다.
   const torso = new THREE.Mesh(torsoGeometry(), soft(color));
   torso.position.y = TORSO_Y;
-  torso.scale.z = 0.86;
+  torso.scale.z = 0.92;
   group.add(torso);
 
-  // 발은 몸 아래 가운데에서 서로 맞닿은 둥근 덩어리 두 개
+  // 발은 몸 아래에서 조금 벌어져 선 짧은 덩어리 두 개. 몸이 넓어진 만큼 같이 벌어진다.
   for (const side of [-1, 1]) {
     const foot = ball(1, color);
-    foot.scale.set(0.2, 0.17, 0.22);
-    foot.position.set(side * 0.21, -1.6, 0.14);
+    foot.scale.set(0.2, 0.14, 0.23);
+    foot.position.set(side * 0.24, -1.37, 0.12);
     group.add(foot);
   }
 
-  // 팔은 길쭉한 막대가 아니라 몸 옆에 붙은 둥근 혹에 가깝다.
+  // 팔은 막대가 아니라 몸 옆에 붙은 둥근 혹이다. 피규어에서도 거의 튀어나오지 않는다.
   const makeArm = (side: number) => {
     const pivot = new THREE.Group();
     const arm = ball(1, color);
-    arm.scale.set(0.19, 0.23, 0.17);
-    arm.position.y = -0.17;
+    arm.scale.set(0.2, 0.25, 0.18);
+    arm.position.y = -0.14;
     pivot.add(arm);
-    pivot.position.set(side * 0.71, -0.78, 0.08);
+    pivot.position.set(side * 0.64, -0.72, 0.08);
     return pivot;
   };
 
@@ -145,8 +153,9 @@ function assemble(key: CharacterKey) {
 
   const head = new THREE.Group();
   const skull = ball(HEAD_RADIUS, color);
-  // 머리는 세로보다 가로가 조금 넓다.
-  skull.scale.set(1.16, 1, 1);
+  // 피규어에서 1.26, 공식 일러스트에서 1.1 이 나온다. 피규어 사진은 비스듬해 가로가 부푼다.
+  // 정면에서 보는 화면이라 중간값을 쓴다. 더 키우면 머리가 가로로 눌려 보인다.
+  skull.scale.set(1.18, 1, 1);
 
   const material = skull.material as THREE.MeshPhysicalMaterial;
   const calm = createFaceTexture(color, BROWS[key], false, CAP_COLOR[key], FACE_PHOTO[key]);
@@ -180,12 +189,13 @@ function buildChiikawa(): CharacterRig {
   const ears: THREE.Group[] = [];
   for (const side of [-1, 1]) {
     const pivot = new THREE.Group();
-    const ear = ball(0.27, CREAM);
-    ear.scale.set(1, 1.02, 0.8);
+    // 공식 일러스트에서 재면 귀 지름이 머리 너비의 18%, 중심이 반너비의 45% 자리다.
+    const ear = ball(0.21, CREAM);
+    ear.scale.set(1, 1.04, 0.82);
     // 축은 머리에 닿는 밑동에 두고 귀는 그 위로 올린다. 그래야 흔들려도 붙어 보인다.
-    ear.position.y = 0.16;
+    ear.position.y = 0.14;
     pivot.add(ear);
-    pivot.position.set(side * 0.62, 0.72, -0.04);
+    pivot.position.set(side * 0.53, 0.77, -0.04);
     base.head.add(pivot);
     ears.push(pivot);
   }
@@ -200,10 +210,10 @@ function catEarGeometry(): THREE.LatheGeometry {
   // 밑면을 막지 않으면 기울였을 때 안이 들여다보여 머리에서 떨어진 것처럼 보인다.
   const profile: THREE.Vector2[] = [new THREE.Vector2(0.001, 0)];
   const steps = 16;
-  const height = 0.6;
+  const height = 0.64;
   for (let i = 0; i <= steps; i++) {
     const t = i / steps;
-    const radius = 0.23 * Math.cos((t * Math.PI) / 2) ** 0.5;
+    const radius = 0.26 * Math.cos((t * Math.PI) / 2) ** 0.5;
     profile.push(new THREE.Vector2(Math.max(0.004, radius), t * height));
   }
   return new THREE.LatheGeometry(profile, 28);
@@ -219,10 +229,10 @@ function buildHachiware(): CharacterRig {
     const pivot = new THREE.Group();
     const ear = new THREE.Mesh(catEarGeometry(), capMaterial);
     // 고양이 귀라 앞뒤로 납작하다.
-    ear.scale.z = 0.62;
-    ear.rotation.z = side * 0.24;
+    ear.scale.z = 0.58;
+    ear.rotation.z = side * 0.2;
     pivot.add(ear);
-    pivot.position.set(side * 0.64, 0.6, -0.02);
+    pivot.position.set(side * 0.56, 0.58, -0.02);
     base.head.add(pivot);
     ears.push(pivot);
   }
@@ -235,19 +245,19 @@ function buildUsagi(): CharacterRig {
   for (const side of [-1, 1]) {
     const pivot = new THREE.Group();
 
-    const outer = new THREE.Mesh(new THREE.CapsuleGeometry(0.21, 0.66, 8, 18), soft(USAGI_BODY));
+    const outer = new THREE.Mesh(new THREE.CapsuleGeometry(0.16, 0.72, 8, 18), soft(USAGI_BODY));
     outer.position.y = 0.4;
     outer.scale.z = 0.62;
     pivot.add(outer);
 
-    const inner = new THREE.Mesh(new THREE.CapsuleGeometry(0.115, 0.44, 8, 14), soft(USAGI_EAR));
-    inner.position.set(0, 0.4, 0.11);
+    const inner = new THREE.Mesh(new THREE.CapsuleGeometry(0.095, 0.5, 8, 14), soft(USAGI_EAR));
+    inner.position.set(0, 0.4, 0.075);
     inner.scale.z = 0.4;
     pivot.add(inner);
 
     // 귀는 머리 위 가운데에 거의 붙어서 나란히 선다.
-    pivot.position.set(side * 0.26, 0.74, -0.02);
-    pivot.rotation.z = side * 0.12;
+    pivot.position.set(side * 0.24, 0.75, -0.02);
+    pivot.rotation.z = side * 0.07;
     base.head.add(pivot);
     ears.push(pivot);
   }
