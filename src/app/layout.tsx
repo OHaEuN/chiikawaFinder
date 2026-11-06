@@ -48,8 +48,8 @@ export const metadata: Metadata = {
     images: ['./og.png'],
   },
   /*
-   * 소유 확인. 서브경로로 배포하는 사이트는 도메인 루트에 파일을 둘 수 없어
-   * 파일 방식이 안 되고, 이 메타 태그 방식만 통한다.
+   * 검색엔진 소유 확인. 값은 Vercel 환경변수로 넣고 재배포하면 머리말에 박힌다.
+   * 루트 도메인이라 파일 업로드 방식도 되지만, 토큰을 저장소에 커밋하지 않으려고 이쪽을 쓴다.
    */
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
