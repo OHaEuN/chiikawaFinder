@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { goodsSummaries } from '@/lib/data';
+import { CHARACTERS, goodsSummaries } from '@/lib/data';
 import { GoodsExplorer } from './GoodsExplorer';
 
 export const metadata: Metadata = {
@@ -15,7 +15,10 @@ export default function GoodsPage() {
         <h1>굿즈 신상</h1>
         <p>치이카와 마켓, 대원미디어, 콜라보 브랜드의 최근 6개월 신상 굿즈입니다. 가격과 구매처, 품절 여부를 함께 볼 수 있습니다.</p>
       </div>
-      <GoodsExplorer goods={goodsSummaries()} />
+      <GoodsExplorer
+        goods={goodsSummaries()}
+        characterNames={Object.fromEntries(CHARACTERS.map((c) => [c.slug, c.name]))}
+      />
     </>
   );
 }

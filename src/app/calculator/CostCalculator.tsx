@@ -15,12 +15,15 @@ interface Option {
   /** 화면에 띄우는 한국어 이름 */
   nameKo: string;
   category: string;
+  characters?: string[];
   priceYen: number;
   image?: string;
 }
 
 interface CostCalculatorProps {
   options: Option[];
+  /** 슬러그로는 못 읽으니 이름이 필요하다. 데이터 전체를 번들에 끌고 오지 않으려고 화면에서 받는다. */
+  characterNames: Record<string, string>;
   marketRate: number;
   usdPerJpy: number;
   /** 화면에 띄울 실환율 기준일 (예: 10월 26일) */
@@ -32,8 +35,8 @@ const GROUPBUY_RATE_PRESETS = [9.5, 10];
 const DEFAULT_SHIPPING_KRW = 25000;
 const DEFAULT_DOMESTIC_KRW = 3500;
 const SEARCH_RESULTS = 8;
-/** 이보다 적은 분류는 칩을 만들지 않는다. */
-const MIN_CATEGORY = 5;
+/** 이보다 적은 분류·캐릭터는 칩을 만들지 않는다. */
+const MIN_CHIP = 5;
 const CART_STORAGE_KEY = 'chiikawa-calculator-cart';
 const SETTINGS_STORAGE_KEY = 'chiikawa-calculator-settings';
 
@@ -118,10 +121,11 @@ function NumberField({ id, label, unit, value, onChange, hint }: NumberFieldProp
   );
 }
 
-export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }: CostCalculatorProps) {
+export function CostCalculator({ options, characterNames, marketRate, usdPerJpy, rateUpdatedAt }: CostCalculatorProps) {
   const [lines, setLines] = useState<CartLine[]>([]);
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState<string | null>(null);
+  const [character, setCharacter] = useState<string | null>(null);
   const [rateInput, setRateInput] = useState(String(marketRate));
   const [shippingInput, setShippingInput] = useState(String(DEFAULT_SHIPPING_KRW));
   const [peopleInput, setPeopleInput] = useState('1');
@@ -241,26 +245,43 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
     const count = new Map<string, number>();
     options.forEach((o) => count.set(o.category, (count.get(o.category) ?? 0) + 1));
     return [...count.entries()]
-      .filter(([, n]) => n >= MIN_CATEGORY)
+      .filter(([, n]) => n >= MIN_CHIP)
       .sort((a, b) => b[1] - a[1])
       .map(([value, n]) => ({ value, label: `${value} ${n}` }));
   }, [options]);
 
   /**
-   * 무엇을 살지 정해 놓고 오는 사람만 있는 게 아니다. 분류만 눌러도 목록이 보여야 한다.
+   * 이름에 캐릭터가 안 적힌 굿즈가 많다. 「시사 인형」 은 그냥 「ぬいぐるみ」 로 올라온다.
+   * 검색으로는 못 찾고 태그로만 찾을 수 있다.
+   */
+  const characters = useMemo(() => {
+    const count = new Map<string, number>();
+    options.forEach((o) => o.characters?.forEach((slug) => count.set(slug, (count.get(slug) ?? 0) + 1)));
+    return [...count.entries()]
+      .filter(([, n]) => n >= MIN_CHIP)
+      .sort((a, b) => b[1] - a[1])
+      .map(([value, n]) => ({ value, label: `${characterNames[value] ?? value} ${n}` }));
+  }, [options, characterNames]);
+
+  /**
+   * 무엇을 살지 정해 놓고 오는 사람만 있는 게 아니다. 칩만 눌러도 목록이 보여야 한다.
    * 검색어가 있으면 잘 맞는 순, 없으면 최신순. Enter 는 맨 윗줄을 담으므로 순서가 곧 정확도다.
    */
   const matches = useMemo(() => {
     const groups = searchTerms(query);
-    const pool = category ? index.filter(({ option }) => option.category === category) : index;
-    if (groups.length === 0) return category ? pool.slice(0, SEARCH_RESULTS).map(({ option }) => option) : [];
+    const picked = category !== null || character !== null;
+    const pool = index.filter(
+      ({ option }) =>
+        (!category || option.category === category) && (!character || option.characters?.includes(character)),
+    );
+    if (groups.length === 0) return picked ? pool.slice(0, SEARCH_RESULTS).map(({ option }) => option) : [];
     return pool
       .map(({ option, entry }) => ({ option, entry, score: searchScore(entry, groups) }))
       .filter(({ score }) => score >= 0)
       .sort((a, b) => b.score - a.score || a.entry.name.length - b.entry.name.length)
       .slice(0, SEARCH_RESULTS)
       .map(({ option }) => option);
-  }, [index, query, category]);
+  }, [index, query, category, character]);
 
   const result = calculateCost({ lines, marketRate, appliedRate, shippingKrw, people, domesticKrw, usdPerJpy, taxCategory });
 
@@ -316,7 +337,8 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
         <section className="panel">
           <h2>1. 살 상품을 담으세요</h2>
           {/* 품절이 전체의 8할이라 검색해도 적게 나온다. 왜 적은지 먼저 알려 준다. */}
-          <p className="muted picker-note">살 수 있는 일본 상품 {options.length}개. 분류를 누르거나 이름으로 찾으세요.</p>
+          <p className="muted picker-note">살 수 있는 일본 상품 {options.length}개. 캐릭터나 분류를 누르거나, 이름으로 찾으세요.</p>
+          <FilterChips options={characters} value={character} onChange={setCharacter} allLabel="모든 캐릭터" />
           <FilterChips options={categories} value={category} onChange={setCategory} allLabel="모든 분류" />
           <input
             className="search"
@@ -342,11 +364,11 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
               ))}
             </ul>
           )}
-          {(searching || category !== null) && matches.length === 0 && (
+          {(searching || category !== null || character !== null) && matches.length === 0 && (
             <p className="muted picker-empty">
               {searching
                 ? `‘${query.trim()}’에 맞는 상품이 지금은 없습니다. 낱말을 하나 줄여 보세요.`
-                : '이 분류에는 지금 살 수 있는 상품이 없습니다.'}{' '}
+                : '고른 조건에 맞는 상품이 지금은 없습니다.'}{' '}
               <Link href="/goods/">굿즈 목록</Link>에서 품절까지 볼 수 있습니다.
             </p>
           )}
