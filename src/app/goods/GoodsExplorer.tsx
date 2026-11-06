@@ -109,10 +109,10 @@ export function GoodsExplorer({ goods, characterNames }: GoodsExplorerProps) {
         onChange={(e) => onSearch(e.target.value)}
       />
       <div className="filters">
-        <FilterSelect group="goods" label="캐릭터" options={characters} value={character} onChange={reset(setCharacter)} />
-        <FilterSelect group="goods" label="분류" options={categories} value={category} onChange={reset(setCategory)} />
-        <FilterSelect group="goods" label="브랜드" options={brands} value={brand} onChange={reset(setBrand)} />
-        <FilterSelect group="goods" label="나라" options={countries} value={country} onChange={reset(setCountry)} />
+        <FilterSelect group="goods" label="캐릭터" allLabel="모든 캐릭터" options={characters} value={character} onChange={reset(setCharacter)} />
+        <FilterSelect group="goods" label="분류" allLabel="모든 분류" options={categories} value={category} onChange={reset(setCategory)} />
+        <FilterSelect group="goods" label="브랜드" allLabel="모든 브랜드" options={brands} value={brand} onChange={reset(setBrand)} />
+        <FilterSelect group="goods" label="나라" allLabel="모든 나라" options={countries} value={country} onChange={reset(setCountry)} />
         <button
           className="chip"
           aria-pressed={inStockOnly}

@@ -285,6 +285,9 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
       .map(({ option }) => option);
   }, [index, query, category, character]);
 
+  /** 담긴 줄은 id 만 들고 있다. 사진은 후보 목록에서 찾아 쓴다(사라진 상품이면 기본 그림). */
+  const imageById = useMemo(() => new Map(options.map((o) => [o.id, o.image])), [options]);
+
   const pageCount = Math.ceil(matches.length / PAGE_SIZE);
   const pageItems = matches.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
 
@@ -347,8 +350,8 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
           {/* 품절이 전체의 8할이라 검색해도 적게 나온다. 왜 적은지 먼저 알려 준다. */}
           <p className="muted picker-note">살 수 있는 일본 상품 {options.length}개. 캐릭터·분류로 좁히거나 이름으로 찾으세요.</p>
           <div className="filters">
-            <FilterSelect group="picker" label="캐릭터" options={characters} value={character} onChange={setCharacter} />
-            <FilterSelect group="picker" label="분류" options={categories} value={category} onChange={setCategory} />
+            <FilterSelect group="picker" label="캐릭터" allLabel="모든 캐릭터" options={characters} value={character} onChange={setCharacter} />
+            <FilterSelect group="picker" label="분류" allLabel="모든 분류" options={categories} value={category} onChange={setCategory} />
           </div>
           <input
             className="search"
@@ -410,6 +413,9 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
               <ul className="cart">
                 {lines.map((l) => (
                   <li key={l.id}>
+                    <span className="cart-thumb">
+                      <SafeImage src={imageById.get(l.id)} alt="" fallback="🎁" seed={l.id} width={48} />
+                    </span>
                     <span className="cart-name">{l.name}</span>
                     <span className="cart-price">
                       {yen(l.priceYen * l.quantity)}
