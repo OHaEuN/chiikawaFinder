@@ -388,6 +388,10 @@ a.tag { padding: 8px 12px; }
 .picker-add { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--pink); color: var(--accent-ink); font-weight: 700; }
 .picker-empty, .cart-empty { margin: 12px 0 0; font-size: 0.9rem; }
 .picker-note { margin: -2px 0 10px; font-size: 0.82rem; }
+.picker-pager { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 10px; font-size: 0.82rem; color: var(--muted); }
+.picker-pager button { padding: 7px 13px; border: 1px solid var(--line-strong); background: var(--surface); border-radius: 999px; font-size: 0.82rem; font-weight: 600; color: var(--ink-soft); cursor: pointer; font-family: inherit; }
+.picker-pager button:hover:not(:disabled) { background: var(--surface-2); }
+.picker-pager button:disabled { opacity: 0.35; cursor: default; }
 .cart-head { display: flex; justify-content: space-between; align-items: center; margin: 14px 0 0; font-size: 0.86rem; font-weight: 600; color: var(--ink-soft); }
 .cart-head + .cart { margin-top: 6px; }
 .cart-price small { font-size: 0.78rem; }
