@@ -5,7 +5,7 @@ import type { GoodsSummary } from '@/types/goods';
 import { FilterChips } from '@/components/FilterChips';
 import { GoodsCard } from '@/components/GoodsCard';
 import { track } from '@/lib/analytics';
-import { matchesSearch, searchTerms, searchText } from '@/lib/search';
+import { searchEntry, searchScore, searchTerms } from '@/lib/search';
 import { stockState } from '@/lib/stock';
 
 interface GoodsExplorerProps { goods: GoodsSummary[] }
@@ -35,20 +35,23 @@ export function GoodsExplorer({ goods }: GoodsExplorerProps) {
   );
 
   // 이름이 일본어뿐이라 한국어로 찾으면 안 나온다. 카테고리와 바꿔 쓰는 말까지 같이 본다.
-  const index = useMemo(() => goods.map((g) => ({ goods: g, text: searchText(g) })), [goods]);
+  const index = useMemo(() => goods.map((g) => ({ goods: g, entry: searchEntry(g) })), [goods]);
 
   const filtered = useMemo(() => {
-    const terms = searchTerms(query);
-    return index
+    const groups = searchTerms(query);
+    const rows = index
+      .map((row) => ({ ...row, score: groups.length === 0 ? 0 : searchScore(row.entry, groups) }))
       .filter(
-        ({ goods: g, text }) =>
+        ({ goods: g, score }) =>
+          score >= 0 &&
           (!country || g.country === country) &&
           (!brand || g.brand === brand) &&
           (!category || g.category === category) &&
-          (!inStockOnly || stockState(g) !== 'soldout') &&
-          (terms.length === 0 || matchesSearch(text, terms)),
-      )
-      .map(({ goods: g }) => g);
+          (!inStockOnly || stockState(g) !== 'soldout'),
+      );
+    // 찾는 말이 있을 때만 잘 맞는 순으로 세운다. 그냥 둘러볼 때는 최신순이 맞다.
+    if (groups.length > 0) rows.sort((a, b) => b.score - a.score || a.entry.name.length - b.entry.name.length);
+    return rows.map(({ goods: g }) => g);
   }, [index, country, brand, category, query, inStockOnly]);
 
   const reset = <T,>(setter: (v: T) => void) => (v: T) => { setter(v); setLimit(PAGE_SIZE); };
@@ -67,7 +70,7 @@ export function GoodsExplorer({ goods }: GoodsExplorerProps) {
       <input
         className="search"
         type="search"
-        placeholder="상품명으로 검색 (예: 인형, 키링, 하치와레, マスコット)"
+        placeholder="찾는 말을 띄어 쓰면 좁혀집니다 (예: 치이카와 인형)"
         value={query}
         onChange={(e) => onSearch(e.target.value)}
       />
