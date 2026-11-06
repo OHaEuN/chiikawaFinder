@@ -209,6 +209,11 @@ export default function HeroSceneInner() {
       rig.body.rotation.z = base.tilt;
       rig.body.rotation.y = base.spin + (burst?.spin ?? 0);
       rig.body.scale.set(2 - squash, squash, 2 - squash);
+      // 얼굴은 한 덩어리로 그려진 그림이다. 머리가 몸의 자식이라 몸이 눌리면 그림까지 눌려
+      // 눈·입이 가로로 퍼진다. 몸에 준 눌림을 머리에서 되돌려 얼굴은 모양을 지키게 한다.
+      // 되돌림을 다 주면 뻣뻣해 보여서, 몸이 받는 눌림의 1/4 만 머리에 남긴다.
+      const headSquash = 1 + (squash - 1) * 0.25;
+      rig.head.scale.set((2 - headSquash) / (2 - squash), headSquash / squash, (2 - headSquash) / (2 - squash));
       rig.leftArm.rotation.z = armLift * 0.85;
       rig.rightArm.rotation.z = -armLift * 0.85;
       rig.leftEar.rotation.z = base.earSwing;
@@ -220,8 +225,10 @@ export default function HeroSceneInner() {
         lookTarget.copy(raycaster.ray.direction).multiplyScalar(6).add(camera.position);
         const dx = lookTarget.x - rig.root.position.x;
         const dy = lookTarget.y - (rig.root.position.y + 1);
-        rig.head.rotation.y = THREE.MathUtils.clamp(dx * 0.06, -0.3, 0.3);
-        rig.head.rotation.x = THREE.MathUtils.clamp(-dy * 0.05, -0.16, 0.16);
+        // 얼굴 그림이 구에 입혀져 있다. 많이 틀수록 가장자리로 밀려 납작해 보이므로
+        // 몸이 도는 각(최대 0.24)과 합쳐도 얼굴이 앞을 벗어나지 않을 만큼만 돌린다.
+        rig.head.rotation.y = THREE.MathUtils.clamp(dx * 0.04, -0.2, 0.2);
+        rig.head.rotation.x = THREE.MathUtils.clamp(-dy * 0.04, -0.13, 0.13);
       } else {
         rig.head.rotation.y *= 0.9;
         rig.head.rotation.x *= 0.9;

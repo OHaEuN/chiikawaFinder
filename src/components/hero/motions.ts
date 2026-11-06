@@ -44,7 +44,7 @@ function chiikawaPose(t: number): Pose {
   return {
     hop: Math.abs(Math.sin(t * 1.4)) * 0.1,
     tilt: tremble,
-    spin: Math.sin(t * 0.6) * 0.12,
+    spin: Math.sin(t * 0.6) * 0.1,
     squash: 1 + Math.sin(t * 2.8) * 0.055,
     armLift: crying ? 0.85 + Math.sin(t * 18) * 0.12 : 0.1,
     earSwing: tremble * 2.2,
@@ -62,9 +62,9 @@ function hachiwarePose(t: number): Pose {
   const landing = cycle > 0.88 || cycle < 0.12;
   return {
     hop,
-    tilt: Math.sin(t * 1.6) * 0.14,
-    spin: Math.sin(t * 0.8) * 0.3,
-    squash: landing ? 0.86 : 1 + hop * 0.16,
+    tilt: Math.sin(t * 1.6) * 0.1,
+    spin: Math.sin(t * 0.8) * 0.2,
+    squash: landing ? 0.9 : 1 + hop * 0.13,
     armLift: 0.3 + hop * 0.9,
     earSwing: Math.sin(t * 6) * 0.09,
     crying: false,
@@ -80,10 +80,11 @@ function usagiPose(t: number): Pose {
   const landing = cycle > 0.9 || cycle < 0.1;
   return {
     hop,
-    tilt: Math.sin(t * 3.2) * 0.2,
-    // 뒤통수에는 얼굴이 없다. 한 바퀴 돌리지 않고 좌우로 크게 틀었다 돌아온다.
-    spin: Math.sin(cycle * TAU) * 0.55,
-    squash: landing ? 0.8 : 1 + hop * 0.16,
+    tilt: Math.sin(t * 3.2) * 0.13,
+    // 뒤통수에는 얼굴이 없다. 한 바퀴 돌리지 않고 좌우로 틀었다 돌아온다.
+    // 얼굴 그림이 구에 입혀져 있어 많이 틀면 가장자리로 밀려 납작해 보인다.
+    spin: Math.sin(cycle * TAU) * 0.24,
+    squash: landing ? 0.86 : 1 + hop * 0.14,
     armLift: 1.0 + Math.sin(t * 9) * 0.22,
     earSwing: Math.sin(t * 11) * 0.3,
     crying: false,
