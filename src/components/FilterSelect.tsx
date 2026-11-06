@@ -18,13 +18,15 @@ interface FilterSelectProps {
   onChange: (value: string[]) => void;
   /** 한 번에 하나만 열리게 묶는 이름 */
   group: string;
+  /** 맨 윗줄에 둘 「전체」 이름 */
+  allLabel: string;
 }
 
 /**
  * 고를 거리가 열 개를 넘으면 칩은 화면을 다 먹는다. 접어 두고 필요할 때만 펼친다.
  * 여닫기는 <details> 가 하고, 같은 group 끼리는 브라우저가 알아서 하나만 열어 둔다.
  */
-export function FilterSelect({ label, options, value, onChange, group }: FilterSelectProps) {
+export function FilterSelect({ label, options, value, onChange, group, allLabel }: FilterSelectProps) {
   const ref = useRef<HTMLDetailsElement>(null);
 
   // 열어 둔 채로 두면 메뉴가 결과를 가린다. 밖을 누르면 닫는다.
@@ -47,6 +49,11 @@ export function FilterSelect({ label, options, value, onChange, group }: FilterS
         {value.length > 0 && <span className="filter-badge">{value.length}</span>}
       </summary>
       <div className="filter-menu">
+        {/* 지우는 자리를 맨 아래 두면 끝까지 내려가야 보인다. 고르는 줄 중 하나로 맨 위에 둔다. */}
+        <label className="filter-option">
+          <input type="checkbox" checked={value.length === 0} onChange={() => onChange([])} />
+          <span className="filter-option-label">{allLabel}</span>
+        </label>
         {options.map((o) => (
           <label key={o.value} className="filter-option">
             <input type="checkbox" checked={value.includes(o.value)} onChange={() => toggle(o.value)} />
@@ -54,11 +61,6 @@ export function FilterSelect({ label, options, value, onChange, group }: FilterS
             {o.count !== undefined && <span className="filter-option-count">{o.count.toLocaleString('ko-KR')}</span>}
           </label>
         ))}
-        {value.length > 0 && (
-          <button type="button" className="filter-clear" onClick={() => onChange([])}>
-            {label} 조건 지우기
-          </button>
-        )}
       </div>
     </details>
   );
