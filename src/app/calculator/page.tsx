@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { FX, GOODS, GROUPBUY_CHANNELS, yenPrice } from '@/lib/data';
+import { CHARACTERS, FX, GOODS, GROUPBUY_CHANNELS, yenPrice } from '@/lib/data';
 import { GROUPBUY_SAFETY_LABEL } from '@/lib/labels';
 import { koreanName } from '@/lib/goods-name';
 import { Tag } from '@/components/Tag';
@@ -26,7 +26,9 @@ export default function CalculatorPage() {
   const options = GOODS.flatMap((g) => {
     const priceYen = yenPrice(g.price);
     const usable = priceYen && g.country === 'JP' && g.available;
-    return usable ? [{ id: g.id, name: g.name, nameKo: koreanName(g.name), category: g.category, priceYen, image: g.image }] : [];
+    return usable
+      ? [{ id: g.id, name: g.name, nameKo: koreanName(g.name), category: g.category, characters: g.characters, priceYen, image: g.image }]
+      : [];
   });
 
   return (
@@ -36,7 +38,13 @@ export default function CalculatorPage() {
         <p>담아 보면 최종 얼마인지 바로 나옵니다. 공구 환율을 넣으면 수수료가 얼마나 섞였는지도 보입니다.</p>
       </div>
 
-      <CostCalculator options={options} marketRate={marketRate} usdPerJpy={FX.usdPerJpy} rateUpdatedAt={rateUpdatedAt} />
+      <CostCalculator
+        options={options}
+        characterNames={Object.fromEntries(CHARACTERS.map((c) => [c.slug, c.name]))}
+        marketRate={marketRate}
+        usdPerJpy={FX.usdPerJpy}
+        rateUpdatedAt={rateUpdatedAt}
+      />
 
       <div className="section-head"><h2>공구가 열리는 곳</h2></div>
       <div className="stack">
