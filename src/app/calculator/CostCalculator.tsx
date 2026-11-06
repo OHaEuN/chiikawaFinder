@@ -5,7 +5,7 @@ import { calculateCost, DUTY_FREE_LIMIT_USD, FREE_DOMESTIC_SHIPPING_YEN, TAX_RAT
 import { track } from '@/lib/analytics';
 import { searchEntry, searchScore, searchTerms } from '@/lib/search';
 import { SafeImage } from '@/components/SafeImage';
-import { FilterChips } from '@/components/FilterChips';
+import { FilterSelect } from '@/components/FilterSelect';
 import Link from 'next/link';
 
 interface Option {
@@ -35,7 +35,7 @@ const GROUPBUY_RATE_PRESETS = [9.5, 10];
 const DEFAULT_SHIPPING_KRW = 25000;
 const DEFAULT_DOMESTIC_KRW = 3500;
 const SEARCH_RESULTS = 8;
-/** 이보다 적은 분류·캐릭터는 칩을 만들지 않는다. */
+/** 이보다 적은 분류·캐릭터는 고를 거리로 내놓지 않는다. */
 const MIN_CHIP = 5;
 const CART_STORAGE_KEY = 'chiikawa-calculator-cart';
 const SETTINGS_STORAGE_KEY = 'chiikawa-calculator-settings';
@@ -124,8 +124,8 @@ function NumberField({ id, label, unit, value, onChange, hint }: NumberFieldProp
 export function CostCalculator({ options, characterNames, marketRate, usdPerJpy, rateUpdatedAt }: CostCalculatorProps) {
   const [lines, setLines] = useState<CartLine[]>([]);
   const [query, setQuery] = useState('');
-  const [category, setCategory] = useState<string | null>(null);
-  const [character, setCharacter] = useState<string | null>(null);
+  const [category, setCategory] = useState<string[]>([]);
+  const [character, setCharacter] = useState<string[]>([]);
   const [rateInput, setRateInput] = useState(String(marketRate));
   const [shippingInput, setShippingInput] = useState(String(DEFAULT_SHIPPING_KRW));
   const [peopleInput, setPeopleInput] = useState('1');
@@ -247,7 +247,7 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
     return [...count.entries()]
       .filter(([, n]) => n >= MIN_CHIP)
       .sort((a, b) => b[1] - a[1])
-      .map(([value, n]) => ({ value, label: `${value} ${n}` }));
+      .map(([value, n]) => ({ value, label: value, count: n }));
   }, [options]);
 
   /**
@@ -260,7 +260,7 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
     return [...count.entries()]
       .filter(([, n]) => n >= MIN_CHIP)
       .sort((a, b) => b[1] - a[1])
-      .map(([value, n]) => ({ value, label: `${characterNames[value] ?? value} ${n}` }));
+      .map(([value, n]) => ({ value, label: characterNames[value] ?? value, count: n }));
   }, [options, characterNames]);
 
   /**
@@ -269,10 +269,11 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
    */
   const matches = useMemo(() => {
     const groups = searchTerms(query);
-    const picked = category !== null || character !== null;
+    const picked = category.length > 0 || character.length > 0;
     const pool = index.filter(
       ({ option }) =>
-        (!category || option.category === category) && (!character || option.characters?.includes(character)),
+        (category.length === 0 || category.includes(option.category)) &&
+        (character.length === 0 || option.characters?.some((slug) => character.includes(slug))),
     );
     if (groups.length === 0) return picked ? pool.slice(0, SEARCH_RESULTS).map(({ option }) => option) : [];
     return pool
@@ -337,9 +338,11 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
         <section className="panel">
           <h2>1. 살 상품을 담으세요</h2>
           {/* 품절이 전체의 8할이라 검색해도 적게 나온다. 왜 적은지 먼저 알려 준다. */}
-          <p className="muted picker-note">살 수 있는 일본 상품 {options.length}개. 캐릭터나 분류를 누르거나, 이름으로 찾으세요.</p>
-          <FilterChips options={characters} value={character} onChange={setCharacter} allLabel="모든 캐릭터" />
-          <FilterChips options={categories} value={category} onChange={setCategory} allLabel="모든 분류" />
+          <p className="muted picker-note">살 수 있는 일본 상품 {options.length}개. 캐릭터·분류로 좁히거나 이름으로 찾으세요.</p>
+          <div className="filters">
+            <FilterSelect group="picker" label="캐릭터" options={characters} value={character} onChange={setCharacter} />
+            <FilterSelect group="picker" label="분류" options={categories} value={category} onChange={setCategory} />
+          </div>
           <input
             className="search"
             type="search"
@@ -364,7 +367,7 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
               ))}
             </ul>
           )}
-          {(searching || category !== null || character !== null) && matches.length === 0 && (
+          {(searching || category.length > 0 || character.length > 0) && matches.length === 0 && (
             <p className="muted picker-empty">
               {searching
                 ? `‘${query.trim()}’에 맞는 상품이 지금은 없습니다. 낱말을 하나 줄여 보세요.`

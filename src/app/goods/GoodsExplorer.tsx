@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import type { GoodsSummary } from '@/types/goods';
-import { FilterChips } from '@/components/FilterChips';
+import { FilterSelect } from '@/components/FilterSelect';
 import { GoodsCard } from '@/components/GoodsCard';
 import { track } from '@/lib/analytics';
 import { searchEntry, searchScore, searchTerms } from '@/lib/search';
@@ -14,42 +14,58 @@ interface GoodsExplorerProps {
   characterNames: Record<string, string>;
 }
 
-type Country = GoodsSummary['country'];
-
 const PAGE_SIZE = 48;
 const TOP_BRANDS = 12;
 
+const COUNTRY_LABEL: Record<string, string> = { JP: '🇯🇵 일본', KR: '🇰🇷 한국', GLOBAL: '🌏 글로벌' };
+
+/** 많은 쪽부터 앞에 둔다. 한 건짜리를 맨 위에 두면 고를 거리가 아니라 목록이 된다. */
+const byCount = (count: Map<string, number>) =>
+  [...count.entries()].sort((a, b) => b[1] - a[1]).map(([value, n]) => ({ value, count: n }));
+
+const countBy = <T,>(rows: T[], pick: (row: T) => string[] | string | undefined) => {
+  const count = new Map<string, number>();
+  rows.forEach((row) => {
+    const keys = pick(row);
+    (Array.isArray(keys) ? keys : [keys]).forEach((key) => {
+      if (key) count.set(key, (count.get(key) ?? 0) + 1);
+    });
+  });
+  return count;
+};
+
 export function GoodsExplorer({ goods, characterNames }: GoodsExplorerProps) {
-  const [country, setCountry] = useState<Country | null>(null);
-  const [brand, setBrand] = useState<string | null>(null);
-  const [category, setCategory] = useState<string | null>(null);
-  const [character, setCharacter] = useState<string | null>(null);
+  const [country, setCountry] = useState<string[]>([]);
+  const [brand, setBrand] = useState<string[]>([]);
+  const [category, setCategory] = useState<string[]>([]);
+  const [character, setCharacter] = useState<string[]>([]);
   const [query, setQuery] = useState('');
   const [inStockOnly, setInStockOnly] = useState(false);
   const [limit, setLimit] = useState(PAGE_SIZE);
 
-  const brands = useMemo(() => {
-    const count = new Map<string, number>();
-    goods.forEach((g) => count.set(g.brand, (count.get(g.brand) ?? 0) + 1));
-    return [...count.entries()].sort((a, b) => b[1] - a[1]).slice(0, TOP_BRANDS).map(([b]) => ({ value: b, label: b }));
-  }, [goods]);
+  const countries = useMemo(
+    () => byCount(countBy(goods, (g) => g.country)).map((o) => ({ ...o, label: COUNTRY_LABEL[o.value] ?? o.value })),
+    [goods],
+  );
+
+  const brands = useMemo(
+    () => byCount(countBy(goods, (g) => g.brand)).slice(0, TOP_BRANDS).map((o) => ({ ...o, label: o.value })),
+    [goods],
+  );
 
   const categories = useMemo(
-    () => [...new Set(goods.map((g) => g.category))].sort().map((c) => ({ value: c, label: c })),
+    () => byCount(countBy(goods, (g) => g.category)).map((o) => ({ ...o, label: o.value })),
     [goods],
   );
 
   /**
    * 이름에 캐릭터가 안 적힌 굿즈가 많다. 「시사 인형」 은 그냥 「ぬいぐるみ」 로 올라온다.
-   * 검색으로는 못 찾고 태그로만 찾을 수 있어서, 많이 나온 캐릭터부터 칩으로 세운다.
+   * 검색으로는 못 찾고 태그로만 찾을 수 있다.
    */
-  const characters = useMemo(() => {
-    const count = new Map<string, number>();
-    goods.forEach((g) => g.characters?.forEach((slug) => count.set(slug, (count.get(slug) ?? 0) + 1)));
-    return [...count.entries()]
-      .sort((a, b) => b[1] - a[1])
-      .map(([slug]) => ({ value: slug, label: characterNames[slug] ?? slug }));
-  }, [goods, characterNames]);
+  const characters = useMemo(
+    () => byCount(countBy(goods, (g) => g.characters)).map((o) => ({ ...o, label: characterNames[o.value] ?? o.value })),
+    [goods, characterNames],
+  );
 
   // 이름이 일본어뿐이라 한국어로 찾으면 안 나온다. 카테고리와 바꿔 쓰는 말까지 같이 본다.
   const index = useMemo(() => goods.map((g) => ({ goods: g, entry: searchEntry(g) })), [goods]);
@@ -61,10 +77,10 @@ export function GoodsExplorer({ goods, characterNames }: GoodsExplorerProps) {
       .filter(
         ({ goods: g, score }) =>
           score >= 0 &&
-          (!country || g.country === country) &&
-          (!brand || g.brand === brand) &&
-          (!category || g.category === category) &&
-          (!character || g.characters?.includes(character)) &&
+          (country.length === 0 || country.includes(g.country)) &&
+          (brand.length === 0 || brand.includes(g.brand)) &&
+          (category.length === 0 || category.includes(g.category)) &&
+          (character.length === 0 || g.characters?.some((slug) => character.includes(slug))) &&
           (!inStockOnly || stockState(g) !== 'soldout'),
       );
     // 찾는 말이 있을 때만 잘 맞는 순으로 세운다. 그냥 둘러볼 때는 최신순이 맞다.
@@ -72,7 +88,7 @@ export function GoodsExplorer({ goods, characterNames }: GoodsExplorerProps) {
     return rows.map(({ goods: g }) => g);
   }, [index, country, brand, category, character, query, inStockOnly]);
 
-  const reset = <T,>(setter: (v: T) => void) => (v: T) => { setter(v); setLimit(PAGE_SIZE); };
+  const reset = (setter: (v: string[]) => void) => (v: string[]) => { setter(v); setLimit(PAGE_SIZE); };
 
   // 검색은 타자마다가 아니라 입력이 멈춘 뒤 한 번만 남긴다.
   const [searchTimer, setSearchTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
@@ -92,11 +108,11 @@ export function GoodsExplorer({ goods, characterNames }: GoodsExplorerProps) {
         value={query}
         onChange={(e) => onSearch(e.target.value)}
       />
-      <FilterChips options={[{ value: 'JP', label: '🇯🇵 일본' }, { value: 'KR', label: '🇰🇷 한국' }]} value={country} onChange={reset(setCountry)} />
-      <FilterChips options={characters} value={character} onChange={reset(setCharacter)} allLabel="모든 캐릭터" />
-      <FilterChips options={categories} value={category} onChange={reset(setCategory)} allLabel="모든 카테고리" />
-      <FilterChips options={brands} value={brand} onChange={reset(setBrand)} allLabel="모든 브랜드" />
-      <div className="chips" style={{ marginTop: -4 }}>
+      <div className="filters">
+        <FilterSelect group="goods" label="캐릭터" options={characters} value={character} onChange={reset(setCharacter)} />
+        <FilterSelect group="goods" label="분류" options={categories} value={category} onChange={reset(setCategory)} />
+        <FilterSelect group="goods" label="브랜드" options={brands} value={brand} onChange={reset(setBrand)} />
+        <FilterSelect group="goods" label="나라" options={countries} value={country} onChange={reset(setCountry)} />
         <button
           className="chip"
           aria-pressed={inStockOnly}
@@ -104,9 +120,7 @@ export function GoodsExplorer({ goods, characterNames }: GoodsExplorerProps) {
         >
           지금 살 수 있는 것만
         </button>
-        <span className="muted" style={{ alignSelf: 'center', fontSize: '0.9rem' }}>
-          {filtered.length.toLocaleString('ko-KR')}개
-        </span>
+        <span className="muted filters-count">{filtered.length.toLocaleString('ko-KR')}개</span>
       </div>
       <div className="grid">{filtered.slice(0, limit).map((g) => <GoodsCard key={g.id} goods={g} />)}</div>
       {filtered.length > limit && (
