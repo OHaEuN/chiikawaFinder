@@ -3,8 +3,9 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react';
 import { calculateCost, DUTY_FREE_LIMIT_USD, FREE_DOMESTIC_SHIPPING_YEN, TAX_RATES, type CartLine, type TaxCategory } from '@/lib/cost';
 import { track } from '@/lib/analytics';
-import { matchesSearch, searchTerms, searchText } from '@/lib/search';
+import { searchEntry, searchScore, searchTerms } from '@/lib/search';
 import { SafeImage } from '@/components/SafeImage';
+import Link from 'next/link';
 
 interface Option {
   id: string;
@@ -229,12 +230,21 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
   };
 
   // 이름이 일본어뿐이라 한국어로 찾으면 안 나온다. 카테고리와 바꿔 쓰는 말까지 같이 본다.
-  const index = useMemo(() => options.map((option) => ({ option, text: searchText(option) })), [options]);
+  const index = useMemo(() => options.map((option) => ({ option, entry: searchEntry(option) })), [options]);
 
+  /**
+   * 여덟 줄 안에 찾던 게 들어와야 한다. Enter 는 맨 윗줄을 담으므로 순서가 곧 정확도다.
+   * 잘 맞는 순으로 세우고, 점수가 같으면 이름이 짧은 쪽을 위에 둔다.
+   */
   const matches = useMemo(() => {
-    const terms = searchTerms(query);
-    if (terms.length === 0) return [];
-    return index.filter(({ text }) => matchesSearch(text, terms)).slice(0, SEARCH_RESULTS).map(({ option }) => option);
+    const groups = searchTerms(query);
+    if (groups.length === 0) return [];
+    return index
+      .map(({ option, entry }) => ({ option, entry, score: searchScore(entry, groups) }))
+      .filter(({ score }) => score >= 0)
+      .sort((a, b) => b.score - a.score || a.entry.name.length - b.entry.name.length)
+      .slice(0, SEARCH_RESULTS)
+      .map(({ option }) => option);
   }, [index, query]);
 
   const result = calculateCost({ lines, marketRate, appliedRate, shippingKrw, people, domesticKrw, usdPerJpy, taxCategory });
@@ -290,10 +300,12 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
       <div className="calc-inputs">
         <section className="panel">
           <h2>1. 살 상품을 담으세요</h2>
+          {/* 품절이 전체의 8할이라 검색해도 적게 나온다. 왜 적은지 먼저 알려 준다. */}
+          <p className="muted picker-note">살 수 있는 일본 상품 {options.length}개 중에서 찾습니다.</p>
           <input
             className="search"
             type="search"
-            placeholder="상품명으로 검색 (예: 인형, 키링, 하치와레, マスコット)"
+            placeholder="찾는 말을 띄어 쓰면 좁혀집니다 (예: 치이카와 인형)"
             aria-label="상품 검색"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -315,7 +327,10 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
             </ul>
           )}
           {searching && matches.length === 0 && (
-            <p className="muted picker-empty">&lsquo;{query.trim()}&rsquo;에 맞는 상품이 없습니다. 다른 말로 찾아보세요.</p>
+            <p className="muted picker-empty">
+              &lsquo;{query.trim()}&rsquo;에 맞는 상품이 지금은 없습니다. 낱말을 하나 줄이거나,{' '}
+              <Link href="/goods/">굿즈 목록</Link>에서 품절까지 찾아보세요.
+            </p>
           )}
 
           {!hasItems ? (
