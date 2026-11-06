@@ -5,6 +5,7 @@ import { calculateCost, DUTY_FREE_LIMIT_USD, FREE_DOMESTIC_SHIPPING_YEN, TAX_RAT
 import { track } from '@/lib/analytics';
 import { searchEntry, searchScore, searchTerms } from '@/lib/search';
 import { SafeImage } from '@/components/SafeImage';
+import { FilterChips } from '@/components/FilterChips';
 import Link from 'next/link';
 
 interface Option {
@@ -31,6 +32,8 @@ const GROUPBUY_RATE_PRESETS = [9.5, 10];
 const DEFAULT_SHIPPING_KRW = 25000;
 const DEFAULT_DOMESTIC_KRW = 3500;
 const SEARCH_RESULTS = 8;
+/** 이보다 적은 분류는 칩을 만들지 않는다. */
+const MIN_CATEGORY = 5;
 const CART_STORAGE_KEY = 'chiikawa-calculator-cart';
 const SETTINGS_STORAGE_KEY = 'chiikawa-calculator-settings';
 
@@ -118,6 +121,7 @@ function NumberField({ id, label, unit, value, onChange, hint }: NumberFieldProp
 export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }: CostCalculatorProps) {
   const [lines, setLines] = useState<CartLine[]>([]);
   const [query, setQuery] = useState('');
+  const [category, setCategory] = useState<string | null>(null);
   const [rateInput, setRateInput] = useState(String(marketRate));
   const [shippingInput, setShippingInput] = useState(String(DEFAULT_SHIPPING_KRW));
   const [peopleInput, setPeopleInput] = useState('1');
@@ -232,20 +236,31 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
   // 이름이 일본어뿐이라 한국어로 찾으면 안 나온다. 카테고리와 바꿔 쓰는 말까지 같이 본다.
   const index = useMemo(() => options.map((option) => ({ option, entry: searchEntry(option) })), [options]);
 
+  /** 많은 분류부터 앞에 둔다. 담을 게 한 건뿐인 분류는 칸만 차지한다. */
+  const categories = useMemo(() => {
+    const count = new Map<string, number>();
+    options.forEach((o) => count.set(o.category, (count.get(o.category) ?? 0) + 1));
+    return [...count.entries()]
+      .filter(([, n]) => n >= MIN_CATEGORY)
+      .sort((a, b) => b[1] - a[1])
+      .map(([value, n]) => ({ value, label: `${value} ${n}` }));
+  }, [options]);
+
   /**
-   * 여덟 줄 안에 찾던 게 들어와야 한다. Enter 는 맨 윗줄을 담으므로 순서가 곧 정확도다.
-   * 잘 맞는 순으로 세우고, 점수가 같으면 이름이 짧은 쪽을 위에 둔다.
+   * 무엇을 살지 정해 놓고 오는 사람만 있는 게 아니다. 분류만 눌러도 목록이 보여야 한다.
+   * 검색어가 있으면 잘 맞는 순, 없으면 최신순. Enter 는 맨 윗줄을 담으므로 순서가 곧 정확도다.
    */
   const matches = useMemo(() => {
     const groups = searchTerms(query);
-    if (groups.length === 0) return [];
-    return index
+    const pool = category ? index.filter(({ option }) => option.category === category) : index;
+    if (groups.length === 0) return category ? pool.slice(0, SEARCH_RESULTS).map(({ option }) => option) : [];
+    return pool
       .map(({ option, entry }) => ({ option, entry, score: searchScore(entry, groups) }))
       .filter(({ score }) => score >= 0)
       .sort((a, b) => b.score - a.score || a.entry.name.length - b.entry.name.length)
       .slice(0, SEARCH_RESULTS)
       .map(({ option }) => option);
-  }, [index, query]);
+  }, [index, query, category]);
 
   const result = calculateCost({ lines, marketRate, appliedRate, shippingKrw, people, domesticKrw, usdPerJpy, taxCategory });
 
@@ -301,7 +316,8 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
         <section className="panel">
           <h2>1. 살 상품을 담으세요</h2>
           {/* 품절이 전체의 8할이라 검색해도 적게 나온다. 왜 적은지 먼저 알려 준다. */}
-          <p className="muted picker-note">살 수 있는 일본 상품 {options.length}개 중에서 찾습니다.</p>
+          <p className="muted picker-note">살 수 있는 일본 상품 {options.length}개. 분류를 누르거나 이름으로 찾으세요.</p>
+          <FilterChips options={categories} value={category} onChange={setCategory} allLabel="모든 분류" />
           <input
             className="search"
             type="search"
@@ -326,10 +342,12 @@ export function CostCalculator({ options, marketRate, usdPerJpy, rateUpdatedAt }
               ))}
             </ul>
           )}
-          {searching && matches.length === 0 && (
+          {(searching || category !== null) && matches.length === 0 && (
             <p className="muted picker-empty">
-              &lsquo;{query.trim()}&rsquo;에 맞는 상품이 지금은 없습니다. 낱말을 하나 줄이거나,{' '}
-              <Link href="/goods/">굿즈 목록</Link>에서 품절까지 찾아보세요.
+              {searching
+                ? `‘${query.trim()}’에 맞는 상품이 지금은 없습니다. 낱말을 하나 줄여 보세요.`
+                : '이 분류에는 지금 살 수 있는 상품이 없습니다.'}{' '}
+              <Link href="/goods/">굿즈 목록</Link>에서 품절까지 볼 수 있습니다.
             </p>
           )}
 
