@@ -97,16 +97,16 @@ function torsoGeometry(): THREE.LatheGeometry {
   // 아래에서 위 순서로 적어야 면이 바깥을 향한다. 뒤집으면 안쪽만 보여 치마처럼 된다.
   // 가장 넓은 자리가 머리 너비의 0.52 배. 위쪽은 좁혀 머리 안으로 집어넣는다.
   const profile: [number, number][] = [
-    [0.001, -0.47],
-    [0.21, -0.45],
-    [0.41, -0.39],
-    [0.55, -0.29],
-    [0.62, -0.16],
-    [0.655, -0.01],
-    [0.64, 0.14],
-    [0.59, 0.29],
-    [0.49, 0.43],
-    [0.34, 0.54],
+    [0.001, -0.48],
+    [0.3, -0.46],
+    [0.47, -0.42],
+    [0.58, -0.33],
+    [0.635, -0.21],
+    [0.655, -0.06],
+    [0.645, 0.09],
+    [0.6, 0.25],
+    [0.5, 0.4],
+    [0.35, 0.52],
     [0.18, 0.6],
   ];
   return new THREE.LatheGeometry(
@@ -127,8 +127,8 @@ function buildTorso(color: number | string) {
   // 발은 몸 아래에서 조금 벌어져 선 짧은 덩어리 두 개. 몸이 넓어진 만큼 같이 벌어진다.
   for (const side of [-1, 1]) {
     const foot = ball(1, color);
-    foot.scale.set(0.2, 0.14, 0.23);
-    foot.position.set(side * 0.24, -1.37, 0.12);
+    foot.scale.set(0.19, 0.13, 0.22);
+    foot.position.set(side * 0.23, -1.31, 0.1);
     group.add(foot);
   }
 
@@ -136,10 +136,10 @@ function buildTorso(color: number | string) {
   const makeArm = (side: number) => {
     const pivot = new THREE.Group();
     const arm = ball(1, color);
-    arm.scale.set(0.2, 0.25, 0.18);
-    arm.position.y = -0.14;
+    arm.scale.set(0.18, 0.21, 0.16);
+    arm.position.y = -0.09;
     pivot.add(arm);
-    pivot.position.set(side * 0.64, -0.72, 0.08);
+    pivot.position.set(side * 0.61, -0.69, 0.1);
     return pivot;
   };
 
