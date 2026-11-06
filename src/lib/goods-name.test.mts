@@ -44,3 +44,23 @@ test('일본어가 남았는지 가려낸다', () => {
   assert.equal(hasJapanese('접이식 클리어 트레이'), false);
   assert.equal(hasJapanese('앞치마 (どらやきおいしい)'), true);
 });
+
+test('짧은 조각이 긴 낱말을 잘라먹지 않는다', () => {
+  // 「水」 한 글자를 사전에 넣었더니 水色이 「물 色」 이 됐다. 낱말째로 넣어야 한다.
+  assert.equal(koreanName('ミニネコハウスポーチ（水色）'), '미니 ネコハウス 파우치 (하늘색)');
+  assert.equal(koreanName('ちいかわ寿司 撥水湯呑み'), '치이카와 스시 발수 찻잔 み');
+  // 「ドライ」 가 ドライブ·マイルドライナー 를 반 토막 내던 것
+  assert.equal(koreanName('Tシャツ サマードライブ オフホワイト'), '티셔츠 サマー 드라이브 오프 화이트');
+  assert.ok(!koreanName('マイルドライナー（マイルドソーダブルー）').includes('드라이 '));
+});
+
+test('수량 단위를 한국어로 센다', () => {
+  assert.equal(koreanName('3枚セットタオル'), '3장 세트 타월');
+  assert.equal(koreanName('おばけな3連蓄光アクリルチャーム'), '유령 3연 야광 아크릴 참');
+});
+
+test('보강한 생활용품 이름이 한국어로 나온다', () => {
+  assert.equal(koreanName('お年玉袋'), '세뱃돈 봉투');
+  assert.equal(koreanName('おしゃべりちいかわ専用パジャマ'), '말하는 치이카와 전용 파자마');
+  assert.equal(koreanName('レディースコンビネゾン（ちいかわ）'), '여성용 콤비네종 (치이카와)');
+});
