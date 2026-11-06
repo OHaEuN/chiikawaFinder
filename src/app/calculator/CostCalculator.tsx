@@ -5,6 +5,7 @@ import { calculateCost, DUTY_FREE_LIMIT_USD, FREE_DOMESTIC_SHIPPING_YEN, TAX_RAT
 import { track } from '@/lib/analytics';
 import { searchEntry, searchScore, searchTerms } from '@/lib/search';
 import { SafeImage } from '@/components/SafeImage';
+import { HoverZoom } from '@/components/HoverZoom';
 import { FilterSelect } from '@/components/FilterSelect';
 import Link from 'next/link';
 
@@ -367,7 +368,9 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
               {pageItems.map((o) => (
                 <li key={o.id}>
                   <button onClick={() => addLine(o)}>
-                    <span className="picker-thumb"><SafeImage src={o.image} alt={o.nameKo} fallback="🎁" seed={o.id} width={48} /></span>
+                    <HoverZoom className="picker-thumb" src={o.image} alt={o.nameKo}>
+                      <SafeImage src={o.image} alt={o.nameKo} fallback="🎁" seed={o.id} width={48} />
+                    </HoverZoom>
                     <span className="picker-name">{o.nameKo}</span>
                     {quantityById.has(o.id) && <span className="picker-in">{quantityById.get(o.id)}개 담김</span>}
                     <span className="picker-price">{yen(o.priceYen)}</span>
@@ -413,9 +416,9 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
               <ul className="cart">
                 {lines.map((l) => (
                   <li key={l.id}>
-                    <span className="cart-thumb">
+                    <HoverZoom className="cart-thumb" src={imageById.get(l.id)} alt={l.name}>
                       <SafeImage src={imageById.get(l.id)} alt="" fallback="🎁" seed={l.id} width={48} />
-                    </span>
+                    </HoverZoom>
                     <span className="cart-name">{l.name}</span>
                     <span className="cart-price">
                       {yen(l.priceYen * l.quantity)}

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { GoodsSummary } from '@/types/goods';
 import { SafeImage } from './SafeImage';
+import { HoverZoom } from './HoverZoom';
 import { Tag } from './Tag';
 import { COUNTRY_LABEL, shortDate } from '@/lib/labels';
 import { STOCK_LABEL, stockState } from '@/lib/stock';
@@ -14,11 +15,11 @@ export function GoodsCard({ goods }: GoodsCardProps) {
   const name = koreanName(goods.name);
   return (
     <Link href={`/goods/${goods.id}`} className="card">
-      <div className={`card-media contain${state === 'soldout' ? ' soldout' : ''}`}>
+      <HoverZoom as="div" className={`card-media contain${state === 'soldout' ? ' soldout' : ''}`} src={goods.image} alt={name}>
         <SafeImage src={goods.image} alt={name} fallback="🎁" seed={goods.id} width={200} />
         <span className="card-badge"><Tag tone={goods.country === 'KR' ? 'pink' : 'blue'}>{COUNTRY_LABEL[goods.country]}</Tag></span>
         {stockLabel && <span className={`stock-mark stock-${state}`}>{stockLabel}</span>}
-      </div>
+      </HoverZoom>
       <div className="card-body">
         <div className="card-sub">{goods.collab ?? goods.brand} · {shortDate(goods.releaseDate)}</div>
         <div className="card-title">{name}</div>
