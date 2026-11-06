@@ -34,7 +34,8 @@ interface CostCalculatorProps {
 const GROUPBUY_RATE_PRESETS = [9.5, 10];
 const DEFAULT_SHIPPING_KRW = 25000;
 const DEFAULT_DOMESTIC_KRW = 3500;
-const SEARCH_RESULTS = 8;
+/** 한 쪽에 보여 주는 후보 수 */
+const PAGE_SIZE = 8;
 /** 이보다 적은 분류·캐릭터는 고를 거리로 내놓지 않는다. */
 const MIN_CHIP = 5;
 const CART_STORAGE_KEY = 'chiikawa-calculator-cart';
@@ -125,6 +126,7 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
   const [lines, setLines] = useState<CartLine[]>([]);
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState<string[]>([]);
+  const [page, setPage] = useState(0);
   const [character, setCharacter] = useState<string[]>([]);
   const [rateInput, setRateInput] = useState(String(marketRate));
   const [shippingInput, setShippingInput] = useState(String(DEFAULT_SHIPPING_KRW));
@@ -275,14 +277,19 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
         (category.length === 0 || category.includes(option.category)) &&
         (character.length === 0 || option.characters?.some((slug) => character.includes(slug))),
     );
-    if (groups.length === 0) return picked ? pool.slice(0, SEARCH_RESULTS).map(({ option }) => option) : [];
+    if (groups.length === 0) return picked ? pool.map(({ option }) => option) : [];
     return pool
       .map(({ option, entry }) => ({ option, entry, score: searchScore(entry, groups) }))
       .filter(({ score }) => score >= 0)
       .sort((a, b) => b.score - a.score || a.entry.name.length - b.entry.name.length)
-      .slice(0, SEARCH_RESULTS)
       .map(({ option }) => option);
   }, [index, query, category, character]);
+
+  const pageCount = Math.ceil(matches.length / PAGE_SIZE);
+  const pageItems = matches.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+
+  // 조건이 바뀌면 첫 쪽으로. 3쪽을 보다가 좁히면 있지도 않은 쪽에 남는다.
+  useEffect(() => setPage(0), [query, category, character]);
 
   const result = calculateCost({ lines, marketRate, appliedRate, shippingKrw, people, domesticKrw, usdPerJpy, taxCategory });
 
@@ -313,9 +320,9 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
   const onSearchKey = (e: KeyboardEvent<HTMLInputElement>) => {
     // 한글 조합 중 Enter 는 글자를 확정하는 키라 담지 않는다.
     if (e.nativeEvent.isComposing) return;
-    if (e.key === 'Enter' && matches[0]) {
+    if (e.key === 'Enter' && pageItems[0]) {
       e.preventDefault();
-      addLine(matches[0]);
+      addLine(pageItems[0]);
     } else if (e.key === 'Escape') {
       setQuery('');
     }
@@ -354,7 +361,7 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
           />
           {matches.length > 0 && (
             <ul className="picker">
-              {matches.map((o) => (
+              {pageItems.map((o) => (
                 <li key={o.id}>
                   <button onClick={() => addLine(o)}>
                     <span className="picker-thumb"><SafeImage src={o.image} alt={o.nameKo} fallback="🎁" seed={o.id} width={48} /></span>
@@ -366,6 +373,15 @@ export function CostCalculator({ options, characterNames, marketRate, usdPerJpy,
                 </li>
               ))}
             </ul>
+          )}
+          {pageCount > 1 && (
+            <div className="picker-pager">
+              <button type="button" onClick={() => setPage((p) => p - 1)} disabled={page === 0}>← 이전</button>
+              <span>
+                {page + 1} / {pageCount} 쪽 · 모두 {matches.length.toLocaleString('ko-KR')}개
+              </span>
+              <button type="button" onClick={() => setPage((p) => p + 1)} disabled={page >= pageCount - 1}>다음 →</button>
+            </div>
           )}
           {(searching || category.length > 0 || character.length > 0) && matches.length === 0 && (
             <p className="muted picker-empty">
