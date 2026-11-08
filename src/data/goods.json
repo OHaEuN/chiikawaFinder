@@ -1697,7 +1697,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4580052816560"
     ]
@@ -8287,7 +8287,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-10-15"
     ],
@@ -12649,7 +12649,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4570189210935"
     ]
@@ -13557,7 +13557,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-10-01"
     ],
@@ -15843,7 +15843,7 @@
     "characters": [
       "shisa"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609392408"
     ]
@@ -23974,7 +23974,7 @@
       "hachiware",
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609409168"
     ]
