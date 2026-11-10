@@ -12,8 +12,6 @@ const FOV = 40;
 const SPACING = 2.7;
 const NARROW_SPACING = 2.15;
 const NARROW_PX = 560;
-/** 몸이 늘어나면서 머리가 조금 더 올라간다. 점프 높이와 별개로 잡는다. */
-const STRETCH_MARGIN = 0.12;
 /** 테두리에 닿지 않게 남기는 여백 */
 const FIT_MARGIN = 1.08;
 
@@ -74,8 +72,11 @@ export default function HeroSceneInner() {
       return;
     }
 
-    // ?still 을 붙이면 정지 정면으로 그린다. 참조 사진과 대조할 때 쓴다.
-    const still = new URLSearchParams(window.location.search).has('still');
+    // ?still 을 붙이면 정지 자세로, ?turn=90 처럼 주면 그만큼 돌려 세운다.
+    // 참조 사진과 정면·옆·뒤를 대조할 때 쓴다.
+    const params = new URLSearchParams(window.location.search);
+    const still = params.has('still');
+    const turn = (Number(params.get('turn')) || 0) * (Math.PI / 180);
     const reduceMotion = still || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.shadowMap.enabled = true;
@@ -109,7 +110,6 @@ export default function HeroSceneInner() {
     // 캐릭터가 떠 보이지 않게 그림자만 받는 바닥을 깐다.
     const ground = new THREE.Mesh(new THREE.PlaneGeometry(40, 40), new THREE.ShadowMaterial({ opacity: 0.12 }));
     ground.rotation.x = -Math.PI / 2;
-    ground.position.y = -1.82;
     ground.receiveShadow = true;
     scene.add(ground);
 
@@ -123,6 +123,7 @@ export default function HeroSceneInner() {
     const entries: Entry[] = ORDER.map((name, index) => {
       const rig = buildCharacter(name);
       rig.root.position.x = (index - 1) * SPACING;
+      rig.root.rotation.y = turn;
       rig.root.traverse((object) => {
         if (object instanceof THREE.Mesh) object.castShadow = true;
       });
@@ -137,8 +138,10 @@ export default function HeroSceneInner() {
     const restBox = new THREE.Box3();
     entries.forEach((entry) => restBox.expandByObject(entry.rig.root));
     const bodyWidth = restBox.max.x - restBox.min.x - SPACING * 2;
+    // 발바닥에 바닥을 맞춘다. 바닥을 더 내리면 서 있는 게 아니라 떠 있게 된다.
+    ground.position.y = restBox.min.y - 0.01;
     // 위로만 뛴다. 여백도 위에만 준다. 위아래로 나눠 주면 발밑이 쓸데없이 비어 보인다.
-    const topY = restBox.max.y + (reduceMotion ? 0 : MAX_LIFT + STRETCH_MARGIN);
+    const topY = restBox.max.y + (reduceMotion ? 0 : MAX_LIFT);
     const groupHeight = topY - restBox.min.y;
     const centerY = (topY + restBox.min.y) / 2;
 
@@ -202,20 +205,14 @@ export default function HeroSceneInner() {
       const burst = reduceMotion ? null : reactionAt(time - entry.reactionStart);
 
       const hop = base.hop + (burst?.hop ?? 0);
-      const squash = base.squash + (burst?.squash ?? 0);
       const armLift = base.armLift + (burst?.armLift ?? 0);
 
       rig.body.position.y = hop;
       rig.body.rotation.z = base.tilt;
       rig.body.rotation.y = base.spin + (burst?.spin ?? 0);
-      rig.body.scale.set(2 - squash, squash, 2 - squash);
-      // 얼굴은 한 덩어리로 그려진 그림이다. 머리가 몸의 자식이라 몸이 눌리면 그림까지 눌려
-      // 눈·입이 가로로 퍼진다. 몸에 준 눌림을 머리에서 되돌려 얼굴은 모양을 지키게 한다.
-      // 되돌림을 다 주면 뻣뻣해 보여서, 몸이 받는 눌림의 1/4 만 머리에 남긴다.
-      const headSquash = 1 + (squash - 1) * 0.25;
-      rig.head.scale.set((2 - headSquash) / (2 - squash), headSquash / squash, (2 - headSquash) / (2 - squash));
-      rig.leftArm.rotation.z = armLift * 0.85;
-      rig.rightArm.rotation.z = -armLift * 0.85;
+      // 팔은 어깨 축에서 바깥쪽으로 들린다. 왼팔은 -x 쪽이라 시계 방향이 바깥이다.
+      rig.leftArm.rotation.z = -armLift;
+      rig.rightArm.rotation.z = armLift;
       rig.leftEar.rotation.z = base.earSwing;
       rig.rightEar.rotation.z = -base.earSwing;
       rig.setCrying(base.crying);
@@ -226,7 +223,7 @@ export default function HeroSceneInner() {
         const dx = lookTarget.x - rig.root.position.x;
         const dy = lookTarget.y - (rig.root.position.y + 1);
         // 얼굴 그림이 구에 입혀져 있다. 많이 틀수록 가장자리로 밀려 납작해 보이므로
-        // 몸이 도는 각(최대 0.24)과 합쳐도 얼굴이 앞을 벗어나지 않을 만큼만 돌린다.
+        // 몸이 도는 각(최대 0.2)과 합쳐도 얼굴이 앞을 벗어나지 않을 만큼만 돌린다.
         rig.head.rotation.y = THREE.MathUtils.clamp(dx * 0.04, -0.2, 0.2);
         rig.head.rotation.x = THREE.MathUtils.clamp(-dy * 0.04, -0.13, 0.13);
       } else {

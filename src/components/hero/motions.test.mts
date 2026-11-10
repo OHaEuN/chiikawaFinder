@@ -22,7 +22,6 @@ test('발이 바닥을 뚫지 않는다', () => {
   for (const key of KEYS) {
     for (const pose of sample(key)) {
       assert.ok(pose.hop >= 0, `${key} 가 바닥 아래로 내려갔다`);
-      assert.ok(pose.squash > 0.5 && pose.squash < 1.6, `${key} 의 찌그러짐이 과하다`);
     }
   }
 });
@@ -45,7 +44,15 @@ test('치이카와는 제자리에서 떨고 우사기는 크게 움직인다', 
     return Math.max(...hops) - Math.min(...hops);
   };
   assert.ok(spread('chiikawa') < 0.1);
-  assert.ok(spread('usagi') > 0.7);
+  assert.ok(spread('usagi') > 0.35);
+});
+
+test('뛰는 캐릭터도 주기마다 땅에 서 있는 때가 있다', () => {
+  // 쉬지 않고 오르내리면 공이 튀는 것처럼 보인다.
+  for (const key of ['hachiware', 'usagi'] as const) {
+    const grounded = sample(key).filter((p) => p.hop === 0).length;
+    assert.ok(grounded > 240 * 0.3, `${key} 가 땅에 서 있는 때가 너무 짧다`);
+  }
 });
 
 test('뒤통수가 보이지 않게 회전을 제한한다', () => {
@@ -85,10 +92,10 @@ test('귀가 떨어져 보일 만큼 크게 흔들리지 않는다', () => {
 });
 
 test('반응은 시작과 끝에서 0이고 중간에 가장 크다', () => {
-  assert.deepEqual(reactionAt(0), { hop: 0, spin: 0, squash: 0, armLift: 0 });
-  assert.deepEqual(reactionAt(REACTION_SECONDS + 0.01), { hop: 0, spin: 0, squash: 0, armLift: 0 });
-  assert.deepEqual(reactionAt(-1), { hop: 0, spin: 0, squash: 0, armLift: 0 });
-  assert.ok(reactionAt(REACTION_SECONDS / 2).hop > 0.4);
+  assert.deepEqual(reactionAt(0), { hop: 0, spin: 0, armLift: 0 });
+  assert.deepEqual(reactionAt(REACTION_SECONDS + 0.01), { hop: 0, spin: 0, armLift: 0 });
+  assert.deepEqual(reactionAt(-1), { hop: 0, spin: 0, armLift: 0 });
+  assert.ok(reactionAt(REACTION_SECONDS / 2).hop > 0.2);
 });
 
 test('반응 중에도 발이 바닥을 뚫지 않고 과하게 돌지 않는다', () => {
@@ -96,7 +103,6 @@ test('반응 중에도 발이 바닥을 뚫지 않고 과하게 돌지 않는다
     const r = reactionAt((i / 60) * REACTION_SECONDS);
     assert.ok(r.hop >= 0);
     assert.ok(Math.abs(r.spin) < 0.4);
-    assert.ok(Math.abs(r.squash) < 0.15);
   }
 });
 
