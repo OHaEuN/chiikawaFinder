@@ -44,7 +44,14 @@ const HEAD_Y = 0.38;
  * 아래가 불룩하면 배 나온 다른 캐릭터가 되고, 위가 좁으면 머리가 꽂힌 사탕이 된다.
  */
 const HEAD_WIDTH = 1.3;
-const TORSO_Y = -0.78;
+/*
+ * 몸통은 회전체 원본보다 조금 낮고 좁게 쓴다. 넨도로이드·일러스트는 머리 밑 몸이 머리 높이의 절반쯤이고
+ * 너비는 머리 너비의 6할 남짓인데, 원본 비율대로 두면 몸이 길고 건장해 보였다.
+ * 위 끝은 그대로 머리 안에 묻히게 두고(월드 y -0.05) 아래만 줄어든다.
+ */
+const TORSO_SCALE = { x: 0.94, y: 0.88 } as const;
+const TORSO_TOP = -0.05;
+const TORSO_Y = TORSO_TOP - 0.73 * TORSO_SCALE.y;
 /**
  * 팔·발은 넨도로이드 공식 사진(정면·반측면·옆)과 기본 일러스트를 머리 너비 기준으로 잰 값이다.
  *
@@ -140,13 +147,14 @@ function buildTorso(color: number | string) {
   const torso = new THREE.Mesh(torsoGeometry(), soft(color));
   torso.position.y = TORSO_Y;
   // 옆에서 보면 머리가 몸 앞으로 조금 나와 있다. 몸은 좌우보다 앞뒤가 얇다.
-  torso.scale.z = 0.88;
+  torso.scale.set(TORSO_SCALE.x, TORSO_SCALE.y, 0.88 * TORSO_SCALE.x);
   group.add(torso);
 
   // 발은 몸 바닥 가운데 앞쪽에 거의 붙어 선 짧은 막대 두 개. 윗부분은 몸 안에 묻힌다.
+  const torsoBottom = TORSO_Y - 0.51 * TORSO_SCALE.y;
   for (const side of [-1, 1]) {
     const foot = new THREE.Mesh(new THREE.CapsuleGeometry(0.14, 0.12, 6, 16), soft(color));
-    foot.position.set(side * 0.25, -1.25, 0.25);
+    foot.position.set(side * 0.25, torsoBottom + 0.04, 0.25);
     group.add(foot);
   }
 
@@ -157,7 +165,8 @@ function buildTorso(color: number | string) {
     arm.rotation.z = side * ARM_TILT;
     arm.position.set(side * ARM_REACH * Math.sin(ARM_TILT), -ARM_REACH * Math.cos(ARM_TILT), 0);
     pivot.add(arm);
-    pivot.position.set(side * 0.8, -0.45, 0.05);
+    // 어깨는 몸 윗모서리(프로필 y 0.4)보다 조금 아래. 몸이 줄면 같이 따라온다.
+    pivot.position.set(side * 0.8 * TORSO_SCALE.x, TORSO_Y + 0.4 * TORSO_SCALE.y - 0.07, 0.05);
     return pivot;
   };
 
