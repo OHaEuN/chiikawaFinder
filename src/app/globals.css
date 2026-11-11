@@ -323,6 +323,11 @@ a.tag { padding: 8px 12px; }
 
 .notice { font-size: 0.86rem; color: var(--ink-soft); background: var(--surface-2); border-radius: 14px; padding: 14px 18px; margin-top: 20px; line-height: 1.7; }
 .notice strong { color: var(--ink); }
+.site-footer { padding: 18px 0 calc(40px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); font-size: 0.86rem; color: var(--ink-soft); line-height: 1.7; }
+.site-footer p { margin: 0 0 4px; }
+.site-footer a { text-decoration: underline; }
+/* 용어 칸이 좁은 화면에서 한 글자씩 꺾이지 않게 낱말 단위로만 줄을 바꾼다. */
+.glossary td:first-child { word-break: keep-all; min-width: 6.5em; }
 
 .channel h3 a:hover { text-decoration: underline; }
 .channel-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 6px; }

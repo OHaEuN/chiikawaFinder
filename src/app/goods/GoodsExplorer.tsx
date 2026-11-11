@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import type { GoodsSummary } from '@/types/goods';
 import { FilterSelect } from '@/components/FilterSelect';
 import { GoodsCard } from '@/components/GoodsCard';
@@ -91,12 +91,22 @@ export function GoodsExplorer({ goods, characterNames }: GoodsExplorerProps) {
   const reset = (setter: (v: string[]) => void) => (v: string[]) => { setter(v); setLimit(PAGE_SIZE); };
 
   // 검색은 타자마다가 아니라 입력이 멈춘 뒤 한 번만 남긴다.
+  // 0건이었는지는 타이머가 울릴 때의 결과로 본다. 그때는 이미 다시 그려진 뒤라 ref 가 최신이다.
+  const emptyRef = useRef(false);
+  emptyRef.current = filtered.length === 0;
   const [searchTimer, setSearchTimer] = useState<ReturnType<typeof setTimeout> | null>(null);
   const onSearch = (value: string) => {
     setQuery(value);
     setLimit(PAGE_SIZE);
     if (searchTimer) clearTimeout(searchTimer);
-    setSearchTimer(setTimeout(() => value.trim() && track('goods_search', { query: value.trim() }), 800));
+    setSearchTimer(
+      setTimeout(() => {
+        const query = value.trim();
+        if (!query) return;
+        track('goods_search', { query });
+        if (emptyRef.current) track('goods_search_empty', { query });
+      }, 800),
+    );
   };
 
   return (
@@ -122,6 +132,9 @@ export function GoodsExplorer({ goods, characterNames }: GoodsExplorerProps) {
         </button>
         <span className="muted filters-count">{filtered.length.toLocaleString('ko-KR')}개</span>
       </div>
+      {filtered.length === 0 && (
+        <div className="panel"><p className="muted">조건에 맞는 굿즈가 없습니다. 검색어를 줄이거나 필터를 풀어 보세요.</p></div>
+      )}
       <div className="grid">{filtered.slice(0, limit).map((g) => <GoodsCard key={g.id} goods={g} />)}</div>
       {filtered.length > limit && (
         <div style={{ textAlign: 'center', marginTop: 24 }}>

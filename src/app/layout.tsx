@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import Link from 'next/link';
 import { Gaegu, Noto_Sans_KR } from 'next/font/google';
 import { SiteHeader } from '@/components/SiteHeader';
 import { asset } from '@/lib/asset';
@@ -47,6 +48,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     images: ['./og.png'],
   },
+  // 매일 변화를 구독할 수 있게 피드 주소를 머리말에 알린다. 리더가 사이트 주소만으로 찾아낸다.
+  alternates: { types: { 'application/atom+xml': './feed.xml' } },
   /*
    * 검색엔진 소유 확인. 값은 Vercel 환경변수로 넣고 재배포하면 머리말에 박힌다.
    * 루트 도메인이라 파일 업로드 방식도 되지만, 토큰을 저장소에 커밋하지 않으려고 이쪽을 쓴다.
@@ -83,6 +86,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <SiteHeader />
         <main className="container page">{children}</main>
+        <footer className="container site-footer">
+          <p>
+            <Link href="/about">소개 · 운영 원칙</Link> · <a href={asset('/feed.xml')}>변화 피드</a> ·{' '}
+            <a href="https://github.com/OHaEuN/chiikawaFinder" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </p>
+          <p>비공식 팬 사이트입니다. 나가노 작가, 치이카와 마켓, 대원미디어와 관계가 없습니다. 공식몰을 매일 06:00(KST) 한 번 확인합니다.</p>
+        </footer>
         <Analytics />
       </body>
     </html>

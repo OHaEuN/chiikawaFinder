@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: url('offline/course/'), changeFrequency: 'weekly', priority: 0.7 },
     { url: url('online/'), changeFrequency: 'weekly', priority: 0.6 },
     { url: url('characters/'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: url('about/'), changeFrequency: 'monthly', priority: 0.3 },
   ];
 
   return [
