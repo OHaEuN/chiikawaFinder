@@ -267,26 +267,32 @@ function buildUsagi(): CharacterRig {
     const lean = new THREE.Group();
 
     /*
-     * 넨도로이드·인형·일러스트에서 잰 귀: 너비가 머리 너비의 13%, 머리 위로 머리 너비의 47%만큼
-     * 서고, 앞뒤로 납작하다. 두 귀는 귀 너비의 절반쯤 떨어져 나란히 서고 뒤로 조금 기운다.
+     * 우사기 자료 20여 종(넨도로이드 정면·반측면·옆, GPSBOX 피규어 6종, 공식 인형 4종,
+     * 기본·극장판 일러스트, 뒷모습 사진)을 머리 너비 기준으로 잰 합의값이다.
+     *
+     *                 귀 너비     머리 위 높이    두 귀 간격(귀 너비 대비)   속살 너비(귀 너비 대비)
+     *   피규어·일러스트  0.10~0.13   0.42~0.54      0.0~0.7                 0.40~0.55
+     *   인형            0.16~0.21   0.38~0.43      0.0~0.1                 0.35~0.47
+     *
+     * 두 귀는 거의 평행(한쪽 0~3°)이고 옆에서 보면 뒤로 10° 남짓 기운다. 앞뒤 두께는 너비의 4할.
+     * 속살은 앞면에만 있어 뒤에서는 보이지 않는다. 인형은 솜 때문에 굵으니 피규어 쪽을 따른다.
      * 밑동은 머리 안에 깊이 묻는다. 얕으면 앞뒤로 눕힐 때 틈이 보인다.
      */
-    const outer = new THREE.Mesh(new THREE.CapsuleGeometry(0.17, 1.18, 8, 18), soft(USAGI_BODY));
-    outer.position.y = 0.7;
+    const outer = new THREE.Mesh(new THREE.CapsuleGeometry(0.18, 1.22, 8, 18), soft(USAGI_BODY));
+    outer.position.y = 0.76;
     outer.scale.z = 0.4;
     lean.add(outer);
 
-    // 속살은 귀 앞면의 6할 너비로 밑동 바로 위에서 끝 근처까지 길게 깔린다.
-    const inner = new THREE.Mesh(new THREE.CapsuleGeometry(0.1, 1.0, 8, 14), soft(USAGI_EAR));
-    inner.position.set(0, 0.78, 0.075);
+    const inner = new THREE.Mesh(new THREE.CapsuleGeometry(0.09, 1.06, 8, 14), soft(USAGI_EAR));
+    inner.position.set(0, 0.84, 0.08);
     inner.scale.z = 0.3;
     lean.add(inner);
 
     lean.rotation.x = -0.2;
     pivot.add(lean);
-    // 앞면을 바깥 앞으로 살짝 틀어 둔다. 정면에서도 반측면에서도 속살이 보인다.
-    pivot.position.set(side * 0.26, 0.75, -0.02);
-    pivot.rotation.set(0, side * 0.35, side * 0.03);
+    // 앞면을 바깥으로 아주 조금만 튼다. 정면에서는 속살이 가운데 가깝게, 반측면에서도 보인다.
+    pivot.position.set(side * 0.25, 0.75, -0.02);
+    pivot.rotation.set(0, side * 0.15, side * 0.035);
     base.head.add(pivot);
     ears.push(pivot);
   }
