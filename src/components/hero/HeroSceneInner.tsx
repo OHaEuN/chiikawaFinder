@@ -45,6 +45,21 @@ const LINES: Record<CharacterKey, string[]> = {
   usagi: ['우라', '야하', '우라라라라아'],
 };
 
+/** 글씨체가 늦게 오면 말풍선을 이만큼만 기다렸다가 띄운다. 더 늦으면 기본 글씨체로라도 보여 준다. */
+const FONT_WAIT_MS = 400;
+
+/**
+ * 말풍선 글씨체(Gaegu)의 대사 글자를 미리 받아 둔다.
+ * 한글 웹폰트는 글자 범위별 조각으로 나뉘어 화면에 쓰인 글자의 조각만 받는다.
+ * 대사 글자는 누르기 전까지 화면에 없어서, 처음 누를 때 그제야 받느라 기본 글씨체로 잠깐 보였다가 바뀐다.
+ */
+function preloadBubbleFont(host: HTMLElement): Promise<unknown> {
+  const family = getComputedStyle(host).getPropertyValue('--font-cute').trim();
+  if (!family || !document.fonts?.load) return Promise.resolve();
+  const text = Object.values(LINES).flat().join('');
+  return document.fonts.load(`1em ${family}`, text).catch(() => undefined);
+}
+
 interface Bubble {
   key: CharacterKey;
   line: string;
@@ -63,6 +78,9 @@ export default function HeroSceneInner() {
   useEffect(() => {
     const host = hostRef.current;
     if (!host) return;
+
+    const fontReady = preloadBubbleFont(host);
+    let disposed = false;
 
     let renderer: THREE.WebGLRenderer;
     try {
@@ -184,11 +202,15 @@ export default function HeroSceneInner() {
       screen.y = 1.9;
       screen.project(camera);
       const lines = LINES[entry.name];
-      setBubble({
+      const next: Bubble = {
         key: entry.name,
         line: lines[Math.floor(Math.random() * lines.length)],
         x: ((screen.x + 1) / 2) * 100,
         y: ((1 - screen.y) / 2) * 100,
+      };
+      // 글씨체를 다 받기 전에 띄우면 기본 글씨체로 보였다가 바뀐다. 보통은 이미 받아 둬서 바로 뜬다.
+      Promise.race([fontReady, new Promise((resolve) => setTimeout(resolve, FONT_WAIT_MS))]).then(() => {
+        if (!disposed) setBubble(next);
       });
       track('hero_character_tap', { character: entry.name });
     };
@@ -274,6 +296,7 @@ export default function HeroSceneInner() {
     document.addEventListener('visibilitychange', onVisibility);
 
     return () => {
+      disposed = true;
       cancelAnimationFrame(frame);
       document.removeEventListener('visibilitychange', onVisibility);
       host.removeEventListener('pointermove', onPointerMove);
