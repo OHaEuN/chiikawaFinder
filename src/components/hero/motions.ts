@@ -19,7 +19,7 @@ export interface Pose {
   spin: number;
   /** 팔 올린 각도 (라디안). 양수면 위로 */
   armLift: number;
-  /** 귀가 흔들리는 각도 (라디안) */
+  /** 귀가 앞뒤로 눕는 각도 (라디안). 양수면 앞으로 */
   earSwing: number;
   /** 눈물이 보이는지 */
   crying: boolean;
@@ -41,6 +41,15 @@ export const MAX_LIFT = 0.9;
 const AIR_PART = 0.6;
 const hopOf = (cycle: number, height: number) =>
   cycle < AIR_PART ? Math.sin((cycle / AIR_PART) * Math.PI) * height : 0;
+
+/**
+ * 귀는 제 힘으로 흔들리지 않고 몸보다 한 박자 늦게 따라온다.
+ * 몸이 오르면 뒤로 눕고 내려오면 앞으로 쏠린다. 따로 박자를 주면 금속 더듬이처럼 보인다.
+ */
+const EAR_LAG = 0.08;
+const wrap = (cycle: number) => ((cycle % 1) + 1) % 1;
+const earFollow = (cycle: number, height: number) =>
+  (hopOf(wrap(cycle - EAR_LAG), height) - hopOf(cycle, height)) * 1.2;
 
 /**
  * 치이카와: 겁먹고 부들부들 떨다가 울음을 터뜨린다.
@@ -68,7 +77,7 @@ function hachiwarePose(t: number): Pose {
     tilt: Math.sin(t * 1.3) * 0.06,
     spin: Math.sin(t * 0.8) * 0.15,
     armLift: 0.12 + hop * 1.2,
-    earSwing: Math.sin(t * 5) * 0.06,
+    earSwing: earFollow(cycle, 0.14),
     crying: false,
   };
 }
@@ -83,7 +92,7 @@ function usagiPose(t: number): Pose {
     // 뒤통수에는 얼굴이 없다. 한 바퀴 돌리지 않고 좌우로 틀었다 돌아온다.
     spin: Math.sin(cycle * TAU) * 0.2,
     armLift: 0.45 + Math.sin(t * 7) * 0.12,
-    earSwing: Math.sin(t * 8) * 0.15,
+    earSwing: earFollow(cycle, 0.5),
     crying: false,
   };
 }

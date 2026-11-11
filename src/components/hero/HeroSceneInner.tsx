@@ -213,8 +213,9 @@ export default function HeroSceneInner() {
       // 팔은 어깨 축에서 바깥쪽으로 들린다. 왼팔은 -x 쪽이라 시계 방향이 바깥이다.
       rig.leftArm.rotation.z = -armLift;
       rig.rightArm.rotation.z = armLift;
-      rig.leftEar.rotation.z = base.earSwing;
-      rig.rightEar.rotation.z = -base.earSwing;
+      // 두 귀가 같은 쪽으로 앞뒤로 눕는다. 좌우로 벌렸다 오므리면 가위질처럼 보인다.
+      rig.leftEar.rotation.x = base.earSwing;
+      rig.rightEar.rotation.x = base.earSwing;
       rig.setCrying(base.crying);
 
       if (pointerInside && !reduceMotion) {

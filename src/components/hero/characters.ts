@@ -45,10 +45,13 @@ const HEAD_Y = 0.38;
  */
 const HEAD_WIDTH = 1.3;
 const TORSO_Y = -0.78;
-/** 팔이 어깨에서 바깥 아래로 벌어진 각. 똑바로 내리면 몸에 묻혀 보이지 않는다. */
-const ARM_TILT = 0.6;
-/** 어깨에서 팔 중심까지 거리 */
-const ARM_REACH = 0.15;
+/**
+ * 팔이 어깨에서 바깥으로 벌어진 각. 인형을 재면 팔은 몸을 끼고 거의 똑바로 내려오고,
+ * 몸이 아래로 좁아져서 끝만 살짝 떨어진다. 많이 벌리면 지느러미처럼 보인다.
+ */
+const ARM_TILT = 0.2;
+/** 어깨 축에서 팔 중심까지 거리. 윗부분이 몸 안에 묻혀야 붙어 보인다. */
+const ARM_REACH = 0.3;
 
 /** 눈썹은 캐릭터마다 길이와 높이가 다르다. */
 const BROWS: Record<CharacterKey, BrowStyle> = {
@@ -134,24 +137,26 @@ function buildTorso(color: number | string) {
   torso.scale.z = 0.88;
   group.add(torso);
 
-  // 발은 몸 바닥 앞쪽에서 조금 내다보이는 타원 두 개. 몸 안에 윗부분을 묻어야 붙어 보인다.
+  // 발은 몸 바닥 앞쪽에서 내다보이는 둥근 공 두 개. 인형을 재면 지름이 머리 너비의 2할이고
+  // 서로 거의 닿아 있다. 납작하게 누르면 바닥에 붙인 판처럼 보인다.
   for (const side of [-1, 1]) {
     const foot = ball(1, color);
-    foot.scale.set(0.22, 0.13, 0.26);
-    foot.position.set(side * 0.3, -1.3, 0.3);
+    foot.scale.set(0.24, 0.21, 0.26);
+    foot.position.set(side * 0.27, -1.22, 0.3);
     group.add(foot);
   }
 
-  // 팔은 머리와 맞닿는 몸 맨 위, 어깨 자리에서 바깥 아래로 뻗는 짧은 막대다.
-  // 축은 어깨에 두고 팔만 기울여 둔다. 축을 돌리면 벌어진 채로 위아래로 흔들린다.
+  // 팔은 어깨에서 몸을 끼고 아래로 늘어진 통통한 덩어리다. 너비가 머리 너비의 16%,
+  // 길이는 머리 밑에서 몸 높이의 6할쯤 내려온다. 가늘면 몸에 꽂힌 막대가 된다.
+  // 축은 어깨에 두고 팔만 기울여 둔다. 축을 돌리면 어깨에서 벌어지며 올라간다.
   const makeArm = (side: number) => {
     const pivot = new THREE.Group();
     const arm = ball(1, color);
-    arm.scale.set(0.15, 0.22, 0.14);
+    arm.scale.set(0.21, 0.38, 0.2);
     arm.rotation.z = side * ARM_TILT;
     arm.position.set(side * ARM_REACH * Math.sin(ARM_TILT), -ARM_REACH * Math.cos(ARM_TILT), 0);
     pivot.add(arm);
-    pivot.position.set(side * 0.78, -0.5, 0.1);
+    pivot.position.set(side * 0.8, -0.5, 0.12);
     return pivot;
   };
 
@@ -257,19 +262,20 @@ function buildUsagi(): CharacterRig {
   for (const side of [-1, 1]) {
     const pivot = new THREE.Group();
 
-    const outer = new THREE.Mesh(new THREE.CapsuleGeometry(0.16, 0.72, 8, 18), soft(USAGI_BODY));
+    // 인형을 재면 귀 너비가 높이의 절반쯤 되는 통통한 귀다. 가늘면 더듬이처럼 보인다.
+    const outer = new THREE.Mesh(new THREE.CapsuleGeometry(0.22, 0.6, 8, 18), soft(USAGI_BODY));
     outer.position.y = 0.4;
-    outer.scale.z = 0.62;
+    outer.scale.z = 0.65;
     pivot.add(outer);
 
-    const inner = new THREE.Mesh(new THREE.CapsuleGeometry(0.095, 0.5, 8, 14), soft(USAGI_EAR));
-    inner.position.set(0, 0.4, 0.075);
+    const inner = new THREE.Mesh(new THREE.CapsuleGeometry(0.09, 0.56, 8, 14), soft(USAGI_EAR));
+    inner.position.set(0, 0.42, 0.1);
     inner.scale.z = 0.4;
     pivot.add(inner);
 
-    // 귀는 머리 위 가운데에 거의 붙어서 나란히 선다.
-    pivot.position.set(side * 0.2 * HEAD_WIDTH, 0.75, -0.02);
-    pivot.rotation.z = side * 0.07;
+    // 두 귀는 밑동이 서로 닿은 채 나란히 서고 끝만 아주 조금 벌어진다.
+    pivot.position.set(side * 0.22, 0.75, -0.02);
+    pivot.rotation.z = side * 0.03;
     base.head.add(pivot);
     ears.push(pivot);
   }
