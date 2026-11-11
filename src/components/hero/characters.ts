@@ -46,15 +46,18 @@ const HEAD_Y = 0.38;
 const HEAD_WIDTH = 1.3;
 const TORSO_Y = -0.78;
 /**
- * 팔·발은 공식 기본 일러스트(서 있는 자세)를 머리 너비 기준으로 잰 값이다.
+ * 팔·발은 넨도로이드 공식 사진(정면·반측면·옆)과 기본 일러스트를 머리 너비 기준으로 잰 값이다.
  *
- *   팔 너비 0.11   팔 길이 0.15   발 너비 0.12   발이 몸 밑으로 보이는 높이 0.07
+ *              팔 너비    팔 길이(몸 높이 대비)   발 너비   두 발 간격(발 너비 대비)
+ *   넨도로이드    0.09        0.58                 0.11        0.7
+ *   일러스트      0.11        약 0.5               0.12
  *
- * 인형은 솜 때문에 이보다 훨씬 통통하다. 인형을 따라 키우면 팔다리가 몸만 해진다.
+ * 팔은 머리 밑 몸 윗모서리(어깨)에만 붙어 바깥 아래로 뻗고, 아래쪽은 몸에서 떨어져 틈이 보인다.
+ * 몸 옆에 묻으면 구슬을 붙인 것처럼 된다. 인형은 솜 때문에 이보다 훨씬 통통하니 기준으로 쓰지 않는다.
  */
-const ARM_TILT = 0.2;
-/** 어깨 축에서 팔 중심까지 거리. 윗부분이 몸 안에 묻혀야 붙어 보인다. */
-const ARM_REACH = 0.3;
+const ARM_TILT = 0.4;
+/** 팔 반 길이. 팔 윗끝이 어깨 축에 오도록 중심을 이만큼 내린다. */
+const ARM_REACH = 0.21;
 
 /** 눈썹은 캐릭터마다 길이와 높이가 다르다. */
 const BROWS: Record<CharacterKey, BrowStyle> = {
@@ -140,24 +143,21 @@ function buildTorso(color: number | string) {
   torso.scale.z = 0.88;
   group.add(torso);
 
-  // 발은 몸 바닥 양 끝에서 조금만 내다보이는 둥근 혹 두 개. 윗부분은 몸 안에 묻힌다.
+  // 발은 몸 바닥 가운데 앞쪽에 거의 붙어 선 짧은 막대 두 개. 윗부분은 몸 안에 묻힌다.
   for (const side of [-1, 1]) {
-    const foot = ball(1, color);
-    foot.scale.set(0.16, 0.15, 0.17);
-    foot.position.set(side * 0.33, -1.3, 0.28);
+    const foot = new THREE.Mesh(new THREE.CapsuleGeometry(0.14, 0.12, 6, 16), soft(color));
+    foot.position.set(side * 0.25, -1.25, 0.25);
     group.add(foot);
   }
 
-  // 팔은 머리 밑 어깨에서 몸 옆으로 짧게 늘어진 둥근 혹이다.
-  // 축은 어깨에 두고 팔만 기울여 둔다. 축을 돌리면 어깨에서 벌어지며 올라간다.
+  // 축은 어깨(머리 밑 몸 윗모서리)에 두고 팔만 기울여 둔다. 축을 돌리면 어깨에서 벌어지며 올라간다.
   const makeArm = (side: number) => {
     const pivot = new THREE.Group();
-    const arm = ball(1, color);
-    arm.scale.set(0.14, 0.2, 0.13);
+    const arm = new THREE.Mesh(new THREE.CapsuleGeometry(0.13, 0.16, 6, 16), soft(color));
     arm.rotation.z = side * ARM_TILT;
     arm.position.set(side * ARM_REACH * Math.sin(ARM_TILT), -ARM_REACH * Math.cos(ARM_TILT), 0);
     pivot.add(arm);
-    pivot.position.set(side * 0.8, -0.5, 0.12);
+    pivot.position.set(side * 0.8, -0.45, 0.05);
     return pivot;
   };
 
@@ -261,24 +261,32 @@ function buildUsagi(): CharacterRig {
   const base = assemble('usagi');
   const ears: THREE.Group[] = [];
   for (const side of [-1, 1]) {
+    // 축은 머리 속 밑동에 둔다. 흔들림은 축에, 고정 기울기는 그 안쪽 lean 에 준다.
+    // 둘을 한 곳에 주면 프레임마다 흔들림 값이 기울기를 덮어쓴다.
     const pivot = new THREE.Group();
+    const lean = new THREE.Group();
 
-    // 기본 일러스트를 재면 귀 너비가 머리 너비의 17%, 머리 위로 머리 높이의 55%만큼 선다.
-    // 밑동은 머리 안에 깊이 묻어 둔다. 얕으면 앞뒤로 눕힐 때 틈이 보인다.
-    const outer = new THREE.Mesh(new THREE.CapsuleGeometry(0.21, 0.9, 8, 18), soft(USAGI_BODY));
-    outer.position.y = 0.69;
-    outer.scale.z = 0.65;
-    pivot.add(outer);
+    /*
+     * 넨도로이드·인형·일러스트에서 잰 귀: 너비가 머리 너비의 13%, 머리 위로 머리 너비의 47%만큼
+     * 서고, 앞뒤로 납작하다. 두 귀는 귀 너비의 절반쯤 떨어져 나란히 서고 뒤로 조금 기운다.
+     * 밑동은 머리 안에 깊이 묻는다. 얕으면 앞뒤로 눕힐 때 틈이 보인다.
+     */
+    const outer = new THREE.Mesh(new THREE.CapsuleGeometry(0.17, 1.18, 8, 18), soft(USAGI_BODY));
+    outer.position.y = 0.7;
+    outer.scale.z = 0.4;
+    lean.add(outer);
 
-    // 속살은 겉귀 앞면보다 앞으로 나와야 보인다. 겉귀는 앞뒤로 눌려 있어 앞면이 z 0.137 이다.
-    const inner = new THREE.Mesh(new THREE.CapsuleGeometry(0.085, 0.7, 8, 14), soft(USAGI_EAR));
-    inner.position.set(0, 0.79, 0.13);
-    inner.scale.z = 0.45;
-    pivot.add(inner);
+    // 속살은 귀 앞면의 6할 너비로 밑동 바로 위에서 끝 근처까지 길게 깔린다.
+    const inner = new THREE.Mesh(new THREE.CapsuleGeometry(0.1, 1.0, 8, 14), soft(USAGI_EAR));
+    inner.position.set(0, 0.78, 0.075);
+    inner.scale.z = 0.3;
+    lean.add(inner);
 
-    // 두 귀는 밑동이 서로 닿은 채 나란히 서고 끝만 아주 조금 벌어진다.
-    pivot.position.set(side * 0.22, 0.75, -0.02);
-    pivot.rotation.z = side * 0.03;
+    lean.rotation.x = -0.2;
+    pivot.add(lean);
+    // 앞면을 바깥 앞으로 살짝 틀어 둔다. 정면에서도 반측면에서도 속살이 보인다.
+    pivot.position.set(side * 0.26, 0.75, -0.02);
+    pivot.rotation.set(0, side * 0.35, side * 0.03);
     base.head.add(pivot);
     ears.push(pivot);
   }
