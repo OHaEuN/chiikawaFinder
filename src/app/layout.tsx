@@ -49,7 +49,8 @@ export const metadata: Metadata = {
     images: ['./og.png'],
   },
   // 매일 변화를 구독할 수 있게 피드 주소를 머리말에 알린다. 리더가 사이트 주소만으로 찾아낸다.
-  alternates: { types: { 'application/atom+xml': './feed.xml' } },
+  // 상대 주소로 두면 페이지마다 /goods/feed.xml 처럼 그 경로 밑으로 풀리므로 절대 주소로 고정한다.
+  alternates: { types: { 'application/atom+xml': new URL('feed.xml', SITE_URL).toString() } },
   /*
    * 검색엔진 소유 확인. 값은 Vercel 환경변수로 넣고 재배포하면 머리말에 박힌다.
    * 루트 도메인이라 파일 업로드 방식도 되지만, 토큰을 저장소에 커밋하지 않으려고 이쪽을 쓴다.
