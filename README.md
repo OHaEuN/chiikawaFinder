@@ -89,7 +89,7 @@
 pnpm install
 pnpm dev      # 개발 서버
 pnpm build    # out/ 에 정적 사이트 생성
-pnpm check    # 테스트 104개 (node --test)
+pnpm check    # 테스트 108개 (node --test)
 pnpm scrape   # 굿즈 수집
 pnpm fx       # 환율 갱신
 ```
@@ -120,6 +120,7 @@ Node 24 이상이 필요합니다. 테스트가 TypeScript 를 그대로 실행�
 
 | 문서 | 내용 |
 |---|---|
+| [기획 문서](docs/planning/README.md) | 시장조사 · 기획서 · 요구사항 · 정책 · 화면설계 · 지표 · 운영 · 셀프 리뷰 |
 | [구현 메모](docs/implementation.md) | 파이프라인 설계, 이미지 · 커서 생성, 디자인 |
 | [커뮤니티 조사](docs/user-needs.md) | 불편 빈도 조사. 인용과 링크 원문 |
 | [직구 비용](docs/import-cost.md) | 관세 · 부가세 · 면세 한도 근거와 출처 |
