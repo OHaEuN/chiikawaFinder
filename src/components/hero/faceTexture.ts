@@ -217,13 +217,22 @@ export interface FacePhoto {
   drawnBrows?: boolean;
 }
 
-function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, photo: FacePhoto): void {
+/**
+ * 머리는 구를 가로로 widthScale 배 늘려 쓴다. 텍스처의 가로는 그만큼 같이 늘어나므로
+ * 그림을 같은 배율로 그리면 세로만 눌려 눈이 납작한 타원이 된다. 세로를 미리 그 배율로 키운다.
+ */
+function drawPhotoFace(
+  ctx: CanvasRenderingContext2D,
+  image: HTMLImageElement,
+  photo: FacePhoto,
+  widthScale: number,
+): void {
   const { eyeSpan, eyeY } = photo;
   const unitPerPx = (FACE.eyeX * 2) / eyeSpan;
   const width = image.naturalWidth * unitPerPx;
-  const height = image.naturalHeight * unitPerPx;
+  const height = image.naturalHeight * unitPerPx * widthScale;
   // 눈 중점이 가로 가운데 오도록 잘라 둔 그림이라 좌우는 그냥 가운데에 맞춘다.
-  const centerY = FACE.eyeY - (image.naturalHeight / 2 - eyeY) * unitPerPx;
+  const centerY = FACE.eyeY - (image.naturalHeight / 2 - eyeY) * unitPerPx * widthScale;
 
   at(ctx, 0, centerY, () => {
     // at() 안은 세로가 뒤집힌 좌표계라 이미지도 뒤집힌다. 한 번 더 뒤집어 되돌린다.
@@ -232,13 +241,17 @@ function drawPhotoFace(ctx: CanvasRenderingContext2D, image: HTMLImageElement, p
   });
 }
 
-/** 머리에 입힐 얼굴 텍스처를 만든다. crying 을 켜면 눈물까지 그린다. */
+/**
+ * 머리에 입힐 얼굴 텍스처를 만든다. crying 을 켜면 눈물까지 그린다.
+ * widthScale 은 머리 구를 가로로 늘린 배율이다. 얼굴 그림의 세로를 그만큼 보정한다.
+ */
 export function createFaceTexture(
   bodyColor: string,
   brow: BrowStyle,
   crying = false,
   capColor?: string,
   photo?: FacePhoto,
+  widthScale = 1,
 ): THREE.CanvasTexture {
   const canvas = document.createElement('canvas');
   canvas.width = TEX_W;
@@ -256,7 +269,7 @@ export function createFaceTexture(
     ctx.fillRect(0, 0, TEX_W, TEX_H);
 
     if (image && photo) {
-      drawPhotoFace(ctx, image, photo);
+      drawPhotoFace(ctx, image, photo, widthScale);
       if (photo.drawnBrows) {
         drawBrow(ctx, -1, brow);
         drawBrow(ctx, 1, brow);

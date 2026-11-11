@@ -46,8 +46,11 @@ const HEAD_Y = 0.38;
 const HEAD_WIDTH = 1.3;
 const TORSO_Y = -0.78;
 /**
- * 팔이 어깨에서 바깥으로 벌어진 각. 인형을 재면 팔은 몸을 끼고 거의 똑바로 내려오고,
- * 몸이 아래로 좁아져서 끝만 살짝 떨어진다. 많이 벌리면 지느러미처럼 보인다.
+ * 팔·발은 공식 기본 일러스트(서 있는 자세)를 머리 너비 기준으로 잰 값이다.
+ *
+ *   팔 너비 0.11   팔 길이 0.15   발 너비 0.12   발이 몸 밑으로 보이는 높이 0.07
+ *
+ * 인형은 솜 때문에 이보다 훨씬 통통하다. 인형을 따라 키우면 팔다리가 몸만 해진다.
  */
 const ARM_TILT = 0.2;
 /** 어깨 축에서 팔 중심까지 거리. 윗부분이 몸 안에 묻혀야 붙어 보인다. */
@@ -137,22 +140,20 @@ function buildTorso(color: number | string) {
   torso.scale.z = 0.88;
   group.add(torso);
 
-  // 발은 몸 바닥 앞쪽에서 내다보이는 둥근 공 두 개. 인형을 재면 지름이 머리 너비의 2할이고
-  // 서로 거의 닿아 있다. 납작하게 누르면 바닥에 붙인 판처럼 보인다.
+  // 발은 몸 바닥 양 끝에서 조금만 내다보이는 둥근 혹 두 개. 윗부분은 몸 안에 묻힌다.
   for (const side of [-1, 1]) {
     const foot = ball(1, color);
-    foot.scale.set(0.24, 0.21, 0.26);
-    foot.position.set(side * 0.27, -1.22, 0.3);
+    foot.scale.set(0.16, 0.15, 0.17);
+    foot.position.set(side * 0.33, -1.3, 0.28);
     group.add(foot);
   }
 
-  // 팔은 어깨에서 몸을 끼고 아래로 늘어진 통통한 덩어리다. 너비가 머리 너비의 16%,
-  // 길이는 머리 밑에서 몸 높이의 6할쯤 내려온다. 가늘면 몸에 꽂힌 막대가 된다.
+  // 팔은 머리 밑 어깨에서 몸 옆으로 짧게 늘어진 둥근 혹이다.
   // 축은 어깨에 두고 팔만 기울여 둔다. 축을 돌리면 어깨에서 벌어지며 올라간다.
   const makeArm = (side: number) => {
     const pivot = new THREE.Group();
     const arm = ball(1, color);
-    arm.scale.set(0.21, 0.38, 0.2);
+    arm.scale.set(0.14, 0.2, 0.13);
     arm.rotation.z = side * ARM_TILT;
     arm.position.set(side * ARM_REACH * Math.sin(ARM_TILT), -ARM_REACH * Math.cos(ARM_TILT), 0);
     pivot.add(arm);
@@ -175,7 +176,7 @@ function assemble(key: CharacterKey) {
   skull.scale.set(HEAD_WIDTH, 1, 1);
 
   const material = skull.material as THREE.MeshPhysicalMaterial;
-  const calm = createFaceTexture(color, BROWS[key], false, CAP_COLOR[key], FACE_PHOTO[key]);
+  const calm = createFaceTexture(color, BROWS[key], false, CAP_COLOR[key], FACE_PHOTO[key], HEAD_WIDTH);
   material.map = calm;
   // 텍스처가 색을 결정하므로 재질 색은 흰색으로 둔다.
   material.color.set(0xffffff);
@@ -183,7 +184,7 @@ function assemble(key: CharacterKey) {
 
   let crying: THREE.CanvasTexture | null = null;
   const setCrying = (on: boolean) => {
-    if (on && !crying) crying = createFaceTexture(color, BROWS[key], true, CAP_COLOR[key], FACE_PHOTO[key]);
+    if (on && !crying) crying = createFaceTexture(color, BROWS[key], true, CAP_COLOR[key], FACE_PHOTO[key], HEAD_WIDTH);
     const next = on && crying ? crying : calm;
     if (material.map !== next) {
       material.map = next;
@@ -262,15 +263,17 @@ function buildUsagi(): CharacterRig {
   for (const side of [-1, 1]) {
     const pivot = new THREE.Group();
 
-    // 인형을 재면 귀 너비가 높이의 절반쯤 되는 통통한 귀다. 가늘면 더듬이처럼 보인다.
-    const outer = new THREE.Mesh(new THREE.CapsuleGeometry(0.22, 0.6, 8, 18), soft(USAGI_BODY));
-    outer.position.y = 0.4;
+    // 기본 일러스트를 재면 귀 너비가 머리 너비의 17%, 머리 위로 머리 높이의 55%만큼 선다.
+    // 밑동은 머리 안에 깊이 묻어 둔다. 얕으면 앞뒤로 눕힐 때 틈이 보인다.
+    const outer = new THREE.Mesh(new THREE.CapsuleGeometry(0.21, 0.9, 8, 18), soft(USAGI_BODY));
+    outer.position.y = 0.69;
     outer.scale.z = 0.65;
     pivot.add(outer);
 
-    const inner = new THREE.Mesh(new THREE.CapsuleGeometry(0.09, 0.56, 8, 14), soft(USAGI_EAR));
-    inner.position.set(0, 0.42, 0.1);
-    inner.scale.z = 0.4;
+    // 속살은 겉귀 앞면보다 앞으로 나와야 보인다. 겉귀는 앞뒤로 눌려 있어 앞면이 z 0.137 이다.
+    const inner = new THREE.Mesh(new THREE.CapsuleGeometry(0.085, 0.7, 8, 14), soft(USAGI_EAR));
+    inner.position.set(0, 0.79, 0.13);
+    inner.scale.z = 0.45;
     pivot.add(inner);
 
     // 두 귀는 밑동이 서로 닿은 채 나란히 서고 끝만 아주 조금 벌어진다.

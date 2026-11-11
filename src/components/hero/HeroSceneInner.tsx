@@ -8,9 +8,9 @@ import { track } from '@/lib/analytics';
 
 const ORDER: CharacterKey[] = ['chiikawa', 'hachiware', 'usagi'];
 const FOV = 40;
-/** 좌우 간격. 좁은 화면에서는 붙여 세워야 얼굴이 작아지지 않는다. */
-const SPACING = 2.7;
-const NARROW_SPACING = 2.15;
+/** 좌우 간격. 머리 너비가 2.6 이라 그보다 좁으면 얼굴이 겹친다. 좁은 화면에서는 조금 붙인다. */
+const SPACING = 3.3;
+const NARROW_SPACING = 2.9;
 const NARROW_PX = 560;
 /** 테두리에 닿지 않게 남기는 여백 */
 const FIT_MARGIN = 1.08;
