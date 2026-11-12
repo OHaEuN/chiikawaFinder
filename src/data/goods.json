@@ -922,7 +922,7 @@
       "hachiware",
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4901770755373"
     ]
@@ -2427,7 +2427,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4582769946912"
     ]
@@ -4433,7 +4433,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-08-25",
       "2026-10-29"
@@ -4531,52 +4531,6 @@
     ],
     "sources": [
       "https://chiikawamarket.jp/products/4977444268654"
-    ]
-  },
-  {
-    "id": "cm-4573660290877",
-    "name": "ミニュム チャーム付き ちいかわデザイン ぷにゅグリップライナー 04イエベブラウン",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-10-23",
-    "price": "1,265엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4573660290877_1_772977da-dc22-4432-a005-99742104b984.jpg?v=1790742252",
-    "buyUrl": "https://chiikawamarket.jp/products/4573660290877",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "大人気アイライナーが、ちいかわ限定デザインに。 ぷっくりマスコット＆リボンチャーム付きで登場。 ① ちいかわコラボデザイン 大人気の「ぷにゅグリップライナー」が、ちいかわ限定デザインになって登場。持っているだけでも気分が上がる、特別感のあるデザインに仕上げました。 ② カスタマイズもできるチャームホール付き お気に入り",
-    "characters": [
-      "usagi"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-10-29"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4573660290877"
-    ]
-  },
-  {
-    "id": "cm-4573660290884",
-    "name": "ミニュム チャーム付き ちいかわデザイン ぷにゅグリップライナー 05ブルベブラウン",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-10-23",
-    "price": "1,265엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4573660290884_1.jpg?v=1790742278",
-    "buyUrl": "https://chiikawamarket.jp/products/4573660290884",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "大人気アイライナーが、ちいかわ限定デザインに。 ぷっくりマスコット＆リボンチャーム付きで登場。 ① ちいかわコラボデザイン 大人気の「ぷにゅグリップライナー」が、ちいかわ限定デザインになって登場。持っているだけでも気分が上がる、特別感のあるデザインに仕上げました。 ② カスタマイズもできるチャームホール付き お気に入り",
-    "characters": [
-      "momonga"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-10-29"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4573660290884"
     ]
   },
   {
@@ -4773,46 +4727,6 @@
     "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609381556"
-    ]
-  },
-  {
-    "id": "cm-4573660290846",
-    "name": "ミニュム チャーム付き ちいかわデザイン ぷにゅグリップライナー 01ピュアブラック",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-10-23",
-    "price": "1,265엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4573660290846_1_db76047b-5c75-405f-aa74-eeb53c8e80f3.jpg?v=1790742111",
-    "buyUrl": "https://chiikawamarket.jp/products/4573660290846",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "大人気アイライナーが、ちいかわ限定デザインに。 ぷっくりマスコット＆リボンチャーム付きで登場。 ① ちいかわコラボデザイン 大人気の「ぷにゅグリップライナー」が、ちいかわ限定デザインになって登場。持っているだけでも気分が上がる、特別感のあるデザインに仕上げました。 ② カスタマイズもできるチャームホール付き お気に入り",
-    "characters": [
-      "chiikawa"
-    ],
-    "available": false,
-    "sources": [
-      "https://chiikawamarket.jp/products/4573660290846"
-    ]
-  },
-  {
-    "id": "cm-4573660290853",
-    "name": "ミニュム チャーム付き ちいかわデザイン ぷにゅグリップライナー 02シアーブラック",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-10-23",
-    "price": "1,265엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4573660290853_1.jpg?v=1790742143",
-    "buyUrl": "https://chiikawamarket.jp/products/4573660290853",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "大人気アイライナーが、ちいかわ限定デザインに。 ぷっくりマスコット＆リボンチャーム付きで登場。 ① ちいかわコラボデザイン 大人気の「ぷにゅグリップライナー」が、ちいかわ限定デザインになって登場。持っているだけでも気分が上がる、特別感のあるデザインに仕上げました。 ② カスタマイズもできるチャームホール付き お気に入り",
-    "characters": [
-      "hachiware"
-    ],
-    "available": false,
-    "sources": [
-      "https://chiikawamarket.jp/products/4573660290853"
     ]
   },
   {
@@ -7201,29 +7115,6 @@
     ]
   },
   {
-    "id": "cm-4573256437983",
-    "name": "ちいかわパーク キャンディポーチ（ラッコ）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2026-05-08",
-    "price": "2,000엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4573256437983_1.jpg?v=1776248439",
-    "buyUrl": "https://chiikawamarket.jp/products/4573256437983",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "イチゴ味の飴入りフル立体ポーチです。シリコン素材でぷにっとやわらか。カラビナ付きなのでバッグチャームとしても持ち歩けちゃいます。 サイズ（約）：H104×W93×D74mm 重さ（約）：86g 材質： 本体：シリコン カラビナ：アルミ亜鉛 チェーン：アクリル 製造地：中国 賞味期限：2027年8月",
-    "characters": [
-      "rakko"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-10-22"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4573256437983"
-    ]
-  },
-  {
     "id": "cm-4548598445576",
     "name": "ダイカットクッション（モモンガ うにうに）",
     "brand": "치이카와 마켓",
@@ -7658,7 +7549,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-09-17",
       "2026-10-22"
@@ -9670,33 +9561,6 @@
     ]
   },
   {
-    "id": "cm-4571609413318",
-    "name": "ちいかわ寿司 トレーディング箸置き（全6種）",
-    "brand": "치이카와 마켓",
-    "category": "피규어/프라이즈",
-    "releaseDate": "2026-10-09",
-    "price": "770엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609413318_1_fe477740-82a8-498d-9783-e2f3cb28074e.jpg?v=1789633900",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609413318",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "※電子レンジ・食器洗浄機・食器乾燥機：使用可 ※オーブン直火：使用不可 サイズ（約）： 本体：各H38×W47×D10mm以内 BOX：H100×W95×D90mm 材質：磁器 製造地：日本 耐熱温度：120度 ※単品はランダム仕様となっており、種類はお選びいただけません。 ※単品はランダム封入のため複数ご購入の場合、",
-    "characters": [
-      "usagi",
-      "kurimanju",
-      "chiikawa",
-      "shisa",
-      "hachiware",
-      "momonga",
-      "rakko",
-      "furuhonya"
-    ],
-    "available": false,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609413318"
-    ]
-  },
-  {
     "id": "cm-4571609413349",
     "name": "ちいかわ寿司 ランチョンマット（食べすぎなモモンガ）",
     "brand": "치이카와 마켓",
@@ -10502,33 +10366,6 @@
     ]
   },
   {
-    "id": "cm-9784865064865",
-    "name": "カレンダー2027",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2026-10-09",
-    "price": "1,980엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/9784865064865_1.jpg?v=1791273694",
-    "buyUrl": "https://chiikawamarket.jp/products/9784865064865",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "ちいかわビッグフェイス型抜きカレンダー 毎月めくるたび、ちいかわ・ハチワレ・うさぎをはじめ、個性豊かな仲間たちの愛らしいビッグフェイスがお出迎え。カレンダーの下部はキュートなフリルの型抜き仕様です。 サイズ（約）：H364×W257×D4mm タイプ：壁掛け 枚数：表紙＋12枚 重さ（約）：165g 材質：紙 製造地：",
-    "characters": [
-      "usagi",
-      "kurimanju",
-      "chiikawa",
-      "shisa",
-      "hachiware",
-      "momonga",
-      "rakko",
-      "furuhonya"
-    ],
-    "available": false,
-    "sources": [
-      "https://chiikawamarket.jp/products/9784865064865"
-    ]
-  },
-  {
     "id": "cm-4570189212663",
     "name": "長袖Tシャツ 禁酒くりまんじゅう ブラック",
     "brand": "치이카와 마켓",
@@ -11107,31 +10944,6 @@
     ]
   },
   {
-    "id": "cm-4550432245242",
-    "name": "ファイルボックス（モモンガ）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2025-02-14",
-    "price": "935엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4550432245242_1.jpg?v=1739257258",
-    "buyUrl": "https://chiikawamarket.jp/products/4550432245242",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "大きくて可愛いイラストのファイルボックス！ 机の整理整頓などにオススメです！ サイズ（約）：H260×W315×D95mm 重さ（約）：200g 材質：紙 製造地：中国",
-    "characters": [
-      "momonga"
-    ],
-    "available": false,
-    "restocks": [
-      "2025-04-24",
-      "2025-06-26",
-      "2026-10-08"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4550432245242"
-    ]
-  },
-  {
     "id": "cm-9784847073823",
     "name": "てんつなぎ 点をつないでなんとかなれーッ！",
     "brand": "치이카와 마켓",
@@ -11310,30 +11122,6 @@
     ]
   },
   {
-    "id": "cm-4550432288508",
-    "name": "タッチペン（ちいかわ）",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2025-10-10",
-    "price": "1,188엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4550432288508_1.jpg?v=1759829300",
-    "buyUrl": "https://chiikawamarket.jp/products/4550432288508",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "タブレット・スマートフォン用タッチペン！ 丈夫で高級感のある金属製軸。 サイズ（約）：直径9×H113mm 重さ（約）：10g 材質： 本体：銅、ステンレス ペン先：シリコン 製造地：中国",
-    "characters": [
-      "chiikawa"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-03-18",
-      "2026-10-08"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4550432288508"
-    ]
-  },
-  {
     "id": "cm-4550432273146",
     "name": "SARASAボールペン（モモンガ・黒）",
     "brand": "치이카와 마켓",
@@ -11359,29 +11147,6 @@
     ]
   },
   {
-    "id": "cm-4550432288515",
-    "name": "タッチペン（ハチワレ）",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2025-10-10",
-    "price": "1,188엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4550432288515_1.jpg?v=1759829314",
-    "buyUrl": "https://chiikawamarket.jp/products/4550432288515",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "タブレット・スマートフォン用タッチペン！ 丈夫で高級感のある金属製軸。 サイズ（約）：直径9×H113mm 重さ（約）：10g 材質： 本体：銅、ステンレス ペン先：シリコン 製造地：中国",
-    "characters": [
-      "hachiware"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-10-08"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4550432288515"
-    ]
-  },
-  {
     "id": "cm-4550432290037",
     "name": "ジェットストリーム 4＆1 Lite（ちいかわ＆ハチワレ）",
     "brand": "치이카와 마켓",
@@ -11403,30 +11168,6 @@
     ],
     "sources": [
       "https://chiikawamarket.jp/products/4550432290037"
-    ]
-  },
-  {
-    "id": "cm-4550432288522",
-    "name": "タッチペン（うさぎ）",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2025-10-10",
-    "price": "1,188엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4550432288522_1.jpg?v=1759829330",
-    "buyUrl": "https://chiikawamarket.jp/products/4550432288522",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "タブレット・スマートフォン用タッチペン！ 丈夫で高級感のある金属製軸。 サイズ（約）：直径9×H113mm 重さ（約）：10g 材質： 本体：銅、ステンレス ペン先：シリコン 製造地：中国",
-    "characters": [
-      "usagi"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-03-18",
-      "2026-10-08"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4550432288522"
     ]
   },
   {
@@ -14432,75 +14173,6 @@
     ]
   },
   {
-    "id": "cm-4966279030079",
-    "name": "ツインGT・GK キャップレス（ちいかわ）Webオーダーパック",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-09-04",
-    "price": "3,850엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4966279030079_1.jpg?v=1788246172",
-    "buyUrl": "https://chiikawamarket.jp/products/4966279030079",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "9ミリ丸浸透ネーム印と5ミリ丸浸透ネーム印又は10ミリ丸公用黒檀印の2種類の印鑑が一体化～キャップレスタイプ。印面は商品の中のQRコードから簡単に申し込めます。印面作成代・送料込みです。 サイズ（約）：H138×W85×D34mm 重さ（約）：39g 材質：ポリカーボネート 製造地：日本 ※印面は商品の中のQRコードか",
-    "characters": [
-      "chiikawa"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-10-01"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4966279030079"
-    ]
-  },
-  {
-    "id": "cm-4966279030086",
-    "name": "ツインGT・GK キャップレス（ハチワレ）Webオーダーパック",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-09-04",
-    "price": "3,850엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4966279030086_1.jpg?v=1788246298",
-    "buyUrl": "https://chiikawamarket.jp/products/4966279030086",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "9ミリ丸浸透ネーム印と5ミリ丸浸透ネーム印又は10ミリ丸公用黒檀印の2種類の印鑑が一体化～キャップレスタイプ。印面は商品の中のQRコードから簡単に申し込めます。印面作成代・送料込みです。 サイズ（約）：H138×W85×D34mm 重さ（約）：39g 材質：ポリカーボネート 製造地：日本 ※印面は商品の中のQRコードか",
-    "characters": [
-      "hachiware"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-10-01"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4966279030086"
-    ]
-  },
-  {
-    "id": "cm-4966279030093",
-    "name": "ツインGT・GK キャップレス（うさぎ）Webオーダーパック",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-09-04",
-    "price": "3,850엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4966279030093_1.jpg?v=1788246739",
-    "buyUrl": "https://chiikawamarket.jp/products/4966279030093",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "9ミリ丸浸透ネーム印と5ミリ丸浸透ネーム印又は10ミリ丸公用黒檀印の2種類の印鑑が一体化～キャップレスタイプ。印面は商品の中のQRコードから簡単に申し込めます。印面作成代・送料込みです。 サイズ（約）：H138×W85×D34mm 重さ（約）：39g 材質：ポリカーボネート 製造地：日本 ※印面は商品の中のQRコードか",
-    "characters": [
-      "usagi"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-10-01"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4966279030093"
-    ]
-  },
-  {
     "id": "cm-4582487083371",
     "name": "オイテミルライト（あのこ）",
     "brand": "치이카와 마켓",
@@ -14521,29 +14193,6 @@
     ],
     "sources": [
       "https://chiikawamarket.jp/products/4582487083371"
-    ]
-  },
-  {
-    "id": "cm-4966279030109",
-    "name": "ツインGT・GK キャップレス（モモンガ）Webオーダーパック",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-09-04",
-    "price": "3,850엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4966279030109_1.jpg?v=1788246968",
-    "buyUrl": "https://chiikawamarket.jp/products/4966279030109",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "9ミリ丸浸透ネーム印と5ミリ丸浸透ネーム印又は10ミリ丸公用黒檀印の2種類の印鑑が一体化～キャップレスタイプ。印面は商品の中のQRコードから簡単に申し込めます。印面作成代・送料込みです。 サイズ（約）：H138×W85×D34mm 重さ（約）：39g 材質：ポリカーボネート 製造地：日本 ※印面は商品の中のQRコードか",
-    "characters": [
-      "momonga"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-10-01"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4966279030109"
     ]
   },
   {
@@ -14838,37 +14487,6 @@
     "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609403135"
-    ]
-  },
-  {
-    "id": "cm-4571609413509",
-    "name": "映画ちいかわ ちいかわとのんびり船旅 アクリルキーホルダー（全9種）単品",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-08-06",
-    "price": "880엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609413509_1.jpg?v=1785819212",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609413509",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "さんふらわあ×映画ちいかわコラボのオリジナル衣装がかわいいアクリルキーホルダー。 全9種で何が届くかはお楽しみ！ ※単品はランダム仕様となっており、種類はお選びいただけません。 ※単品を複数ご購入の場合、同じ種類が出たり、ご希望の種類が出ない場合もございます。 サイズ（約）：H64.5×W48mm 材質：アクリル、亜鉛",
-    "characters": [
-      "usagi",
-      "kurimanju",
-      "chiikawa",
-      "shisa",
-      "seiren",
-      "hachiware",
-      "momonga",
-      "rakko",
-      "furuhonya"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-09-19"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609413509"
     ]
   },
   {
@@ -21716,48 +21334,6 @@
     ]
   },
   {
-    "id": "cm-4905959524989",
-    "name": "メモがはさめるミニデスクマット",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2024-05-24",
-    "price": "2,200엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4905959524989.jpg?v=1716185046",
-    "buyUrl": "https://chiikawamarket.jp/products/4905959524989",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "オフィスデスクや学習デスクにはもちろん、ランチョンマットとしても♪ シールやメモなどの平面グッズをはさんで自分好みにカスタマイズができるデスクマット！ デスクの汚れと傷を防止します 筆記がしやすいやわらか素材に光の反射を防ぐツヤ消し加工 水拭き可能 はさんだメモの文字がうつりにくい サイズ：約H300×W450×D0.",
-    "characters": [
-      "usagi",
-      "kurimanju",
-      "chiikawa",
-      "shisa",
-      "hachiware",
-      "momonga",
-      "yoroi-san"
-    ],
-    "available": false,
-    "restocks": [
-      "2024-06-06",
-      "2024-07-04",
-      "2024-08-01",
-      "2024-10-31",
-      "2025-01-09",
-      "2025-03-13",
-      "2025-12-19",
-      "2026-01-15",
-      "2026-02-20",
-      "2026-04-23",
-      "2026-05-14",
-      "2026-07-09",
-      "2026-08-05",
-      "2026-09-10"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4905959524989"
-    ]
-  },
-  {
     "id": "cm-4991863509990",
     "name": "mimiペン（ラッコ）",
     "brand": "치이카와 마켓",
@@ -21830,7 +21406,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2025-06-05",
       "2026-09-10"
@@ -21891,33 +21467,6 @@
     ],
     "sources": [
       "https://chiikawamarket.jp/products/4571639942246"
-    ]
-  },
-  {
-    "id": "cm-4979855153352",
-    "name": "13.5プレート（うさぎ）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2025-04-25",
-    "price": "1,100엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4979855153352_1.jpg?v=1745459174",
-    "buyUrl": "https://chiikawamarket.jp/products/4979855153352",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "撥水加工の技術で生み出されたこだわりの立体感、 楽しいカラーリングで食卓をより楽しませてくれます。 ※電子レンジ、食器洗浄機使用可 ※オーブン使用不可 サイズ（約）：直径135×H25mm 重さ（約）：145g 材質：磁器 製造地：日本",
-    "characters": [
-      "usagi"
-    ],
-    "available": false,
-    "restocks": [
-      "2025-05-22",
-      "2025-07-03",
-      "2025-09-18",
-      "2026-04-30",
-      "2026-09-10"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4979855153352"
     ]
   },
   {
@@ -22306,34 +21855,6 @@
     ]
   },
   {
-    "id": "cm-4979855129388",
-    "name": "フラワーガーデン 豆皿（うさぎ）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2025-09-26",
-    "price": "1,100엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4979855129388.jpg?v=1758535329",
-    "buyUrl": "https://chiikawamarket.jp/products/4979855129388",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "ちいかわ達がお花畑の中でくつろいでいる、見ているだけで心が和む様なデザインです。 ※電子レンジ、食器洗浄機使用可 ※オーブン使用不可 サイズ（約）：直径90×H51mm 重さ（約）：65g 材質：磁器 製造地：日本",
-    "characters": [
-      "usagi"
-    ],
-    "available": false,
-    "restocks": [
-      "2025-10-09",
-      "2025-11-13",
-      "2026-01-08",
-      "2026-02-12",
-      "2026-05-28",
-      "2026-09-10"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4979855129388"
-    ]
-  },
-  {
     "id": "cm-4979855129470",
     "name": "フラワーガーデン マグ（うさぎ）",
     "brand": "치이카와 마켓",
@@ -22561,32 +22082,6 @@
     ]
   },
   {
-    "id": "cm-4979855136751",
-    "name": "13.5プレート ハッピーブロッサム（ブルー）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-03-27",
-    "price": "1,210엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4979855136751_1.jpg?v=1774316780",
-    "buyUrl": "https://chiikawamarket.jp/products/4979855136751",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "優しい色合いと、ちいかわたちの愛らしい姿があわただしい毎日の中で ちょっとホッとできる時間と、食卓に優しい彩りを添えてくれます。 お気に入りの料理を盛り付けて、癒しの時間を過ごしませんか。 ※電子レンジ、食器洗浄機使用可 ※オーブン使用不可 サイズ（約）：直径135×H20mm 重さ（約）：150g 材質：磁器 製造地",
-    "characters": [
-      "chiikawa",
-      "hachiware",
-      "rakko"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-08-05",
-      "2026-09-10"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4979855136751"
-    ]
-  },
-  {
     "id": "cm-4580801495039",
     "name": "キャラぴた アイロンプリントシート①はがき1",
     "brand": "치이카와 마켓",
@@ -22681,33 +22176,6 @@
     ],
     "sources": [
       "https://chiikawamarket.jp/products/4571609362760"
-    ]
-  },
-  {
-    "id": "cm-4979855136867",
-    "name": "22パスタプレート ハッピーブロッサム（イエロー）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2026-03-27",
-    "price": "1,980엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4979855136867_1.jpg?v=1774316182",
-    "buyUrl": "https://chiikawamarket.jp/products/4979855136867",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "優しい色合いと、ちいかわたちの愛らしい姿があわただしい毎日の中で ちょっとホッとできる時間と、食卓に優しい彩りを添えてくれます。 お気に入りの料理を盛り付けて、癒しの時間を過ごしませんか。 ※電子レンジ、食器洗浄機使用可 ※オーブン使用不可 サイズ（約）：直径220×H40mm 重さ（約）：400g 材質：磁器 製造地",
-    "characters": [
-      "usagi",
-      "chiikawa",
-      "hachiware"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-04-30",
-      "2026-07-16",
-      "2026-09-10"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4979855136867"
     ]
   },
   {
@@ -24945,38 +24413,6 @@
     ]
   },
   {
-    "id": "cm-4522064722071",
-    "name": "折り畳みボストンバッグ（ベージュサークル）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2026-02-06",
-    "price": "5,280엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4522064722071_1.jpg?v=1770120535",
-    "buyUrl": "https://chiikawamarket.jp/products/4522064722071",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "使わないときはコンパクトに折りたたんでスーツケースやカバンの中に。使いたいときにぱっと広げて使える折りたたみボストンバッグ。バッグ背面にはスーツケースのキャリーバーに通せるようにキャリーバー通しが付いているので、旅行の際はとっても便利。 バッグの開口部はファスナーで閉じられるので中身がこぼれる心配がありません。バッグ前",
-    "characters": [
-      "usagi",
-      "kurimanju",
-      "chiikawa",
-      "shisa",
-      "hachiware",
-      "momonga",
-      "rakko",
-      "furuhonya"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-02-26",
-      "2026-06-04",
-      "2026-09-03"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4522064722071"
-    ]
-  },
-  {
     "id": "cm-4970825153372",
     "name": "アニメ『ちいかわ』 小皿3枚セット",
     "brand": "치이카와 마켓",
@@ -24999,38 +24435,6 @@
     ],
     "sources": [
       "https://chiikawamarket.jp/products/4970825153372"
-    ]
-  },
-  {
-    "id": "cm-4522064722088",
-    "name": "折り畳みボストンバッグ（ミントサークル）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2026-02-06",
-    "price": "5,280엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4522064722088_1.jpg?v=1770120556",
-    "buyUrl": "https://chiikawamarket.jp/products/4522064722088",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "使わないときはコンパクトに折りたたんでスーツケースやカバンの中に。使いたいときにぱっと広げて使える折りたたみボストンバッグ。バッグ背面にはスーツケースのキャリーバーに通せるようにキャリーバー通しが付いているので、旅行の際はとっても便利。 バッグの開口部はファスナーで閉じられるので中身がこぼれる心配がありません。バッグ前",
-    "characters": [
-      "usagi",
-      "kurimanju",
-      "chiikawa",
-      "shisa",
-      "hachiware",
-      "momonga",
-      "rakko",
-      "furuhonya"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-02-26",
-      "2026-06-04",
-      "2026-09-03"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4522064722088"
     ]
   },
   {
@@ -25821,58 +25225,6 @@
     ]
   },
   {
-    "id": "cm-4550432244986",
-    "name": "ミニデコステッカー（しろめハチワレ）",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2025-01-24",
-    "price": "242엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4550432244986_1.jpg?v=1737523137",
-    "buyUrl": "https://chiikawamarket.jp/products/4550432244986",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "スマホや持ち物のデコにぴったりなシール。 耐水耐光でさらにうれしい！ サイズ（約）：H73×W65×D1mm以内 重さ（約）：2g 材質：白PVC、耐水耐光 製造地：日本",
-    "characters": [
-      "hachiware"
-    ],
-    "available": false,
-    "restocks": [
-      "2025-03-27",
-      "2025-05-29",
-      "2026-03-18",
-      "2026-08-27"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4550432244986"
-    ]
-  },
-  {
-    "id": "cm-4550432245006",
-    "name": "ミニデコステッカー（しろめモモンガ）",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2025-01-24",
-    "price": "242엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4550432245006_1.jpg?v=1737523183",
-    "buyUrl": "https://chiikawamarket.jp/products/4550432245006",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "スマホや持ち物のデコにぴったりなシール。 耐水耐光でさらにうれしい！ サイズ（約）：H73×W65×D1mm以内 重さ（約）：2g 材質：白PVC、耐水耐光 製造地：日本",
-    "characters": [
-      "momonga"
-    ],
-    "available": false,
-    "restocks": [
-      "2025-03-27",
-      "2025-05-29",
-      "2026-03-18",
-      "2026-08-27"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4550432245006"
-    ]
-  },
-  {
     "id": "cm-4571609343776",
     "name": "まじかるちいかわ ステンドグラス風アクスタにもなるアクリルキーホルダー（古本屋）",
     "brand": "치이카와 마켓",
@@ -26174,27 +25526,6 @@
     ]
   },
   {
-    "id": "cm-4573256437907",
-    "name": "ちいかわパーク フィギュアキーホルダー（むちゃうマン）",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-05-08",
-    "price": "1,200엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4573256437907_1.jpg?v=1776254813",
-    "buyUrl": "https://chiikawamarket.jp/products/4573256437907",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "全18種のフル立体キーホルダーです。大きめのアクリルカラビナは、キャラ毎に異なるグラデーションカラーでかわいい！ サイズ（約）：H85×W47×D24mm 重さ（約）：32g 材質： 本体：PVC、アクリル 二重リング・マルカン：鉄 回転パーツ：亜鉛合金 製造地：中国",
-    "characters": [],
-    "available": false,
-    "restocks": [
-      "2026-08-27"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4573256437907"
-    ]
-  },
-  {
     "id": "cm-4580052815167",
     "name": "着ぐるみ帽子（ハチワレ2）",
     "brand": "치이카와 마켓",
@@ -26291,30 +25622,6 @@
     ]
   },
   {
-    "id": "cm-4573256438027",
-    "name": "ちいかわパーク アクションボールペン（ちいかわ）",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2026-06-05",
-    "price": "1,200엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4573256438027_1.png?v=1780490448",
-    "buyUrl": "https://chiikawamarket.jp/products/4573256438027",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "旗を持ったちいかわ達のマスコット付きボールペンです。ノックをすると、両手がパタパタと上下に動きます。 サイズ（約）：H180×W50×D35mm 重さ（約）：18g 材質： マスコット：ABS ペン：ABS 製造地：中国",
-    "characters": [
-      "chiikawa"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-07-09",
-      "2026-08-27"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4573256438027"
-    ]
-  },
-  {
     "id": "cm-4580052815075",
     "name": "着ぐるみ（ハチワレ2）",
     "brand": "치이카와 마켓",
@@ -26386,30 +25693,6 @@
     ]
   },
   {
-    "id": "cm-4573256438034",
-    "name": "ちいかわパーク アクションボールペン（ハチワレ）",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2026-06-05",
-    "price": "1,200엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4573256438034_1_82fa9de9-66a6-45cf-ba3b-0a8db8ced32d.png?v=1780494992",
-    "buyUrl": "https://chiikawamarket.jp/products/4573256438034",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "旗を持ったちいかわ達のマスコット付きボールペンです。ノックをすると、両手がパタパタと上下に動きます。 サイズ（約）：H180×W50×D35mm 重さ（約）：18g 材質： マスコット：ABS ペン：ABS 製造地：中国",
-    "characters": [
-      "hachiware"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-07-09",
-      "2026-08-27"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4573256438034"
-    ]
-  },
-  {
     "id": "cm-4573256438041",
     "name": "ちいかわパーク アクションボールペン（うさぎ）",
     "brand": "치이카와 마켓",
@@ -26462,29 +25745,6 @@
     ],
     "sources": [
       "https://chiikawamarket.jp/products/4571609404941"
-    ]
-  },
-  {
-    "id": "cm-4573256438072",
-    "name": "ちいかわパーク アクションボールペン（ラッコ）",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2026-06-05",
-    "price": "1,200엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4573256438072_1_9e6860b9-c3e2-495b-8c3e-f931f1088184.png?v=1780494962",
-    "buyUrl": "https://chiikawamarket.jp/products/4573256438072",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "旗を持ったちいかわ達のマスコット付きボールペンです。ノックをすると、両手がパタパタと上下に動きます。 サイズ（約）：H180×W50×D35mm 重さ（約）：21g 材質： マスコット：ABS ペン：ABS 製造地：中国",
-    "characters": [
-      "rakko"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-08-27"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4573256438072"
     ]
   },
   {
@@ -28420,66 +27680,6 @@
     ]
   },
   {
-    "id": "cm-4571609404507",
-    "name": "ちいかわ×スッパイマン シーサーのおみやげやさん シャカシャカおかしキーホルダー（ハチワレ）",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-08-07",
-    "price": "990엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609404507_1_87bc2d17-d57a-404a-bbc3-a2b6769399fb.jpg?v=1784709955",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609404507",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "まるで駄菓子な ミニパッケージ🤏 食欲そそる おやつ音💯 サイズ（約）：H55×W40×D10mm 材質：PVC、PET、アクリル、鉄 製造地：中国",
-    "characters": [
-      "hachiware"
-    ],
-    "available": false,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609404507"
-    ]
-  },
-  {
-    "id": "cm-4571609404514",
-    "name": "ちいかわ×スッパイマン シーサーのおみやげやさん シャカシャカおかしキーホルダー（うさぎ）",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-08-07",
-    "price": "990엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609404514_1_95339c89-4f85-497c-b893-a994a294198d.jpg?v=1784709983",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609404514",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "まるで駄菓子な ミニパッケージ🤏 食欲そそる おやつ音💯 サイズ（約）：H55×W40×D10mm 材質：PVC、PET、アクリル、鉄 製造地：中国",
-    "characters": [
-      "usagi"
-    ],
-    "available": false,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609404514"
-    ]
-  },
-  {
-    "id": "cm-4571609404491",
-    "name": "ちいかわ×スッパイマン シーサーのおみやげやさん シャカシャカおかしキーホルダー（ちいかわ）",
-    "brand": "치이카와 마켓",
-    "category": "키링/참",
-    "releaseDate": "2026-08-07",
-    "price": "990엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609404491_1_958244b2-5b63-4c84-ab55-45a973dc48d7.jpg?v=1784709932",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609404491",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "まるで駄菓子な ミニパッケージ🤏 食欲そそる おやつ音💯 サイズ（約）：H55×W40×D10mm 材質：PVC、PET、アクリル、鉄 製造地：中国",
-    "characters": [
-      "chiikawa"
-    ],
-    "available": false,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609404491"
-    ]
-  },
-  {
     "id": "cm-4571609404446",
     "name": "ちいかわ×スッパイマン シーサーのおみやげやさん Tシャツ",
     "brand": "치이카와 마켓",
@@ -28499,28 +27699,6 @@
     "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609404446"
-    ]
-  },
-  {
-    "id": "cm-4571609404521",
-    "name": "ちいかわ×スッパイマン シーサーのおみやげやさん シャカシャカおかしマグネット",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2026-08-07",
-    "price": "1,100엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609404521_1_498b0ad4-edb2-454e-9354-641d46c461c9.jpg?v=1784710054",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609404521",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "ぎっしり詰まった うめ～ビーズ💮 おやつのメモを かちペタ貼ろう🗯️ サイズ（約）：H70×W55×D20mm 材質：PVC、PET、アクリル、磁石 製造地：中国",
-    "characters": [
-      "usagi",
-      "chiikawa",
-      "hachiware"
-    ],
-    "available": false,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609404521"
     ]
   },
   {
@@ -29883,47 +29061,6 @@
     ]
   },
   {
-    "id": "cm-4550432313446",
-    "name": "パコトレーペンケース（ちいかわ）",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2026-08-07",
-    "price": "2,200엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4550432313446_1.jpg?v=1785985566",
-    "buyUrl": "https://chiikawamarket.jp/products/4550432313446",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "パコっと開いてトレーになるペンケース！ サイズ（約）：H60×W185×D50mm 重さ（約）：115g 材質：ポリエステル 製造地：中国",
-    "characters": [
-      "chiikawa"
-    ],
-    "available": false,
-    "sources": [
-      "https://chiikawamarket.jp/products/4550432313446"
-    ]
-  },
-  {
-    "id": "cm-4550432313453",
-    "name": "パコトレーペンケース（ハチワレ）",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2026-08-07",
-    "price": "2,200엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4550432313453_2.jpg?v=1785985578",
-    "buyUrl": "https://chiikawamarket.jp/products/4550432313453",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "パコっと開いてトレーになるペンケース！ サイズ（約）：H60×W185×D50mm 重さ（約）：115g 材質：ポリエステル 製造地：中国",
-    "characters": [
-      "usagi",
-      "hachiware"
-    ],
-    "available": false,
-    "sources": [
-      "https://chiikawamarket.jp/products/4550432313453"
-    ]
-  },
-  {
     "id": "cm-4901770056432",
     "name": "モノグラフ（ドリーム）",
     "brand": "치이카와 마켓",
@@ -30035,27 +29172,6 @@
     "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550213585666"
-    ]
-  },
-  {
-    "id": "cm-4550432313460",
-    "name": "パコトレーペンケース（うさぎ）",
-    "brand": "치이카와 마켓",
-    "category": "문구",
-    "releaseDate": "2026-08-07",
-    "price": "2,200엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4550432313460_3.jpg?v=1785985588",
-    "buyUrl": "https://chiikawamarket.jp/products/4550432313460",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "パコっと開いてトレーになるペンケース！ サイズ（約）：H60×W185×D50mm 重さ（約）：115g 材質：ポリエステル 製造地：中国",
-    "characters": [
-      "usagi",
-      "momonga"
-    ],
-    "available": false,
-    "sources": [
-      "https://chiikawamarket.jp/products/4550432313460"
     ]
   },
   {
@@ -32280,32 +31396,6 @@
     ]
   },
   {
-    "id": "cm-4979855129319",
-    "name": "フラワーガーデン 箸（ハチワレ）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2025-09-26",
-    "price": "1,320엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4979855129319.jpg?v=1758535787",
-    "buyUrl": "https://chiikawamarket.jp/products/4979855129319",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "和紙で巻いた優しい感触のお箸です。 ※電子レンジ、食器洗浄機、オーブン使用不可 サイズ（約）：H210mm 重さ（約）：15g 材質：天然木 製造地：日本",
-    "characters": [
-      "hachiware"
-    ],
-    "available": false,
-    "restocks": [
-      "2025-10-09",
-      "2025-10-23",
-      "2026-02-26",
-      "2026-08-05"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4979855129319"
-    ]
-  },
-  {
     "id": "cm-4545784014998",
     "name": "ねんどろいど（うさぎ）",
     "brand": "치이카와 마켓",
@@ -33553,30 +32643,6 @@
     ]
   },
   {
-    "id": "cm-4547274055078",
-    "name": "アニメ『ちいかわ』 ミニがま口コインケース（くりまんじゅう）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2026-06-26",
-    "price": "880엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4547274055078_01.jpg?v=1782206112",
-    "buyUrl": "https://chiikawamarket.jp/products/4547274055078",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "小銭や小物が入る手のひらサイズの小さながま口コインケース。ボールチェーン付きなのでお気に入りのBagやポーチに取り付けても♡ サイズ（約）：H66×W85×D20mm 重さ（約）：26g 材質：合成皮革 製造地：中国 ※ベンジン・シンナー等アルコール系溶剤のご使用は避けてください。 ※他の素材と長時間密着させますと変色",
-    "characters": [
-      "kurimanju"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-07-02",
-      "2026-08-05"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4547274055078"
-    ]
-  },
-  {
     "id": "cm-4570189206747",
     "name": "映画ちいかわ シュシュ みんな ライトイエロー",
     "brand": "치이카와 마켓",
@@ -33607,30 +32673,6 @@
     ]
   },
   {
-    "id": "cm-4547274055047",
-    "name": "アニメ『ちいかわ』 ミニがま口コインケース（ハチワレ）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2026-06-26",
-    "price": "880엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4547274055047_01.jpg?v=1782206041",
-    "buyUrl": "https://chiikawamarket.jp/products/4547274055047",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "小銭や小物が入る手のひらサイズの小さながま口コインケース。ボールチェーン付きなのでお気に入りのBagやポーチに取り付けても♡ サイズ（約）：H66×W85×D20mm 重さ（約）：26g 材質：合成皮革 製造地：中国 ※ベンジン・シンナー等アルコール系溶剤のご使用は避けてください。 ※他の素材と長時間密着させますと変色",
-    "characters": [
-      "hachiware"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-07-02",
-      "2026-08-05"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4547274055047"
-    ]
-  },
-  {
     "id": "cm-4547274055108",
     "name": "アニメ『ちいかわ』 ミニがま口コインケース（古本屋）",
     "brand": "치이카와 마켓",
@@ -33652,52 +32694,6 @@
     ],
     "sources": [
       "https://chiikawamarket.jp/products/4547274055108"
-    ]
-  },
-  {
-    "id": "cm-4547274055085",
-    "name": "アニメ『ちいかわ』 ミニがま口コインケース（シーサー）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2026-06-26",
-    "price": "880엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4547274055085_01.jpg?v=1782206134",
-    "buyUrl": "https://chiikawamarket.jp/products/4547274055085",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "小銭や小物が入る手のひらサイズの小さながま口コインケース。ボールチェーン付きなのでお気に入りのBagやポーチに取り付けても♡ サイズ（約）：H66×W85×D20mm 重さ（約）：26g 材質：合成皮革 製造地：中国 ※ベンジン・シンナー等アルコール系溶剤のご使用は避けてください。 ※他の素材と長時間密着させますと変色",
-    "characters": [
-      "shisa"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-08-05"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4547274055085"
-    ]
-  },
-  {
-    "id": "cm-4547274055092",
-    "name": "アニメ『ちいかわ』 ミニがま口コインケース（ラッコ）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2026-06-26",
-    "price": "880엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4547274055092_01.jpg?v=1782206155",
-    "buyUrl": "https://chiikawamarket.jp/products/4547274055092",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "小銭や小物が入る手のひらサイズの小さながま口コインケース。ボールチェーン付きなのでお気に入りのBagやポーチに取り付けても♡ サイズ（約）：H66×W85×D20mm 重さ（約）：26g 材質：合成皮革 製造地：中国 ※ベンジン・シンナー等アルコール系溶剤のご使用は避けてください。 ※他の素材と長時間密着させますと変色",
-    "characters": [
-      "rakko"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-08-05"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4547274055092"
     ]
   },
   {
@@ -35286,75 +34282,6 @@
     ],
     "sources": [
       "https://chiikawamarket.jp/products/4970381699598"
-    ]
-  },
-  {
-    "id": "cm-4547274055061",
-    "name": "アニメ『ちいかわ』 ミニがま口コインケース（モモンガ）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2026-06-26",
-    "price": "880엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4547274055061_01.jpg?v=1782206091",
-    "buyUrl": "https://chiikawamarket.jp/products/4547274055061",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "小銭や小物が入る手のひらサイズの小さながま口コインケース。ボールチェーン付きなのでお気に入りのBagやポーチに取り付けても♡ サイズ（約）：H66×W85×D20mm 重さ（約）：26g 材質：合成皮革 製造地：中国 ※ベンジン・シンナー等アルコール系溶剤のご使用は避けてください。 ※他の素材と長時間密着させますと変色",
-    "characters": [
-      "momonga"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-07-23"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4547274055061"
-    ]
-  },
-  {
-    "id": "cm-4547274055054",
-    "name": "アニメ『ちいかわ』 ミニがま口コインケース（うさぎ）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2026-06-26",
-    "price": "880엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4547274055054_01.jpg?v=1782206070",
-    "buyUrl": "https://chiikawamarket.jp/products/4547274055054",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "小銭や小物が入る手のひらサイズの小さながま口コインケース。ボールチェーン付きなのでお気に入りのBagやポーチに取り付けても♡ サイズ（約）：H66×W85×D20mm 重さ（約）：26g 材質：合成皮革 製造地：中国 ※ベンジン・シンナー等アルコール系溶剤のご使用は避けてください。 ※他の素材と長時間密着させますと変色",
-    "characters": [
-      "usagi"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-07-23"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4547274055054"
-    ]
-  },
-  {
-    "id": "cm-4547274055030",
-    "name": "アニメ『ちいかわ』 ミニがま口コインケース（ちいかわ）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2026-06-26",
-    "price": "880엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4547274055030_01.jpg?v=1782206021",
-    "buyUrl": "https://chiikawamarket.jp/products/4547274055030",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "小銭や小物が入る手のひらサイズの小さながま口コインケース。ボールチェーン付きなのでお気に入りのBagやポーチに取り付けても♡ サイズ（約）：H66×W85×D20mm 重さ（約）：26g 材質：合成皮革 製造地：中国 ※ベンジン・シンナー等アルコール系溶剤のご使用は避けてください。 ※他の素材と長時間密着させますと変色",
-    "characters": [
-      "chiikawa"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-07-23"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4547274055030"
     ]
   },
   {
@@ -38421,33 +37348,6 @@
     ]
   },
   {
-    "id": "cm-4571609404392",
-    "name": "映画ちいかわ ミニソフビフィギュアコレクション（全10種）",
-    "brand": "치이카와 마켓",
-    "category": "피규어/프라이즈",
-    "releaseDate": "2026-07-10",
-    "price": "550엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609404408_0.jpg?v=1780831274",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609404392",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "セイレーン気分で ひとつまみ🧜♀️ わらわら集まる ちびころソフビ👨👨👦👦 サイズ（約）： 本体：H53×W45×D47mm内 パッケージ：H75×W50×D50mm BOX：H80×W104×D254mm 材質：PVC（ST基準対応可塑剤使用） 製造地：中国 ※単品はランダム仕様となっており、種類はお選びい",
-    "characters": [
-      "usagi",
-      "kurimanju",
-      "chiikawa",
-      "shisa",
-      "hachiware",
-      "momonga",
-      "rakko",
-      "furuhonya"
-    ],
-    "available": false,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609404392"
-    ]
-  },
-  {
     "id": "cm-4571609404712",
     "name": "映画ちいかわ トレーディング 海辺のキラキラクリアカード（全9種）",
     "brand": "치이카와 마켓",
@@ -38559,37 +37459,6 @@
     ]
   },
   {
-    "id": "cm-4589607707032",
-    "name": "婚姻届（星）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2023-11-24",
-    "price": "3,300엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4589607707032.jpg?v=1700623975",
-    "buyUrl": "https://chiikawamarket.jp/products/4589607707032",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "ちいかわの婚姻届が登場！ 提出できる婚姻届と記念用の用紙のセットです。 記念用は光沢のあるパール紙を使用！ サイズ：約H220×W300×D2mm 内容：提出用（A3）×2、記念用（A4）×1、婚姻届提出マニュアル×1、クリアスタンド（A4）×1 重さ：約109g 材質：紙、プラスチック 製造地：日本",
-    "characters": [
-      "usagi",
-      "chiikawa",
-      "hachiware"
-    ],
-    "available": false,
-    "restocks": [
-      "2023-12-21",
-      "2024-01-25",
-      "2024-10-03",
-      "2025-10-30",
-      "2026-02-05",
-      "2026-05-14",
-      "2026-07-09"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4589607707032"
-    ]
-  },
-  {
     "id": "cm-4589607707056",
     "name": "婚姻届（ブランコ）",
     "brand": "치이카와 마켓",
@@ -38617,38 +37486,6 @@
     ],
     "sources": [
       "https://chiikawamarket.jp/products/4589607707056"
-    ]
-  },
-  {
-    "id": "cm-4589607707049",
-    "name": "婚姻届（風船）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2023-11-24",
-    "price": "3,300엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4589607707049.jpg?v=1700623992",
-    "buyUrl": "https://chiikawamarket.jp/products/4589607707049",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "ちいかわの婚姻届が登場！ 提出できる婚姻届と記念用の用紙のセットです。 記念用は光沢のあるパール紙を使用！ サイズ：約H220×W300×D2mm 内容：提出用（A3）×2、記念用（A4）×1、婚姻届提出マニュアル×1、クリアスタンド（A4）×1 重さ：約109g 材質：紙、プラスチック 製造地：日本",
-    "characters": [
-      "usagi",
-      "chiikawa",
-      "hachiware"
-    ],
-    "available": false,
-    "restocks": [
-      "2023-12-21",
-      "2024-01-25",
-      "2024-06-20",
-      "2024-10-03",
-      "2025-06-05",
-      "2026-02-05",
-      "2026-05-14",
-      "2026-07-09"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4589607707049"
     ]
   },
   {
@@ -47330,76 +46167,6 @@
     ]
   },
   {
-    "id": "cm-4994209273203",
-    "name": "フェイス巾着2（うさぎ）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2025-10-24",
-    "price": "1,760엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4994209273203_1.jpg?v=1761102688",
-    "buyUrl": "https://chiikawamarket.jp/products/4994209273203",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "内生地も可愛くなってリニューアル！お菓子やコスメ、モバイルグッズなど小物を入れるのに便利なサイズです♪ サイズ（約）：H160×W225以内×D110mm 材質：ポリエステル 製造地：中国",
-    "characters": [
-      "usagi"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-05-28"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4994209273203"
-    ]
-  },
-  {
-    "id": "cm-4994209273227",
-    "name": "フェイス巾着2（くりまんじゅう）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2025-10-24",
-    "price": "1,760엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4994209273227_1.jpg?v=1761102852",
-    "buyUrl": "https://chiikawamarket.jp/products/4994209273227",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "内生地も可愛くなってリニューアル！お菓子やコスメ、モバイルグッズなど小物を入れるのに便利なサイズです♪ サイズ（約）：H160×W225以内×D110mm 材質：ポリエステル 製造地：中国",
-    "characters": [
-      "kurimanju"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-05-28"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4994209273227"
-    ]
-  },
-  {
-    "id": "cm-4994209273265",
-    "name": "フェイス巾着2（あのこ）",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2025-10-24",
-    "price": "1,760엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4994209273265_1.jpg?v=1761103003",
-    "buyUrl": "https://chiikawamarket.jp/products/4994209273265",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "内生地も可愛くなってリニューアル！お菓子やコスメ、モバイルグッズなど小物を入れるのに便利なサイズです♪ サイズ（約）：H160×W225以内×D110mm 材質：ポリエステル 製造地：中国",
-    "characters": [
-      "anoko"
-    ],
-    "available": false,
-    "restocks": [
-      "2025-12-19",
-      "2026-05-28"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4994209273265"
-    ]
-  },
-  {
     "id": "cm-4994209318256",
     "name": "刺繍ミニトート（ラッコ）",
     "brand": "치이카와 마켓",
@@ -50369,28 +49136,6 @@
     "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609402700"
-    ]
-  },
-  {
-    "id": "cm-4571609000030",
-    "name": "ちいかわマーケット5周年 サンキューバッグ【クレジットカード決済限定商品】【2026年5月下旬より順次発送予定（発送延期の場合もキャンセル不可）】【他の予約商品・通常商品と同時購入・配送希望日指定不可】【キャンペーン対象外】",
-    "brand": "치이카와 마켓",
-    "category": "잡화",
-    "releaseDate": "2026-05-11",
-    "price": "11,000엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4571609398790.jpg?v=1775446956",
-    "buyUrl": "https://chiikawamarket.jp/products/4571609000030",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "【必ずお読みください】 ◆【ちいかわマーケット5周年 サンキューバッグ】は、これら以外の商品と一緒にご注文・ご購入いただけません。 一緒に購入された場合は、ご注文をキャンセルさせていただきます。 ご了承くださいませ。 ◆本商品と販売中の商品は同時注文できません。 個別にご注文ください。 ◆本商品のご注文後のキャンセルは",
-    "characters": [
-      "usagi",
-      "chiikawa",
-      "hachiware"
-    ],
-    "available": false,
-    "sources": [
-      "https://chiikawamarket.jp/products/4571609000030"
     ]
   }
 ]
