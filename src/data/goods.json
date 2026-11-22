@@ -3713,7 +3713,7 @@
     "country": "JP",
     "description": "サイズ40～50mmのアクリル製マグネットにちいかわたちの日常をデザイン♪ ラインナップはバラエティに富んだ全21種。 レアは≪オーロラ≫≪キラキララメ≫≪フレーム≫の3種類！ ≪フレーム≫はマグネットが2パーツに分かれる新仕様です♪ サイズ（約）：H50×W50 内容：アクリル製マグネット1個、チューインガム1個 重",
     "characters": [],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4570117929335"
     ]
@@ -3830,7 +3830,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4570189215084"
     ]
@@ -4622,7 +4622,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2025-04-24",
       "2025-06-26",
@@ -4883,7 +4883,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-09-03",
       "2026-10-15",
@@ -5205,7 +5205,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-07-02",
       "2026-08-05",
@@ -5480,7 +5480,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-11-19"
     ],
@@ -6851,7 +6851,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2025-03-27",
       "2025-05-29",
@@ -7256,7 +7256,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2025-10-09",
       "2025-10-23",
@@ -7929,7 +7929,7 @@
     "country": "JP",
     "description": "全18種のフル立体キーホルダーです。大きめのアクリルカラビナは、キャラ毎に異なるグラデーションカラーでかわいい！ サイズ（約）：H54×W41×D41mm 重さ（約）：41g 材質： 本体：PVC、アクリル 二重リング・マルカン：鉄 回転パーツ：亜鉛合金 製造地：中国",
     "characters": [],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-11-12"
     ],
@@ -11525,7 +11525,7 @@
       "kurimanju",
       "shisa"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2023-12-14",
       "2024-04-18",
@@ -12596,7 +12596,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2025-10-09",
       "2025-11-13",
@@ -16296,7 +16296,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2023-11-01",
       "2023-12-14",
@@ -19189,7 +19189,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-10-08"
     ],
@@ -54160,135 +54160,6 @@
     "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4589581117841"
-    ]
-  },
-  {
-    "id": "cm-4548387468724",
-    "name": "吸水キャップ（ハチワレ）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2024-12-27",
-    "price": "2,420엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4548387468724_1.jpg?v=1734956967",
-    "buyUrl": "https://chiikawamarket.jp/products/4548387468724",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "被るだけしっかり吸水 ※本商品は2025/1/6以降に出荷されますので予めご了承ください。 サイズ（約）：H220×W250mm 材質：ポリエステル 製造地：中国",
-    "characters": [
-      "hachiware"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-05-21"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4548387468724"
-    ]
-  },
-  {
-    "id": "cm-4548387468717",
-    "name": "吸水キャップ（ちいかわ）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2024-12-27",
-    "price": "2,420엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4548387468717_1.jpg?v=1734956945",
-    "buyUrl": "https://chiikawamarket.jp/products/4548387468717",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "被るだけしっかり吸水 ※本商品は2025/1/6以降に出荷されますので予めご了承ください。 サイズ（約）：H220×W250mm 材質：ポリエステル 製造地：中国",
-    "characters": [
-      "chiikawa"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-05-21"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4548387468717"
-    ]
-  },
-  {
-    "id": "cm-4548387468748",
-    "name": "吸水キャップ（モモンガ）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2024-12-27",
-    "price": "2,420엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4548387468748_1.jpg?v=1734956997",
-    "buyUrl": "https://chiikawamarket.jp/products/4548387468748",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "被るだけしっかり吸水 ※本商品は2025/1/6以降に出荷されますので予めご了承ください。 サイズ（約）：H220×W250mm 材質：ポリエステル 製造地：中国",
-    "characters": [
-      "momonga"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-05-21"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4548387468748"
-    ]
-  },
-  {
-    "id": "cm-4580417009958",
-    "name": "たべられるシール（天然着色料）",
-    "brand": "치이카와 마켓",
-    "category": "식품",
-    "releaseDate": "2025-02-07",
-    "price": "270엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4580417009958_1.jpg?v=1738738164",
-    "buyUrl": "https://chiikawamarket.jp/products/4580417009958",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "食べ物に貼るだけ！簡単にかわいくデコレーションできる「たべられるシール」。でんぷんでできたシートに可食インクで印字した本商品は、シール台紙からはがして食べ物に貼るだけで簡単にかわいくアレンジできます！ ※開封後は乾燥、吸湿、虫害を防ぐため、すぐにご使用ください。 サイズ（約）：H120×W70mm 重さ（約）：5g 材",
-    "characters": [
-      "usagi",
-      "kurimanju",
-      "chiikawa",
-      "shisa",
-      "hachiware",
-      "momonga",
-      "rakko",
-      "furuhonya"
-    ],
-    "available": false,
-    "restocks": [
-      "2025-02-20",
-      "2025-03-19",
-      "2025-04-03",
-      "2025-06-12",
-      "2025-07-24",
-      "2025-12-04",
-      "2026-02-05",
-      "2026-05-21"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4580417009958"
-    ]
-  },
-  {
-    "id": "cm-4548387468731",
-    "name": "吸水キャップ（うさぎ）",
-    "brand": "치이카와 마켓",
-    "category": "기타",
-    "releaseDate": "2024-12-27",
-    "price": "2,420엔",
-    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4548387468731_1.jpg?v=1734956982",
-    "buyUrl": "https://chiikawamarket.jp/products/4548387468731",
-    "buyAt": "치이카와 마켓 온라인",
-    "country": "JP",
-    "description": "被るだけしっかり吸水 ※本商品は2025/1/6以降に出荷されますので予めご了承ください。 サイズ（約）：H220×W250mm 材質：ポリエステル 製造地：中国",
-    "characters": [
-      "usagi"
-    ],
-    "available": false,
-    "restocks": [
-      "2026-05-21"
-    ],
-    "sources": [
-      "https://chiikawamarket.jp/products/4548387468731"
     ]
   }
 ]
