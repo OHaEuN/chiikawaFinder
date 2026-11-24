@@ -5063,7 +5063,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-11-19"
     ],
@@ -5334,7 +5334,7 @@
     "characters": [
       "kurimanju"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-09-10",
       "2026-09-17",
@@ -5740,7 +5740,7 @@
     "characters": [
       "yoroi-san"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-11-19"
     ],
@@ -6932,7 +6932,7 @@
     "characters": [
       "rakko"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-11-12"
     ],
