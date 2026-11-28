@@ -1,5 +1,56 @@
 [
   {
+    "id": "cm-4570189213677",
+    "name": "ちいかわクリニック 血行促進リラクシングウェア もしかして・・・食べ過ぎ？ グレー",
+    "brand": "치이카와 마켓",
+    "category": "의류",
+    "releaseDate": "2026-12-11",
+    "price": "8,800엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4570189213677_1.jpg?v=1795571619",
+    "buyUrl": "https://chiikawamarket.jp/products/4570189213677",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "食べすぎてしまったちいかわたちの姿が可愛い長袖シャツとパンツの上下セット♪ パンツにはシーサーからの思わずドキッとするひと言がデザインされているのもポイント！ 血行促進テープを配置し、肌なじみの良い着心地で、パジャマやルームウェアとしてリラックスタイムにぴったりのアイテムです。 サイズ（約）： 【Mサイズ】 トップス：",
+    "characters": [
+      "usagi",
+      "chiikawa",
+      "shisa",
+      "hachiware",
+      "rakko"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4570189213677"
+    ]
+  },
+  {
+    "id": "cm-4570189213653",
+    "name": "ちいかわクリニック 血行促進リラクシングウェア おだいじにね。 ピンク",
+    "brand": "치이카와 마켓",
+    "category": "의류",
+    "releaseDate": "2026-12-11",
+    "price": "8,800엔",
+    "image": "https://cdn.shopify.com/s/files/1/0626/7142/1681/files/4570189213653_1.jpg?v=1795571577",
+    "buyUrl": "https://chiikawamarket.jp/products/4570189213653",
+    "buyAt": "치이카와 마켓 온라인",
+    "country": "JP",
+    "description": "ナース姿のちいかわたちが可愛い、長袖シャツとパンツの上下セット♪ パンツには小さなナース姿のちいかわたちが総柄でデザインされており、上下で楽しめるのがポイント！ 血行促進テープを配置し、肌なじみの良い着心地で、パジャマやルームウェアとしてリラックスタイムにぴったりのアイテムです。 サイズ（約）： 【Mサイズ】 トップス",
+    "characters": [
+      "usagi",
+      "kurimanju",
+      "chiikawa",
+      "shisa",
+      "hachiware",
+      "momonga",
+      "rakko",
+      "furuhonya"
+    ],
+    "available": false,
+    "sources": [
+      "https://chiikawamarket.jp/products/4570189213653"
+    ]
+  },
+  {
     "id": "cm-4571609413585-01",
     "name": "【予約・数量限定】ちいかわ ちいかわクリニック レントゲンだもん！ 光る3Dマグネット（うさぎ）【2027年4月中旬以降、入荷次第の順次発送（発送延期の場合もキャンセル不可）】【通常商品と同時購入・配送希望日指定不可】【キャンペーン対象】",
     "brand": "치이카와 마켓",
@@ -1980,7 +2031,7 @@
     "country": "JP",
     "description": "しんどい時は すぐ受診🏥 ありったけの 元気を処方🤍 自分を、みんなを、もっともっと おだいじに🩹 サイズ（約）：H130×W90×D50mm 材質： 本体：ポリエステル、ポリウレタン、ナイロン、POM、ABS プラフック：POM 製造地：中国 ≫予約商品（数量限定）の商品ページはこちら",
     "characters": [],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609408789"
     ]
@@ -2123,7 +2174,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609416135"
     ]
@@ -2258,7 +2309,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609417170"
     ]
@@ -2732,7 +2783,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609417163"
     ]
@@ -2974,7 +3025,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609416982"
     ]
@@ -3244,7 +3295,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609416470"
     ]
@@ -3445,7 +3496,7 @@
       "hachiware",
       "rakko"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609416814"
     ]
@@ -3852,7 +3903,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609409304"
     ]
@@ -3914,7 +3965,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609409298"
     ]
@@ -3996,7 +4047,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4570189213370"
     ]
@@ -4168,7 +4219,7 @@
       "momonga",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4570189213516"
     ]
@@ -4213,7 +4264,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4570189213509"
     ]
@@ -4255,7 +4306,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4570189213523"
     ]
@@ -4458,7 +4509,7 @@
     "country": "JP",
     "description": "【必ずお読みください】 ◆数量には限りがございます。受注生産ではございません。 ◆「【予約】ちいかわクリニック」商品は、その他の商品と同時にご購入いただけません。「【予約】ちいかわクリニック」商品同士に限って同時購入が可能です。 通常商品と一緒に購入された場合は、ご注文をキャンセルさせていただきます。ご了承くださいませ",
     "characters": [],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609409847-01"
     ]
@@ -4516,7 +4567,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609408819-01"
     ]
@@ -4576,7 +4627,7 @@
     "characters": [
       "kabutomushi"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609408772-01"
     ]
@@ -4674,7 +4725,7 @@
     "characters": [
       "shisa"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609408741-01"
     ]
@@ -4734,7 +4785,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609408703-01"
     ]
@@ -5401,7 +5452,7 @@
       "rakko",
       "yoroi-san"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4970381813178"
     ]
@@ -5456,7 +5507,7 @@
       "rakko",
       "yoroi-san"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4970381933296"
     ]
@@ -5511,7 +5562,7 @@
       "rakko",
       "yoroi-san"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4970381933289"
     ]
@@ -5553,7 +5604,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550432328815"
     ]
@@ -5597,7 +5648,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550432328839"
     ]
@@ -5909,7 +5960,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550432329218"
     ]
@@ -5930,7 +5981,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550432329201"
     ]
@@ -5952,7 +6003,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550432329232"
     ]
@@ -6016,7 +6067,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550432329270"
     ]
@@ -6098,7 +6149,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550432329317"
     ]
@@ -6118,7 +6169,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550432329300"
     ]
@@ -6160,7 +6211,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4550432331402"
     ]
@@ -6252,7 +6303,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2024-06-20",
       "2024-08-23",
@@ -6691,7 +6742,7 @@
       "momonga",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-10-29",
       "2026-11-26"
@@ -6970,7 +7021,7 @@
     "characters": [
       "kurimanju"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2025-08-07",
       "2025-09-25",
@@ -7643,7 +7694,7 @@
     "characters": [
       "usagi"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-11-26"
     ],
@@ -8148,7 +8199,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-11-26"
     ],
@@ -8172,7 +8223,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-11-26"
     ],
@@ -8524,7 +8575,7 @@
       "kurimanju",
       "shisa"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-11-26"
     ],
@@ -9247,7 +9298,7 @@
       "hachiware",
       "yoroi-san"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2024-02-15",
       "2025-12-19",
@@ -11145,7 +11196,7 @@
     "characters": [
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-11-12",
       "2026-11-19"
@@ -11169,7 +11220,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-11-12",
       "2026-11-19"
@@ -12431,7 +12482,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-03-18",
       "2026-10-08",
@@ -12989,7 +13040,7 @@
     "characters": [
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-11-12"
     ],
@@ -13772,7 +13823,7 @@
       "usagi",
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-11-12"
     ],
@@ -21054,7 +21105,7 @@
     "characters": [
       "chiikawa"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2026-10-15"
     ],
@@ -22482,7 +22533,7 @@
       "rakko",
       "furuhonya"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609417392"
     ]
@@ -28314,7 +28365,7 @@
       "chiikawa",
       "hachiware"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4970825152856"
     ]
@@ -30476,7 +30527,7 @@
       "hachiware",
       "momonga"
     ],
-    "available": true,
+    "available": false,
     "restocks": [
       "2025-04-24",
       "2026-02-12",
@@ -54302,7 +54353,7 @@
     "characters": [
       "kurimanju"
     ],
-    "available": true,
+    "available": false,
     "sources": [
       "https://chiikawamarket.jp/products/4571609406198"
     ]
